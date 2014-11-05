@@ -8,12 +8,12 @@
 	<string>326B3D3D-EA51-4AAE-9361-1C9A1AC65F3E</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>F63D2AA5A312B8E5019CDB15A94226F900D9E2D6</key>
+		<key>A04283C51FDD971C1DB3069EA861168136DB037B</key>
 		<string>https://github.com/CPLamb/RangeFinder.git</string>
 	</dict>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>F63D2AA5A312B8E5019CDB15A94226F900D9E2D6</key>
+		<key>A04283C51FDD971C1DB3069EA861168136DB037B</key>
 		<string>RangeFinder</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
@@ -21,14 +21,14 @@
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>F63D2AA5A312B8E5019CDB15A94226F900D9E2D6</string>
+	<string>A04283C51FDD971C1DB3069EA861168136DB037B</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>F63D2AA5A312B8E5019CDB15A94226F900D9E2D6</string>
+			<string>A04283C51FDD971C1DB3069EA861168136DB037B</string>
 			<key>IDESourceControlWCCName</key>
 			<string>RangeFinder</string>
 		</dict>
