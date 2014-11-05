@@ -43,16 +43,12 @@
     self.flagUnits = @"Feet";
 }
 
-- (void)viewDidAppear:(BOOL)animated
-{
-}
-
 - (void)viewDidUnload
 {
-    [self setHeightPicker:nil];
-    [self setFlipsideInfo:nil];
-    [self setUnitsSelector:nil];
-    [self setHelpSwitch:nil];
+//    [self setHeightPicker:nil];
+//    [self setFlipsideInfo:nil];
+//    [self setUnitsSelector:nil];
+//    [self setHelpSwitch:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
