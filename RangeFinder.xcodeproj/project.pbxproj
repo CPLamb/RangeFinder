@@ -17,6 +17,7 @@
 		834379A1157C0A7D009E18A1 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8343799F157C0A7D009E18A1 /* MainStoryboard.storyboard */; };
 		834379A4157C0A7D009E18A1 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 834379A3157C0A7D009E18A1 /* MainViewController.m */; };
 		834379A7157C0A7D009E18A1 /* FlipsideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 834379A6157C0A7D009E18A1 /* FlipsideViewController.m */; };
+		83ADA6711A0D3A9300CB6C2A /* HeightFinderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83ADA6701A0D3A9300CB6C2A /* HeightFinderViewController.m */; };
 		83D6B3321586A6A500CBA01B /* dwg03.png in Resources */ = {isa = PBXBuildFile; fileRef = 83D6B3311586A6A500CBA01B /* dwg03.png */; };
 		83D6B3351586A82400CBA01B /* dwg04.png in Resources */ = {isa = PBXBuildFile; fileRef = 83D6B3341586A82400CBA01B /* dwg04.png */; };
 		83E650BA157EA3B3003E9F7C /* RangeFinderIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 83E650B9157EA3B3003E9F7C /* RangeFinderIcon.png */; };
@@ -43,6 +44,8 @@
 		834379A3157C0A7D009E18A1 /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		834379A5157C0A7D009E18A1 /* FlipsideViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlipsideViewController.h; sourceTree = "<group>"; };
 		834379A6157C0A7D009E18A1 /* FlipsideViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlipsideViewController.m; sourceTree = "<group>"; };
+		83ADA66F1A0D3A9300CB6C2A /* HeightFinderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeightFinderViewController.h; sourceTree = "<group>"; };
+		83ADA6701A0D3A9300CB6C2A /* HeightFinderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeightFinderViewController.m; sourceTree = "<group>"; };
 		83D6B3311586A6A500CBA01B /* dwg03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dwg03.png; sourceTree = "<group>"; };
 		83D6B3341586A82400CBA01B /* dwg04.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dwg04.png; sourceTree = "<group>"; };
 		83E650B9157EA3B3003E9F7C /* RangeFinderIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RangeFinderIcon.png; sourceTree = SOURCE_ROOT; };
@@ -104,6 +107,8 @@
 				834379A3157C0A7D009E18A1 /* MainViewController.m */,
 				834379A5157C0A7D009E18A1 /* FlipsideViewController.h */,
 				834379A6157C0A7D009E18A1 /* FlipsideViewController.m */,
+				83ADA66F1A0D3A9300CB6C2A /* HeightFinderViewController.h */,
+				83ADA6701A0D3A9300CB6C2A /* HeightFinderViewController.m */,
 				83437994157C0A7D009E18A1 /* Supporting Files */,
 			);
 			path = RangeFinder;
@@ -204,6 +209,7 @@
 				8343799E157C0A7D009E18A1 /* AppDelegate.m in Sources */,
 				834379A4157C0A7D009E18A1 /* MainViewController.m in Sources */,
 				834379A7157C0A7D009E18A1 /* FlipsideViewController.m in Sources */,
+				83ADA6711A0D3A9300CB6C2A /* HeightFinderViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
