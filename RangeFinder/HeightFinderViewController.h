@@ -7,14 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 
 @interface HeightFinderViewController : UIViewController
 
-@property (nonatomic, strong) IBOutlet NSNumber *baseLength;
-@property (nonatomic, strong) IBOutlet NSNumber *angle;
-@property (nonatomic, strong) IBOutlet NSNumber *height;
+@property (nonatomic, strong) IBOutlet UITextField *baseLength;
+@property (nonatomic, strong) IBOutlet UITextField *angleOne;
+@property (nonatomic, strong) IBOutlet UITextField *angleTwo;
+@property (nonatomic, strong) IBOutlet UILabel *height;
 
 - (IBAction)setAngleButton:(UIButton *)sender;
 - (IBAction)calculateButton:(UIButton *)sender;
+- (IBAction)doneButton:(UIButton *)sender;
 
 @end
