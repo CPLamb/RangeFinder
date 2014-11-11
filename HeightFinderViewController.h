@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
+#import <CoreMotion/CoreMotion.h>
 
 @interface HeightFinderViewController : UIViewController
 
@@ -16,7 +17,13 @@
 @property (nonatomic, strong) IBOutlet UITextField *angleTwo;
 @property (nonatomic, strong) IBOutlet UILabel *height;
 
-- (IBAction)setAngleButton:(UIButton *)sender;
+//@property (nonatomic, strong) CMAcceleration *myAcceleration;
+@property (nonatomic, strong) IBOutlet UILabel *accelerationsLabel;
+@property (strong, nonatomic) CMMotionManager *motionManager;
+
+- (IBAction)setAngleOneButton:(UIButton *)sender;
+- (IBAction)setAngleTwoButton:(UIButton *)sender;
+
 - (IBAction)calculateButton:(UIButton *)sender;
 - (IBAction)doneButton:(UIButton *)sender;
 
