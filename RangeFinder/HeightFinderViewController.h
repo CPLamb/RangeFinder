@@ -17,8 +17,8 @@
 @property (nonatomic, strong) IBOutlet UITextField *angleTwo;
 @property (nonatomic, strong) IBOutlet UILabel *height;
 @property (readonly) CMAcceleration *acceleration;
-@property (nonatomic, strong) IBOutlet UILabel *accelerationsLabel;
 
+@property (nonatomic, strong) IBOutlet UILabel *accelerationsLabel;
 @property (strong, nonatomic) CMMotionManager *motionManager;
 
 - (IBAction)setAngleButton:(UIButton *)sender;

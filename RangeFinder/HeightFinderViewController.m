@@ -20,8 +20,9 @@
 @synthesize angleTwo = _angleTwo;
 @synthesize baseLength = _baseLength;
 @synthesize height = _height;
-@synthesize motionManager = _motionManager;
 
+@synthesize motionManager = _motionManager;
+@synthesize accelerationsLabel = _accelerationsLabel;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -31,7 +32,7 @@
     self.motionManager = [[CMMotionManager alloc] init];
     self.motionManager.accelerometerUpdateInterval = .2;
     self.motionManager.gyroUpdateInterval = .2;
-/*
+
     [self.motionManager startAccelerometerUpdatesToQueue:[NSOperationQueue currentQueue]
                                              withHandler:^(CMAccelerometerData  *accelerometerData, NSError *error) {
                                                  [self outputAccelertionData:accelerometerData.acceleration];
@@ -40,19 +41,19 @@
                                                      NSLog(@"%@", error);
                                                  }
                                              }];
-*/    
-/* Configures the accelerometer
-    UIAccelerometer *accelerometer = [UIAccelerometer sharedAccelerometer];
-    accelerometer.updateInterval = 1.0f/60.0f;
-    accelerometer.delegate = self;
-*/
 }
-/*
+
 -(void)outputAccelertionData:(CMAcceleration)acceleration
 {
-    NSLog(@"Acceleration should work now???");
+    //NSLog(@"Acceleration should work now???");
+    
+// Titlt is the arcTan(Opposite accel Y / Adjacent accel X)
+    double tilt = atan(acceleration.y / acceleration.x)*DEGREE2RADIAN;
+    
+// Displays accelerations to the screen
+    self.accelerationsLabel.text = [NSString stringWithFormat:@"Accels X= %1.3f Y= %1.3f Angle= %2.1f", acceleration.x, acceleration.y, tilt];
 }
-*/
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
