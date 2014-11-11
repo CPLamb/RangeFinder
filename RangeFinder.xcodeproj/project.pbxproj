@@ -13,69 +13,60 @@
 		83437992157C0A7D009E18A1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83437991157C0A7D009E18A1 /* CoreGraphics.framework */; };
 <<<<<<< HEAD
 =======
-		83437998157C0A7D009E18A1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 83437996157C0A7D009E18A1 /* InfoPlist.strings */; };
-		8343799A157C0A7D009E18A1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 83437999157C0A7D009E18A1 /* main.m */; };
-		8343799E157C0A7D009E18A1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8343799D157C0A7D009E18A1 /* AppDelegate.m */; };
-		834379A1157C0A7D009E18A1 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8343799F157C0A7D009E18A1 /* MainStoryboard.storyboard */; };
-		834379A4157C0A7D009E18A1 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 834379A3157C0A7D009E18A1 /* MainViewController.m */; };
-		834379A7157C0A7D009E18A1 /* FlipsideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 834379A6157C0A7D009E18A1 /* FlipsideViewController.m */; };
-		83ADA6711A0D3A9300CB6C2A /* HeightFinderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83ADA6701A0D3A9300CB6C2A /* HeightFinderViewController.m */; };
 >>>>>>> f4eee926e5ec23275d758d0e6ebb2b17d33f4347
-		83D6B3321586A6A500CBA01B /* dwg03.png in Resources */ = {isa = PBXBuildFile; fileRef = 83D6B3311586A6A500CBA01B /* dwg03.png */; };
-		83D6B3351586A82400CBA01B /* dwg04.png in Resources */ = {isa = PBXBuildFile; fileRef = 83D6B3341586A82400CBA01B /* dwg04.png */; };
 		83E650BA157EA3B3003E9F7C /* RangeFinderIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 83E650B9157EA3B3003E9F7C /* RangeFinderIcon.png */; };
 		83E650C1157FCDD5003E9F7C /* flag.png in Resources */ = {isa = PBXBuildFile; fileRef = 83E650C0157FCDD5003E9F7C /* flag.png */; };
-		83EC782A158940DD0095A668 /* dwg05.png in Resources */ = {isa = PBXBuildFile; fileRef = 83EC7829158940DC0095A668 /* dwg05.png */; };
-		83FEE2A9158A847D0014EEDD /* dwg06.png in Resources */ = {isa = PBXBuildFile; fileRef = 83FEE2A8158A847D0014EEDD /* dwg06.png */; };
 		908380AB1A0AE712005A6A86 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 908380A91A0AE712005A6A86 /* Default.png */; };
 		908380AC1A0AE712005A6A86 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 908380AA1A0AE712005A6A86 /* Icon.png */; };
-		908380B61A0AEE53005A6A86 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 908380B11A0AEE53005A6A86 /* AppDelegate.m */; };
-		908380B71A0AEE53005A6A86 /* FlipsideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 908380B31A0AEE53005A6A86 /* FlipsideViewController.m */; };
-		908380B81A0AEE53005A6A86 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 908380B51A0AEE53005A6A86 /* MainViewController.m */; };
-		908380BC1A0AEFB0005A6A86 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 83437999157C0A7D009E18A1 /* main.m */; };
-		908380BD1A0AF839005A6A86 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 83437996157C0A7D009E18A1 /* InfoPlist.strings */; };
-		908380C41A0AFB59005A6A86 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 908380C01A0AFB59005A6A86 /* InfoPlist.strings */; };
-		908380C51A0AFB59005A6A86 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 908380C21A0AFB59005A6A86 /* MainStoryboard.storyboard */; };
+		90F497EB1A12B3FA006735E6 /* FlipsideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90F497EA1A12B3FA006735E6 /* FlipsideViewController.m */; };
+		90F498031A12B410006735E6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 90F497ED1A12B40F006735E6 /* AppDelegate.m */; };
+		90F498051A12B410006735E6 /* dwg01.png in Resources */ = {isa = PBXBuildFile; fileRef = 90F497EF1A12B40F006735E6 /* dwg01.png */; };
+		90F498071A12B410006735E6 /* dwg02.png in Resources */ = {isa = PBXBuildFile; fileRef = 90F497F11A12B40F006735E6 /* dwg02.png */; };
+		90F498091A12B410006735E6 /* dwg03.png in Resources */ = {isa = PBXBuildFile; fileRef = 90F497F31A12B40F006735E6 /* dwg03.png */; };
+		90F4980B1A12B410006735E6 /* dwg04.png in Resources */ = {isa = PBXBuildFile; fileRef = 90F497F51A12B40F006735E6 /* dwg04.png */; };
+		90F4980D1A12B410006735E6 /* dwg05.png in Resources */ = {isa = PBXBuildFile; fileRef = 90F497F71A12B410006735E6 /* dwg05.png */; };
+		90F4980F1A12B410006735E6 /* dwg06.png in Resources */ = {isa = PBXBuildFile; fileRef = 90F497F91A12B410006735E6 /* dwg06.png */; };
+		90F498101A12B410006735E6 /* HeightFinderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90F497FC1A12B410006735E6 /* HeightFinderViewController.m */; };
+		90F498111A12B410006735E6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 90F497FD1A12B410006735E6 /* main.m */; };
+		90F498121A12B410006735E6 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90F497FF1A12B410006735E6 /* MainViewController.m */; };
+		90F498131A12B410006735E6 /* RangeFinder-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 90F498001A12B410006735E6 /* RangeFinder-Info.plist */; };
+		90F498141A12B410006735E6 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 90F498021A12B410006735E6 /* README.md */; };
+		90F498201A12B4BF006735E6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 90F4981C1A12B4BF006735E6 /* InfoPlist.strings */; };
+		90F498211A12B4BF006735E6 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90F4981E1A12B4BF006735E6 /* MainStoryboard.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		831D26E41581426800F26F68 /* dwg02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dwg02.png; sourceTree = "<group>"; };
 		83437989157C0A7D009E18A1 /* RangeFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RangeFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8343798D157C0A7D009E18A1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		8343798F157C0A7D009E18A1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		83437991157C0A7D009E18A1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		83437995157C0A7D009E18A1 /* RangeFinder-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RangeFinder-Info.plist"; sourceTree = "<group>"; };
-		83437997157C0A7D009E18A1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		83437999157C0A7D009E18A1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = SOURCE_ROOT; };
-		8343799B157C0A7D009E18A1 /* RangeFinder-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RangeFinder-Prefix.pch"; sourceTree = "<group>"; };
 <<<<<<< HEAD
 =======
-		8343799C157C0A7D009E18A1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		8343799D157C0A7D009E18A1 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		834379A0157C0A7D009E18A1 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		834379A2157C0A7D009E18A1 /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
-		834379A3157C0A7D009E18A1 /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
-		834379A5157C0A7D009E18A1 /* FlipsideViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlipsideViewController.h; sourceTree = "<group>"; };
-		834379A6157C0A7D009E18A1 /* FlipsideViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlipsideViewController.m; sourceTree = "<group>"; };
-		83ADA66F1A0D3A9300CB6C2A /* HeightFinderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeightFinderViewController.h; sourceTree = "<group>"; };
-		83ADA6701A0D3A9300CB6C2A /* HeightFinderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeightFinderViewController.m; sourceTree = "<group>"; };
 >>>>>>> f4eee926e5ec23275d758d0e6ebb2b17d33f4347
-		83D6B3311586A6A500CBA01B /* dwg03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dwg03.png; sourceTree = "<group>"; };
-		83D6B3341586A82400CBA01B /* dwg04.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dwg04.png; sourceTree = "<group>"; };
 		83E650B9157EA3B3003E9F7C /* RangeFinderIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RangeFinderIcon.png; sourceTree = SOURCE_ROOT; };
 		83E650C0157FCDD5003E9F7C /* flag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flag.png; sourceTree = "<group>"; };
-		83EC7829158940DC0095A668 /* dwg05.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dwg05.png; sourceTree = "<group>"; };
-		83FEE2A8158A847D0014EEDD /* dwg06.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dwg06.png; sourceTree = "<group>"; };
 		908380A91A0AE712005A6A86 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		908380AA1A0AE712005A6A86 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
-		908380B01A0AEE53005A6A86 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = SOURCE_ROOT; };
-		908380B11A0AEE53005A6A86 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = SOURCE_ROOT; };
-		908380B21A0AEE53005A6A86 /* FlipsideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlipsideViewController.h; sourceTree = SOURCE_ROOT; };
-		908380B31A0AEE53005A6A86 /* FlipsideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlipsideViewController.m; sourceTree = SOURCE_ROOT; };
-		908380B41A0AEE53005A6A86 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = SOURCE_ROOT; };
-		908380B51A0AEE53005A6A86 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = SOURCE_ROOT; };
-		908380C11A0AFB59005A6A86 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = InfoPlist.strings; sourceTree = "<group>"; };
-		908380C31A0AFB59005A6A86 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
+		90F497EA1A12B3FA006735E6 /* FlipsideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlipsideViewController.m; sourceTree = "<group>"; };
+		90F497EC1A12B40F006735E6 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		90F497ED1A12B40F006735E6 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		90F497EF1A12B40F006735E6 /* dwg01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dwg01.png; sourceTree = "<group>"; };
+		90F497F11A12B40F006735E6 /* dwg02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dwg02.png; sourceTree = "<group>"; };
+		90F497F31A12B40F006735E6 /* dwg03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dwg03.png; sourceTree = "<group>"; };
+		90F497F51A12B40F006735E6 /* dwg04.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dwg04.png; sourceTree = "<group>"; };
+		90F497F71A12B410006735E6 /* dwg05.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dwg05.png; sourceTree = "<group>"; };
+		90F497F91A12B410006735E6 /* dwg06.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dwg06.png; sourceTree = "<group>"; };
+		90F497FA1A12B410006735E6 /* FlipsideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlipsideViewController.h; sourceTree = "<group>"; };
+		90F497FB1A12B410006735E6 /* HeightFinderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeightFinderViewController.h; sourceTree = "<group>"; };
+		90F497FC1A12B410006735E6 /* HeightFinderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeightFinderViewController.m; sourceTree = "<group>"; };
+		90F497FD1A12B410006735E6 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		90F497FE1A12B410006735E6 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		90F497FF1A12B410006735E6 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		90F498001A12B410006735E6 /* RangeFinder-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "RangeFinder-Info.plist"; sourceTree = "<group>"; };
+		90F498011A12B410006735E6 /* RangeFinder-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RangeFinder-Prefix.pch"; sourceTree = "<group>"; };
+		90F498021A12B410006735E6 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		90F4981D1A12B4BF006735E6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = InfoPlist.strings; sourceTree = "<group>"; };
+		90F4981F1A12B4BF006735E6 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,15 +86,18 @@
 		8343797E157C0A7B009E18A1 = {
 			isa = PBXGroup;
 			children = (
-				908380B01A0AEE53005A6A86 /* AppDelegate.h */,
-				908380B11A0AEE53005A6A86 /* AppDelegate.m */,
-				908380B21A0AEE53005A6A86 /* FlipsideViewController.h */,
-				908380B31A0AEE53005A6A86 /* FlipsideViewController.m */,
-				908380B41A0AEE53005A6A86 /* MainViewController.h */,
-				908380B51A0AEE53005A6A86 /* MainViewController.m */,
-				908380BF1A0AFB59005A6A86 /* en.lproj */,
+				90F497EC1A12B40F006735E6 /* AppDelegate.h */,
+				90F497ED1A12B40F006735E6 /* AppDelegate.m */,
+				90F497FA1A12B410006735E6 /* FlipsideViewController.h */,
+				90F497EA1A12B3FA006735E6 /* FlipsideViewController.m */,
+				90F497FB1A12B410006735E6 /* HeightFinderViewController.h */,
+				90F497FC1A12B410006735E6 /* HeightFinderViewController.m */,
+				90F497FE1A12B410006735E6 /* MainViewController.h */,
+				90F497FF1A12B410006735E6 /* MainViewController.m */,
+				90F498021A12B410006735E6 /* README.md */,
 				908380A91A0AE712005A6A86 /* Default.png */,
 				908380AA1A0AE712005A6A86 /* Icon.png */,
+				90F4981B1A12B4BF006735E6 /* en.lproj */,
 				83437994157C0A7D009E18A1 /* Supporting Files */,
 				8343798C157C0A7D009E18A1 /* Frameworks */,
 				8343798A157C0A7D009E18A1 /* Products */,
@@ -130,47 +124,30 @@
 		};
 <<<<<<< HEAD
 =======
-		83437993157C0A7D009E18A1 /* RangeFinder */ = {
-			isa = PBXGroup;
-			children = (
-				8343799C157C0A7D009E18A1 /* AppDelegate.h */,
-				8343799D157C0A7D009E18A1 /* AppDelegate.m */,
-				8343799F157C0A7D009E18A1 /* MainStoryboard.storyboard */,
-				834379A2157C0A7D009E18A1 /* MainViewController.h */,
-				834379A3157C0A7D009E18A1 /* MainViewController.m */,
-				834379A5157C0A7D009E18A1 /* FlipsideViewController.h */,
-				834379A6157C0A7D009E18A1 /* FlipsideViewController.m */,
-				83ADA66F1A0D3A9300CB6C2A /* HeightFinderViewController.h */,
-				83ADA6701A0D3A9300CB6C2A /* HeightFinderViewController.m */,
-				83437994157C0A7D009E18A1 /* Supporting Files */,
-			);
-			path = RangeFinder;
-			sourceTree = "<group>";
-		};
 >>>>>>> f4eee926e5ec23275d758d0e6ebb2b17d33f4347
 		83437994157C0A7D009E18A1 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				831D26E41581426800F26F68 /* dwg02.png */,
-				83D6B3311586A6A500CBA01B /* dwg03.png */,
-				83D6B3341586A82400CBA01B /* dwg04.png */,
-				83EC7829158940DC0095A668 /* dwg05.png */,
-				83FEE2A8158A847D0014EEDD /* dwg06.png */,
+				90F497FD1A12B410006735E6 /* main.m */,
+				90F498001A12B410006735E6 /* RangeFinder-Info.plist */,
+				90F498011A12B410006735E6 /* RangeFinder-Prefix.pch */,
+				90F497EF1A12B40F006735E6 /* dwg01.png */,
+				90F497F11A12B40F006735E6 /* dwg02.png */,
+				90F497F31A12B40F006735E6 /* dwg03.png */,
+				90F497F51A12B40F006735E6 /* dwg04.png */,
+				90F497F71A12B410006735E6 /* dwg05.png */,
+				90F497F91A12B410006735E6 /* dwg06.png */,
 				83E650C0157FCDD5003E9F7C /* flag.png */,
 				83E650B9157EA3B3003E9F7C /* RangeFinderIcon.png */,
-				83437995157C0A7D009E18A1 /* RangeFinder-Info.plist */,
-				83437996157C0A7D009E18A1 /* InfoPlist.strings */,
-				8343799B157C0A7D009E18A1 /* RangeFinder-Prefix.pch */,
-				83437999157C0A7D009E18A1 /* main.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = SOURCE_ROOT;
 		};
-		908380BF1A0AFB59005A6A86 /* en.lproj */ = {
+		90F4981B1A12B4BF006735E6 /* en.lproj */ = {
 			isa = PBXGroup;
 			children = (
-				908380C01A0AFB59005A6A86 /* InfoPlist.strings */,
-				908380C21A0AFB59005A6A86 /* MainStoryboard.storyboard */,
+				90F4981C1A12B4BF006735E6 /* InfoPlist.strings */,
+				90F4981E1A12B4BF006735E6 /* MainStoryboard.storyboard */,
 			);
 			path = en.lproj;
 			sourceTree = "<group>";
@@ -226,18 +203,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				908380BD1A0AF839005A6A86 /* InfoPlist.strings in Resources */,
-				908380C41A0AFB59005A6A86 /* InfoPlist.strings in Resources */,
+				90F4980D1A12B410006735E6 /* dwg05.png in Resources */,
+				90F498201A12B4BF006735E6 /* InfoPlist.strings in Resources */,
+				90F4980F1A12B410006735E6 /* dwg06.png in Resources */,
+				90F498091A12B410006735E6 /* dwg03.png in Resources */,
 				908380AC1A0AE712005A6A86 /* Icon.png in Resources */,
+				90F498051A12B410006735E6 /* dwg01.png in Resources */,
 				83E650BA157EA3B3003E9F7C /* RangeFinderIcon.png in Resources */,
 				83E650C1157FCDD5003E9F7C /* flag.png in Resources */,
-				831D26E51581426800F26F68 /* dwg02.png in Resources */,
-				83D6B3321586A6A500CBA01B /* dwg03.png in Resources */,
-				908380C51A0AFB59005A6A86 /* MainStoryboard.storyboard in Resources */,
-				83D6B3351586A82400CBA01B /* dwg04.png in Resources */,
-				83EC782A158940DD0095A668 /* dwg05.png in Resources */,
-				83FEE2A9158A847D0014EEDD /* dwg06.png in Resources */,
+				90F498211A12B4BF006735E6 /* MainStoryboard.storyboard in Resources */,
+				90F498071A12B410006735E6 /* dwg02.png in Resources */,
+				90F4980B1A12B410006735E6 /* dwg04.png in Resources */,
 				908380AB1A0AE712005A6A86 /* Default.png in Resources */,
+				90F498131A12B410006735E6 /* RangeFinder-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,32 +238,30 @@
 				834379A7157C0A7D009E18A1 /* FlipsideViewController.m in Sources */,
 				83ADA6711A0D3A9300CB6C2A /* HeightFinderViewController.m in Sources */,
 >>>>>>> f4eee926e5ec23275d758d0e6ebb2b17d33f4347
+				90F498121A12B410006735E6 /* MainViewController.m in Sources */,
+				90F498111A12B410006735E6 /* main.m in Sources */,
+				90F498101A12B410006735E6 /* HeightFinderViewController.m in Sources */,
+				90F497EB1A12B3FA006735E6 /* FlipsideViewController.m in Sources */,
+				90F498141A12B410006735E6 /* README.md in Sources */,
+				90F498031A12B410006735E6 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		83437996157C0A7D009E18A1 /* InfoPlist.strings */ = {
+		90F4981C1A12B4BF006735E6 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				83437997157C0A7D009E18A1 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = SOURCE_ROOT;
-		};
-		908380C01A0AFB59005A6A86 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				908380C11A0AFB59005A6A86 /* en */,
+				90F4981D1A12B4BF006735E6 /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		908380C21A0AFB59005A6A86 /* MainStoryboard.storyboard */ = {
+		90F4981E1A12B4BF006735E6 /* MainStoryboard.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				908380C31A0AFB59005A6A86 /* en */,
+				90F4981F1A12B4BF006735E6 /* en */,
 			);
 			name = MainStoryboard.storyboard;
 			sourceTree = "<group>";
@@ -363,6 +339,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/RangeFinder-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/RangeFinder-Info.plist";
@@ -377,6 +354,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/RangeFinder-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/RangeFinder-Info.plist";
