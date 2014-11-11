@@ -41,8 +41,6 @@
 		8343798F157C0A7D009E18A1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		83437991157C0A7D009E18A1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 <<<<<<< HEAD
-=======
->>>>>>> f4eee926e5ec23275d758d0e6ebb2b17d33f4347
 		83E650B9157EA3B3003E9F7C /* RangeFinderIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RangeFinderIcon.png; sourceTree = SOURCE_ROOT; };
 		83E650C0157FCDD5003E9F7C /* flag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flag.png; sourceTree = "<group>"; };
 		908380A91A0AE712005A6A86 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
@@ -122,9 +120,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-<<<<<<< HEAD
-=======
->>>>>>> f4eee926e5ec23275d758d0e6ebb2b17d33f4347
 		83437994157C0A7D009E18A1 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -226,18 +221,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-<<<<<<< HEAD
-				908380BC1A0AEFB0005A6A86 /* main.m in Sources */,
-				908380B81A0AEE53005A6A86 /* MainViewController.m in Sources */,
-				908380B71A0AEE53005A6A86 /* FlipsideViewController.m in Sources */,
-				908380B61A0AEE53005A6A86 /* AppDelegate.m in Sources */,
-=======
-				8343799A157C0A7D009E18A1 /* main.m in Sources */,
-				8343799E157C0A7D009E18A1 /* AppDelegate.m in Sources */,
-				834379A4157C0A7D009E18A1 /* MainViewController.m in Sources */,
-				834379A7157C0A7D009E18A1 /* FlipsideViewController.m in Sources */,
-				83ADA6711A0D3A9300CB6C2A /* HeightFinderViewController.m in Sources */,
->>>>>>> f4eee926e5ec23275d758d0e6ebb2b17d33f4347
 				90F498121A12B410006735E6 /* MainViewController.m in Sources */,
 				90F498111A12B410006735E6 /* main.m in Sources */,
 				90F498101A12B410006735E6 /* HeightFinderViewController.m in Sources */,
