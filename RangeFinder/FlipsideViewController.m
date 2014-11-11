@@ -34,18 +34,19 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+<<<<<<< HEAD:FlipsideViewController.m
     self.pickerItems = [[NSArray alloc] initWithObjects:@"-", @"0", @"1", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9", @"10", @"11", @"12", @"15", @"20", @"30", @"40", @"50", nil];
     self.objectPickerItems = [[NSArray alloc] initWithObjects:@"None", @"Light switch", @"Car", @"Person", @"Door", @"Golf flag", @"Power pole", @"Sailboat", @"Lighthouse", nil];
+=======
+    self.pickerItems = [[NSArray alloc] initWithObjects:@"0", @"1", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9", @"10", @"11", @"12", @"15", @"20", @"30", @"40", @"50", nil];
+    self.objectPickerItems = [[NSArray alloc] initWithObjects:@"Light switch", @"Car", @"Person", @"Door", @"Golf flag", @"Power pole", @"Sailboat", @"Lighthouse", nil];
+>>>>>>> f4eee926e5ec23275d758d0e6ebb2b17d33f4347:RangeFinder/FlipsideViewController.m
     
 // sets defaults for the Picker
     self.heightMajorLabel.text = @"Feet";
     self.heightMinorLabel.text = @"Inches";
     self.unitsSelector.selectedSegmentIndex = 1;
     self.flagUnits = @"Feet";
-}
-
-- (void)viewDidAppear:(BOOL)animated
-{
 }
 
 - (void)viewDidUnload
@@ -95,6 +96,7 @@
 #pragma mark ---- UIPickerViewDataSource delegate methods ----
 
 // returns the number of columns to display.
+<<<<<<< HEAD:FlipsideViewController.m
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
     //return 2;
     if (pickerView == self.heightPicker)
@@ -117,6 +119,27 @@
         return [self.objectPickerItems count];
     
     return -1; //error condition
+=======
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
+{
+    if (pickerView == self.heightPicker) {
+        return 2;
+    }
+    if (pickerView == self.objectPicker) {
+        return 1;
+    }
+}
+
+// returns the number of rows
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
+{
+    if (pickerView == self.heightPicker) {
+        return [self.pickerItems count];
+    }
+    if (pickerView == self.objectPicker) {
+        return [self.objectPickerItems count];
+    }
+>>>>>>> f4eee926e5ec23275d758d0e6ebb2b17d33f4347:RangeFinder/FlipsideViewController.m
 }
 
 #pragma mark ---- UIPickerViewDelegate delegate methods ----
@@ -124,6 +147,7 @@
 // returns the title of each row
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
+<<<<<<< HEAD:FlipsideViewController.m
    // return [self.pickerItems objectAtIndex:row];
     
     if (pickerView == self.heightPicker)
@@ -133,11 +157,45 @@
         return [self.objectPickerItems objectAtIndex:row];
     
     return nil; //error condition
+=======
+    if (pickerView == self.heightPicker) {
+        return [self.pickerItems objectAtIndex:row];
+    }
+    if (pickerView == self.objectPicker) {
+        return [self.objectPickerItems objectAtIndex:row];
+    }
+>>>>>>> f4eee926e5ec23275d758d0e6ebb2b17d33f4347:RangeFinder/FlipsideViewController.m
 }
 
 
 // gets called when the user settles on a row
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
+<<<<<<< HEAD:FlipsideViewController.m
+=======
+
+    if (pickerView == self.heightPicker) {
+        NSString *componentValue = [self.pickerItems objectAtIndex:row];
+        
+        // assigns row values to feet or inches & calculates the fractional feet
+        if (component == 0) {
+            feetComponent = [componentValue floatValue];
+        }
+        if (component == 1) {
+            inchesComponent = [componentValue floatValue];
+        }
+        // calculates fractional feet value
+        flagHeight = feetComponent + (inchesComponent / 12);
+        self.flipsideInfo.text = [NSString stringWithFormat:@"%2.2f", flagHeight];
+        NSLog(@"Flipside flagheight is %2.2f", flagHeight);
+        
+        // displays value & units
+        self.flagValueString.text = [[self.flipsideInfo.text stringByAppendingString:@"  " ] stringByAppendingString:self.flagUnits];
+        
+    }
+    if (pickerView == self.objectPicker) {
+        self.objectString.text = [self.objectPickerItems objectAtIndex:row];
+    }
+>>>>>>> f4eee926e5ec23275d758d0e6ebb2b17d33f4347:RangeFinder/FlipsideViewController.m
 /*
 // Picks out the component & it's value
     NSString *componentValue = [self.pickerItems objectAtIndex:row];
@@ -156,6 +214,7 @@
     
 // displays value & units
     self.flagValueString.text = [[self.flipsideInfo.text stringByAppendingString:@"  " ] stringByAppendingString:self.flagUnits];
+<<<<<<< HEAD:FlipsideViewController.m
 */
     
     if (pickerView == self.heightPicker) {
@@ -183,6 +242,9 @@
       //  self.objectString.text = [self.objectPickerItems objectAtIndex:row];
     }
 
+=======
+*/    
+>>>>>>> f4eee926e5ec23275d758d0e6ebb2b17d33f4347:RangeFinder/FlipsideViewController.m
 }
 
 

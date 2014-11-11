@@ -11,8 +11,11 @@
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>A04283C51FDD971C1DB3069EA861168136DB037B</key>
+<<<<<<< HEAD
 		<string>https://github.com/bshaughn/RangeFinder.git</string>
 		<key>F63D2AA5A312B8E5019CDB15A94226F900D9E2D6</key>
+=======
+>>>>>>> f4eee926e5ec23275d758d0e6ebb2b17d33f4347
 		<string>https://github.com/CPLamb/RangeFinder.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
@@ -20,9 +23,13 @@
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>A04283C51FDD971C1DB3069EA861168136DB037B</key>
+<<<<<<< HEAD
 		<string>../..</string>
 		<key>F63D2AA5A312B8E5019CDB15A94226F900D9E2D6</key>
 		<string>../..RangeFinder</string>
+=======
+		<string>RangeFinder</string>
+>>>>>>> f4eee926e5ec23275d758d0e6ebb2b17d33f4347
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/bshaughn/RangeFinder.git</string>
