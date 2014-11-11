@@ -11,9 +11,6 @@
 		8343798E157C0A7D009E18A1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8343798D157C0A7D009E18A1 /* UIKit.framework */; };
 		83437990157C0A7D009E18A1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8343798F157C0A7D009E18A1 /* Foundation.framework */; };
 		83437992157C0A7D009E18A1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83437991157C0A7D009E18A1 /* CoreGraphics.framework */; };
-<<<<<<< HEAD
-=======
->>>>>>> f4eee926e5ec23275d758d0e6ebb2b17d33f4347
 		83E650BA157EA3B3003E9F7C /* RangeFinderIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 83E650B9157EA3B3003E9F7C /* RangeFinderIcon.png */; };
 		83E650C1157FCDD5003E9F7C /* flag.png in Resources */ = {isa = PBXBuildFile; fileRef = 83E650C0157FCDD5003E9F7C /* flag.png */; };
 		908380AB1A0AE712005A6A86 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 908380A91A0AE712005A6A86 /* Default.png */; };
@@ -40,7 +37,6 @@
 		8343798D157C0A7D009E18A1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		8343798F157C0A7D009E18A1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		83437991157C0A7D009E18A1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-<<<<<<< HEAD
 		83E650B9157EA3B3003E9F7C /* RangeFinderIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RangeFinderIcon.png; sourceTree = SOURCE_ROOT; };
 		83E650C0157FCDD5003E9F7C /* flag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flag.png; sourceTree = "<group>"; };
 		908380A91A0AE712005A6A86 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
