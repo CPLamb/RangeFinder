@@ -17,7 +17,7 @@
 @implementation HeightFinderViewController
 
 #define DEGREE_2_RADIAN 57.3
-#define YOUR_HEIGHT 57.3
+#define YOUR_HEIGHT 6.0
 
 @synthesize angleOne = _angleOne;
 @synthesize angleTwo = _angleTwo;
