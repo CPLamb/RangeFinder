@@ -9,23 +9,23 @@
 #import "MainViewController.h"
 
 
-@interface MainViewController ()
+//@interface MainViewController ()
 
-@end
+//@end
 
 @implementation MainViewController
 
 #define FUTZ_FACTOR 6.0
 
-@synthesize distance = _distance;
-@synthesize cameraView = _cameraView;
-@synthesize distanceLabel = _distanceLabel;
-@synthesize myAssistantLabel = _myAssistantLabel;
-@synthesize cameraButtonButton = _cameraButtonButton;
-@synthesize imagePickerController = _imagePickerController;
+//@synthesize distance = _distance;
+//@synthesize cameraView = _cameraView;
+//@synthesize distanceLabel = _distanceLabel;
+//@synthesize myAssistantLabel = _myAssistantLabel;
+//@synthesize cameraButtonButton = _cameraButtonButton;
+//@synthesize imagePickerController = _imagePickerController;
 
-@synthesize distanceUnits = _distanceUnits;
-@synthesize reticleView = _reticleView;
+//@synthesize distanceUnits = _distanceUnits;
+//@synthesize reticleView = _reticleView;
 
 - (void)viewDidLoad
 {
@@ -59,6 +59,7 @@
     
 }
 
+/*
 - (void)viewDidUnload
 {
     [self setCameraView:nil];
@@ -67,6 +68,7 @@
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
+*/
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
@@ -93,7 +95,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([[segue identifier] isEqualToString:@"showAlternate"]) {
-        [[segue destinationViewController] setDelegate:self];
+        [[segue destinationViewController] setDelegate:(id)self];
     }
 }
 
