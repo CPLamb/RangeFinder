@@ -25,16 +25,31 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
 // CoreMotion setup for acceleration values
     self.motionManager = [[CMMotionManager alloc] init];
     self.motionManager.accelerometerUpdateInterval = .2;
     self.motionManager.gyroUpdateInterval = .2;
-    
+/*
+    [self.motionManager startAccelerometerUpdatesToQueue:[NSOperationQueue currentQueue]
+                                             withHandler:^(CMAccelerometerData  *accelerometerData, NSError *error) {
+                                                 [self outputAccelertionData:accelerometerData.acceleration];
+                                                 if(error){
+
+                                                     NSLog(@"%@", error);
+                                                 }
+                                             }];
+*/    
 /* Configures the accelerometer
     UIAccelerometer *accelerometer = [UIAccelerometer sharedAccelerometer];
     accelerometer.updateInterval = 1.0f/60.0f;
     accelerometer.delegate = self;
-*/ 
+*/
+}
+
+-(void)outputAccelertionData:(CMAcceleration)acceleration
+{
+    NSLog(@"Acceleration should work now???");
 }
 
 - (void)didReceiveMemoryWarning {
