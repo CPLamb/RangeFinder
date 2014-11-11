@@ -25,6 +25,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+// CoreMotion setup for acceleration values
+    self.motionManager = [[CMMotionManager alloc] init];
+    self.motionManager.accelerometerUpdateInterval = .2;
+    self.motionManager.gyroUpdateInterval = .2;
+    
+/* Configures the accelerometer
+    UIAccelerometer *accelerometer = [UIAccelerometer sharedAccelerometer];
+    accelerometer.updateInterval = 1.0f/60.0f;
+    accelerometer.delegate = self;
+*/ 
 }
 
 - (void)didReceiveMemoryWarning {
@@ -41,6 +51,14 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+
+-(void)accelerometer:(UIAccelerometer *)acelerometer didAccelerate:(UIAcceleration*)acceleration
+{
+    // here you can use acceleration.x, acceleration.y, acceleration.z
+   // NSLog(@"Accelerometer values are X= %2.4f Y= %3.1f Z= %%3.5", acceleration.x, acceleration.y, acceleration.z);
+    
+}
 
 - (IBAction)setAngleButton:(UIButton *)sender
 {
