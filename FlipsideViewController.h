@@ -23,6 +23,7 @@
 @property (nonatomic) float flagheight;
 @property (strong, nonatomic) NSString *flagUnits;
 @property (strong, nonatomic) IBOutlet UILabel *flagValueString;
+@property (strong, nonatomic) IBOutlet UILabel *objectString;
 @property (strong, nonatomic) IBOutlet UIPickerView *objectPicker;
 
 @property (weak, nonatomic) id <FlipsideViewControllerDelegate> delegate;
