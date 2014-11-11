@@ -20,6 +20,7 @@
 @synthesize angleTwo = _angleTwo;
 @synthesize baseLength = _baseLength;
 @synthesize height = _height;
+@synthesize motionManager = _motionManager;
 
 
 - (void)viewDidLoad {
@@ -46,12 +47,12 @@
     accelerometer.delegate = self;
 */
 }
-
+/*
 -(void)outputAccelertionData:(CMAcceleration)acceleration
 {
     NSLog(@"Acceleration should work now???");
 }
-
+*/
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
