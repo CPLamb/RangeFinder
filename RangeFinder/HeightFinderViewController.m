@@ -9,12 +9,15 @@
 #import "HeightFinderViewController.h"
 
 @interface HeightFinderViewController ()
-
+{
+    float degreesTilt;
+}
 @end
 
 @implementation HeightFinderViewController
 
-#define DEGREE2RADIAN 57.3
+#define DEGREE_2_RADIAN 57.3
+#define YOUR_HEIGHT 57.3
 
 @synthesize angleOne = _angleOne;
 @synthesize angleTwo = _angleTwo;
@@ -23,7 +26,9 @@
 
 @synthesize motionManager = _motionManager;
 @synthesize accelerationsLabel = _accelerationsLabel;
+//@synthesize myAcceleration = _myAcceleration;
 
+#pragma mark - Lifecycle Methods
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -43,17 +48,6 @@
                                              }];
 }
 
--(void)outputAccelertionData:(CMAcceleration)acceleration
-{
-    //NSLog(@"Acceleration should work now???");
-    
-// Titlt is the arcTan(Opposite accel Y / Adjacent accel X)
-    double tilt = atan(acceleration.y / acceleration.x)*DEGREE2RADIAN;
-    
-// Displays accelerations to the screen
-    self.accelerationsLabel.text = [NSString stringWithFormat:@"Accels X= %1.3f Y= %1.3f Angle= %2.1f", acceleration.x, acceleration.y, tilt];
-}
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -69,28 +63,44 @@
 }
 */
 
+#pragma mark - Delegate Methods
 
--(void)accelerometer:(UIAccelerometer *)acelerometer didAccelerate:(UIAcceleration*)acceleration
+-(void)outputAccelertionData:(CMAcceleration)acceleration
 {
-    // here you can use acceleration.x, acceleration.y, acceleration.z
-   // NSLog(@"Accelerometer values are X= %2.4f Y= %3.1f Z= %%3.5", acceleration.x, acceleration.y, acceleration.z);
+    //NSLog(@"Acceleration should work now???");
+//    self.myAcceleration = acceleration;
     
+    // Tilt is the arcTan(Opposite accel Y / Adjacent accel X)
+    double tilt = atan(acceleration.y / acceleration.x)*DEGREE_2_RADIAN;
+    degreesTilt = tilt;
+    
+    // Displays accelerations to the screen
+    self.accelerationsLabel.text = [NSString stringWithFormat:@"Accels X= %1.3f Y= %1.3f Angle= %2.1f", acceleration.x, acceleration.y, tilt];
 }
 
-- (IBAction)setAngleButton:(UIButton *)sender
+#pragma mark - Custom Methods
+
+- (IBAction)setAngleOneButton:(UIButton *)sender
 {
-    NSLog(@"The angle is %2.1f");
+//    NSLog(@"The angle is %2.1f", degreesTilt);
+    self.angleOne.text = [NSString stringWithFormat:@"%2.1f", degreesTilt];
+}
+
+- (IBAction)setAngleTwoButton:(UIButton *)sender
+{
+//    NSLog(@"The angle is %2.1f", degreesTilt);
+    self.angleTwo.text = [NSString stringWithFormat:@"%2.1f", degreesTilt];
 }
 
 - (IBAction)calculateButton:(UIButton *)sender
 {
 // converts textfields to floats in radians to calculate the height
     double bStep = [self.baseLength.text doubleValue];
-    double aOne = [self.angleOne.text doubleValue]/DEGREE2RADIAN;
-    double aTwo = [self.angleTwo.text doubleValue]/DEGREE2RADIAN;
+    double aOne = [self.angleOne.text doubleValue]/DEGREE_2_RADIAN;
+    double aTwo = [self.angleTwo.text doubleValue]/DEGREE_2_RADIAN;
     
 // calculates the height based on 2 angles and a base length
-    double h = bStep * tan(aOne) / ((tan(aOne)/tan(aTwo)) - 1);
+    double h = YOUR_HEIGHT + (bStep * tan(aOne) / ((tan(aOne)/tan(aTwo)) - 1));
     
 // prints value
     self.height.text = [NSString stringWithFormat:@"%3.3f",h];
@@ -105,6 +115,5 @@
     [self.angleTwo resignFirstResponder];
     [self.baseLength resignFirstResponder];
 }
-
 
 @end
