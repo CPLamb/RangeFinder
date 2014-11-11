@@ -14,6 +14,7 @@
 
 @implementation FlipsideViewController
 
+/*
 @synthesize delegate = _delegate;
 @synthesize heightPicker = _heightPicker;
 @synthesize pickerItems = _pickerItems;
@@ -29,6 +30,7 @@
 @synthesize heightMinorLabel = _heightMinorLabel;
 @synthesize heightMajorLabel = _heightMajorLabel;
 @synthesize objectPicker = _objectPicker;
+*/
 
 - (void)viewDidLoad
 {
@@ -38,8 +40,8 @@
     self.pickerItems = [[NSArray alloc] initWithObjects:@"-", @"0", @"1", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9", @"10", @"11", @"12", @"15", @"20", @"30", @"40", @"50", nil];
     self.objectPickerItems = [[NSArray alloc] initWithObjects:@"None", @"Light switch", @"Car", @"Person", @"Door", @"Golf flag", @"Power pole", @"Sailboat", @"Lighthouse", nil];
 //=======
-    self.pickerItems = [[NSArray alloc] initWithObjects:@"0", @"1", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9", @"10", @"11", @"12", @"15", @"20", @"30", @"40", @"50", nil];
-    self.objectPickerItems = [[NSArray alloc] initWithObjects:@"Light switch", @"Car", @"Person", @"Door", @"Golf flag", @"Power pole", @"Sailboat", @"Lighthouse", nil];
+   // self.pickerItems = [[NSArray alloc] initWithObjects:@"0", @"1", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9", @"10", @"11", @"12", @"15", @"20", @"30", @"40", @"50", nil];
+   // self.objectPickerItems = [[NSArray alloc] initWithObjects:@"Light switch", @"Car", @"Person", @"Door", @"Golf flag", @"Power pole", @"Sailboat", @"Lighthouse", nil];
 //>>>>>>> f4eee926e5ec23275d758d0e6ebb2b17d33f4347:RangeFinder/FlipsideViewController.m
     
 // sets defaults for the Picker
@@ -49,6 +51,7 @@
     self.flagUnits = @"Feet";
 }
 
+/*
 - (void)viewDidUnload
 {
     [self setHeightPicker:nil];
@@ -58,7 +61,8 @@
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
-
+*/
+ 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
@@ -162,12 +166,14 @@
     
     return nil; //error condition
 //=======
+    /*
     if (pickerView == self.heightPicker) {
         return [self.pickerItems objectAtIndex:row];
     }
     if (pickerView == self.objectPicker) {
         return [self.objectPickerItems objectAtIndex:row];
     }
+    */
 //>>>>>>> f4eee926e5ec23275d758d0e6ebb2b17d33f4347:RangeFinder/FlipsideViewController.m
 }
 
