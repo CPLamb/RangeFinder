@@ -23,10 +23,11 @@
 @property (strong, nonatomic) NSNumber *distance;
 
 @property (strong, nonatomic) UIImageView *reticleView;
+@property (strong, nonatomic) UISlider *reticleZoomSlider;
 
 @property (strong, nonatomic) UIImagePickerController *imagePickerController;
 @property (strong, nonatomic) IBOutlet UIButton *cameraButtonButton;
 
 - (IBAction)camera:(UIButton *)sender;
-- (IBAction)cameraButton:(UIBarButtonItem *)sender;
+
 @end
