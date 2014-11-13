@@ -17,16 +17,6 @@
 
 #define FUTZ_FACTOR 6.0
 
-//@synthesize distance = _distance;
-//@synthesize cameraView = _cameraView;
-//@synthesize distanceLabel = _distanceLabel;
-//@synthesize myAssistantLabel = _myAssistantLabel;
-//@synthesize cameraButtonButton = _cameraButtonButton;
-//@synthesize imagePickerController = _imagePickerController;
-
-//@synthesize distanceUnits = _distanceUnits;
-//@synthesize reticleView = _reticleView;
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -58,17 +48,6 @@
 //    [self.reticleView addSubview:self.distanceLabel];
     
 }
-
-/*
-- (void)viewDidUnload
-{
-    [self setCameraView:nil];
-    [self setDistanceLabel:nil];
-    [self setMyAssistantLabel:nil];
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-}
-*/
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {

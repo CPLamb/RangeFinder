@@ -8,25 +8,12 @@
 
 #import "HeightFinderViewController.h"
 
-@interface HeightFinderViewController ()
-{
+@implementation HeightFinderViewController{
     float degreesTilt;
 }
-@end
-
-@implementation HeightFinderViewController
 
 #define DEGREE_2_RADIAN 57.3
 #define YOUR_HEIGHT 6.0
-
-@synthesize angleOne = _angleOne;
-@synthesize angleTwo = _angleTwo;
-@synthesize baseLength = _baseLength;
-@synthesize height = _height;
-
-@synthesize motionManager = _motionManager;
-@synthesize accelerationsLabel = _accelerationsLabel;
-//@synthesize myAcceleration = _myAcceleration;
 
 #pragma mark - Lifecycle Methods
 - (void)viewDidLoad {
@@ -38,14 +25,23 @@
     self.motionManager.accelerometerUpdateInterval = .2;
     self.motionManager.gyroUpdateInterval = .2;
 
+    /*
     [self.motionManager startAccelerometerUpdatesToQueue:[NSOperationQueue currentQueue]
                                              withHandler:^(CMAccelerometerData  *accelerometerData, NSError *error) {
-                                                 [self outputAccelertionData:accelerometerData.acceleration];
+                                                 [self outputAccelerationData:accelerometerData.acceleration];
                                                  if(error){
 
                                                      NSLog(@"%@", error);
                                                  }
                                              }];
+    */
+    
+    [self.motionManager startDeviceMotionUpdatesUsingReferenceFrame:CMAttitudeReferenceFrameXArbitraryCorrectedZVertical toQueue:[NSOperationQueue currentQueue] withHandler:^(CMDeviceMotion *motion, NSError *error) {
+        [self outputAttitudeData:motion];
+        if (error){
+            NSLog(@"Error! %@", [error description]);
+        }
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -63,9 +59,9 @@
 }
 */
 
-#pragma mark - Delegate Methods
+#pragma mark - Core Motion Activity Update Handler Methods
 
--(void)outputAccelertionData:(CMAcceleration)acceleration
+-(void)outputAccelerationData:(CMAcceleration)acceleration
 {
     //NSLog(@"Acceleration should work now???");
 //    self.myAcceleration = acceleration;
@@ -75,7 +71,13 @@
     degreesTilt = tilt;
     
     // Displays accelerations to the screen
-    self.accelerationsLabel.text = [NSString stringWithFormat:@"Accels X= %1.3f Y= %1.3f Angle= %2.1f", acceleration.x, acceleration.y, tilt];
+   // self.accelerationsLabel.text = [NSString stringWithFormat:@"Accels X= %1.3f Y= %1.3f Angle= %2.1f", acceleration.x, acceleration.y, tilt];
+}
+
+-(void)outputAttitudeData:(CMDeviceMotion*)motion{
+    self.accelerationsLabel.text = [NSString stringWithFormat:@"X: %1.3f  Y: %1.3f  Z: %1.3f", motion.gravity.x, motion.gravity.y, motion.gravity.z*90];
+    //degreesTilt = motion.gravity.z*DEGREE_2_RADIAN;
+    degreesTilt = motion.gravity.z*90;
 }
 
 #pragma mark - Custom Methods
@@ -83,13 +85,13 @@
 - (IBAction)setAngleOneButton:(UIButton *)sender
 {
 //    NSLog(@"The angle is %2.1f", degreesTilt);
-    self.angleOne.text = [NSString stringWithFormat:@"%2.1f", degreesTilt];
+    self.angleOne.text = [NSString stringWithFormat:@"%2.2f", degreesTilt];
 }
 
 - (IBAction)setAngleTwoButton:(UIButton *)sender
 {
 //    NSLog(@"The angle is %2.1f", degreesTilt);
-    self.angleTwo.text = [NSString stringWithFormat:@"%2.1f", degreesTilt];
+    self.angleTwo.text = [NSString stringWithFormat:@"%2.2f", degreesTilt];
 }
 
 - (IBAction)calculateButton:(UIButton *)sender
@@ -100,7 +102,8 @@
     double aTwo = [self.angleTwo.text doubleValue]/DEGREE_2_RADIAN;
     
 // calculates the height based on 2 angles and a base length
-    double h = YOUR_HEIGHT + (bStep * tan(aOne) / ((tan(aOne)/tan(aTwo)) - 1));
+   // double h = YOUR_HEIGHT + (bStep * tan(aOne) / ((tan(aOne)/tan(aTwo)) - 1));
+    double h = YOUR_HEIGHT + (bStep * tan(aTwo) / (1-(tan(aTwo)/tan(aOne))));
     
 // prints value
     self.height.text = [NSString stringWithFormat:@"%3.3f",h];

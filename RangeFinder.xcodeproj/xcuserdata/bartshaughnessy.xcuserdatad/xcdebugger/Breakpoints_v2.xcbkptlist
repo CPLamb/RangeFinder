@@ -26,13 +26,59 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FlipsideViewController.m"
-            timestampString = "437435322.27042"
+            timestampString = "437516100.039845"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "182"
-            endingLineNumber = "182"
+            startingLineNumber = "101"
+            endingLineNumber = "101"
             landmarkName = "-pickerView:didSelectRow:inComponent:"
             landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HeightFinderViewController.m"
+            timestampString = "437529129.278006"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "58"
+            endingLineNumber = "58"
+            landmarkName = "-viewDidLoad"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[HeightFinderViewController viewDidLoad]"
+                  moduleName = "RangeFinder"
+                  urlString = "file:///Users/bartshaughnessy/Desktop/Other%20Projects/Chris%20Collabs/RangeFinder/HeightFinderViewController.m"
+                  timestampString = "437529141.42179"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "58"
+                  endingLineNumber = "58"
+                  offsetFromSymbolStart = "398">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__41-[HeightFinderViewController viewDidLoad]_block_invoke"
+                  moduleName = "RangeFinder"
+                  urlString = "file:///Users/bartshaughnessy/Desktop/Other%20Projects/Chris%20Collabs/RangeFinder/HeightFinderViewController.m"
+                  timestampString = "437529141.422845"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "58"
+                  endingLineNumber = "58"
+                  offsetFromSymbolStart = "76">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
