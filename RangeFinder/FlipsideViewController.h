@@ -38,7 +38,12 @@
 @property (strong, nonatomic) IBOutlet UISegmentedControl *unitsSelector;
 @property (strong, nonatomic) IBOutlet UISwitch *helpSwitch;
 
+@property (strong, nonatomic) IBOutlet UIView *helpView;
+
 - (IBAction)done:(id)sender;
 - (IBAction)unitsSelected:(id)sender;
+
+- (IBAction)hideHelpButton:(id)sender;
+- (IBAction)showHelpButton:(id)sender;
 
 @end

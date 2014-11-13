@@ -30,12 +30,20 @@
 @synthesize heightMajorLabel = _heightMajorLabel;
 @synthesize objectPicker = _objectPicker;
 
+@synthesize helpView = _helpView;
+
+#pragma mark - Lifecycle methods
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
 	// Do any additional setup after loading the view, typically from a nib.
+    
+    self.helpView.hidden = YES;
+    
     self.pickerItems = [[NSArray alloc] initWithObjects:@"0", @"1", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9", @"10", @"11", @"12", @"15", @"20", @"30", @"40", @"50", nil];
-    self.objectPickerItems = [[NSArray alloc] initWithObjects:@"Light switch", @"Car", @"Person", @"Door", @"Golf flag", @"Power pole", @"Sailboat", @"Lighthouse", nil];
+    self.objectPickerItems = [[NSArray alloc] initWithObjects:@" ", @"Light switch", @"Car", @"Person", @"Door", @"Golf flag", @"Power pole", @"Sailboat", @"Lighthouse", @"-", nil];
     
 // sets defaults for the Picker
     self.heightMajorLabel.text = @"Feet";
@@ -59,7 +67,23 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
-#pragma mark - Actions
+#pragma mark - Custom methods
+
+- (IBAction)showHelpButton:(id)sender
+{
+    NSLog(@"slides up a transparency that describes the buttons below");
+    if (self.helpView.hidden) {
+        self.helpView.hidden = NO;
+    }
+}
+
+- (IBAction)hideHelpButton:(id)sender
+{
+    //    NSLog(@"hides the transparency that describes the buttons below");
+    if (!self.helpView.hidden) {
+        self.helpView.hidden = YES;
+    }
+}
 
 - (IBAction)done:(id)sender
 {
@@ -82,7 +106,7 @@
         case 2:
             self.flagUnits =  @"Meters";
             self.heightMajorLabel.text = @"Meters";
-            self.heightMinorLabel.text = @"CMs";
+            self.heightMinorLabel.text = @"cm";
             break;
     }
     NSLog(@"Units selected are %@", self.flagUnits);
@@ -99,6 +123,7 @@
     if (pickerView == self.objectPicker) {
         return 1;
     }
+    return 1;
 }
 
 // returns the number of rows

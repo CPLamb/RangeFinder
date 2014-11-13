@@ -28,12 +28,16 @@
 @synthesize accelerationsLabel = _accelerationsLabel;
 //@synthesize myAcceleration = _myAcceleration;
 
+@synthesize helpView =_helpView;
+
 #pragma mark - Lifecycle Methods
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    self.helpView.hidden = YES;
+
 // CoreMotion setup for acceleration values
     self.motionManager = [[CMMotionManager alloc] init];
     self.motionManager.accelerometerUpdateInterval = .2;
@@ -59,15 +63,23 @@
     return (interfaceOrientation == UIInterfaceOrientationLandscapeRight);
 }
 
-/*
-#pragma mark - Navigation
+#pragma mark - Custom methods
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (IBAction)showHelpButton:(id)sender
+{
+    NSLog(@"slides up a transparency that describes the buttons below");
+    if (self.helpView.hidden) {
+        self.helpView.hidden = NO;
+    }
 }
-*/
+
+- (IBAction)hideHelpButton:(id)sender
+{
+    //    NSLog(@"hides the transparency that describes the buttons below");
+    if (!self.helpView.hidden) {
+        self.helpView.hidden = YES;
+    }
+}
 
 #pragma mark - Delegate Methods
 
