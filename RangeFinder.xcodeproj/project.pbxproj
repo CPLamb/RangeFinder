@@ -11,12 +11,8 @@
 		83437990157C0A7D009E18A1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8343798F157C0A7D009E18A1 /* Foundation.framework */; };
 		83437992157C0A7D009E18A1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83437991157C0A7D009E18A1 /* CoreGraphics.framework */; };
 		83AFB6631A12A0680066F326 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83AFB6621A12A0680066F326 /* CoreMotion.framework */; };
-<<<<<<< HEAD
-=======
-		83AFB6651A12DC550066F326 /* scope.png in Resources */ = {isa = PBXBuildFile; fileRef = 83AFB6641A12DC550066F326 /* scope.png */; };
 		83D6B3321586A6A500CBA01B /* dwg03.png in Resources */ = {isa = PBXBuildFile; fileRef = 83D6B3311586A6A500CBA01B /* dwg03.png */; };
 		83D6B3351586A82400CBA01B /* dwg04.png in Resources */ = {isa = PBXBuildFile; fileRef = 83D6B3341586A82400CBA01B /* dwg04.png */; };
->>>>>>> 262514d0c77a08c21caa6d57f6ae6ff8290bb89e
 		83E650BA157EA3B3003E9F7C /* RangeFinderIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 83E650B9157EA3B3003E9F7C /* RangeFinderIcon.png */; };
 		83E650C1157FCDD5003E9F7C /* flag.png in Resources */ = {isa = PBXBuildFile; fileRef = 83E650C0157FCDD5003E9F7C /* flag.png */; };
 		908380AB1A0AE712005A6A86 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 908380A91A0AE712005A6A86 /* Default.png */; };
@@ -37,6 +33,7 @@
 		90F498201A12B4BF006735E6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 90F4981C1A12B4BF006735E6 /* InfoPlist.strings */; };
 		90F498211A12B4BF006735E6 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90F4981E1A12B4BF006735E6 /* MainStoryboard.storyboard */; };
 		90F498231A15AB0D006735E6 /* ObjectSizes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 90F498221A15AB0D006735E6 /* ObjectSizes.plist */; };
+		90F498251A15D6CE006735E6 /* scope.png in Resources */ = {isa = PBXBuildFile; fileRef = 90F498241A15D6CE006735E6 /* scope.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,12 +42,8 @@
 		8343798F157C0A7D009E18A1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		83437991157C0A7D009E18A1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		83AFB6621A12A0680066F326 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
-<<<<<<< HEAD
-=======
-		83AFB6641A12DC550066F326 /* scope.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scope.png; sourceTree = "<group>"; };
 		83D6B3311586A6A500CBA01B /* dwg03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dwg03.png; sourceTree = "<group>"; };
 		83D6B3341586A82400CBA01B /* dwg04.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dwg04.png; sourceTree = "<group>"; };
->>>>>>> 262514d0c77a08c21caa6d57f6ae6ff8290bb89e
 		83E650B9157EA3B3003E9F7C /* RangeFinderIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RangeFinderIcon.png; sourceTree = SOURCE_ROOT; };
 		83E650C0157FCDD5003E9F7C /* flag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flag.png; sourceTree = "<group>"; };
 		908380A91A0AE712005A6A86 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
@@ -76,6 +69,7 @@
 		90F4981D1A12B4BF006735E6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = InfoPlist.strings; sourceTree = "<group>"; };
 		90F4981F1A12B4BF006735E6 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
 		90F498221A15AB0D006735E6 /* ObjectSizes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ObjectSizes.plist; sourceTree = "<group>"; };
+		90F498241A15D6CE006735E6 /* scope.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = scope.png; path = RangeFinder/scope.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,7 +130,6 @@
 		83437994157C0A7D009E18A1 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-<<<<<<< HEAD
 				90F497FD1A12B410006735E6 /* main.m */,
 				90F498001A12B410006735E6 /* RangeFinder-Info.plist */,
 				90F498221A15AB0D006735E6 /* ObjectSizes.plist */,
@@ -147,14 +140,9 @@
 				90F497F51A12B40F006735E6 /* dwg04.png */,
 				90F497F71A12B410006735E6 /* dwg05.png */,
 				90F497F91A12B410006735E6 /* dwg06.png */,
-=======
-				83AFB6641A12DC550066F326 /* scope.png */,
-				831D26E41581426800F26F68 /* dwg02.png */,
+				90F498241A15D6CE006735E6 /* scope.png */,
 				83D6B3311586A6A500CBA01B /* dwg03.png */,
 				83D6B3341586A82400CBA01B /* dwg04.png */,
-				83EC7829158940DC0095A668 /* dwg05.png */,
-				83FEE2A8158A847D0014EEDD /* dwg06.png */,
->>>>>>> 262514d0c77a08c21caa6d57f6ae6ff8290bb89e
 				83E650C0157FCDD5003E9F7C /* flag.png */,
 				83E650B9157EA3B3003E9F7C /* RangeFinderIcon.png */,
 			);
@@ -229,21 +217,15 @@
 				90F498051A12B410006735E6 /* dwg01.png in Resources */,
 				83E650BA157EA3B3003E9F7C /* RangeFinderIcon.png in Resources */,
 				83E650C1157FCDD5003E9F7C /* flag.png in Resources */,
-<<<<<<< HEAD
 				90F498211A12B4BF006735E6 /* MainStoryboard.storyboard in Resources */,
 				90F498071A12B410006735E6 /* dwg02.png in Resources */,
+				90F498251A15D6CE006735E6 /* scope.png in Resources */,
 				90F498231A15AB0D006735E6 /* ObjectSizes.plist in Resources */,
 				90F4980B1A12B410006735E6 /* dwg04.png in Resources */,
 				908380AB1A0AE712005A6A86 /* Default.png in Resources */,
 				90F498131A12B410006735E6 /* RangeFinder-Info.plist in Resources */,
-=======
-				831D26E51581426800F26F68 /* dwg02.png in Resources */,
-				83AFB6651A12DC550066F326 /* scope.png in Resources */,
 				83D6B3321586A6A500CBA01B /* dwg03.png in Resources */,
 				83D6B3351586A82400CBA01B /* dwg04.png in Resources */,
-				83EC782A158940DD0095A668 /* dwg05.png in Resources */,
-				83FEE2A9158A847D0014EEDD /* dwg06.png in Resources */,
->>>>>>> 262514d0c77a08c21caa6d57f6ae6ff8290bb89e
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

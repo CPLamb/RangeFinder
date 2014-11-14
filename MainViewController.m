@@ -22,8 +22,9 @@
 
 #define FUTZ_FACTOR 6.0
 
-<<<<<<< HEAD:MainViewController.m
-=======
+//<<<<<<< HEAD:MainViewController.m
+//=======
+/*
 @synthesize distance = _distance;
 @synthesize cameraView = _cameraView;
 @synthesize distanceLabel = _distanceLabel;
@@ -34,8 +35,8 @@
 @synthesize distanceUnits = _distanceUnits;
 @synthesize reticleView = _reticleView;
 @synthesize reticleZoomSlider = _reticleZoomSlider;
-
->>>>>>> 262514d0c77a08c21caa6d57f6ae6ff8290bb89e:RangeFinder/MainViewController.m
+*/
+//>>>>>>> 262514d0c77a08c21caa6d57f6ae6ff8290bb89e:RangeFinder/MainViewController.m
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -51,19 +52,19 @@
         self.cameraButtonButton.hidden = YES;
     }
 // Builds a view to overlay over the camera view including the zoom factor
-<<<<<<< HEAD:MainViewController.m
+//<<<<<<< HEAD:MainViewController.m
     CGRect frame = CGRectMake(130.0, 150.0, 60.0, 120.0);
     //self.reticleView = [[UIImageView alloc] initWithFrame:frame];
     //self.reticleView.image = [UIImage imageNamed:@"dwg06.png"];
     reticleView = [[UIImageView alloc] initWithFrame:frame];
     reticleView.image = [UIImage imageNamed:@"dwg06.png"];
-=======
-    CGRect frame = CGRectMake(10.0, 40.0, 320.0, 240.0);
+//=======
+   // CGRect frame = CGRectMake(10.0, 40.0, 320.0, 240.0);
     //CGRect frame = CGRectMake(100.0, 100.0, 200.0, 200.0);
-    self.reticleView = [[UIImageView alloc] initWithFrame:frame]; 
+   // self.reticleView = [[UIImageView alloc] initWithFrame:frame];
     //self.reticleView.image = [UIImage imageNamed:@"scope.png"];
-    self.reticleView.image = [UIImage imageNamed:@"dwg06.png"];
->>>>>>> 262514d0c77a08c21caa6d57f6ae6ff8290bb89e:RangeFinder/MainViewController.m
+  //  self.reticleView.image = [UIImage imageNamed:@"dwg06.png"];
+//>>>>>>> 262514d0c77a08c21caa6d57f6ae6ff8290bb89e:RangeFinder/MainViewController.m
 //    self.reticleView.inputView.subviews
 //    self.reticleView.backgroundColor = [UIColor blueColor];
 //    self.reticleView.alpha = 0.65;

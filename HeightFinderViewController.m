@@ -16,8 +16,7 @@
 #define DEGREE_2_RADIAN 57.3
 #define YOUR_HEIGHT 6.0
 
-<<<<<<< HEAD:HeightFinderViewController.m
-=======
+/*
 @synthesize angleOne = _angleOne;
 @synthesize angleTwo = _angleTwo;
 @synthesize baseLength = _baseLength;
@@ -25,11 +24,11 @@
 
 @synthesize motionManager = _motionManager;
 @synthesize accelerationsLabel = _accelerationsLabel;
+*/
 //@synthesize myAcceleration = _myAcceleration;
 
 @synthesize helpView =_helpView;
 
->>>>>>> 262514d0c77a08c21caa6d57f6ae6ff8290bb89e:RangeFinder/HeightFinderViewController.m
 #pragma mark - Lifecycle Methods
 
 - (void)viewDidLoad {
