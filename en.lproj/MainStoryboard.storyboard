@@ -501,7 +501,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="=" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="SeV-p2-2If">
-                                <rect key="frame" x="148" y="281" width="42" height="21"/>
+                                <rect key="frame" x="148" y="281" width="27" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -532,6 +532,7 @@
                         <outlet property="heightMinorLabel" destination="DTn-xo-0fD" id="6MS-46-ydE"/>
                         <outlet property="heightPicker" destination="EZh-Y4-vrK" id="DVO-on-gJB"/>
                         <outlet property="helpSwitch" destination="WDp-j8-Zds" id="pN6-nY-ZbT"/>
+                        <outlet property="objectEqualsLabel" destination="SeV-p2-2If" id="fv7-1Y-cKB"/>
                         <outlet property="objectPicker" destination="uOo-bU-Nue" id="Mbw-Ur-lwE"/>
                         <outlet property="objectString" destination="nta-Gg-g96" id="BCM-tv-m94"/>
                     </connections>

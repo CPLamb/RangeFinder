@@ -10,6 +10,7 @@
 
 @implementation HeightFinderViewController{
     float degreesTilt;
+    CMMotionManager *motionManager;
 }
 
 #define DEGREE_2_RADIAN 57.3
@@ -21,9 +22,12 @@
     // Do any additional setup after loading the view.
     
 // CoreMotion setup for acceleration values
-    self.motionManager = [[CMMotionManager alloc] init];
-    self.motionManager.accelerometerUpdateInterval = .2;
-    self.motionManager.gyroUpdateInterval = .2;
+   // self.motionManager = [[CMMotionManager alloc] init];
+   // self.motionManager.accelerometerUpdateInterval = .2;
+   // self.motionManager.gyroUpdateInterval = .2;
+    motionManager = [[CMMotionManager alloc] init];
+    motionManager.accelerometerUpdateInterval = .2;
+    motionManager.gyroUpdateInterval = .2;
 
     /*
     [self.motionManager startAccelerometerUpdatesToQueue:[NSOperationQueue currentQueue]
@@ -36,7 +40,8 @@
                                              }];
     */
     
-    [self.motionManager startDeviceMotionUpdatesUsingReferenceFrame:CMAttitudeReferenceFrameXArbitraryCorrectedZVertical toQueue:[NSOperationQueue currentQueue] withHandler:^(CMDeviceMotion *motion, NSError *error) {
+   // [self.motionManager startDeviceMotionUpdatesUsingReferenceFrame:CMAttitudeReferenceFrameXArbitraryCorrectedZVertical toQueue:[NSOperationQueue currentQueue] withHandler:^(CMDeviceMotion *motion, NSError *error) {
+    [motionManager startDeviceMotionUpdatesUsingReferenceFrame:CMAttitudeReferenceFrameXArbitraryCorrectedZVertical toQueue:[NSOperationQueue currentQueue] withHandler:^(CMDeviceMotion *motion, NSError *error) {
         [self outputAttitudeData:motion];
         if (error){
             NSLog(@"Error! %@", [error description]);
@@ -63,20 +68,13 @@
 
 -(void)outputAccelerationData:(CMAcceleration)acceleration
 {
-    //NSLog(@"Acceleration should work now???");
-//    self.myAcceleration = acceleration;
-    
     // Tilt is the arcTan(Opposite accel Y / Adjacent accel X)
     double tilt = atan(acceleration.y / acceleration.x)*DEGREE_2_RADIAN;
     degreesTilt = tilt;
-    
-    // Displays accelerations to the screen
-   // self.accelerationsLabel.text = [NSString stringWithFormat:@"Accels X= %1.3f Y= %1.3f Angle= %2.1f", acceleration.x, acceleration.y, tilt];
 }
 
 -(void)outputAttitudeData:(CMDeviceMotion*)motion{
     self.accelerationsLabel.text = [NSString stringWithFormat:@"X: %1.3f  Y: %1.3f  Z: %1.3f", motion.gravity.x, motion.gravity.y, motion.gravity.z*90];
-    //degreesTilt = motion.gravity.z*DEGREE_2_RADIAN;
     degreesTilt = motion.gravity.z*90;
 }
 
@@ -84,13 +82,11 @@
 
 - (IBAction)setAngleOneButton:(UIButton *)sender
 {
-//    NSLog(@"The angle is %2.1f", degreesTilt);
     self.angleOne.text = [NSString stringWithFormat:@"%2.2f", degreesTilt];
 }
 
 - (IBAction)setAngleTwoButton:(UIButton *)sender
 {
-//    NSLog(@"The angle is %2.1f", degreesTilt);
     self.angleTwo.text = [NSString stringWithFormat:@"%2.2f", degreesTilt];
 }
 
@@ -100,6 +96,12 @@
     double bStep = [self.baseLength.text doubleValue];
     double aOne = [self.angleOne.text doubleValue]/DEGREE_2_RADIAN;
     double aTwo = [self.angleTwo.text doubleValue]/DEGREE_2_RADIAN;
+    
+    if (aTwo > aOne) {
+        double temp = aTwo;
+        aTwo = aOne;
+        aOne = temp;
+    }
     
 // calculates the height based on 2 angles and a base length
    // double h = YOUR_HEIGHT + (bStep * tan(aOne) / ((tan(aOne)/tan(aTwo)) - 1));

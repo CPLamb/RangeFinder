@@ -15,9 +15,9 @@
 @end
 
 @interface FlipsideViewController : UIViewController {
-    float flagHeight;
-    float feetComponent;
-    float inchesComponent;
+    //float flagHeight;
+    //float feetComponent;
+    //float inchesComponent;
 }
 @property (nonatomic) float flagheight;
 @property (strong, nonatomic) NSString *flagUnits;
@@ -31,12 +31,14 @@
 @property (strong, nonatomic) IBOutlet UILabel *heightMajorLabel;
 @property (strong, nonatomic) IBOutlet UILabel *heightMinorLabel;
 
-@property (strong, nonatomic) NSArray *pickerItems;
-@property (strong, nonatomic) NSArray *objectPickerItems;
+//@property (strong, nonatomic) NSArray *pickerItems;
+//@property (strong, nonatomic) NSArray *objectPickerItems;
 
 @property (strong, nonatomic) IBOutlet UITextField *flipsideInfo;
 @property (strong, nonatomic) IBOutlet UISegmentedControl *unitsSelector;
 @property (strong, nonatomic) IBOutlet UISwitch *helpSwitch;
+
+@property (weak, nonatomic) IBOutlet UILabel *objectEqualsLabel;
 
 - (IBAction)done:(id)sender;
 - (IBAction)unitsSelected:(id)sender;

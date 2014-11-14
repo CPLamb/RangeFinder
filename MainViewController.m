@@ -8,12 +8,17 @@
 
 #import "MainViewController.h"
 
-
-//@interface MainViewController ()
-
-//@end
-
-@implementation MainViewController
+@implementation MainViewController {
+    CGFloat firstZoomFactor;
+    float secondZoomFactor;
+    float totalZoomFactor;
+    float flagHeight;
+    NSNumber *distance;
+    UIImageView *reticleView;
+    UIImagePickerController *imagePickerController;
+    NSString *distanceUnits;
+    
+}
 
 #define FUTZ_FACTOR 6.0
 
@@ -33,12 +38,15 @@
     }
 // Builds a view to overlay over the camera view including the zoom factor
     CGRect frame = CGRectMake(130.0, 150.0, 60.0, 120.0);
-    self.reticleView = [[UIImageView alloc] initWithFrame:frame]; 
-    self.reticleView.image = [UIImage imageNamed:@"dwg06.png"];
+    //self.reticleView = [[UIImageView alloc] initWithFrame:frame];
+    //self.reticleView.image = [UIImage imageNamed:@"dwg06.png"];
+    reticleView = [[UIImageView alloc] initWithFrame:frame];
+    reticleView.image = [UIImage imageNamed:@"dwg06.png"];
 //    self.reticleView.inputView.subviews
 //    self.reticleView.backgroundColor = [UIColor blueColor];
 //    self.reticleView.alpha = 0.65;
-    self.reticleView.userInteractionEnabled = YES;
+    //self.reticleView.userInteractionEnabled = YES;
+    reticleView.userInteractionEnabled = YES;
 
 // Sets up the view's values & displays
 //    self.myAssistantLabel.hidden = NO;
@@ -68,7 +76,8 @@
     [self dismissModalViewControllerAnimated:YES];
     flagHeight = [controller.flipsideInfo.text floatValue];
     NSLog(@"FlagHeight is %3.3f", flagHeight);
-    self.distanceUnits = controller.flagUnits;
+    //self.distanceUnits = controller.flagUnits;
+    distanceUnits = controller.flagUnits;
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -82,15 +91,24 @@
     NSLog(@"trying to get the camera controls to show!");
     
 // Sets self to be the ImagePickerController delegate
-    self.imagePickerController = [[UIImagePickerController alloc] init];
-    self.imagePickerController.delegate = self;
+    //self.imagePickerController = [[UIImagePickerController alloc] init];
+    //self.imagePickerController.delegate = self;
+    imagePickerController = [[UIImagePickerController alloc] init];
+    imagePickerController.delegate = self;
     
 // Configures the camera & presents the modal camera view
+    /*
     self.imagePickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
     self.imagePickerController.allowsEditing = YES;
     self.imagePickerController.showsCameraControls = YES;
     self.imagePickerController.cameraOverlayView = self.reticleView;
     [self presentModalViewController:self.imagePickerController animated:YES];
+    */
+    imagePickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
+    imagePickerController.allowsEditing = YES;
+    imagePickerController.showsCameraControls = YES;
+    imagePickerController.cameraOverlayView = reticleView;
+    [self presentModalViewController:imagePickerController animated:YES];
 
 }
 
@@ -128,7 +146,8 @@
     NSLog(@"zoom are %2.3f, %2.3f, %2.3f", zoomFactor, secondZoomFactor, totalZoomFactor);
     
     // Calculates actual distance in yards
-    self.distanceLabel.text = [NSString stringWithFormat:@"%3.0f %@", (totalZoomFactor * flagHeight * FUTZ_FACTOR), self.distanceUnits];
+    //self.distanceLabel.text = [NSString stringWithFormat:@"%3.0f %@", (totalZoomFactor * flagHeight * FUTZ_FACTOR), self.distanceUnits];
+    self.distanceLabel.text = [NSString stringWithFormat:@"%3.0f %@", (totalZoomFactor * flagHeight * FUTZ_FACTOR), distanceUnits];
 
 // gets rid of the image controller modal view
     [self dismissModalViewControllerAnimated:YES];

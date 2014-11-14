@@ -10,23 +10,23 @@
 
 @interface MainViewController : UIViewController <FlipsideViewControllerDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 {
-    CGFloat firstZoomFactor;
-    float secondZoomFactor;
-    float totalZoomFactor;
-    float flagHeight;
+   // CGFloat firstZoomFactor;
+   // float secondZoomFactor;
+   // float totalZoomFactor;
+   // float flagHeight;
 }
-@property (strong, nonatomic) NSString *distanceUnits;
+//@property (strong, nonatomic) NSString *distanceUnits;
 
 @property (strong, nonatomic) IBOutlet UIImageView *cameraView;
 @property (strong, nonatomic) IBOutlet UILabel *distanceLabel;
 @property (strong, nonatomic) IBOutlet UILabel *myAssistantLabel;
-@property (strong, nonatomic) NSNumber *distance;
+//@property (strong, nonatomic) NSNumber *distance;
 
-@property (strong, nonatomic) UIImageView *reticleView;
+//@property (strong, nonatomic) UIImageView *reticleView;
 
-@property (strong, nonatomic) UIImagePickerController *imagePickerController;
+//@property (strong, nonatomic) UIImagePickerController *imagePickerController;
 @property (strong, nonatomic) IBOutlet UIButton *cameraButtonButton;
 
 - (IBAction)camera:(UIButton *)sender;
-- (IBAction)cameraButton:(UIBarButtonItem *)sender;
+//- (IBAction)cameraButton:(UIBarButtonItem *)sender;
 @end

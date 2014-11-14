@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
 #import <CoreMotion/CoreMotion.h>
+#import "FlipsideViewController.h"
 
 @interface HeightFinderViewController : UIViewController
 
@@ -19,7 +20,7 @@
 
 //@property (nonatomic, strong) CMAcceleration *myAcceleration;
 @property (nonatomic, strong) IBOutlet UILabel *accelerationsLabel;
-@property (strong, nonatomic) CMMotionManager *motionManager;
+//@property (strong, nonatomic) CMMotionManager *motionManager;
 
 - (IBAction)setAngleOneButton:(UIButton *)sender;
 - (IBAction)setAngleTwoButton:(UIButton *)sender;
