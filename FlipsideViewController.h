@@ -38,9 +38,16 @@
 @property (strong, nonatomic) IBOutlet UISegmentedControl *unitsSelector;
 @property (strong, nonatomic) IBOutlet UISwitch *helpSwitch;
 
+<<<<<<< HEAD:FlipsideViewController.h
 @property (weak, nonatomic) IBOutlet UILabel *objectEqualsLabel;
+=======
+@property (strong, nonatomic) IBOutlet UIView *helpView;
+>>>>>>> 262514d0c77a08c21caa6d57f6ae6ff8290bb89e:RangeFinder/FlipsideViewController.h
 
 - (IBAction)done:(id)sender;
 - (IBAction)unitsSelected:(id)sender;
+
+- (IBAction)hideHelpButton:(id)sender;
+- (IBAction)showHelpButton:(id)sender;
 
 @end

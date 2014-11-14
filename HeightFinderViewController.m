@@ -16,11 +16,28 @@
 #define DEGREE_2_RADIAN 57.3
 #define YOUR_HEIGHT 6.0
 
+<<<<<<< HEAD:HeightFinderViewController.m
+=======
+@synthesize angleOne = _angleOne;
+@synthesize angleTwo = _angleTwo;
+@synthesize baseLength = _baseLength;
+@synthesize height = _height;
+
+@synthesize motionManager = _motionManager;
+@synthesize accelerationsLabel = _accelerationsLabel;
+//@synthesize myAcceleration = _myAcceleration;
+
+@synthesize helpView =_helpView;
+
+>>>>>>> 262514d0c77a08c21caa6d57f6ae6ff8290bb89e:RangeFinder/HeightFinderViewController.m
 #pragma mark - Lifecycle Methods
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    self.helpView.hidden = YES;
+
 // CoreMotion setup for acceleration values
    // self.motionManager = [[CMMotionManager alloc] init];
    // self.motionManager.accelerometerUpdateInterval = .2;
@@ -54,15 +71,28 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+    return (interfaceOrientation == UIInterfaceOrientationLandscapeRight);
 }
-*/
+
+#pragma mark - Custom methods
+
+- (IBAction)showHelpButton:(id)sender
+{
+    NSLog(@"slides up a transparency that describes the buttons below");
+    if (self.helpView.hidden) {
+        self.helpView.hidden = NO;
+    }
+}
+
+- (IBAction)hideHelpButton:(id)sender
+{
+    //    NSLog(@"hides the transparency that describes the buttons below");
+    if (!self.helpView.hidden) {
+        self.helpView.hidden = YES;
+    }
+}
 
 #pragma mark - Core Motion Activity Update Handler Methods
 

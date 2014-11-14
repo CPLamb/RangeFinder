@@ -28,4 +28,7 @@
 - (IBAction)calculateButton:(UIButton *)sender;
 - (IBAction)doneButton:(UIButton *)sender;
 
+@property (strong, nonatomic) IBOutlet UIView *helpView;
+- (IBAction)showHelpButton:(id)sender;
+- (IBAction)hideHelpButton:(id)sender;
 @end
