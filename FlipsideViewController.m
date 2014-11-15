@@ -17,13 +17,15 @@
     float feetComponent;
     float inchesComponent;
 }
+@synthesize objectString = _objectString;
+
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     pickerItems = [[NSArray alloc] initWithObjects:@"-", @"0", @"1", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9", @"10", @"11", @"12", @"15", @"20", @"30", @"40", @"50", nil];
     inchesPicker = [[NSArray alloc] initWithObjects:@"-", @"0", @"1", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9", @"10", @"11", nil];
-    objectPickerItems = [[NSArray alloc] initWithObjects:@"None", @"Light switch", @"Car", @"Person", @"Door", @"Golf flag", @"Utility pole", @"Sailboat", @"Lighthouse", nil];
+    objectPickerItems = [[NSArray alloc] initWithObjects:@" ",@"None", @"Light switch", @"Car", @"Person", @"Door", @"Golf flag", @"Utility pole", @"Sailboat", @"Lighthouse",@"-", nil];
     
 // sets defaults for the Picker
     self.heightMajorLabel.text = @"Feet";
@@ -31,9 +33,11 @@
     self.unitsSelector.selectedSegmentIndex = 1;
     self.flagUnits = @"Feet";
     
-    self.objectString.text = @"";
+    self.objectString.text = @"Golf flag";
     self.flagValueString.text = @"";
     self.objectEqualsLabel.hidden = YES;
+    
+    self.helpView.hidden = YES;
     
     NSString *objectSizesPlist = [[NSBundle mainBundle] pathForResource:@"ObjectSizes" ofType:@"plist"];
     objectSizes = [[NSDictionary alloc] initWithContentsOfFile:objectSizesPlist];
@@ -44,7 +48,23 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
-#pragma mark - Actions
+#pragma mark - Custom Methods
+
+- (IBAction)showHelpButton:(id)sender
+{
+    NSLog(@"slides up a transparency that describes the buttons below");
+    if (self.helpView.hidden) {
+        self.helpView.hidden = NO;
+    }
+}
+
+- (IBAction)hideHelpButton:(id)sender
+{
+    //    NSLog(@"hides the transparency that describes the buttons below");
+    if (!self.helpView.hidden) {
+        self.helpView.hidden = YES;
+    }
+}
 
 - (IBAction)done:(id)sender
 {
@@ -66,8 +86,8 @@
             break;
         case 2:
             self.flagUnits =  @"Meters";
-            self.heightMajorLabel.text = @"Meters";
-            self.heightMinorLabel.text = @"CMs";
+            self.heightMajorLabel.text = @"Meter";
+            self.heightMinorLabel.text = @"cm";
             break;
     }
     NSLog(@"Units selected are %@", self.flagUnits);
@@ -136,8 +156,10 @@
         }
         // calculates fractional feet value
         flagHeight = feetComponent + (inchesComponent / 12);
-        self.flipsideInfo.text = [NSString stringWithFormat:@"%2.2f", flagHeight];
-        NSLog(@"Flipside flagheight is %2.2f", flagHeight);
+        
+// FlipsideInfo is string sent to MainV
+        self.flipsideInfo.text = [NSString stringWithFormat:@"%@ is %2.2f", self.objectString.text, flagHeight];
+        NSLog(@"Object %@ is %2.2f", self.objectString.text, flagHeight);
         
         // displays value & units
         self.flagValueString.text = [[self.flipsideInfo.text stringByAppendingString:@"  " ] stringByAppendingString:self.flagUnits];
@@ -163,22 +185,6 @@
             self.flagValueString.text = [NSString stringWithFormat:@"%2.2f", flagHeight];
             self.flipsideInfo.text = [NSString stringWithFormat:@"%2.2f", flagHeight];
         }
-    }
-}
-
-- (IBAction)showHelpButton:(id)sender
-{
-    NSLog(@"slides up a transparency that describes the buttons below");
-    if (self.helpView.hidden) {
-        self.helpView.hidden = NO;
-    }
-}
-
-- (IBAction)hideHelpButton:(id)sender
-{
-    //    NSLog(@"hides the transparency that describes the buttons below");
-    if (!self.helpView.hidden) {
-        self.helpView.hidden = YES;
     }
 }
 
