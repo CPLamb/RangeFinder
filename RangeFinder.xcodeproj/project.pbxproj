@@ -34,6 +34,7 @@
 		90F498211A12B4BF006735E6 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90F4981E1A12B4BF006735E6 /* MainStoryboard.storyboard */; };
 		90F498231A15AB0D006735E6 /* ObjectSizes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 90F498221A15AB0D006735E6 /* ObjectSizes.plist */; };
 		90F498251A15D6CE006735E6 /* scope.png in Resources */ = {isa = PBXBuildFile; fileRef = 90F498241A15D6CE006735E6 /* scope.png */; };
+		90F498281A16E089006735E6 /* RFTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90F498271A16E089006735E6 /* RFTabBarController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +71,8 @@
 		90F4981F1A12B4BF006735E6 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
 		90F498221A15AB0D006735E6 /* ObjectSizes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ObjectSizes.plist; sourceTree = "<group>"; };
 		90F498241A15D6CE006735E6 /* scope.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = scope.png; path = RangeFinder/scope.png; sourceTree = "<group>"; };
+		90F498261A16E089006735E6 /* RFTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFTabBarController.h; sourceTree = "<group>"; };
+		90F498271A16E089006735E6 /* RFTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RFTabBarController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +93,8 @@
 		8343797E157C0A7B009E18A1 = {
 			isa = PBXGroup;
 			children = (
+				90F498261A16E089006735E6 /* RFTabBarController.h */,
+				90F498271A16E089006735E6 /* RFTabBarController.m */,
 				90F497EC1A12B40F006735E6 /* AppDelegate.h */,
 				90F497ED1A12B40F006735E6 /* AppDelegate.m */,
 				90F497FA1A12B410006735E6 /* FlipsideViewController.h */,
@@ -242,6 +247,7 @@
 				90F497EB1A12B3FA006735E6 /* FlipsideViewController.m in Sources */,
 				90F498141A12B410006735E6 /* README.md in Sources */,
 				90F498031A12B410006735E6 /* AppDelegate.m in Sources */,
+				90F498281A16E089006735E6 /* RFTabBarController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

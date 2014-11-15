@@ -16,19 +16,6 @@
 #define DEGREE_2_RADIAN 57.3
 #define YOUR_HEIGHT 6.0
 
-/*
-@synthesize angleOne = _angleOne;
-@synthesize angleTwo = _angleTwo;
-@synthesize baseLength = _baseLength;
-@synthesize height = _height;
-
-@synthesize motionManager = _motionManager;
-@synthesize accelerationsLabel = _accelerationsLabel;
-*/
-//@synthesize myAcceleration = _myAcceleration;
-
-@synthesize helpView =_helpView;
-
 #pragma mark - Lifecycle Methods
 
 - (void)viewDidLoad {
@@ -69,10 +56,19 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+/*
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation == UIInterfaceOrientationLandscapeRight);
+}
+*/
+
+-(BOOL)shouldAutorotate{
+    return NO;
+}
+
+-(NSUInteger)supportedInterfaceOrientations{
+    return UIInterfaceOrientationLandscapeRight;
 }
 
 #pragma mark - Custom methods
@@ -104,7 +100,7 @@
 
 -(void)outputAttitudeData:(CMDeviceMotion*)motion{
     self.accelerationsLabel.text = [NSString stringWithFormat:@"X: %1.3f  Y: %1.3f  Z: %1.3f", motion.gravity.x, motion.gravity.y, motion.gravity.z*90];
-    degreesTilt = motion.gravity.z*90;
+    degreesTilt = -motion.gravity.y*90;
 }
 
 #pragma mark - Custom Methods

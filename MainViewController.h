@@ -9,12 +9,7 @@
 #import "FlipsideViewController.h"
 
 @interface MainViewController : UIViewController <FlipsideViewControllerDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate>
-{
-   // CGFloat firstZoomFactor;
-   // float secondZoomFactor;
-   // float totalZoomFactor;
-   // float flagHeight;
-}
+
 //@property (strong, nonatomic) NSString *distanceUnits;
 
 @property (strong, nonatomic) IBOutlet UIImageView *cameraView;

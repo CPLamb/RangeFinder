@@ -14,11 +14,8 @@
 - (void)flipsideViewControllerDidFinish:(FlipsideViewController *)controller;
 @end
 
-@interface FlipsideViewController : UIViewController {
-    //float flagHeight;
-    //float feetComponent;
-    //float inchesComponent;
-}
+@interface FlipsideViewController : UIViewController
+
 @property (nonatomic) float flagheight;
 @property (strong, nonatomic) NSString *flagUnits;
 @property (strong, nonatomic) IBOutlet UILabel *flagValueString;

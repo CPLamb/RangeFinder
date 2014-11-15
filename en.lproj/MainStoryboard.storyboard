@@ -236,7 +236,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="eCi-d6-56D">
             <objects>
-                <tabBarController id="9WG-dL-XmA" sceneMemberID="viewController">
+                <tabBarController id="9WG-dL-XmA" customClass="RFTabBarController" sceneMemberID="viewController">
                     <nil key="simulatedStatusBarMetrics"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>

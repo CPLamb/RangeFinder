@@ -7,6 +7,7 @@
 //
 
 #import "MainViewController.h"
+#import "AppDelegate.h"
 
 @implementation MainViewController {
     CGFloat firstZoomFactor;
@@ -22,21 +23,6 @@
 
 #define FUTZ_FACTOR 6.0
 
-//<<<<<<< HEAD:MainViewController.m
-//=======
-/*
-@synthesize distance = _distance;
-@synthesize cameraView = _cameraView;
-@synthesize distanceLabel = _distanceLabel;
-@synthesize myAssistantLabel = _myAssistantLabel;
-@synthesize cameraButtonButton = _cameraButtonButton;
-@synthesize imagePickerController = _imagePickerController;
-
-@synthesize distanceUnits = _distanceUnits;
-@synthesize reticleView = _reticleView;
-@synthesize reticleZoomSlider = _reticleZoomSlider;
-*/
-//>>>>>>> 262514d0c77a08c21caa6d57f6ae6ff8290bb89e:RangeFinder/MainViewController.m
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -86,9 +72,13 @@
     [self.reticleView addSubview:self.reticleZoomSlider];
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+-(BOOL)shouldAutorotate{
+    return NO;
+}
+
+-(NSUInteger)supportedInterfaceOrientations{
+
+    return UIInterfaceOrientationMaskPortrait;
 }
 
 #pragma mark - Flipside View

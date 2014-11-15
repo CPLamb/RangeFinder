@@ -161,7 +161,24 @@
             inchesComponent = [[inchesPicker objectAtIndex:[self.heightPicker selectedRowInComponent:1]] floatValue];
             flagHeight = feetComponent + (inchesComponent / 12);
             self.flagValueString.text = [NSString stringWithFormat:@"%2.2f", flagHeight];
+            self.flipsideInfo.text = [NSString stringWithFormat:@"%2.2f", flagHeight];
         }
+    }
+}
+
+- (IBAction)showHelpButton:(id)sender
+{
+    NSLog(@"slides up a transparency that describes the buttons below");
+    if (self.helpView.hidden) {
+        self.helpView.hidden = NO;
+    }
+}
+
+- (IBAction)hideHelpButton:(id)sender
+{
+    //    NSLog(@"hides the transparency that describes the buttons below");
+    if (!self.helpView.hidden) {
+        self.helpView.hidden = YES;
     }
 }
 
