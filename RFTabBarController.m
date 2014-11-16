@@ -26,15 +26,18 @@
     // Dispose of any resources that can be recreated.
 }
 
+/*
 -(UIInterfaceOrientation)interfaceOrientation{
     if (self.selectedIndex == 1)
         return UIInterfaceOrientationLandscapeRight;
     
     return UIInterfaceOrientationPortrait;
 }
+*/
 
 -(BOOL)shouldAutorotate{
     return NO;
 }
+
 
 @end
