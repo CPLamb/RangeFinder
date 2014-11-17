@@ -19,9 +19,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.delegate = self;
-    NSArray *myVC = self.viewControllers;
-    NSLog(@"selected view controller %@", self.selectedViewController);
-    appDelegate = [[UIApplication sharedApplication] delegate];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -33,34 +30,14 @@
     return NO;
 }
 
-/*
--(NSUInteger)tabBarControllerSupportedInterfaceOrientations:(UITabBarController *)tabBarController{
-    return UIInterfaceOrientationMaskPortrait;
-}
-*/
-
-//-(UIInterfaceOrientation)tabBarControllerPreferredInterfaceOrientationForPresentation:(UITabBarController *)tabBarController{
-//    return UIInterfaceOrientationPortrait;
-//}
-
 
 -(void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item{
-    NSLog(@"Item number is %lu", (unsigned long)self.selectedIndex);
-      //  [[[UIApplication sharedApplication] delegate] reloadNavBarController];
-    if (item == self.viewControllers[1]) {
-        [self willRotateToInterfaceOrientation:UIInterfaceOrientationLandscapeRight duration:0.3];
-    }
-}
-
-
-
--(void)setViewControllers:(NSArray *)viewControllers animated:(BOOL)animated{
-    NSLog(@"Called setViewControllers");
+    //stubbed in case we need this. Use item and test against self.viewControllers array index
 }
 
 -(void)loadView{
-    [super loadView];
-    NSLog(@"Called Loadview");
+    //[super loadView];
+    //this method seems to only get called once. Probably not required.
 }
 
 @end

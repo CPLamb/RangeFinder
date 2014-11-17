@@ -12,8 +12,5 @@
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-@property (strong, nonatomic) RFTabBarController *thisTabBarController;
-
--(void)reloadNavBarController;
 
 @end

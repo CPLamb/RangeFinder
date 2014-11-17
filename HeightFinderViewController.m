@@ -25,25 +25,10 @@
     self.helpView.hidden = YES;
 
 // CoreMotion setup for acceleration values
-   // self.motionManager = [[CMMotionManager alloc] init];
-   // self.motionManager.accelerometerUpdateInterval = .2;
-   // self.motionManager.gyroUpdateInterval = .2;
     motionManager = [[CMMotionManager alloc] init];
     motionManager.accelerometerUpdateInterval = .2;
     motionManager.gyroUpdateInterval = .2;
 
-    /*
-    [self.motionManager startAccelerometerUpdatesToQueue:[NSOperationQueue currentQueue]
-                                             withHandler:^(CMAccelerometerData  *accelerometerData, NSError *error) {
-                                                 [self outputAccelerationData:accelerometerData.acceleration];
-                                                 if(error){
-
-                                                     NSLog(@"%@", error);
-                                                 }
-                                             }];
-    */
-    
-   // [self.motionManager startDeviceMotionUpdatesUsingReferenceFrame:CMAttitudeReferenceFrameXArbitraryCorrectedZVertical toQueue:[NSOperationQueue currentQueue] withHandler:^(CMDeviceMotion *motion, NSError *error) {
     [motionManager startDeviceMotionUpdatesUsingReferenceFrame:CMAttitudeReferenceFrameXArbitraryCorrectedZVertical toQueue:[NSOperationQueue currentQueue] withHandler:^(CMDeviceMotion *motion, NSError *error) {
         [self outputAttitudeData:motion];
         if (error){
@@ -62,22 +47,9 @@
     // Dispose of any resources that can be recreated.
 }
 
-
 -(BOOL)shouldAutorotate{
-   // return self.interfaceOrientation == UIInterfaceOrientationLandscapeRight;
-   // return [[UIDevice currentDevice] orientation] == UIInterfaceOrientationLandscapeRight;
     return NO;
 }
-
-
--(NSUInteger)supportedInterfaceOrientations{
-    return UIInterfaceOrientationLandscapeRight;
-}
-
--(UIInterfaceOrientation)preferredInterfaceOrientationForPresentation{
-    return UIInterfaceOrientationLandscapeRight;
-}
-
 
 #pragma mark - Custom methods
 
@@ -137,7 +109,6 @@
     }
     
 // calculates the height based on 2 angles and a base length
-   // double h = YOUR_HEIGHT + (bStep * tan(aOne) / ((tan(aOne)/tan(aTwo)) - 1));
     double h = YOUR_HEIGHT + (bStep * tan(aTwo) / (1-(tan(aTwo)/tan(aOne))));
     
 // prints value

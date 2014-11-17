@@ -17,18 +17,13 @@
 @property (nonatomic, strong) IBOutlet UITextField *angleOne;
 @property (nonatomic, strong) IBOutlet UITextField *angleTwo;
 @property (nonatomic, strong) IBOutlet UILabel *height;
-
-//@property (nonatomic, strong) CMAcceleration *myAcceleration;
 @property (nonatomic, strong) IBOutlet UILabel *accelerationsLabel;
-//@property (strong, nonatomic) CMMotionManager *motionManager;
+@property (strong, nonatomic) IBOutlet UIView *helpView;
 
 - (IBAction)setAngleOneButton:(UIButton *)sender;
 - (IBAction)setAngleTwoButton:(UIButton *)sender;
-
 - (IBAction)calculateButton:(UIButton *)sender;
 - (IBAction)doneButton:(UIButton *)sender;
-
-@property (strong, nonatomic) IBOutlet UIView *helpView;
 - (IBAction)showHelpButton:(id)sender;
 - (IBAction)hideHelpButton:(id)sender;
 @end

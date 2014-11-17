@@ -37,32 +37,14 @@
         self.myAssistantLabel.text = @"The camera is not available on this device";
         self.cameraButtonButton.hidden = YES;
     }
-// Builds a view to overlay over the camera view including the zoom factor
-//<<<<<<< HEAD:MainViewController.m
+
     CGRect frame = CGRectMake(130.0, 150.0, 60.0, 120.0);
-    //self.reticleView = [[UIImageView alloc] initWithFrame:frame];
-    //self.reticleView.image = [UIImage imageNamed:@"dwg06.png"];
     reticleView = [[UIImageView alloc] initWithFrame:frame];
     reticleView.image = [UIImage imageNamed:@"dwg06.png"];
-//=======
-   // CGRect frame = CGRectMake(10.0, 40.0, 320.0, 240.0);
-    //CGRect frame = CGRectMake(100.0, 100.0, 200.0, 200.0);
-   // self.reticleView = [[UIImageView alloc] initWithFrame:frame];
-    //self.reticleView.image = [UIImage imageNamed:@"scope.png"];
-  //  self.reticleView.image = [UIImage imageNamed:@"dwg06.png"];
-//>>>>>>> 262514d0c77a08c21caa6d57f6ae6ff8290bb89e:RangeFinder/MainViewController.m
-//    self.reticleView.inputView.subviews
-//    self.reticleView.backgroundColor = [UIColor blueColor];
-//    self.reticleView.alpha = 0.65;
-    //self.reticleView.userInteractionEnabled = YES;
     reticleView.userInteractionEnabled = YES;
-
-// Sets up the view's values & displays
-//    self.myAssistantLabel.hidden = NO;
     
 // Sets up the distance label
     self.distanceLabel.text = @"xxx yards";
-//    [self.reticleView addSubview:self.distanceLabel];
     
 // Builds the slider and rotates it 90 degrees
     CGRect sliderFrame = CGRectMake(-120.0, 150.0,300.0, 50.0);
@@ -74,28 +56,13 @@
     UIViewController *upperVC = self.presentingViewController;
 }
 
-/*
--(NSUInteger)supportedInterfaceOrientations{
-
-   // return UIInterfaceOrientationPortrait;
-    return UIInterfaceOrientationLandscapeRight;
-}
-*/
-
 -(BOOL)shouldAutorotate{
-    //return [[UIDevice currentDevice] orientation] == UIInterfaceOrientationPortrait;
-    //return YES;
-    // return self.interfaceOrientation == UIInterfaceOrientationPortrait;
     return NO;
 }
 
 -(UIInterfaceOrientation)preferredInterfaceOrientationForPresentation{
     return UIInterfaceOrientationPortrait;
 }
-
-//-(NSUInteger)supportedInterfaceOrientations{
-//    return UIInterfaceOrientationPortrait;
-//}
 
 
 #pragma mark - Flipside View
@@ -127,19 +94,10 @@
     NSLog(@"trying to get the camera controls to show!");
     
 // Sets self to be the ImagePickerController delegate
-    //self.imagePickerController = [[UIImagePickerController alloc] init];
-    //self.imagePickerController.delegate = self;
     imagePickerController = [[UIImagePickerController alloc] init];
     imagePickerController.delegate = self;
     
 // Configures the camera & presents the modal camera view
-    /*
-    self.imagePickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
-    self.imagePickerController.allowsEditing = YES;
-    self.imagePickerController.showsCameraControls = YES;
-    self.imagePickerController.cameraOverlayView = self.reticleView;
-    [self presentModalViewController:self.imagePickerController animated:YES];
-    */
     imagePickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
     imagePickerController.allowsEditing = YES;
     imagePickerController.showsCameraControls = YES;
@@ -151,13 +109,11 @@
 #pragma mark - UIImagePickerControllerDelegate methods
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
-    // NSLog(@"Image Info is %@", info);
     
 // Displays the INITIAL zoom factor by getting cropped rectangle dimensions
     NSValue *imageRectangle = [info objectForKey:UIImagePickerControllerCropRect];
     CGRect rectangleValue = [imageRectangle CGRectValue];
     CGFloat zoomFactor = (1937.0 / rectangleValue.size.height);
-//    NSString *zoomText = [[NSString alloc] initWithFormat:@"we zoomed to %3.3f", zoomFactor];
     NSLog(@"CropRect ZoomFactor is in %2.3f", zoomFactor);
     
 // Displays the FINAL zoom factor by getting {Exif}dictionary's DigitalZoomRatio
@@ -178,7 +134,6 @@
     NSLog(@"zoom are %2.3f, %2.3f, %2.3f", zoomFactor, secondZoomFactor, totalZoomFactor);
     
     // Calculates actual distance in yards
-    //self.distanceLabel.text = [NSString stringWithFormat:@"%3.0f %@", (totalZoomFactor * flagHeight * FUTZ_FACTOR), self.distanceUnits];
     self.distanceLabel.text = [NSString stringWithFormat:@"%3.0f %@", (totalZoomFactor * flagHeight * FUTZ_FACTOR), distanceUnits];
 
 // gets rid of the image controller modal view

@@ -11,9 +11,4 @@
 
 @interface RFTabBarController : UITabBarController<UITabBarControllerDelegate>
 
-@property (strong, nonatomic) RFNavigationController *myNavController;
-
-@property (nonatomic, assign) UIInterfaceOrientation orientation;
-@property (nonatomic, assign) NSUInteger supportedInterfaceOrientation;
-
 @end

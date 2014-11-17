@@ -15,8 +15,6 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-    NSLog(@"Root View Controller: %@", self.window.rootViewController);
-    NSLog(@"Merge testing log statement");
     return YES;
 }
 							
@@ -45,14 +43,6 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-}
-
--(void)reloadNavBarController:(UIInterfaceOrientation)orientation{
-    
-     [[[UIApplication sharedApplication].delegate window] setRootViewController:nil];
-     [(RFTabBarController *)self.thisTabBarController setOrientation:orientation];
-     [(RFTabBarController *)self.thisTabBarController setSupportedInterfaceOrientation:orientation];
-     [[[UIApplication sharedApplication].delegate window] setRootViewController:self.thisTabBarController];
 }
 
 @end
