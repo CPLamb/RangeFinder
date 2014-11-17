@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RFNavigationController.h"
 
-@interface RFTabBarController : UITabBarController
+@interface RFTabBarController : UITabBarController<UITabBarControllerDelegate>
+
+@property (strong, nonatomic) RFNavigationController *myNavController;
+
+@property (nonatomic, assign) UIInterfaceOrientation orientation;
+@property (nonatomic, assign) NSUInteger supportedInterfaceOrientation;
 
 @end

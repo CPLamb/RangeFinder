@@ -70,16 +70,33 @@
     CGAffineTransform trans = CGAffineTransformMakeRotation(M_PI_2);
     self.reticleZoomSlider.transform = trans;
     [self.reticleView addSubview:self.reticleZoomSlider];
+    
+    UIViewController *upperVC = self.presentingViewController;
 }
 
+/*
+-(NSUInteger)supportedInterfaceOrientations{
+
+   // return UIInterfaceOrientationPortrait;
+    return UIInterfaceOrientationLandscapeRight;
+}
+*/
+
 -(BOOL)shouldAutorotate{
+    //return [[UIDevice currentDevice] orientation] == UIInterfaceOrientationPortrait;
+    //return YES;
+    // return self.interfaceOrientation == UIInterfaceOrientationPortrait;
     return NO;
 }
 
--(NSUInteger)supportedInterfaceOrientations{
-
-    return UIInterfaceOrientationMaskPortrait;
+-(UIInterfaceOrientation)preferredInterfaceOrientationForPresentation{
+    return UIInterfaceOrientationPortrait;
 }
+
+//-(NSUInteger)supportedInterfaceOrientations{
+//    return UIInterfaceOrientationPortrait;
+//}
+
 
 #pragma mark - Flipside View
 

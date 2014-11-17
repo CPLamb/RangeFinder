@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RFNavigationController : UINavigationController
+@interface RFNavigationController : UINavigationController<UINavigationControllerDelegate>
 
 @end

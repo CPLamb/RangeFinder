@@ -9,7 +9,7 @@
         <!--RangeFinder-->
         <scene sceneID="ulS-gt-WJX">
             <objects>
-                <navigationController title="RangeFinder" id="Ufd-3B-7tV" sceneMemberID="viewController">
+                <navigationController title="RangeFinder" id="Ufd-3B-7tV" customClass="RFNavigationController" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Range" image="Icon.png" id="UvD-Mc-c6I"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="o3A-J0-U5w">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -28,7 +28,7 @@
             <objects>
                 <viewController id="YdQ-hZ-b0h" customClass="HeightFinderViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CED-Li-keF">
-                        <rect key="frame" x="0.0" y="44" width="480" height="276"/>
+                        <rect key="frame" x="0.0" y="44" width="320" height="436"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Height" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" id="TZn-Ec-v7L">
@@ -192,7 +192,6 @@
                     <tabBarItem key="tabBarItem" title="Item 1" id="Lia-DM-D6e"/>
                     <navigationItem key="navigationItem" title="HeightFinder" id="Yss-uh-dMk"/>
                     <nil key="simulatedBottomBarMetrics"/>
-                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
                         <outlet property="accelerationsLabel" destination="Q4o-pf-46t" id="FuB-9v-JJQ"/>
                         <outlet property="angleOne" destination="CXL-fZ-byQ" id="zzV-OY-nYp"/>
@@ -562,9 +561,8 @@
         <!--Nav Cntrllr HeightFinder-->
         <scene sceneID="J29-C7-K57">
             <objects>
-                <navigationController title="Nav Cntrllr HeightFinder" id="ra4-77-PcE" sceneMemberID="viewController">
+                <navigationController title="Nav Cntrllr HeightFinder" id="ra4-77-PcE" customClass="RFNavigationController" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Height" image="Icon.png" id="Ey5-Uq-Pmw"/>
-                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="qgN-b0-1mA">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -716,7 +714,7 @@
         <!--Nav Cntrllr Setup-->
         <scene sceneID="kST-54-1XI">
             <objects>
-                <navigationController title="Nav Cntrllr Setup" navigationBarHidden="YES" id="DWz-j8-E3J" sceneMemberID="viewController">
+                <navigationController title="Nav Cntrllr Setup" navigationBarHidden="YES" id="DWz-j8-E3J" customClass="RFNavigationController" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Setup" image="Icon.png" id="oa5-Cw-KEB"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Mne-Tr-0uV">

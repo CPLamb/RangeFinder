@@ -50,26 +50,34 @@
             NSLog(@"Error! %@", [error description]);
         }
     }];
+    
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-/*
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    return (interfaceOrientation == UIInterfaceOrientationLandscapeRight);
-}
-*/
+
 
 -(BOOL)shouldAutorotate{
+   // return self.interfaceOrientation == UIInterfaceOrientationLandscapeRight;
+   // return [[UIDevice currentDevice] orientation] == UIInterfaceOrientationLandscapeRight;
     return NO;
 }
+
 
 -(NSUInteger)supportedInterfaceOrientations{
     return UIInterfaceOrientationLandscapeRight;
 }
+
+-(UIInterfaceOrientation)preferredInterfaceOrientationForPresentation{
+    return UIInterfaceOrientationLandscapeRight;
+}
+
 
 #pragma mark - Custom methods
 

@@ -39,10 +39,21 @@
     objectSizes = [[NSDictionary alloc] initWithContentsOfFile:objectSizesPlist];
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+
+-(BOOL)shouldAutorotate{
+    //return [[UIDevice currentDevice] orientation] == UIInterfaceOrientationPortrait;
+    //return YES;
+   // return self.interfaceOrientation == UIInterfaceOrientationPortrait;
+    return NO;
 }
+
+-(UIInterfaceOrientation)preferredInterfaceOrientationForPresentation{
+    return UIInterfaceOrientationPortrait;
+}
+
+//-(NSUInteger)supportedInterfaceOrientations{
+//    return UIInterfaceOrientationPortrait;
+//}
 
 #pragma mark - Actions
 

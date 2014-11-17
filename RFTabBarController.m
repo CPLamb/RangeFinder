@@ -8,17 +8,20 @@
 
 #import "RFTabBarController.h"
 #import "HeightFinderViewController.h"
+#import "AppDelegate.h"
 
-@interface RFTabBarController ()
 
-@end
-
-@implementation RFTabBarController
+@implementation RFTabBarController{
+    AppDelegate *appDelegate;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.delegate = self;
     NSArray *myVC = self.viewControllers;
+    NSLog(@"selected view controller %@", self.selectedViewController);
+    appDelegate = [[UIApplication sharedApplication] delegate];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -26,18 +29,38 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
--(UIInterfaceOrientation)interfaceOrientation{
-    if (self.selectedIndex == 1)
-        return UIInterfaceOrientationLandscapeRight;
-    
-    return UIInterfaceOrientationPortrait;
-}
-*/
-
 -(BOOL)shouldAutorotate{
     return NO;
 }
 
+/*
+-(NSUInteger)tabBarControllerSupportedInterfaceOrientations:(UITabBarController *)tabBarController{
+    return UIInterfaceOrientationMaskPortrait;
+}
+*/
+
+//-(UIInterfaceOrientation)tabBarControllerPreferredInterfaceOrientationForPresentation:(UITabBarController *)tabBarController{
+//    return UIInterfaceOrientationPortrait;
+//}
+
+
+-(void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item{
+    NSLog(@"Item number is %lu", (unsigned long)self.selectedIndex);
+      //  [[[UIApplication sharedApplication] delegate] reloadNavBarController];
+    if (item == self.viewControllers[1]) {
+        [self willRotateToInterfaceOrientation:UIInterfaceOrientationLandscapeRight duration:0.3];
+    }
+}
+
+
+
+-(void)setViewControllers:(NSArray *)viewControllers animated:(BOOL)animated{
+    NSLog(@"Called setViewControllers");
+}
+
+-(void)loadView{
+    [super loadView];
+    NSLog(@"Called Loadview");
+}
 
 @end
