@@ -63,11 +63,18 @@
 }
 */
 
--(BOOL)shouldAutorotate{
+-(BOOL)shouldAutorotate
+{
     return NO;
 }
 
--(NSUInteger)supportedInterfaceOrientations{
+-(NSUInteger)supportedInterfaceOrientations
+{
+    return UIInterfaceOrientationMaskLandscape;
+}
+
+- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation
+{
     return UIInterfaceOrientationLandscapeRight;
 }
 

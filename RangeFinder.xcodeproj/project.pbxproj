@@ -10,6 +10,7 @@
 		8343798E157C0A7D009E18A1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8343798D157C0A7D009E18A1 /* UIKit.framework */; };
 		83437990157C0A7D009E18A1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8343798F157C0A7D009E18A1 /* Foundation.framework */; };
 		83437992157C0A7D009E18A1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83437991157C0A7D009E18A1 /* CoreGraphics.framework */; };
+		83AF09B41A1A622D00A35F40 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 83AF09B31A1A622D00A35F40 /* Images.xcassets */; };
 		83AFB6631A12A0680066F326 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83AFB6621A12A0680066F326 /* CoreMotion.framework */; };
 		83D6B3321586A6A500CBA01B /* dwg03.png in Resources */ = {isa = PBXBuildFile; fileRef = 83D6B3311586A6A500CBA01B /* dwg03.png */; };
 		83D6B3351586A82400CBA01B /* dwg04.png in Resources */ = {isa = PBXBuildFile; fileRef = 83D6B3341586A82400CBA01B /* dwg04.png */; };
@@ -43,6 +44,7 @@
 		8343798D157C0A7D009E18A1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		8343798F157C0A7D009E18A1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		83437991157C0A7D009E18A1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		83AF09B31A1A622D00A35F40 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = RangeFinder/Images.xcassets; sourceTree = "<group>"; };
 		83AFB6621A12A0680066F326 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		83D6B3311586A6A500CBA01B /* dwg03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dwg03.png; sourceTree = "<group>"; };
 		83D6B3341586A82400CBA01B /* dwg04.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dwg04.png; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 		8343797E157C0A7B009E18A1 = {
 			isa = PBXGroup;
 			children = (
+				83AF09B31A1A622D00A35F40 /* Images.xcassets */,
 				90F498291A17FC4E006735E6 /* RFNavigationController.h */,
 				90F4982A1A17FC4E006735E6 /* RFNavigationController.m */,
 				90F498261A16E089006735E6 /* RFTabBarController.h */,
@@ -228,6 +231,7 @@
 				83E650BA157EA3B3003E9F7C /* RangeFinderIcon.png in Resources */,
 				83E650C1157FCDD5003E9F7C /* flag.png in Resources */,
 				90F498211A12B4BF006735E6 /* MainStoryboard.storyboard in Resources */,
+				83AF09B41A1A622D00A35F40 /* Images.xcassets in Resources */,
 				90F498071A12B410006735E6 /* dwg02.png in Resources */,
 				90F498251A15D6CE006735E6 /* scope.png in Resources */,
 				90F498231A15AB0D006735E6 /* ObjectSizes.plist in Resources */,
@@ -349,6 +353,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/RangeFinder-Prefix.pch";
@@ -364,6 +370,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/RangeFinder-Prefix.pch";
