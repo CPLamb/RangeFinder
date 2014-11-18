@@ -19,6 +19,7 @@
 }
 @synthesize objectString = _objectString;
 
+#pragma mark - Lifecycle Methods
 
 - (void)viewDidLoad
 {

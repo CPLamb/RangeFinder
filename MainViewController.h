@@ -23,6 +23,7 @@
 @property (strong, nonatomic) UIImageView *reticleView;
 @property (strong, nonatomic) UISlider *reticleZoomSlider;
 //>>>>>>> 262514d0c77a08c21caa6d57f6ae6ff8290bb89e:RangeFinder/MainViewController.h
+@property (strong, nonatomic) IBOutlet UIView *helpView;
 
 //@property (strong, nonatomic) UIImagePickerController *imagePickerController;
 @property (strong, nonatomic) IBOutlet UIButton *cameraButtonButton;
@@ -31,6 +32,8 @@
 //<<<<<<< HEAD:MainViewController.h
 //- (IBAction)cameraButton:(UIBarButtonItem *)sender;
 //=======
+- (IBAction)hideHelpButton:(id)sender;
+- (IBAction)showHelpButton:(id)sender;
 
 //>>>>>>> 262514d0c77a08c21caa6d57f6ae6ff8290bb89e:RangeFinder/MainViewController.h
 @end

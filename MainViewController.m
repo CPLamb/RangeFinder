@@ -20,8 +20,11 @@
     NSString *distanceUnits;
     
 }
+// @synthesize helpView = _helpView;
 
 #define FUTZ_FACTOR 6.0
+
+#pragma mark - Lifecycle Methods
 
 - (void)viewDidLoad
 {
@@ -57,6 +60,8 @@
     //self.reticleView.userInteractionEnabled = YES;
     reticleView.userInteractionEnabled = YES;
 
+    self.helpView.hidden = YES;
+
 // Sets up the view's values & displays
 //    self.myAssistantLabel.hidden = NO;
     
@@ -79,6 +84,24 @@
 -(NSUInteger)supportedInterfaceOrientations{
 
     return UIInterfaceOrientationMaskPortrait;
+}
+
+#pragma mark - Custom Methods
+
+- (IBAction)showHelpButton:(id)sender
+{
+    NSLog(@"slides up a transparency that describes the buttons below");
+    if (self.helpView.hidden) {
+        self.helpView.hidden = NO;
+    }
+}
+
+- (IBAction)hideHelpButton:(id)sender
+{
+    NSLog(@"hides the transparency that describes the buttons below");
+    if (!self.helpView.hidden) {
+        self.helpView.hidden = YES;
+    }
 }
 
 #pragma mark - Flipside View

@@ -65,16 +65,18 @@
 
 -(BOOL)shouldAutorotate
 {
-    return NO;
+    return YES;
 }
 
 -(NSUInteger)supportedInterfaceOrientations
 {
-    return UIInterfaceOrientationMaskLandscape;
+    NSLog(@"Help I can't rotate!!");
+    return UIInterfaceOrientationMaskAllButUpsideDown;
 }
 
 - (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation
 {
+    NSLog(@"& I have no preference!!");
     return UIInterfaceOrientationLandscapeRight;
 }
 
