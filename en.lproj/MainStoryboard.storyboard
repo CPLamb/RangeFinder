@@ -28,7 +28,7 @@
             <objects>
                 <viewController id="YdQ-hZ-b0h" customClass="HeightFinderViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CED-Li-keF">
-                        <rect key="frame" x="0.0" y="44" width="320" height="436"/>
+                        <rect key="frame" x="0.0" y="44" width="480" height="276"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Height" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" id="TZn-Ec-v7L">
@@ -192,6 +192,7 @@
                     <tabBarItem key="tabBarItem" title="Item 1" id="Lia-DM-D6e"/>
                     <navigationItem key="navigationItem" title="HeightFinder" id="Yss-uh-dMk"/>
                     <nil key="simulatedBottomBarMetrics"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
                         <outlet property="accelerationsLabel" destination="Q4o-pf-46t" id="FuB-9v-JJQ"/>
                         <outlet property="angleOne" destination="CXL-fZ-byQ" id="zzV-OY-nYp"/>
@@ -235,7 +236,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="eCi-d6-56D">
             <objects>
-                <tabBarController id="9WG-dL-XmA" customClass="RFTabBarController" sceneMemberID="viewController">
+                <tabBarController id="9WG-dL-XmA" sceneMemberID="viewController">
                     <nil key="simulatedStatusBarMetrics"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>

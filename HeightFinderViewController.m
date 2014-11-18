@@ -35,7 +35,6 @@
             NSLog(@"Error! %@", [error description]);
         }
     }];
-    
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -70,13 +69,6 @@
 }
 
 #pragma mark - Core Motion Activity Update Handler Methods
-
--(void)outputAccelerationData:(CMAcceleration)acceleration
-{
-    // Tilt is the arcTan(Opposite accel Y / Adjacent accel X)
-    double tilt = atan(acceleration.y / acceleration.x)*DEGREE_2_RADIAN;
-    degreesTilt = tilt;
-}
 
 -(void)outputAttitudeData:(CMDeviceMotion*)motion{
     self.accelerationsLabel.text = [NSString stringWithFormat:@"X: %1.3f  Y: %1.3f  Z: %1.3f", motion.gravity.x, motion.gravity.y, motion.gravity.z*90];

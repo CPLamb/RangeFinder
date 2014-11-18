@@ -43,10 +43,6 @@
     return NO;
 }
 
--(UIInterfaceOrientation)preferredInterfaceOrientationForPresentation{
-    return UIInterfaceOrientationPortrait;
-}
-
 #pragma mark - Actions
 
 - (IBAction)done:(id)sender
@@ -94,17 +90,13 @@
 
 // returns the number of rows
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
-	//return [self.pickerItems count];
-    
     if (pickerView == self.heightPicker){
-        //return [self.pickerItems count];
         if (component == 0)
            return [pickerItems count];
         return [inchesPicker count];
         }
     
     if (pickerView == self.objectPicker)
-        //return [self.objectPickerItems count];
         return [objectPickerItems count];
     
     return -1; //error condition
@@ -119,7 +111,6 @@
     }
     
     if (pickerView == self.objectPicker)
-        //return [self.objectPickerItems objectAtIndex:row];
         return [objectPickerItems objectAtIndex:row];
     
     return nil; //error condition

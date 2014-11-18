@@ -16,41 +16,28 @@
     // Do any additional setup after loading the view.
     NSLog(@"Top View Controller %@", self.topViewController);
     self.delegate = self;
-    
-    if ([self.topViewController isKindOfClass:[HeightFinderViewController class]]){
-        NSLog(@"I see a Height View Controller!");
-        [super willRotateToInterfaceOrientation:UIInterfaceOrientationLandscapeRight duration:0.3];
-    }
-    else
-        NSLog(@"I see a %@", self.topViewController);
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     if ([self.topViewController isKindOfClass:[HeightFinderViewController class]]) {
-        NSLog(@"We've got a Height Finder!");
-        [UIView beginAnimations:@"View Flip" context:nil];
-        [UIView setAnimationDuration:0.5f];
+        [UIView beginAnimations:@"Force Landscape Right" context:nil];
+        [UIView setAnimationDuration:0.2f];
         [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
         
         self.view.transform = CGAffineTransformIdentity;
         self.view.transform = CGAffineTransformMakeRotation(90.0*0.0174532925);
-        self.view.bounds = CGRectMake(0.0f, 0.0f, 480.0f, 320.0f);
-        self.view.center = CGPointMake(160.0f, 240.0f);
+        self.view.bounds = CGRectMake(0.0f, 0.0f, [UIScreen mainScreen].bounds.size.height, [UIScreen mainScreen].bounds.size.width);
+        self.view.center = CGPointMake([UIScreen mainScreen].bounds.size.width/2, [UIScreen mainScreen].bounds.size.height/2);
         [UIView commitAnimations];
     }
     
-    
+    self.navigationBar.hidden = YES;
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
--(UIInterfaceOrientation)navigationControllerPreferredInterfaceOrientationForPresentation:(UINavigationController *)navigationController{
-    return navigationController.topViewController.preferredInterfaceOrientationForPresentation;
-}
-
 
 -(BOOL)shouldAutorotate{
     return NO;
