@@ -9,9 +9,18 @@
 #import "HeightFinderViewController.h"
 
 @implementation HeightFinderViewController{
-    float degreesTilt;
+    //float degreesTilt;
+    int degreesTilt;
     CMMotionManager *motionManager;
     RFTabBarController *tabVC;
+    int lastdegreeVal;
+    UITapGestureRecognizer *tapToStoreAngle;
+    //double bStep;
+    //double aOne;
+    //double aTwo;
+    int bStep;
+    int aOne;
+    int aTwo;
 }
 
 #define DEGREE_2_RADIAN 57.3
@@ -44,8 +53,43 @@
     self.helpView.bounds = landScapeRight;
     
     tabVC = (RFTabBarController*)self.parentViewController.parentViewController;
+    lastdegreeVal = -1.00;
+    tapToStoreAngle = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedScreen:)];
+    aOne = -1;
+    bStep = -1;
+    aTwo = -1;
+    //[self drawAdjacentTriangles];
+    
+    UIColor *greencolor = [UIColor colorWithRed:100/255.0 green:255/255.0 blue:100/255.0 alpha:1];
+    CGPoint startPoint = CGPointMake(0,0);
+    CGPoint endPoint = CGPointMake([UIScreen mainScreen].bounds.size.height/2, [UIScreen mainScreen].bounds.size.width/2);
+    //[self drawSimpleLine:startPoint end:endPoint color:greencolor.CGColor];
+    CGRect thisRect = self.parentViewController.view.bounds;
+    TriangleView *myTriangles = [[TriangleView alloc] initWithFrame:thisRect];
+    myTriangles.backgroundColor = [UIColor clearColor];
+    [self.view addSubview:myTriangles];
     
 }
+
+-(void)drawAdjacentTriangles{
+    UIBezierPath *trianglePath = [UIBezierPath bezierPath];
+    trianglePath.lineWidth = 3.0;
+    [trianglePath moveToPoint:CGPointMake(0, [UIScreen mainScreen].bounds.size.width-100)];
+    [trianglePath addLineToPoint:CGPointMake([UIScreen mainScreen].bounds.size.height/2, 0)];
+    [trianglePath addLineToPoint:CGPointMake([UIScreen mainScreen].bounds.size.width-100, [UIScreen mainScreen].bounds.size.height/2)];
+    [trianglePath closePath];
+    CAShapeLayer *triangleMaskLayer = [CAShapeLayer layer];
+    [triangleMaskLayer setPath:trianglePath.CGPath];
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
+    view.backgroundColor = [UIColor colorWithWhite:0.25 alpha:0.5];
+    view.layer.mask = triangleMaskLayer;
+    [self.view addSubview:view];
+}
+
+-(void)drawSimpleLine:(CGPoint)startPoint end:(CGPoint)endPoint color:(CGColorRef)lineColor{
+
+}
+
 
 -(void)viewDidAppear:(BOOL)animated{
 
@@ -91,9 +135,16 @@
 
 -(void)outputAttitudeData:(CMDeviceMotion*)motion{
     //self.accelerationsLabel.text = [NSString stringWithFormat:@"X: %1.3f  Y: %1.3f  Z: %1.3f", motion.gravity.x, motion.gravity.y, motion.gravity.z*90];
-    degreesTilt = -motion.gravity.y*90;
-    if (degreesTilt >= 0)
-        self.degreeLabel.text = [NSString stringWithFormat:@"%1.0f°", degreesTilt];
+   // degreesTilt = -motion.gravity.y*90;
+    float degreeDec = -motion.gravity.y*90;
+    degreesTilt = (int)round(degreeDec);
+    if (degreesTilt >= 0){
+        self.degreeLabel.text = [NSString stringWithFormat:@"%d°", degreesTilt];
+        if (degreesTilt != lastdegreeVal){
+        AudioServicesPlaySystemSound(0x450);
+            lastdegreeVal = degreesTilt;
+        }
+    }
     else
         self.degreeLabel.text = @"0°";
 }
@@ -102,20 +153,20 @@
 
 - (IBAction)setAngleOneButton:(UIButton *)sender
 {
-    self.angleOne.text = [NSString stringWithFormat:@"%2.2f", degreesTilt];
+   // self.angleOne.text = [NSString stringWithFormat:@"%2.2f", degreesTilt];
 }
 
 - (IBAction)setAngleTwoButton:(UIButton *)sender
 {
-    self.angleTwo.text = [NSString stringWithFormat:@"%2.2f", degreesTilt];
+   // self.angleTwo.text = [NSString stringWithFormat:@"%2.2f", degreesTilt];
 }
 
 - (IBAction)calculateButton:(UIButton *)sender
 {
 // converts textfields to floats in radians to calculate the height
-    double bStep = [self.baseLength.text doubleValue];
-    double aOne = [self.angleOne.text doubleValue]/DEGREE_2_RADIAN;
-    double aTwo = [self.angleTwo.text doubleValue]/DEGREE_2_RADIAN;
+   // double bStep = [self.baseLength.text doubleValue];
+   // double aOne = [self.angleOne.text doubleValue]/DEGREE_2_RADIAN;
+   // double aTwo = [self.angleTwo.text doubleValue]/DEGREE_2_RADIAN;
     
     if (aTwo > aOne) {
         double temp = aTwo;
@@ -137,6 +188,11 @@
     [self.angleOne resignFirstResponder];
     [self.angleTwo resignFirstResponder];
     [self.baseLength resignFirstResponder];
+}
+
+#pragma mark - Handler for screen tap
+-(void)tappedScreen:(UITapGestureRecognizer*)gesture{
+    
 }
 
 @end

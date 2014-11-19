@@ -15,6 +15,9 @@
 		83D6B3351586A82400CBA01B /* dwg04.png in Resources */ = {isa = PBXBuildFile; fileRef = 83D6B3341586A82400CBA01B /* dwg04.png */; };
 		83E650BA157EA3B3003E9F7C /* RangeFinderIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 83E650B9157EA3B3003E9F7C /* RangeFinderIcon.png */; };
 		83E650C1157FCDD5003E9F7C /* flag.png in Resources */ = {isa = PBXBuildFile; fileRef = 83E650C0157FCDD5003E9F7C /* flag.png */; };
+		900E7D2F1A1C2FBF00D477AA /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 900E7D2E1A1C2FBF00D477AA /* AudioToolbox.framework */; };
+		900E7D311A1C41B500D477AA /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 900E7D301A1C41B500D477AA /* QuartzCore.framework */; };
+		900E7D341A1C4F0500D477AA /* TriangleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 900E7D331A1C4F0500D477AA /* TriangleView.m */; };
 		908380AB1A0AE712005A6A86 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 908380A91A0AE712005A6A86 /* Default.png */; };
 		908380AC1A0AE712005A6A86 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 908380AA1A0AE712005A6A86 /* Icon.png */; };
 		90F497EB1A12B3FA006735E6 /* FlipsideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90F497EA1A12B3FA006735E6 /* FlipsideViewController.m */; };
@@ -48,6 +51,10 @@
 		83D6B3341586A82400CBA01B /* dwg04.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dwg04.png; sourceTree = "<group>"; };
 		83E650B9157EA3B3003E9F7C /* RangeFinderIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RangeFinderIcon.png; sourceTree = SOURCE_ROOT; };
 		83E650C0157FCDD5003E9F7C /* flag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flag.png; sourceTree = "<group>"; };
+		900E7D2E1A1C2FBF00D477AA /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		900E7D301A1C41B500D477AA /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		900E7D321A1C4F0500D477AA /* TriangleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TriangleView.h; sourceTree = "<group>"; };
+		900E7D331A1C4F0500D477AA /* TriangleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TriangleView.m; sourceTree = "<group>"; };
 		908380A91A0AE712005A6A86 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		908380AA1A0AE712005A6A86 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		90F497EA1A12B3FA006735E6 /* FlipsideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlipsideViewController.m; sourceTree = "<group>"; };
@@ -83,6 +90,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				900E7D311A1C41B500D477AA /* QuartzCore.framework in Frameworks */,
+				900E7D2F1A1C2FBF00D477AA /* AudioToolbox.framework in Frameworks */,
 				83AFB6631A12A0680066F326 /* CoreMotion.framework in Frameworks */,
 				8343798E157C0A7D009E18A1 /* UIKit.framework in Frameworks */,
 				83437990157C0A7D009E18A1 /* Foundation.framework in Frameworks */,
@@ -96,6 +105,8 @@
 		8343797E157C0A7B009E18A1 = {
 			isa = PBXGroup;
 			children = (
+				900E7D321A1C4F0500D477AA /* TriangleView.h */,
+				900E7D331A1C4F0500D477AA /* TriangleView.m */,
 				90F498291A17FC4E006735E6 /* RFNavigationController.h */,
 				90F4982A1A17FC4E006735E6 /* RFNavigationController.m */,
 				90F498261A16E089006735E6 /* RFTabBarController.h */,
@@ -129,6 +140,8 @@
 		8343798C157C0A7D009E18A1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				900E7D301A1C41B500D477AA /* QuartzCore.framework */,
+				900E7D2E1A1C2FBF00D477AA /* AudioToolbox.framework */,
 				83AFB6621A12A0680066F326 /* CoreMotion.framework */,
 				8343798D157C0A7D009E18A1 /* UIKit.framework */,
 				8343798F157C0A7D009E18A1 /* Foundation.framework */,
@@ -251,6 +264,7 @@
 				90F498101A12B410006735E6 /* HeightFinderViewController.m in Sources */,
 				90F497EB1A12B3FA006735E6 /* FlipsideViewController.m in Sources */,
 				90F498141A12B410006735E6 /* README.md in Sources */,
+				900E7D341A1C4F0500D477AA /* TriangleView.m in Sources */,
 				90F498031A12B410006735E6 /* AppDelegate.m in Sources */,
 				90F498281A16E089006735E6 /* RFTabBarController.m in Sources */,
 				90F4982B1A17FC4E006735E6 /* RFNavigationController.m in Sources */,

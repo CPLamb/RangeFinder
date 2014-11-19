@@ -9,10 +9,13 @@
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
 #import <CoreMotion/CoreMotion.h>
+#import <AudioToolbox/AudioToolbox.h>
+#import <QuartzCore/QuartzCore.h>
 #import "FlipsideViewController.h"
 #import "RFTabBarController.h"
+#import "TriangleView.h"
 
-@interface HeightFinderViewController : UIViewController
+@interface HeightFinderViewController : UIViewController<UIGestureRecognizerDelegate>
 
 @property (nonatomic, strong) IBOutlet UITextField *baseLength;
 @property (nonatomic, strong) IBOutlet UITextField *angleOne;
