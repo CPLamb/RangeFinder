@@ -10,15 +10,16 @@
 #import <Foundation/Foundation.h>
 #import <CoreMotion/CoreMotion.h>
 #import "FlipsideViewController.h"
+#import "RFTabBarController.h"
 
 @interface HeightFinderViewController : UIViewController
 
 @property (nonatomic, strong) IBOutlet UITextField *baseLength;
 @property (nonatomic, strong) IBOutlet UITextField *angleOne;
 @property (nonatomic, strong) IBOutlet UITextField *angleTwo;
-@property (nonatomic, strong) IBOutlet UILabel *height;
-@property (nonatomic, strong) IBOutlet UILabel *accelerationsLabel;
 @property (strong, nonatomic) IBOutlet UIView *helpView;
+
+@property (weak, nonatomic) IBOutlet UILabel *degreeLabel;
 
 - (IBAction)setAngleOneButton:(UIButton *)sender;
 - (IBAction)setAngleTwoButton:(UIButton *)sender;

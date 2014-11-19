@@ -11,6 +11,7 @@
 @implementation HeightFinderViewController{
     float degreesTilt;
     CMMotionManager *motionManager;
+    RFTabBarController *tabVC;
 }
 
 #define DEGREE_2_RADIAN 57.3
@@ -35,6 +36,15 @@
             NSLog(@"Error! %@", [error description]);
         }
     }];
+    
+    self.helpView.hidden = YES;
+    self.helpView.alpha = 0;
+    CGRect landScapeRight = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.height, [UIScreen mainScreen].bounds.size.width);
+    self.helpView.frame = landScapeRight;
+    self.helpView.bounds = landScapeRight;
+    
+    tabVC = (RFTabBarController*)self.parentViewController.parentViewController;
+    
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -55,24 +65,37 @@
 - (IBAction)showHelpButton:(id)sender
 {
     NSLog(@"slides up a transparency that describes the buttons below");
-    if (self.helpView.hidden) {
-        self.helpView.hidden = NO;
-    }
+   // [self.parentViewController.parentViewController.view addSubview:self.helpView];
+    self.helpView.hidden = NO;
+        [UIView transitionWithView:self.helpView duration:0.5 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+            self.helpView.alpha = 0.75;
+            tabVC.tabBar.alpha = 0;
+            //self.helpView.hidden = NO;
+        } completion:^(BOOL finished) {
+        }];
 }
 
 - (IBAction)hideHelpButton:(id)sender
 {
-    //    NSLog(@"hides the transparency that describes the buttons below");
-    if (!self.helpView.hidden) {
+    [UIView transitionWithView:self.helpView duration:0.5 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        self.helpView.alpha = 0;
+        tabVC.tabBar.alpha = 1;
+    } completion:^(BOOL finished) {
         self.helpView.hidden = YES;
-    }
+        NSLog(@"Finished fading Help screen");
+    }];
+   // [self.helpView removeFromSuperview];
 }
 
 #pragma mark - Core Motion Activity Update Handler Methods
 
 -(void)outputAttitudeData:(CMDeviceMotion*)motion{
-    self.accelerationsLabel.text = [NSString stringWithFormat:@"X: %1.3f  Y: %1.3f  Z: %1.3f", motion.gravity.x, motion.gravity.y, motion.gravity.z*90];
+    //self.accelerationsLabel.text = [NSString stringWithFormat:@"X: %1.3f  Y: %1.3f  Z: %1.3f", motion.gravity.x, motion.gravity.y, motion.gravity.z*90];
     degreesTilt = -motion.gravity.y*90;
+    if (degreesTilt >= 0)
+        self.degreeLabel.text = [NSString stringWithFormat:@"%1.0f°", degreesTilt];
+    else
+        self.degreeLabel.text = @"0°";
 }
 
 #pragma mark - Custom Methods
@@ -104,9 +127,8 @@
     double h = YOUR_HEIGHT + (bStep * tan(aTwo) / (1-(tan(aTwo)/tan(aOne))));
     
 // prints value
-    self.height.text = [NSString stringWithFormat:@"%3.3f",h];
-    NSLog(@"The height is %@", self.height.text);
-
+   // self.height.text = [NSString stringWithFormat:@"%3.3f",h];
+   // NSLog(@"The height is %@", self.height.text);
 }
 
 - (IBAction)doneButton:(UIButton *)sender

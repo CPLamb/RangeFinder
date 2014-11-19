@@ -135,7 +135,6 @@
         
         // displays value & units
         self.flagValueString.text = [[self.flipsideInfo.text stringByAppendingString:@"  " ] stringByAppendingString:self.flagUnits];
-        
     }
     
     if (pickerView == self.objectPicker){
