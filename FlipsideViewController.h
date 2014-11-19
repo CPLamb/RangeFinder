@@ -47,4 +47,6 @@
 - (IBAction)hideHelpButton:(id)sender;
 - (IBAction)showHelpButton:(id)sender;
 
+- (IBAction)editButton:(id)sender;
+
 @end

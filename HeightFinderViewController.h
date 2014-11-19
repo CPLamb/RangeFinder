@@ -14,8 +14,9 @@
 @interface HeightFinderViewController : UIViewController
 
 @property (nonatomic, strong) IBOutlet UITextField *baseLength;
-@property (nonatomic, strong) IBOutlet UITextField *angleOne;
-@property (nonatomic, strong) IBOutlet UITextField *angleTwo;
+@property (nonatomic, strong) IBOutlet UILabel *angleOneLabel;
+@property (nonatomic, strong) IBOutlet UILabel *angleTwoLabel;
+
 @property (nonatomic, strong) IBOutlet UILabel *height;
 
 //@property (nonatomic, strong) CMAcceleration *myAcceleration;

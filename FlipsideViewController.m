@@ -26,13 +26,13 @@
     [super viewDidLoad];
     pickerItems = [[NSArray alloc] initWithObjects:@"-", @"0", @"1", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9", @"10", @"11", @"12", @"15", @"20", @"30", @"40", @"50", nil];
     inchesPicker = [[NSArray alloc] initWithObjects:@"-", @"0", @"1", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9", @"10", @"11", nil];
-    objectPickerItems = [[NSArray alloc] initWithObjects:@" ",@"None", @"Light switch", @"Car", @"Person", @"Door", @"Golf flag", @"Utility pole", @"Sailboat", @"Lighthouse",@"-", nil];
+    objectPickerItems = [[NSArray alloc] initWithObjects:@" ",@"Add Object",@"None", @"Light switch", @"Car", @"Person", @"Door", @"Golf flag", @"Utility pole", @"Sailboat", @"Lighthouse",@"-", nil];
     
 // sets defaults for the Picker
-    self.heightMajorLabel.text = @"Feet";
-    self.heightMinorLabel.text = @"Inches";
+    self.heightMajorLabel.text = @"feet";
+    self.heightMinorLabel.text = @"inches";
     self.unitsSelector.selectedSegmentIndex = 1;
-    self.flagUnits = @"Feet";
+    self.flagUnits = @"feet";
     
     self.objectString.text = @"Golf flag";
     self.flagValueString.text = @"";
@@ -50,6 +50,18 @@
 }
 
 #pragma mark - Custom Methods
+
+- (IBAction)editButton:(id)sender
+{
+    NSString *messageString = [NSString stringWithFormat:@"Delete %@ ?", self.objectString.text];
+    UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Edit Object List"
+                                                      message:messageString
+                                                     delegate:nil
+                                            cancelButtonTitle:@"Delete"
+                                            otherButtonTitles:@"Cancel",nil];
+    [message setAlertViewStyle:UIAlertViewStyleDefault];
+    [message show];
+}
 
 - (IBAction)showHelpButton:(id)sender
 {
@@ -76,19 +88,19 @@
 {
     switch(self.unitsSelector.selectedSegmentIndex) {
         case 0:
-            self.flagUnits =  @"Yards";
-            self.heightMajorLabel.text = @"Yards";
-            self.heightMinorLabel.text = @"Inches";
+            self.flagUnits =  @"yards";
+            self.heightMajorLabel.text = @"yards";
+            self.heightMinorLabel.text = @"inches";
             break;
         case 1:
-            self.flagUnits =  @"Feet";
-            self.heightMajorLabel.text = @"Feet";
-            self.heightMinorLabel.text = @"Inches";
+            self.flagUnits =  @"feet";
+            self.heightMajorLabel.text = @"feet";
+            self.heightMinorLabel.text = @"inches";
             break;
         case 2:
-            self.flagUnits =  @"Meters";
-            self.heightMajorLabel.text = @"Meter";
-            self.heightMinorLabel.text = @"cm";
+            self.flagUnits =  @"meters";
+            self.heightMajorLabel.text = @"meters";
+            self.heightMinorLabel.text = @"cms";
             break;
     }
     NSLog(@"Units selected are %@", self.flagUnits);

@@ -61,7 +61,7 @@
 {
     return (interfaceOrientation == UIInterfaceOrientationLandscapeRight);
 }
-*/
+
 
 -(BOOL)shouldAutorotate
 {
@@ -79,7 +79,7 @@
     NSLog(@"& I have no preference!!");
     return UIInterfaceOrientationLandscapeRight;
 }
-
+*/
 #pragma mark - Custom methods
 
 - (IBAction)showHelpButton:(id)sender
@@ -108,28 +108,40 @@
 }
 
 -(void)outputAttitudeData:(CMDeviceMotion*)motion{
-    self.accelerationsLabel.text = [NSString stringWithFormat:@"X: %1.3f  Y: %1.3f  Z: %1.3f", motion.gravity.x, motion.gravity.y, motion.gravity.z*90];
+    self.accelerationsLabel.text = [NSString stringWithFormat:@"Current angle = %2.1f", -motion.gravity.y*90];
     degreesTilt = -motion.gravity.y*90;
 }
 
 #pragma mark - Custom Methods
 
+- (IBAction)addButton:(id)sender
+{
+    UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Add Objects"
+                                                      message:@"Enter object name"
+                                                     delegate:nil
+                                            cancelButtonTitle:@"Add"
+                                            otherButtonTitles:@"Cancel", nil];
+    [message setAlertViewStyle:UIAlertViewStylePlainTextInput];
+    [message show];
+}
+
+
 - (IBAction)setAngleOneButton:(UIButton *)sender
 {
-    self.angleOne.text = [NSString stringWithFormat:@"%2.2f", degreesTilt];
+    self.angleOneLabel.text = [NSString stringWithFormat:@"%2.1f", degreesTilt];
 }
 
 - (IBAction)setAngleTwoButton:(UIButton *)sender
 {
-    self.angleTwo.text = [NSString stringWithFormat:@"%2.2f", degreesTilt];
+    self.angleTwoLabel.text = [NSString stringWithFormat:@"%2.1f", degreesTilt];
 }
 
 - (IBAction)calculateButton:(UIButton *)sender
 {
 // converts textfields to floats in radians to calculate the height
     double bStep = [self.baseLength.text doubleValue];
-    double aOne = [self.angleOne.text doubleValue]/DEGREE_2_RADIAN;
-    double aTwo = [self.angleTwo.text doubleValue]/DEGREE_2_RADIAN;
+    double aOne = [self.angleOneLabel.text doubleValue]/DEGREE_2_RADIAN;
+    double aTwo = [self.angleTwoLabel.text doubleValue]/DEGREE_2_RADIAN;
     
     if (aTwo > aOne) {
         double temp = aTwo;
@@ -150,8 +162,6 @@
 - (IBAction)doneButton:(UIButton *)sender
 {
     NSLog(@"Hides the keyboard");
-    [self.angleOne resignFirstResponder];
-    [self.angleTwo resignFirstResponder];
     [self.baseLength resignFirstResponder];
 }
 
