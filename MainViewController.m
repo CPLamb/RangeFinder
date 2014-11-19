@@ -175,17 +175,17 @@
     secondZoomFactor = [pictureZoomFactor floatValue];
 // keeps zoom factor from being zero
     if (!secondZoomFactor) {
-        NSLog (@"No zoom factor");
+        // NSLog (@"No zoom factor");
         secondZoomFactor = 1.0;
     }    
     totalZoomFactor = zoomFactor *secondZoomFactor;
-    NSString *finalZoomFactor = [[NSString alloc] initWithFormat:@"Total zoom = %3.3f", totalZoomFactor];
+    NSString *finalZoomFactor = [[NSString alloc] initWithFormat:@"Total zoom = %3.1f", totalZoomFactor];
     self.myAssistantLabel.text = finalZoomFactor;
-    NSLog(@"zoom are %2.3f, %2.3f, %2.3f", zoomFactor, secondZoomFactor, totalZoomFactor);
+    // NSLog(@"zoom are %2.3f, %2.3f, %2.3f", zoomFactor, secondZoomFactor, totalZoomFactor);
     
     // Calculates actual distance in yards
     //self.distanceLabel.text = [NSString stringWithFormat:@"%3.0f %@", (totalZoomFactor * flagHeight * FUTZ_FACTOR), self.distanceUnits];
-    self.distanceLabel.text = [NSString stringWithFormat:@"%3.0f %@", (totalZoomFactor * flagHeight * FUTZ_FACTOR), distanceUnits];
+    self.distanceLabel.text = [NSString stringWithFormat:@"%4.0f %@", (totalZoomFactor * flagHeight * FUTZ_FACTOR), distanceUnits];
 
 // gets rid of the image controller modal view
     [self dismissModalViewControllerAnimated:YES];

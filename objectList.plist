@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>height</key>
+		<string>0.33</string>
+		<key>object</key>
+		<string>light switch</string>
+		<key>units</key>
+		<string>feet</string>
+	</dict>
+	<dict>
+		<key>height</key>
+		<string>4</string>
+		<key>object</key>
+		<string>car</string>
+		<key>units</key>
+		<string>feet</string>
+	</dict>
+	<dict>
+		<key>height</key>
+		<string>6</string>
+		<key>object</key>
+		<string>person</string>
+		<key>units</key>
+		<string>feet</string>
+	</dict>
+	<dict>
+		<key>height</key>
+		<string>7</string>
+		<key>object</key>
+		<string>door</string>
+		<key>units</key>
+		<string>feet</string>
+	</dict>
+	<dict>
+		<key>height</key>
+		<string>2</string>
+		<key>object</key>
+		<string>golf flag</string>
+		<key>units</key>
+		<string>yards</string>
+	</dict>
+	<dict>
+		<key>height</key>
+		<string>30</string>
+		<key>object</key>
+		<string>utility pole</string>
+		<key>units</key>
+		<string>feet</string>
+	</dict>
+	<dict>
+		<key>height</key>
+		<string>25</string>
+		<key>object</key>
+		<string>sailboat</string>
+		<key>units</key>
+		<string>yards</string>
+	</dict>
+	<dict>
+		<key>height</key>
+		<string>60</string>
+		<key>object</key>
+		<string>lighthouse</string>
+		<key>units</key>
+		<string>feet</string>
+	</dict>
+	<dict>
+		<key>height</key>
+		<string>3</string>
+		<key>object</key>
+		<string>truck</string>
+		<key>units</key>
+		<string>meters</string>
+	</dict>
+	<dict>
+		<key>height</key>
+		<string>2</string>
+		<key>object</key>
+		<string>window</string>
+		<key>units</key>
+		<string>meters</string>
+	</dict>
+	<dict>
+		<key>height</key>
+		<string>8</string>
+		<key>object</key>
+		<string>goal post</string>
+		<key>units</key>
+		<string>yards</string>
+	</dict>
+</array>
+</plist>

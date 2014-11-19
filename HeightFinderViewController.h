@@ -27,7 +27,6 @@
 - (IBAction)setAngleTwoButton:(UIButton *)sender;
 
 - (IBAction)calculateButton:(UIButton *)sender;
-- (IBAction)doneButton:(UIButton *)sender;
 
 @property (strong, nonatomic) IBOutlet UIView *helpView;
 

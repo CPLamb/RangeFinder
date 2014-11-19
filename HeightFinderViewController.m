@@ -20,10 +20,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     
+// Additional setup stuff
     self.helpView.hidden = YES;
-
+// Tap to hide keyboard
+    UITapGestureRecognizer *hideKeyboardTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideTap:)];
+    [self.view addGestureRecognizer:hideKeyboardTap];
+    
 // CoreMotion setup for acceleration values
    // self.motionManager = [[CMMotionManager alloc] init];
    // self.motionManager.accelerometerUpdateInterval = .2;
@@ -56,31 +59,23 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-/*
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+
+#pragma mark - Core Motion Activity Update Handler Methods
+
+-(void)outputAccelerationData:(CMAcceleration)acceleration
 {
-    return (interfaceOrientation == UIInterfaceOrientationLandscapeRight);
+    // Tilt is the arcTan(Opposite accel Y / Adjacent accel X)
+    double tilt = atan(acceleration.y / acceleration.x)*DEGREE_2_RADIAN;
+    degreesTilt = tilt;
 }
 
-
--(BOOL)shouldAutorotate
-{
-    return YES;
+-(void)outputAttitudeData:(CMDeviceMotion*)motion{
+    self.accelerationsLabel.text = [NSString stringWithFormat:@"Current angle = %2.0f", -motion.gravity.y*90];
+    degreesTilt = -motion.gravity.y*90;
 }
 
--(NSUInteger)supportedInterfaceOrientations
-{
-    NSLog(@"Help I can't rotate!!");
-    return UIInterfaceOrientationMaskAllButUpsideDown;
-}
+#pragma mark - Custom Methods
 
-- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation
-{
-    NSLog(@"& I have no preference!!");
-    return UIInterfaceOrientationLandscapeRight;
-}
-*/
-#pragma mark - Custom methods
 
 - (IBAction)showHelpButton:(id)sender
 {
@@ -97,22 +92,6 @@
         self.helpView.hidden = YES;
     }
 }
-
-#pragma mark - Core Motion Activity Update Handler Methods
-
--(void)outputAccelerationData:(CMAcceleration)acceleration
-{
-    // Tilt is the arcTan(Opposite accel Y / Adjacent accel X)
-    double tilt = atan(acceleration.y / acceleration.x)*DEGREE_2_RADIAN;
-    degreesTilt = tilt;
-}
-
--(void)outputAttitudeData:(CMDeviceMotion*)motion{
-    self.accelerationsLabel.text = [NSString stringWithFormat:@"Current angle = %2.1f", -motion.gravity.y*90];
-    degreesTilt = -motion.gravity.y*90;
-}
-
-#pragma mark - Custom Methods
 
 - (IBAction)addButton:(id)sender
 {
@@ -154,15 +133,15 @@
     double h = YOUR_HEIGHT + (bStep * tan(aTwo) / (1-(tan(aTwo)/tan(aOne))));
     
 // prints value
-    self.height.text = [NSString stringWithFormat:@"%3.3f",h];
+    self.height.text = [NSString stringWithFormat:@"%3.1f",h];
     NSLog(@"The height is %@", self.height.text);
 
 }
 
-- (IBAction)doneButton:(UIButton *)sender
+- (void)hideTap:(UIGestureRecognizer *)gestureRecognizer
 {
-    NSLog(@"Hides the keyboard");
-    [self.baseLength resignFirstResponder];
+    // NSLog(@"Hides the keyboard");
+    [self.view endEditing:YES];  // or [self.baseLength resignFirstResponder];
 }
 
 @end

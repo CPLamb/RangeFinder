@@ -24,9 +24,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    pickerItems = [[NSArray alloc] initWithObjects:@"-", @"0", @"1", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9", @"10", @"11", @"12", @"15", @"20", @"30", @"40", @"50", nil];
-    inchesPicker = [[NSArray alloc] initWithObjects:@"-", @"0", @"1", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9", @"10", @"11", nil];
-    objectPickerItems = [[NSArray alloc] initWithObjects:@" ",@"Add Object",@"None", @"Light switch", @"Car", @"Person", @"Door", @"Golf flag", @"Utility pole", @"Sailboat", @"Lighthouse",@"-", nil];
+    pickerItems = [[NSArray alloc] initWithObjects:@"0", @"1", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9", @"10", @"11", @"12", @"15", @"20", @"30", @"40", @"50", nil];
+    inchesPicker = [[NSArray alloc] initWithObjects:@"0", @"1", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9", @"10", @"11", nil];
+    objectPickerItems = [[NSArray alloc] initWithObjects:@" ",@"Add Object",@"None", @"Light switch", @"Car", @"Person", @"Door", @"Golf flag", @"Utility pole", @"Sailboat", @"Lighthouse",@"+", nil];
     
 // sets defaults for the Picker
     self.heightMajorLabel.text = @"feet";
@@ -42,6 +42,7 @@
     
     NSString *objectSizesPlist = [[NSBundle mainBundle] pathForResource:@"ObjectSizes" ofType:@"plist"];
     objectSizes = [[NSDictionary alloc] initWithContentsOfFile:objectSizesPlist];
+    // NSLog(@"The dictionary %@", objectSizes);
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
