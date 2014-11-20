@@ -14,6 +14,7 @@
 		83ACC2EB1A1D507100D55CE5 /* IconSetup24.png in Resources */ = {isa = PBXBuildFile; fileRef = 83ACC2EA1A1D507100D55CE5 /* IconSetup24.png */; };
 		83ACC2ED1A1D524400D55CE5 /* IconRange24.png in Resources */ = {isa = PBXBuildFile; fileRef = 83ACC2EC1A1D524400D55CE5 /* IconRange24.png */; };
 		83ACC2EF1A1D527500D55CE5 /* IconHeight24.png in Resources */ = {isa = PBXBuildFile; fileRef = 83ACC2EE1A1D527500D55CE5 /* IconHeight24.png */; };
+		83ACC2F11A1D6BCF00D55CE5 /* objectList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 83ACC2F01A1D6BCF00D55CE5 /* objectList.plist */; };
 		83AF09B41A1A622D00A35F40 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 83AF09B31A1A622D00A35F40 /* Images.xcassets */; };
 		83AFB6631A12A0680066F326 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83AFB6621A12A0680066F326 /* CoreMotion.framework */; };
 		83D6B3321586A6A500CBA01B /* dwg03.png in Resources */ = {isa = PBXBuildFile; fileRef = 83D6B3311586A6A500CBA01B /* dwg03.png */; };
@@ -52,6 +53,7 @@
 		83ACC2EA1A1D507100D55CE5 /* IconSetup24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IconSetup24.png; sourceTree = "<group>"; };
 		83ACC2EC1A1D524400D55CE5 /* IconRange24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IconRange24.png; sourceTree = "<group>"; };
 		83ACC2EE1A1D527500D55CE5 /* IconHeight24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IconHeight24.png; sourceTree = "<group>"; };
+		83ACC2F01A1D6BCF00D55CE5 /* objectList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = objectList.plist; sourceTree = "<group>"; };
 		83AF09B31A1A622D00A35F40 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = RangeFinder/Images.xcassets; sourceTree = "<group>"; };
 		83AFB6621A12A0680066F326 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		83D6B3311586A6A500CBA01B /* dwg03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dwg03.png; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 				83ACC2EE1A1D527500D55CE5 /* IconHeight24.png */,
 				83ACC2EC1A1D524400D55CE5 /* IconRange24.png */,
 				83ACC2EA1A1D507100D55CE5 /* IconSetup24.png */,
+				83ACC2F01A1D6BCF00D55CE5 /* objectList.plist */,
 				83ACC2E81A1D348800D55CE5 /* objectList.csv */,
 				90F497FD1A12B410006735E6 /* main.m */,
 				90F498001A12B410006735E6 /* RangeFinder-Info.plist */,
@@ -247,6 +250,7 @@
 				83AF09B41A1A622D00A35F40 /* Images.xcassets in Resources */,
 				90F498071A12B410006735E6 /* dwg02.png in Resources */,
 				90F498251A15D6CE006735E6 /* scope.png in Resources */,
+				83ACC2F11A1D6BCF00D55CE5 /* objectList.plist in Resources */,
 				83ACC2ED1A1D524400D55CE5 /* IconRange24.png in Resources */,
 				90F498231A15AB0D006735E6 /* ObjectSizes.plist in Resources */,
 				83ACC2EB1A1D507100D55CE5 /* IconSetup24.png in Resources */,

@@ -42,11 +42,12 @@
     }
 // Builds a view to overlay over the camera view including the zoom factor
 //<<<<<<< HEAD:MainViewController.m
-    CGRect frame = CGRectMake(130.0, 150.0, 60.0, 120.0);
+    CGRect frame = CGRectMake(80.0, 150.0, 160.0, 120.0);
+    //CGRect frame = CGRectMake(130.0, 150.0, 60.0, 120.0);
     //self.reticleView = [[UIImageView alloc] initWithFrame:frame];
     //self.reticleView.image = [UIImage imageNamed:@"dwg06.png"];
     reticleView = [[UIImageView alloc] initWithFrame:frame];
-    reticleView.image = [UIImage imageNamed:@"dwg06.png"];
+    reticleView.image = [UIImage imageNamed:@"scope.png"];
 //=======
    // CGRect frame = CGRectMake(10.0, 40.0, 320.0, 240.0);
     //CGRect frame = CGRectMake(100.0, 100.0, 200.0, 200.0);

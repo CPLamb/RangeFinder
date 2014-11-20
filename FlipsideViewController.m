@@ -172,8 +172,8 @@
         flagHeight = feetComponent + (inchesComponent / 12);
         
 // FlipsideInfo is string sent to MainV
-        self.flipsideInfo.text = [NSString stringWithFormat:@"%@ is %2.2f", self.objectString.text, flagHeight];
-        NSLog(@"Object %@ is %2.2f", self.objectString.text, flagHeight);
+        self.flipsideInfo.text = [NSString stringWithFormat:@"%2.2f", flagHeight];
+        NSLog(@"Object %@ is %@", self.objectString.text, self.flipsideInfo.text);
         
         // displays value & units
         self.flagValueString.text = [[self.flipsideInfo.text stringByAppendingString:@"  " ] stringByAppendingString:self.flagUnits];
@@ -198,6 +198,7 @@
             flagHeight = feetComponent + (inchesComponent / 12);
             self.flagValueString.text = [NSString stringWithFormat:@"%2.2f", flagHeight];
             self.flipsideInfo.text = [NSString stringWithFormat:@"%2.2f", flagHeight];
+            NSLog(@"Object %@ is %2.2f", self.objectString.text, flagHeight);
         }
     }
 }
