@@ -140,7 +140,7 @@
 
 - (void)hideTap:(UIGestureRecognizer *)gestureRecognizer
 {
-    // NSLog(@"Hides the keyboard");
+    NSLog(@"Screen TAPPED!!");
     [self.view endEditing:YES];  // or [self.baseLength resignFirstResponder];
 }
 

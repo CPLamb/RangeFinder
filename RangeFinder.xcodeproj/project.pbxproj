@@ -17,6 +17,7 @@
 		83ACC2F11A1D6BCF00D55CE5 /* objectList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 83ACC2F01A1D6BCF00D55CE5 /* objectList.plist */; };
 		83AF09B41A1A622D00A35F40 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 83AF09B31A1A622D00A35F40 /* Images.xcassets */; };
 		83AFB6631A12A0680066F326 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83AFB6621A12A0680066F326 /* CoreMotion.framework */; };
+		83AFE2B21A1FF000002CD6DE /* BackgroundHeight.png in Resources */ = {isa = PBXBuildFile; fileRef = 83AFE2B11A1FF000002CD6DE /* BackgroundHeight.png */; };
 		83D6B3321586A6A500CBA01B /* dwg03.png in Resources */ = {isa = PBXBuildFile; fileRef = 83D6B3311586A6A500CBA01B /* dwg03.png */; };
 		83D6B3351586A82400CBA01B /* dwg04.png in Resources */ = {isa = PBXBuildFile; fileRef = 83D6B3341586A82400CBA01B /* dwg04.png */; };
 		83E650BA157EA3B3003E9F7C /* RangeFinderIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 83E650B9157EA3B3003E9F7C /* RangeFinderIcon.png */; };
@@ -56,6 +57,7 @@
 		83ACC2F01A1D6BCF00D55CE5 /* objectList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = objectList.plist; sourceTree = "<group>"; };
 		83AF09B31A1A622D00A35F40 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = RangeFinder/Images.xcassets; sourceTree = "<group>"; };
 		83AFB6621A12A0680066F326 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		83AFE2B11A1FF000002CD6DE /* BackgroundHeight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = BackgroundHeight.png; path = "../../../../../Desktop/00-2014Downloads/BackgroundHeight.png"; sourceTree = "<group>"; };
 		83D6B3311586A6A500CBA01B /* dwg03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dwg03.png; sourceTree = "<group>"; };
 		83D6B3341586A82400CBA01B /* dwg04.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dwg04.png; sourceTree = "<group>"; };
 		83E650B9157EA3B3003E9F7C /* RangeFinderIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RangeFinderIcon.png; sourceTree = SOURCE_ROOT; };
@@ -151,6 +153,7 @@
 		83437994157C0A7D009E18A1 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				83AFE2B11A1FF000002CD6DE /* BackgroundHeight.png */,
 				83ACC2EE1A1D527500D55CE5 /* IconHeight24.png */,
 				83ACC2EC1A1D524400D55CE5 /* IconRange24.png */,
 				83ACC2EA1A1D507100D55CE5 /* IconSetup24.png */,
@@ -245,6 +248,7 @@
 				908380AC1A0AE712005A6A86 /* Icon.png in Resources */,
 				90F498051A12B410006735E6 /* dwg01.png in Resources */,
 				83E650BA157EA3B3003E9F7C /* RangeFinderIcon.png in Resources */,
+				83AFE2B21A1FF000002CD6DE /* BackgroundHeight.png in Resources */,
 				83E650C1157FCDD5003E9F7C /* flag.png in Resources */,
 				90F498211A12B4BF006735E6 /* MainStoryboard.storyboard in Resources */,
 				83AF09B41A1A622D00A35F40 /* Images.xcassets in Resources */,
