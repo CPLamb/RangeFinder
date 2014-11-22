@@ -27,6 +27,7 @@
 {
     [super viewDidLoad];
     
+    /*
 // Checks to see if the camera is available
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
         NSLog(@"camera is available - We must be on the iPhone!");
@@ -37,6 +38,7 @@
         self.myAssistantLabel.text = @"The camera is not available on this device";
         self.cameraButtonButton.hidden = YES;
     }
+    */
 
     CGRect frame = CGRectMake(130.0, 150.0, 60.0, 120.0);
     reticleView = [[UIImageView alloc] initWithFrame:frame];

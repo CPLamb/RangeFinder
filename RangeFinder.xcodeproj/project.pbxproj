@@ -18,6 +18,7 @@
 		900E7D2F1A1C2FBF00D477AA /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 900E7D2E1A1C2FBF00D477AA /* AudioToolbox.framework */; };
 		900E7D311A1C41B500D477AA /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 900E7D301A1C41B500D477AA /* QuartzCore.framework */; };
 		900E7D341A1C4F0500D477AA /* TriangleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 900E7D331A1C4F0500D477AA /* TriangleView.m */; };
+		900E7D371A1E7F1100D477AA /* AngleLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 900E7D361A1E7F1100D477AA /* AngleLayer.m */; };
 		908380AB1A0AE712005A6A86 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 908380A91A0AE712005A6A86 /* Default.png */; };
 		908380AC1A0AE712005A6A86 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 908380AA1A0AE712005A6A86 /* Icon.png */; };
 		90F497EB1A12B3FA006735E6 /* FlipsideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90F497EA1A12B3FA006735E6 /* FlipsideViewController.m */; };
@@ -55,6 +56,8 @@
 		900E7D301A1C41B500D477AA /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		900E7D321A1C4F0500D477AA /* TriangleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TriangleView.h; sourceTree = "<group>"; };
 		900E7D331A1C4F0500D477AA /* TriangleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TriangleView.m; sourceTree = "<group>"; };
+		900E7D351A1E7F1000D477AA /* AngleLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AngleLayer.h; sourceTree = "<group>"; };
+		900E7D361A1E7F1100D477AA /* AngleLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AngleLayer.m; sourceTree = "<group>"; };
 		908380A91A0AE712005A6A86 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		908380AA1A0AE712005A6A86 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		90F497EA1A12B3FA006735E6 /* FlipsideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlipsideViewController.m; sourceTree = "<group>"; };
@@ -105,6 +108,8 @@
 		8343797E157C0A7B009E18A1 = {
 			isa = PBXGroup;
 			children = (
+				900E7D351A1E7F1000D477AA /* AngleLayer.h */,
+				900E7D361A1E7F1100D477AA /* AngleLayer.m */,
 				900E7D321A1C4F0500D477AA /* TriangleView.h */,
 				900E7D331A1C4F0500D477AA /* TriangleView.m */,
 				90F498291A17FC4E006735E6 /* RFNavigationController.h */,
@@ -264,6 +269,7 @@
 				90F498101A12B410006735E6 /* HeightFinderViewController.m in Sources */,
 				90F497EB1A12B3FA006735E6 /* FlipsideViewController.m in Sources */,
 				90F498141A12B410006735E6 /* README.md in Sources */,
+				900E7D371A1E7F1100D477AA /* AngleLayer.m in Sources */,
 				900E7D341A1C4F0500D477AA /* TriangleView.m in Sources */,
 				90F498031A12B410006735E6 /* AppDelegate.m in Sources */,
 				90F498281A16E089006735E6 /* RFTabBarController.m in Sources */,

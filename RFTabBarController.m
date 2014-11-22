@@ -30,9 +30,11 @@
     //stubbed in case we need this. Use item and test against self.viewControllers array index
 }
 
+
 -(void)loadView{
     [super loadView];
     //this method seems to only get called once. Super Loadview is what loads the childview into the Tab bar controller.
 }
+
 
 @end

@@ -7,10 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AngleLayer.h"
 
 @interface TriangleView : UIView
--(void)firstAngle:(BOOL)animate;
--(void)baseLength:(BOOL)animate;
--(void)secondAngle:(BOOL)animate;
 
 @end

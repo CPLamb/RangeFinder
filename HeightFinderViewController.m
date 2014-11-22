@@ -9,15 +9,13 @@
 #import "HeightFinderViewController.h"
 
 @implementation HeightFinderViewController{
-    //float degreesTilt;
     int degreesTilt;
     CMMotionManager *motionManager;
     RFTabBarController *tabVC;
     int lastdegreeVal;
     UITapGestureRecognizer *tapToStoreAngle;
-    //double bStep;
-    //double aOne;
-    //double aTwo;
+    UITapGestureRecognizer *tapToReplaceFirstAngle;
+    UILabel *firstAngleLabel;
     int bStep;
     int aOne;
     int aTwo;
@@ -55,44 +53,31 @@
     tabVC = (RFTabBarController*)self.parentViewController.parentViewController;
     lastdegreeVal = -1.00;
     tapToStoreAngle = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedScreen:)];
+    tapToReplaceFirstAngle = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapToReplaceFirstAngle:)];
+    
     aOne = -1;
     bStep = -1;
     aTwo = -1;
-    //[self drawAdjacentTriangles];
     
-    UIColor *greencolor = [UIColor colorWithRed:100/255.0 green:255/255.0 blue:100/255.0 alpha:1];
-    CGPoint startPoint = CGPointMake(0,0);
-    CGPoint endPoint = CGPointMake([UIScreen mainScreen].bounds.size.height/2, [UIScreen mainScreen].bounds.size.width/2);
     //[self drawSimpleLine:startPoint end:endPoint color:greencolor.CGColor];
     CGRect thisRect = self.parentViewController.view.bounds;
     TriangleView *myTriangles = [[TriangleView alloc] initWithFrame:thisRect];
     myTriangles.backgroundColor = [UIColor clearColor];
-    [self.view addSubview:myTriangles];
     
+    [self.view addSubview:myTriangles]; //gets loaded after this in viewDidAppear
 }
-
--(void)drawAdjacentTriangles{
-    UIBezierPath *trianglePath = [UIBezierPath bezierPath];
-    trianglePath.lineWidth = 3.0;
-    [trianglePath moveToPoint:CGPointMake(0, [UIScreen mainScreen].bounds.size.width-100)];
-    [trianglePath addLineToPoint:CGPointMake([UIScreen mainScreen].bounds.size.height/2, 0)];
-    [trianglePath addLineToPoint:CGPointMake([UIScreen mainScreen].bounds.size.width-100, [UIScreen mainScreen].bounds.size.height/2)];
-    [trianglePath closePath];
-    CAShapeLayer *triangleMaskLayer = [CAShapeLayer layer];
-    [triangleMaskLayer setPath:trianglePath.CGPath];
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
-    view.backgroundColor = [UIColor colorWithWhite:0.25 alpha:0.5];
-    view.layer.mask = triangleMaskLayer;
-    [self.view addSubview:view];
-}
-
--(void)drawSimpleLine:(CGPoint)startPoint end:(CGPoint)endPoint color:(CGColorRef)lineColor{
-
-}
-
 
 -(void)viewDidAppear:(BOOL)animated{
-
+    NSUInteger subViews = [self.view.subviews count];
+    NSArray *triangeSublayers = ((TriangleView*)self.view.subviews[subViews-1]).layer.sublayers;
+    CAShapeLayer *innerTriangleLayer = (CAShapeLayer *)triangeSublayers[1];
+    AngleLayer *innerAngleLayer = (AngleLayer*)innerTriangleLayer.sublayers[0];
+    innerAngleLayer.endAngle = -M_PI + acos(innerAngleLayer.adjLength/innerAngleLayer.hypLength);
+    
+    //[self.degreeLabel removeFromSuperview];
+    NSUInteger topViewIndex = [self.view.subviews count]-1;
+    [self.view.subviews[topViewIndex] addSubview:self.degreeLabel];
+    [self.view addGestureRecognizer:tapToStoreAngle];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -134,19 +119,20 @@
 #pragma mark - Core Motion Activity Update Handler Methods
 
 -(void)outputAttitudeData:(CMDeviceMotion*)motion{
-    //self.accelerationsLabel.text = [NSString stringWithFormat:@"X: %1.3f  Y: %1.3f  Z: %1.3f", motion.gravity.x, motion.gravity.y, motion.gravity.z*90];
-   // degreesTilt = -motion.gravity.y*90;
+    //This is only necessary if the HeightViewController is on top of the Nav Controller
+    if ([((RFNavigationController*)tabVC.selectedViewController).topViewController isKindOfClass:[HeightFinderViewController class]]){
     float degreeDec = -motion.gravity.y*90;
     degreesTilt = (int)round(degreeDec);
     if (degreesTilt >= 0){
         self.degreeLabel.text = [NSString stringWithFormat:@"%d°", degreesTilt];
-        if (degreesTilt != lastdegreeVal){
+        if (!self.degreeLabel.hidden && (degreesTilt != lastdegreeVal)){
         AudioServicesPlaySystemSound(0x450);
             lastdegreeVal = degreesTilt;
         }
     }
     else
         self.degreeLabel.text = @"0°";
+    }
 }
 
 #pragma mark - Custom Methods
@@ -192,7 +178,103 @@
 
 #pragma mark - Handler for screen tap
 -(void)tappedScreen:(UITapGestureRecognizer*)gesture{
+    NSUInteger subViews = [self.view.subviews count];
+    NSArray *triangeSublayers = ((TriangleView*)self.view.subviews[subViews-1]).layer.sublayers;
+    CAShapeLayer *innerTriangleLayer = (CAShapeLayer *)triangeSublayers[1];
+    AngleLayer *innerAngleLayer = (AngleLayer*)innerTriangleLayer.sublayers[0];
     
+    CAShapeLayer *baseLayer = (CAShapeLayer *)triangeSublayers[3];
+    AngleLayer *baseLengthLayer = (AngleLayer*)baseLayer.sublayers[0];
+    
+    NSLog(@"Triangle sublayer structure: %@", [triangeSublayers description]);
+    //I think I like this. Shrinks the wedge to the vertex.
+    innerAngleLayer.strokeLength = 0.0;
+    
+    firstAngleLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.degreeLabel.frame.origin.x, self.degreeLabel.frame.origin.y, self.degreeLabel.bounds.size.width, self.degreeLabel.bounds.size.height)];
+    firstAngleLabel.numberOfLines = 1;
+    firstAngleLabel.adjustsFontSizeToFitWidth = YES;
+    firstAngleLabel.minimumFontSize = self.degreeLabel.font.pointSize;
+    firstAngleLabel.text = self.degreeLabel.text;
+    [firstAngleLabel setFont:[UIFont systemFontOfSize:self.degreeLabel.font.pointSize]];
+    firstAngleLabel.textAlignment = NSTextAlignmentCenter;
+    [firstAngleLabel addGestureRecognizer:tapToReplaceFirstAngle];
+    self.degreeLabel.hidden = YES;
+    firstAngleLabel.center = self.degreeLabel.center;
+    firstAngleLabel.userInteractionEnabled = YES;
+    //[self.view addSubview:firstAngleLabel];
+    NSUInteger topViewIndex = [self.view.subviews count]-1;
+    [self.view.subviews[topViewIndex] addSubview:firstAngleLabel];
+    
+    //we'll just try using a view transition for now
+    [UIView animateWithDuration:0.75 animations:^{
+        //firstAngleView.bounds.size = firstAngleView.bounds.size;
+        firstAngleLabel.transform = CGAffineTransformMakeScale(0.2, 0.2);
+        firstAngleLabel.center = CGPointMake(innerAngleLayer.innerVertexPoint.x-25, innerAngleLayer.innerVertexPoint.y-10);
+    }];
+    
+    [self.view removeGestureRecognizer:tapToStoreAngle];
+    // this is terrible form, but we'll double the value here since we draw half the arc length in the animation
+    baseLengthLayer.strokeLength += 2*baseLengthLayer.adjLength;
+    
+    NSLog(@"Subview structure after adding the Angle label: %@", self.view.subviews);
+}
+
+-(void)tapToReplaceFirstAngle:(UITapGestureRecognizer *)gesture{
+    //[UIView animateWithDuration:0.75 animations:^{
+    [UIView animateWithDuration:0.75 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        firstAngleLabel.transform = CGAffineTransformMakeScale(1.01, 1.01);
+        firstAngleLabel.center = self.degreeLabel.center;
+        
+        NSUInteger subViews = [self.view.subviews count];
+        NSArray *triangeSublayers = ((TriangleView*)self.view.subviews[subViews-1]).layer.sublayers;
+        CAShapeLayer *innerTriangleLayer = (CAShapeLayer *)triangeSublayers[1];
+        AngleLayer *innerAngleLayer = (AngleLayer*)innerTriangleLayer.sublayers[0];
+        //innerAngleLayer.endAngle = -M_PI + acos(innerAngleLayer.adjLength/innerAngleLayer.hypLength);
+        innerAngleLayer.strokeLength = innerAngleLayer.innerVertexPoint.x + 25;
+        
+        CAShapeLayer *baseLayer = (CAShapeLayer *)triangeSublayers[3];
+        AngleLayer *baseLengthLayer = (AngleLayer*)baseLayer.sublayers[0];
+        baseLengthLayer.strokeLength = 0.0;
+        
+    } completion:^(BOOL finished) {
+        
+        firstAngleLabel.hidden = YES;
+        self.degreeLabel.hidden = NO;
+        /*
+        NSUInteger subViews = [self.view.subviews count];
+        NSArray *triangeSublayers = ((TriangleView*)self.view.subviews[subViews-1]).layer.sublayers;
+        CAShapeLayer *innerTriangleLayer = (CAShapeLayer *)triangeSublayers[1];
+        AngleLayer *innerAngleLayer = (AngleLayer*)innerTriangleLayer.sublayers[0];
+        //innerAngleLayer.endAngle = -M_PI + acos(innerAngleLayer.adjLength/innerAngleLayer.hypLength);
+        innerAngleLayer.strokeLength = innerAngleLayer.innerVertexPoint.x - 25.0;
+        */
+        //[self.degreeLabel removeFromSuperview];
+        NSUInteger topViewIndex = [self.view.subviews count]-1;
+        [self.view.subviews[topViewIndex] addSubview:self.degreeLabel];
+        [self.view addGestureRecognizer:tapToStoreAngle];
+    }
+     /*
+        //firstAngleView.bounds.size = firstAngleView.bounds.size;
+        firstAngleLabel.transform = CGAffineTransformMakeScale(1.2, 1.2);
+        firstAngleLabel.center = self.degreeLabel.center;
+        
+        
+         firstAngleLabel.hidden = YES;
+         self.degreeLabel.hidden = NO;
+         NSUInteger subViews = [self.view.subviews count];
+         NSArray *triangeSublayers = ((TriangleView*)self.view.subviews[subViews-1]).layer.sublayers;
+         CAShapeLayer *innerTriangleLayer = (CAShapeLayer *)triangeSublayers[1];
+         AngleLayer *innerAngleLayer = (AngleLayer*)innerTriangleLayer.sublayers[0];
+         //innerAngleLayer.endAngle = -M_PI + acos(innerAngleLayer.adjLength/innerAngleLayer.hypLength);
+         innerAngleLayer.strokeLength = 1.0;
+         
+         //[self.degreeLabel removeFromSuperview];
+         NSUInteger topViewIndex = [self.view.subviews count]-1;
+         [self.view.subviews[topViewIndex] addSubview:self.degreeLabel];
+         [self.view addGestureRecognizer:tapToStoreAngle];
+        */
+        
+    ];
 }
 
 @end

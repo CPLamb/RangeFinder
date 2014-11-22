@@ -10,7 +10,6 @@
 #import <Foundation/Foundation.h>
 #import <CoreMotion/CoreMotion.h>
 #import <AudioToolbox/AudioToolbox.h>
-#import <QuartzCore/QuartzCore.h>
 #import "FlipsideViewController.h"
 #import "RFTabBarController.h"
 #import "TriangleView.h"

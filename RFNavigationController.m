@@ -14,7 +14,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    NSLog(@"Top View Controller %@", self.topViewController);
     self.delegate = self;
 }
 
@@ -34,6 +33,12 @@
     self.navigationBar.hidden = YES;
 }
 
+//interesting. Implementing this method on the Nav controller overrides viewDidAppear on the self.topViewController
+//In other words, the animations won't work in the HeightViewController!
+//-(void)viewDidAppear:(BOOL)animated{
+//    NSLog(@"Making sure the Nav Controller self is getting set");
+//}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -44,8 +49,8 @@
 }
 
 -(NSUInteger)supportedInterfaceOrientations{
-    NSLog(@"Top controller is %@", self.topViewController);
-    NSLog(@"Interface Orientations %lu", (unsigned long)self.topViewController.supportedInterfaceOrientations);
+   // NSLog(@"Top controller is %@", self.topViewController);
+   // NSLog(@"Interface Orientations %lu", (unsigned long)self.topViewController.supportedInterfaceOrientations);
     return self.topViewController.supportedInterfaceOrientations;
 }
 
