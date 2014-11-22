@@ -28,6 +28,9 @@
 @property (nonatomic, strong) IBOutlet UILabel *accelerationsLabel;
 //@property (strong, nonatomic) CMMotionManager *motionManager;
 
+@property (nonatomic, strong) IBOutlet UIButton *angleOneButton;
+@property (nonatomic, strong) IBOutlet UIButton *angleTwoButton;
+
 - (IBAction)setAngleOneButton:(UIButton *)sender;
 - (IBAction)setAngleTwoButton:(UIButton *)sender;
 

@@ -11,7 +11,11 @@
 @implementation HeightFinderViewController{
     float degreesTilt;
     CMMotionManager *motionManager;
+    BOOL angleOneButtonState;
+    BOOL angleTwoButtonState;
 }
+@synthesize angleOneButton = _angleOneButton;
+@synthesize angleTwoButton = _angleTwoButton;
 
 #define DEGREE_2_RADIAN 57.3
 #define YOUR_HEIGHT 6.0
@@ -23,6 +27,9 @@
     
 // Additional setup stuff
     self.helpView.hidden = YES;
+    angleOneButtonState = FALSE;
+    angleTwoButtonState = FALSE;
+
 // Tap to hide keyboard
     UITapGestureRecognizer *hideKeyboardTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideTap:)];
     [self.view addGestureRecognizer:hideKeyboardTap];
@@ -72,6 +79,14 @@
 -(void)outputAttitudeData:(CMDeviceMotion*)motion{
     self.accelerationsLabel.text = [NSString stringWithFormat:@"Current angle = %2.0f", -motion.gravity.y*90];
     degreesTilt = -motion.gravity.y*90;
+    
+// loads degreeTilt into angle textFields when the field is selected
+    if (angleOneButtonState) {
+        self.angleOneLabel.text = [NSString stringWithFormat:@"%2.0f", degreesTilt];
+    }
+    if (angleTwoButtonState) {
+        self.angleTwoLabel.text = [NSString stringWithFormat:@"%2.0f", degreesTilt];
+    }
 }
 
 #pragma mark - Custom Methods
@@ -95,8 +110,8 @@
 
 - (IBAction)addButton:(id)sender
 {
-    UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Add Objects"
-                                                      message:@"Enter object name"
+    UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Enter object name"
+                                                      message:nil
                                                      delegate:nil
                                             cancelButtonTitle:@"Add"
                                             otherButtonTitles:@"Cancel", nil];
@@ -107,12 +122,15 @@
 
 - (IBAction)setAngleOneButton:(UIButton *)sender
 {
-    self.angleOneLabel.text = [NSString stringWithFormat:@"%2.1f", degreesTilt];
+    //self.angleOneLabel.text = [NSString stringWithFormat:@"%2.1f", degreesTilt];
+    angleOneButtonState = TRUE;
+    // NSLog(@"Button state is %u", angleOneButtonState);
 }
 
 - (IBAction)setAngleTwoButton:(UIButton *)sender
 {
-    self.angleTwoLabel.text = [NSString stringWithFormat:@"%2.1f", degreesTilt];
+    //self.angleTwoLabel.text = [NSString stringWithFormat:@"%2.1f", degreesTilt];
+    angleTwoButtonState = TRUE;
 }
 
 - (IBAction)calculateButton:(UIButton *)sender
@@ -133,15 +151,19 @@
     double h = YOUR_HEIGHT + (bStep * tan(aTwo) / (1-(tan(aTwo)/tan(aOne))));
     
 // prints value
-    self.height.text = [NSString stringWithFormat:@"%3.1f",h];
+    self.height.text = [NSString stringWithFormat:@"%3.0f feet",h];
     NSLog(@"The height is %@", self.height.text);
 
 }
 
 - (void)hideTap:(UIGestureRecognizer *)gestureRecognizer
 {
-    NSLog(@"Screen TAPPED!!");
     [self.view endEditing:YES];  // or [self.baseLength resignFirstResponder];
+    
+// resets dynamic data switch for angle textFields
+    angleOneButtonState = FALSE;
+    angleTwoButtonState = FALSE;
+    //NSLog(@"Screen TAPPED button is %u", angleOneButtonState);
 }
 
 @end
