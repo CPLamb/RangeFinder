@@ -14,7 +14,7 @@
 #import "RFTabBarController.h"
 #import "TriangleView.h"
 
-@interface HeightFinderViewController : UIViewController<UIGestureRecognizerDelegate>
+@interface HeightFinderViewController : UIViewController<UIGestureRecognizerDelegate, UITextFieldDelegate>
 
 @property (nonatomic, strong) IBOutlet UITextField *baseLength;
 @property (nonatomic, strong) IBOutlet UITextField *angleOne;

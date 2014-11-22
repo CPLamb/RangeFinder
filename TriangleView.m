@@ -82,8 +82,6 @@
     outerArcSlice.startAngle = -M_PI;
     outerArcSlice.endAngle = -M_PI;
     outerArcSlice.center = outerRightVertex;
-    //outerArcSlice.strokeLength = outerRightVertex.x - innerVertex.x;
-    //outerArcSlice.strokeLength = outerRightVertex.x - innerVertex.x;
     outerArcSlice.strokeLength = 0.0f;
     outerArcSlice.adjLength = outerRightVertex.x - rightAngleVertex.x;
     outerArcSlice.hypLength = sqrt(pow(rightAngleVertex.y, 2.0) + pow(topVertex.y, 2.0));

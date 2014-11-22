@@ -27,9 +27,12 @@
         self.view.transform = CGAffineTransformMakeRotation(90.0*0.0174532925);
         self.view.bounds = CGRectMake(0.0f, 0.0f, [UIScreen mainScreen].bounds.size.height, [UIScreen mainScreen].bounds.size.width);
         self.view.center = CGPointMake([UIScreen mainScreen].bounds.size.width/2, [UIScreen mainScreen].bounds.size.height/2);
+        [[UIApplication sharedApplication] setStatusBarOrientation:UIInterfaceOrientationLandscapeRight animated:YES];
+        
         [UIView commitAnimations];
     }
-    
+    else
+        [[UIApplication sharedApplication] setStatusBarOrientation:UIInterfaceOrientationPortrait animated:YES];
     self.navigationBar.hidden = YES;
 }
 

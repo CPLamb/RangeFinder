@@ -15,6 +15,7 @@
     int lastdegreeVal;
     UITapGestureRecognizer *tapToStoreAngle;
     UITapGestureRecognizer *tapToReplaceFirstAngle;
+    UITapGestureRecognizer *inputBaseLength;
     UILabel *firstAngleLabel;
     int bStep;
     int aOne;
@@ -54,6 +55,7 @@
     lastdegreeVal = -1.00;
     tapToStoreAngle = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedScreen:)];
     tapToReplaceFirstAngle = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapToReplaceFirstAngle:)];
+    inputBaseLength = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(setBaseLength:)];
     
     aOne = -1;
     bStep = -1;
@@ -216,6 +218,14 @@
     // this is terrible form, but we'll double the value here since we draw half the arc length in the animation
     baseLengthLayer.strokeLength += 2*baseLengthLayer.adjLength;
     
+    UITextField *baseLengthText = [[UITextField alloc] initWithFrame:CGRectMake(baseLengthLayer.strokeLength/2, 100.0, 70.0, 50.0)];
+    [baseLengthText setKeyboardType:UIKeyboardTypeNumbersAndPunctuation];
+    baseLengthText.userInteractionEnabled = YES;
+    baseLengthText.borderStyle = UITextBorderStyleLine;
+    baseLengthText.text = @"Enter Distance";
+    baseLengthText.delegate = self;
+    [self.view addSubview:baseLengthText];
+    
     NSLog(@"Subview structure after adding the Angle label: %@", self.view.subviews);
 }
 
@@ -240,41 +250,24 @@
         
         firstAngleLabel.hidden = YES;
         self.degreeLabel.hidden = NO;
-        /*
-        NSUInteger subViews = [self.view.subviews count];
-        NSArray *triangeSublayers = ((TriangleView*)self.view.subviews[subViews-1]).layer.sublayers;
-        CAShapeLayer *innerTriangleLayer = (CAShapeLayer *)triangeSublayers[1];
-        AngleLayer *innerAngleLayer = (AngleLayer*)innerTriangleLayer.sublayers[0];
-        //innerAngleLayer.endAngle = -M_PI + acos(innerAngleLayer.adjLength/innerAngleLayer.hypLength);
-        innerAngleLayer.strokeLength = innerAngleLayer.innerVertexPoint.x - 25.0;
-        */
-        //[self.degreeLabel removeFromSuperview];
+
         NSUInteger topViewIndex = [self.view.subviews count]-1;
         [self.view.subviews[topViewIndex] addSubview:self.degreeLabel];
         [self.view addGestureRecognizer:tapToStoreAngle];
-    }
-     /*
-        //firstAngleView.bounds.size = firstAngleView.bounds.size;
-        firstAngleLabel.transform = CGAffineTransformMakeScale(1.2, 1.2);
-        firstAngleLabel.center = self.degreeLabel.center;
-        
-        
-         firstAngleLabel.hidden = YES;
-         self.degreeLabel.hidden = NO;
-         NSUInteger subViews = [self.view.subviews count];
-         NSArray *triangeSublayers = ((TriangleView*)self.view.subviews[subViews-1]).layer.sublayers;
-         CAShapeLayer *innerTriangleLayer = (CAShapeLayer *)triangeSublayers[1];
-         AngleLayer *innerAngleLayer = (AngleLayer*)innerTriangleLayer.sublayers[0];
-         //innerAngleLayer.endAngle = -M_PI + acos(innerAngleLayer.adjLength/innerAngleLayer.hypLength);
-         innerAngleLayer.strokeLength = 1.0;
-         
-         //[self.degreeLabel removeFromSuperview];
-         NSUInteger topViewIndex = [self.view.subviews count]-1;
-         [self.view.subviews[topViewIndex] addSubview:self.degreeLabel];
-         [self.view addGestureRecognizer:tapToStoreAngle];
-        */
-        
-    ];
+    }];
+}
+
+-(void)textFieldDidBeginEditing:(UITextField *)textField{
+    textField.text = @"";
+}
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField{
+    [textField resignFirstResponder];
+    return YES;
+}
+
+-(void)textFieldDidEndEditing:(UITextField *)textField{
+    //[textField resignFirstResponder];
 }
 
 @end
