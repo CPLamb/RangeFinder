@@ -16,6 +16,7 @@
 }
 @synthesize angleOneButton = _angleOneButton;
 @synthesize angleTwoButton = _angleTwoButton;
+@synthesize objectName = _objectName;
 
 #define DEGREE_2_RADIAN 57.3
 #define YOUR_HEIGHT 6.0
@@ -29,6 +30,7 @@
     self.helpView.hidden = YES;
     angleOneButtonState = FALSE;
     angleTwoButtonState = FALSE;
+    self.objectName.text = [NSString stringWithFormat:@"Object"];
 
 // Tap to hide keyboard
     UITapGestureRecognizer *hideKeyboardTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideTap:)];
@@ -42,8 +44,8 @@
     motionManager.accelerometerUpdateInterval = .2;
     motionManager.gyroUpdateInterval = .2;
 
-    /*
-    [self.motionManager startAccelerometerUpdatesToQueue:[NSOperationQueue currentQueue]
+    
+    [motionManager startAccelerometerUpdatesToQueue:[NSOperationQueue currentQueue]
                                              withHandler:^(CMAccelerometerData  *accelerometerData, NSError *error) {
                                                  [self outputAccelerationData:accelerometerData.acceleration];
                                                  if(error){
@@ -51,15 +53,18 @@
                                                      NSLog(@"%@", error);
                                                  }
                                              }];
-    */
+    
     
    // [self.motionManager startDeviceMotionUpdatesUsingReferenceFrame:CMAttitudeReferenceFrameXArbitraryCorrectedZVertical toQueue:[NSOperationQueue currentQueue] withHandler:^(CMDeviceMotion *motion, NSError *error) {
+    /*
     [motionManager startDeviceMotionUpdatesUsingReferenceFrame:CMAttitudeReferenceFrameXArbitraryCorrectedZVertical toQueue:[NSOperationQueue currentQueue] withHandler:^(CMDeviceMotion *motion, NSError *error) {
         [self outputAttitudeData:motion];
         if (error){
             NSLog(@"Error! %@", [error description]);
         }
+     
     }];
+     */
 }
 
 - (void)didReceiveMemoryWarning {
@@ -74,11 +79,21 @@
     // Tilt is the arcTan(Opposite accel Y / Adjacent accel X)
     double tilt = atan(acceleration.y / acceleration.x)*DEGREE_2_RADIAN;
     degreesTilt = tilt;
+    self.accelerationsLabel.text = [NSString stringWithFormat:@"Current angle = %2.0f", degreesTilt];
+    
+// loads degreeTilt into angle textFields when the field is selected
+    if (angleOneButtonState) {
+        self.angleOneLabel.text = [NSString stringWithFormat:@"%2.0f", degreesTilt];
+    }
+    if (angleTwoButtonState) {
+        self.angleTwoLabel.text = [NSString stringWithFormat:@"%2.0f", degreesTilt];
+    }
+
 }
 
 -(void)outputAttitudeData:(CMDeviceMotion*)motion{
-    self.accelerationsLabel.text = [NSString stringWithFormat:@"Current angle = %2.0f", -motion.gravity.y*90];
-    degreesTilt = -motion.gravity.y*90;
+    //self.accelerationsLabel.text = [NSString stringWithFormat:@"Current angle = %2.0f", -motion.gravity.y*90];
+ //   degreesTilt = -motion.gravity.y*90;
     
 // loads degreeTilt into angle textFields when the field is selected
     if (angleOneButtonState) {
@@ -112,13 +127,27 @@
 {
     UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Enter object name"
                                                       message:nil
-                                                     delegate:nil
-                                            cancelButtonTitle:@"Add"
-                                            otherButtonTitles:@"Cancel", nil];
+                                                     delegate:self
+                                            cancelButtonTitle:@"Cancel"
+                                            otherButtonTitles:@"Add", nil];
     [message setAlertViewStyle:UIAlertViewStylePlainTextInput];
     [message show];
+    
+// set text to objectName on ADD button
+    
 }
 
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+// sets objectName to textField input
+    if (buttonIndex == [alertView firstOtherButtonIndex]) {
+        NSLog(@"buttonIndex = %d", buttonIndex);
+        //self.objectName = [alertView textFieldAtIndex:buttonIndex];
+        //NSLog(@"ObjectName is %@", self.objectName.text);
+    } else {
+        NSLog(@"buttonIndex = %d", buttonIndex);
+    }
+}
 
 - (IBAction)setAngleOneButton:(UIButton *)sender
 {
@@ -151,7 +180,7 @@
     double h = YOUR_HEIGHT + (bStep * tan(aTwo) / (1-(tan(aTwo)/tan(aOne))));
     
 // prints value
-    self.height.text = [NSString stringWithFormat:@"%3.0f feet",h];
+    self.height.text = [NSString stringWithFormat:@"Object is %3.0f feet", h];
     NSLog(@"The height is %@", self.height.text);
 
 }

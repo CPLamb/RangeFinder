@@ -16,13 +16,14 @@
 #import <CoreMotion/CoreMotion.h>
 #import "FlipsideViewController.h"
 
-@interface HeightFinderViewController : UIViewController
+@interface HeightFinderViewController : UIViewController <UIAlertViewDelegate>
 
 @property (nonatomic, strong) IBOutlet UITextField *baseLength;
 @property (nonatomic, strong) IBOutlet UITextField *angleOneLabel;
 @property (nonatomic, strong) IBOutlet UITextField *angleTwoLabel;
 
 @property (nonatomic, strong) IBOutlet UILabel *height;
+@property (nonatomic, strong) IBOutlet UITextField *objectName;
 
 //@property (nonatomic, strong) CMAcceleration *myAcceleration;
 @property (nonatomic, strong) IBOutlet UILabel *accelerationsLabel;
