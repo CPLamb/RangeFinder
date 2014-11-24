@@ -9,7 +9,9 @@
 #import "RFNavigationController.h"
 #import "HeightFinderViewController.h"
 
-@implementation RFNavigationController
+@implementation RFNavigationController{
+    UIViewController *lastVC;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -23,17 +25,37 @@
         [UIView setAnimationDuration:0.2f];
         [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
         
-        self.view.transform = CGAffineTransformIdentity;
-        self.view.transform = CGAffineTransformMakeRotation(90.0*0.0174532925);
-        self.view.bounds = CGRectMake(0.0f, 0.0f, [UIScreen mainScreen].bounds.size.height, [UIScreen mainScreen].bounds.size.width);
-        self.view.center = CGPointMake([UIScreen mainScreen].bounds.size.width/2, [UIScreen mainScreen].bounds.size.height/2);
+        self.parentViewController.view.transform = CGAffineTransformIdentity;
+        self.parentViewController.view.transform = CGAffineTransformMakeRotation(90.0*0.0174532925);
+        self.parentViewController.view.bounds = CGRectMake(0.0f, 0.0f, [UIScreen mainScreen].bounds.size.height, [UIScreen mainScreen].bounds.size.width);
+        self.parentViewController.view.center = CGPointMake([UIScreen mainScreen].bounds.size.width/2, [UIScreen mainScreen].bounds.size.height/2);
         [[UIApplication sharedApplication] setStatusBarOrientation:UIInterfaceOrientationLandscapeRight animated:YES];
         
         [UIView commitAnimations];
     }
-    else
+    else{
+       if ([((RFTabBarController*)self.parentViewController).lastVC isKindOfClass:[HeightFinderViewController class]]) {
+            self.parentViewController.view.transform = CGAffineTransformIdentity;
+            self.parentViewController.view.bounds = CGRectMake(0.0f, 0.0f, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height);
+           self.parentViewController.view.center = CGPointMake([UIScreen mainScreen].bounds.size.width/2, [UIScreen mainScreen].bounds.size.height/2);
+            [[UIApplication sharedApplication] setStatusBarOrientation:UIInterfaceOrientationPortrait animated:YES];
+            
+            [UIView commitAnimations];
+        }
         [[UIApplication sharedApplication] setStatusBarOrientation:UIInterfaceOrientationPortrait animated:YES];
+        
+    }
     self.navigationBar.hidden = YES;
+}
+
+-(void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated{
+    //
+}
+
+-(void)navigationController:(UINavigationController *)navigationController didShowViewController:(UIViewController *)viewController animated:(BOOL)animated{
+    //lastVC = self.topViewController;
+    //lastVC = self.visibleViewController;
+    ((RFTabBarController*)self.parentViewController).lastVC = self.visibleViewController;
 }
 
 //interesting. Implementing this method on the Nav controller overrides viewDidAppear on the self.topViewController

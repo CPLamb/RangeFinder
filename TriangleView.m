@@ -24,9 +24,9 @@
     CGContextSetShadow(context, myShadowOffset, 5);
 
     CGPoint topVertex = CGPointMake(25.0, 25.0);
-    CGPoint rightAngleVertex = CGPointMake(25, [UIScreen mainScreen].bounds.size.width-25);
-    CGPoint innerVertex = CGPointMake([UIScreen mainScreen].bounds.size.height/3, [UIScreen mainScreen].bounds.size.width-25);
-    CGPoint outerRightVertex = CGPointMake([UIScreen mainScreen].bounds.size.height*0.9, [UIScreen mainScreen].bounds.size.width-25);
+    CGPoint rightAngleVertex = CGPointMake(25, [UIScreen mainScreen].bounds.size.width-55);
+    CGPoint innerVertex = CGPointMake([UIScreen mainScreen].bounds.size.height/3, [UIScreen mainScreen].bounds.size.width-55);
+    CGPoint outerRightVertex = CGPointMake([UIScreen mainScreen].bounds.size.height*0.95, [UIScreen mainScreen].bounds.size.width-55);
     
     CGMutablePathRef objectHeightPath = CGPathCreateMutable();
     CGPathMoveToPoint(objectHeightPath, NULL, topVertex.x, topVertex.y);
@@ -46,6 +46,7 @@
     [innerTriangleLayer setPath:innerTrianglePath];
     innerTriangleLayer.backgroundColor = [UIColor clearColor].CGColor;
     innerTriangleLayer.fillColor = nil; //makes the layer transparent. Background is black otherwise
+    innerTriangleLayer.opacity = 0.0;
     [self.layer addSublayer:innerTriangleLayer];
     
     AngleLayer *arcSlice = [AngleLayer layer];
@@ -58,7 +59,7 @@
     arcSlice.center = innerVertex;
     arcSlice.strokeLength = innerVertex.x - rightAngleVertex.x/2;
     arcSlice.adjLength = innerVertex.x - rightAngleVertex.x;
-    arcSlice.hypLength = sqrt(pow(rightAngleVertex.y, 2.0) + pow(topVertex.y, 2.0));
+    arcSlice.hypLength = sqrt(pow((innerVertex.x-rightAngleVertex.x), 2.0) + pow((rightAngleVertex.y-topVertex.y), 2.0));
     arcSlice.innerVertexPoint = innerVertex;
     [innerTriangleLayer addSublayer:arcSlice];
     
@@ -71,8 +72,8 @@
     [outerTriangleLayer setPath:outerTrianglePath];
     outerTriangleLayer.backgroundColor = nil;
     outerTriangleLayer.fillColor = nil;
+    outerTriangleLayer.opacity = 0.0;
     [self.layer addSublayer:outerTriangleLayer];
-    
     
     AngleLayer *outerArcSlice = [AngleLayer layer];
     outerArcSlice.strokeColor = [UIColor colorWithWhite:0.25 alpha:1.0];
@@ -82,9 +83,12 @@
     outerArcSlice.startAngle = -M_PI;
     outerArcSlice.endAngle = -M_PI;
     outerArcSlice.center = outerRightVertex;
-    outerArcSlice.strokeLength = 0.0f;
+    //outerArcSlice.strokeLength = arcSlice.strokeLength;
+    outerArcSlice.strokeLength = 0.0;
     outerArcSlice.adjLength = outerRightVertex.x - rightAngleVertex.x;
-    outerArcSlice.hypLength = sqrt(pow(rightAngleVertex.y, 2.0) + pow(topVertex.y, 2.0));
+    //outerArcSlice.hypLength = sqrt(pow(rightAngleVertex.y, 2.0) + pow(topVertex.y, 2.0));
+    outerArcSlice.hypLength = sqrt(pow(outerRightVertex.x-rightAngleVertex.x, 2.0) + pow((rightAngleVertex.y-topVertex.y), 2.0));
+    //outerArcSlice.endAngle = -M_PI + acos(outerArcSlice.adjLength/outerArcSlice.hypLength);
     outerArcSlice.innerVertexPoint = innerVertex;
     outerArcSlice.outerVertexPoint = outerRightVertex;
     [outerTriangleLayer addSublayer:outerArcSlice];
@@ -98,6 +102,7 @@
     [baseLengthLayer setPath:baseLengthPath];
     baseLengthLayer.backgroundColor = nil;
     baseLengthLayer.fillColor = nil;
+    baseLengthLayer.opacity = 0.0;
     [self.layer addSublayer:baseLengthLayer];
     
     AngleLayer *baseSlice = [AngleLayer layer];
@@ -119,6 +124,7 @@
     baseSlice.outerVertexPoint = outerRightVertex;
     [baseLengthLayer addSublayer:baseSlice];
 
+    
     CGContextAddPath(context, objectHeightPath);
     CGContextAddPath(context, innerTrianglePath);
     CGContextAddPath(context, outerTrianglePath);
@@ -128,6 +134,8 @@
     CGContextStrokePath(context);
     
     CGPathRelease(innerTrianglePath);
+    CGPathRelease(outerTrianglePath);
+    CGPathRelease(objectHeightPath);
     //CGContextClosePath(context);
 }
 

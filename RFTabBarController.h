@@ -11,4 +11,6 @@
 
 @interface RFTabBarController : UITabBarController<UITabBarControllerDelegate>
 
+@property (nonatomic, strong) UIViewController *lastVC;
+
 @end

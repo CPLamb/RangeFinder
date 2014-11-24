@@ -10,13 +10,14 @@
 
 @implementation AngleLayer
 
-@dynamic startAngle, endAngle, strokeLength; //add strokelength if we want to modify it here
+//@dynamic startAngle, endAngle, strokeLength; //add strokelength if we want to modify it here
+@dynamic endAngle, strokeLength;
 
 -(id)init{
     self = [super init];
     if (self) {
-        self.fillColor = [UIColor grayColor];
-        self.strokeColor = [UIColor blackColor];
+        //self.fillColor = [UIColor grayColor];
+        //self.strokeColor = [UIColor blackColor];
         //self.strokeWidth = 2.0;
         [self setNeedsDisplay];
     }
@@ -26,7 +27,8 @@
 
 -(id<CAAction>)actionForKey:(NSString *)event{
     //if ([event isEqualToString:@"startAngle"] || [event isEqualToString:@"endAngle"])
-    if ([event isEqualToString:@"startAngle"] || [event isEqualToString:@"endAngle"] || [event isEqualToString:@"strokeLength"])
+    //if ([event isEqualToString:@"startAngle"] || [event isEqualToString:@"endAngle"] || [event isEqualToString:@"strokeLength"])
+    if ([event isEqualToString:@"endAngle"] || [event isEqualToString:@"strokeLength"])
         return [self assignAnimationForKey:event];
     
     return [super actionForKey:event];
@@ -53,7 +55,8 @@
 
 +(BOOL)needsDisplayForKey:(NSString *)key{
    // if ([key isEqualToString:@"startAngle"] || [key isEqualToString:@"endAngle"])
-    if ([key isEqualToString:@"startAngle"] || [key isEqualToString:@"endAngle"] || [key isEqualToString:@"strokeLength"])
+   // if ([key isEqualToString:@"startAngle"] || [key isEqualToString:@"endAngle"] || [key isEqualToString:@"strokeLength"])
+    if ([key isEqualToString:@"endAngle"] || [key isEqualToString:@"strokeLength"])
         return YES;
     
     return [super needsDisplayForKey:key];
@@ -74,8 +77,11 @@
                              center.y + radius * sinf(self.startAngle));
     CGContextAddLineToPoint(ctx, p1.x, p1.y);
     
+    if (self.startAngle != self.endAngle){
     int clockwise = self.startAngle > self.endAngle;
     CGContextAddArc(ctx, center.x, center.y, radius, self.startAngle, self.endAngle, clockwise);
+    }
+
     
     CGContextClosePath(ctx);
     
