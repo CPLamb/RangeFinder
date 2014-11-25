@@ -332,7 +332,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="123 yards" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="dl5-Yc-WhF">
-                                <rect key="frame" x="72" y="355" width="163" height="33"/>
+                                <rect key="frame" x="72" y="360" width="163" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -382,8 +382,12 @@
                                     <action selector="camera:" destination="2" eventType="touchUpInside" id="FiW-5s-Rmr"/>
                                 </connections>
                             </button>
-                            <imageView opaque="NO" userInteractionEnabled="NO" alpha="0.99999999999999989" contentMode="scaleAspectFill" image="scope.png" id="h2I-Xv-5MJ">
-                                <rect key="frame" x="5" y="89" width="320" height="271"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LogoLarge.png" id="Cvw-LI-hEw">
+                                <rect key="frame" x="100" y="71" width="300" height="300"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView opaque="NO" userInteractionEnabled="NO" alpha="0.99999999999999989" contentMode="scaleAspectFill" image="scope400x400.png" id="h2I-Xv-5MJ">
+                                <rect key="frame" x="35" y="110" width="250" height="250"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoDark" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="XdK-gf-NbV">
@@ -456,7 +460,7 @@
                                 </subviews>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" image="Icon.png" id="rry-pe-h1t"/>
                     <navigationItem key="navigationItem" title="RangeFinder" id="jFf-DP-qe8">
@@ -899,7 +903,8 @@
         <image name="IconHeight24.png" width="24" height="24"/>
         <image name="IconRange24.png" width="24" height="24"/>
         <image name="IconSetup24.png" width="24" height="24"/>
-        <image name="scope.png" width="640" height="480"/>
+        <image name="LogoLarge.png" width="575" height="575"/>
+        <image name="scope400x400.png" width="400" height="400"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

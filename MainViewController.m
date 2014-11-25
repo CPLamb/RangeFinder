@@ -15,12 +15,13 @@
     float totalZoomFactor;
     float flagHeight;
     NSNumber *distance;
-    UIImageView *reticleView;
+    // UIImageView *reticleView;
     UIImagePickerController *imagePickerController;
     NSString *distanceUnits;
     
 }
 // @synthesize helpView = _helpView;
+@synthesize reticleView = _reticleView;
 
 #define FUTZ_FACTOR 6.0
 
@@ -33,7 +34,7 @@
 // Checks to see if the camera is available
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
         NSLog(@"camera is available - We must be on the iPhone!");
-        self.myAssistantLabel.text = @"App Assistant";
+        self.myAssistantLabel.text = @"Tap to open RangeFinder";
     }
     else {
         NSLog(@"camera is NOT available - We must be on the Simulator!");
@@ -41,41 +42,32 @@
         self.cameraButtonButton.hidden = YES;
     }
 // Builds a view to overlay over the camera view including the zoom factor
-//<<<<<<< HEAD:MainViewController.m
-    CGRect frame = CGRectMake(80.0, 150.0, 160.0, 120.0);
-    //CGRect frame = CGRectMake(130.0, 150.0, 60.0, 120.0);
-    //self.reticleView = [[UIImageView alloc] initWithFrame:frame];
-    //self.reticleView.image = [UIImage imageNamed:@"dwg06.png"];
-    reticleView = [[UIImageView alloc] initWithFrame:frame];
-    reticleView.image = [UIImage imageNamed:@"scope.png"];
-//=======
-   // CGRect frame = CGRectMake(10.0, 40.0, 320.0, 240.0);
-    //CGRect frame = CGRectMake(100.0, 100.0, 200.0, 200.0);
-   // self.reticleView = [[UIImageView alloc] initWithFrame:frame];
-    //self.reticleView.image = [UIImage imageNamed:@"scope.png"];
-  //  self.reticleView.image = [UIImage imageNamed:@"dwg06.png"];
-//>>>>>>> 262514d0c77a08c21caa6d57f6ae6ff8290bb89e:RangeFinder/MainViewController.m
-//    self.reticleView.inputView.subviews
-//    self.reticleView.backgroundColor = [UIColor blueColor];
-//    self.reticleView.alpha = 0.65;
-    //self.reticleView.userInteractionEnabled = YES;
-    reticleView.userInteractionEnabled = YES;
-
-    self.helpView.hidden = YES;
-
-// Sets up the view's values & displays
-//    self.myAssistantLabel.hidden = NO;
-    
-// Sets up the distance label
-    self.distanceLabel.text = @"xxx yards";
-//    [self.reticleView addSubview:self.distanceLabel];
+    // First the background
+    double frameX = self.view.frame.size.width;
+    CGRect frameB = CGRectMake(0, 40.0, 200.0, 200.0);  // 0.8*frameX, 0.8*frameX);
+    UIImageView *backgroundView = [[UIImageView alloc] initWithFrame:frameB];
+    backgroundView.image = [UIImage imageNamed:@"dwg02.png"];
+    [self.reticleView addSubview:backgroundView];
+/*
+    // Next the reticle (scope or flag)
+    //CGRect frame = CGRectMake(80.0, 150.0, 160.0, 120.0);
+    CGRect frameR = CGRectMake(0.0, 0.0, 0.8*frameX, 0.8*frameX);   // scope location
+    UIImageView *scopeView = [[UIImageView alloc] initWithFrame:frameR];
+    scopeView.image = [UIImage imageNamed:@"scope400x400.png"];
+    [reticleView addSubview:scopeView];
+*/
+    self.reticleView.userInteractionEnabled = YES;
     
 // Builds the slider and rotates it 90 degrees
-    CGRect sliderFrame = CGRectMake(-120.0, 150.0,300.0, 50.0);
+    CGRect sliderFrame = CGRectMake(10.0, 10.0, 150.0, 50.0);
     self.reticleZoomSlider = [[UISlider alloc] initWithFrame:sliderFrame];
     CGAffineTransform trans = CGAffineTransformMakeRotation(M_PI_2);
     self.reticleZoomSlider.transform = trans;
     [self.reticleView addSubview:self.reticleZoomSlider];
+    
+// Sets up the distance label & other Stuff
+    self.helpView.hidden = YES;
+    self.distanceLabel.text = @"How far?";
 }
 
 -(BOOL)shouldAutorotate{
@@ -140,17 +132,12 @@
     imagePickerController.delegate = self;
     
 // Configures the camera & presents the modal camera view
-    /*
-    self.imagePickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
-    self.imagePickerController.allowsEditing = YES;
-    self.imagePickerController.showsCameraControls = YES;
-    self.imagePickerController.cameraOverlayView = self.reticleView;
-    [self presentModalViewController:self.imagePickerController animated:YES];
-    */
     imagePickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
     imagePickerController.allowsEditing = YES;
     imagePickerController.showsCameraControls = YES;
-    imagePickerController.cameraOverlayView = reticleView;
+    
+// adds reticle above camera layer
+    imagePickerController.cameraOverlayView = self.reticleView;
     [self presentModalViewController:imagePickerController animated:YES];
 
 }
