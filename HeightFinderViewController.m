@@ -8,18 +8,21 @@
 
 #import "HeightFinderViewController.h"
 
+enum findValueForAngle {INNER_ANGLE_VALUE, OUTER_ANGLE_VALUE};
+
 @implementation HeightFinderViewController{
     int degreesTilt;
     CMMotionManager *motionManager;
     RFTabBarController *tabVC;
     int lastdegreeVal;
     UITapGestureRecognizer *tapToStoreAngle;
-    UITapGestureRecognizer *tapToReplaceFirstAngle;
-    UITapGestureRecognizer *replaceBaseLength;
+    UITapGestureRecognizer *tapToReplaceInnerAngle;
+    UITapGestureRecognizer *tapToReplaceOuterAngle;
+    UITapGestureRecognizer *tapToReplaceBaseLength;
     UITapGestureRecognizer *inputInnerAngle;
     UITapGestureRecognizer *inputBaseLength;
     UITapGestureRecognizer *inputOuterAngle;
-    UILabel *firstAngleLabel;
+    UILabel *innerAngleLabel;
     UILabel *baseLengthLabel;
     UILabel *outerAngleLabel;
     AngleLayer *innerAngleEmphasis;
@@ -34,6 +37,10 @@
     UITextField *baseLengthText;
     //UIButton *baseLengthButton;
     UIButton *outerAngleButton;
+    UIButton *calculateButton;
+    
+    BOOL startWithInnerAngle;
+    enum findValueForAngle AngleVal;
     
     int bStep;
     int aOne;
@@ -72,7 +79,8 @@
     tabVC = (RFTabBarController*)self.parentViewController.parentViewController;
     lastdegreeVal = -1.00;
     tapToStoreAngle = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedScreen:)];
-    tapToReplaceFirstAngle = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapToReplaceFirstAngle:)];
+    tapToReplaceInnerAngle = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(replaceInnerAngle:)];
+    tapToReplaceOuterAngle = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(replaceOuterAngle:)];
     inputBaseLength = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(setBaseLength:)];
     
     aOne = -1;
@@ -91,7 +99,7 @@
     //baseLengthButton = nil;
     baseLengthText = nil;
     outerAngleButton = nil;
-    
+    startWithInnerAngle = YES;
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -112,23 +120,10 @@
     innerAngleButton.backgroundColor = [UIColor greenColor];
     [self.view addSubview:innerAngleButton];
     
-    
     inputInnerAngle = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(inputInnerAngle:)];
     [innerAngleButton addGestureRecognizer:inputInnerAngle];
     }
     
-    /*
-    if (bStep<0 && (baseLengthButton == nil)) {
-    baseLengthButton = [[UIButton alloc] initWithFrame:CGRectMake(baseLengthEmphasis.center.x+50, baseLengthEmphasis.center.y-50, 125, 50)];
-    [baseLengthButton setTitle:@"Enter Distance" forState:UIControlStateNormal];
-    baseLengthButton.backgroundColor = [UIColor greenColor];
-    baseLengthButton.alpha = 0.0;
-    [self.view addSubview:baseLengthButton];
-    
-    inputBaseLength = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(inputBaseLength:)];
-    [baseLengthButton addGestureRecognizer:inputBaseLength];
-    }
-    */
     if (bStep<0 && (baseLengthText == nil)) {
         baseLengthText = [[UITextField alloc] initWithFrame:CGRectMake(baseLengthEmphasis.center.x+50, baseLengthEmphasis.center.y-50, 125, 50)];
         [baseLengthText setKeyboardType:UIKeyboardTypeNumbersAndPunctuation];
@@ -150,7 +145,7 @@
     outerAngleButton.backgroundColor = [UIColor greenColor];
     [self.view addSubview:outerAngleButton];
     
-    inputOuterAngle = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(inputOuterAngle)];
+        inputOuterAngle = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(inputOuterAngle:)];
     [outerAngleButton addGestureRecognizer:inputOuterAngle];
     }
 }
@@ -229,7 +224,7 @@
    // self.angleTwo.text = [NSString stringWithFormat:@"%2.2f", degreesTilt];
 }
 
-- (IBAction)calculateButton:(UIButton *)sender
+-(void)calculateHeight:(UITapGestureRecognizer*)gesture
 {
 // converts textfields to floats in radians to calculate the height
    // double bStep = [self.baseLength.text doubleValue];
@@ -244,10 +239,9 @@
     
 // calculates the height based on 2 angles and a base length
     double h = YOUR_HEIGHT + (bStep * tan(aTwo) / (1-(tan(aTwo)/tan(aOne))));
-    
-// prints value
-   // self.height.text = [NSString stringWithFormat:@"%3.3f",h];
-   // NSLog(@"The height is %@", self.height.text);
+    UILabel *heightLabel = [[UILabel alloc] initWithFrame:self.degreeLabel.frame];
+    heightLabel.text = [NSString stringWithFormat:@"%f", h];
+    [self.view addSubview:heightLabel];
 }
 
 - (IBAction)doneButton:(UIButton *)sender
@@ -261,38 +255,33 @@
 #pragma mark - Handler for screen tap
 -(void)tappedScreen:(UITapGestureRecognizer*)gesture{
     
-   // aOne = self.degreeLabel.text.integerValue;
-    
     innerAngleEmphasis.strokeLength = 0.0;
+    outerAngleEmphasis.strokeLength = 0.0;
     
-    if (aOne < 0) {
-    firstAngleLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.degreeLabel.frame.origin.x, self.degreeLabel.frame.origin.y, self.degreeLabel.bounds.size.width, self.degreeLabel.bounds.size.height)];
-    firstAngleLabel.numberOfLines = 1;
-    firstAngleLabel.adjustsFontSizeToFitWidth = YES;
-    firstAngleLabel.minimumFontSize = self.degreeLabel.font.pointSize;
-    firstAngleLabel.text = self.degreeLabel.text;
-    [firstAngleLabel setFont:[UIFont systemFontOfSize:self.degreeLabel.font.pointSize]];
-    firstAngleLabel.textAlignment = NSTextAlignmentCenter;
-    [firstAngleLabel addGestureRecognizer:tapToReplaceFirstAngle];
+    //if (aOne < 0) {
+    if (AngleVal == INNER_ANGLE_VALUE) {
+    innerAngleLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.degreeLabel.frame.origin.x, self.degreeLabel.frame.origin.y, self.degreeLabel.bounds.size.width, self.degreeLabel.bounds.size.height)];
+    innerAngleLabel.numberOfLines = 1;
+    innerAngleLabel.adjustsFontSizeToFitWidth = YES;
+    innerAngleLabel.minimumFontSize = self.degreeLabel.font.pointSize;
+    innerAngleLabel.text = self.degreeLabel.text;
+    [innerAngleLabel setFont:[UIFont systemFontOfSize:self.degreeLabel.font.pointSize]];
+    innerAngleLabel.textAlignment = NSTextAlignmentCenter;
+    [innerAngleLabel addGestureRecognizer:tapToReplaceInnerAngle];
     self.degreeLabel.hidden = YES;
-    firstAngleLabel.center = self.degreeLabel.center;
-    firstAngleLabel.userInteractionEnabled = YES;
-    [self.view addSubview:firstAngleLabel];
-    //NSUInteger topViewIndex = [self.view.subviews count]-1;
-    //[self.view.subviews[topViewIndex] addSubview:firstAngleLabel];
+    innerAngleLabel.center = self.degreeLabel.center;
+    innerAngleLabel.userInteractionEnabled = YES;
+    [self.view addSubview:innerAngleLabel];
+
     
     //we'll just try using a view transition for now
     [UIView animateWithDuration:0.75 animations:^{
-        //firstAngleView.bounds.size = firstAngleView.bounds.size;
-        firstAngleLabel.transform = CGAffineTransformMakeScale(0.2, 0.2);
-        //firstAngleLabel.center = CGPointMake(innerAngleLayer.innerVertexPoint.x-25, innerAngleLayer.innerVertexPoint.y-10);
-        firstAngleLabel.center = CGPointMake(innerAngleEmphasis.innerVertexPoint.x-25, innerAngleEmphasis.innerVertexPoint.y-10);
+        innerAngleLabel.transform = CGAffineTransformMakeScale(0.2, 0.2);
+        innerAngleLabel.center = CGPointMake(innerAngleEmphasis.innerVertexPoint.x-25, innerAngleEmphasis.innerVertexPoint.y-10);
     }];
-    aOne = self.degreeLabel.text.integerValue;
+    aOne = (int)self.degreeLabel.text.integerValue;
     [self.view removeGestureRecognizer:tapToStoreAngle];
         self.degreeLabel.hidden = YES;
-    // this is terrible form, but we'll double the value here since we draw half the arc length in the animation
-    //baseLengthLayer.strokeLength += 2*baseLengthLayer.adjLength;
     
 }
 
@@ -312,8 +301,7 @@
         self.degreeLabel.hidden = NO;
     }
     
-    if (aTwo >=0) {
-        
+        if (AngleVal==OUTER_ANGLE_VALUE) {
         outerAngleLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.degreeLabel.frame.origin.x, self.degreeLabel.frame.origin.y, self.degreeLabel.bounds.size.width, self.degreeLabel.bounds.size.height)];
         outerAngleLabel.numberOfLines = 1;
         outerAngleLabel.adjustsFontSizeToFitWidth = YES;
@@ -321,7 +309,7 @@
         outerAngleLabel.text = self.degreeLabel.text;
         [outerAngleLabel setFont:[UIFont systemFontOfSize:self.degreeLabel.font.pointSize]];
         outerAngleLabel.textAlignment = NSTextAlignmentCenter;
-        [outerAngleLabel addGestureRecognizer:tapToReplaceFirstAngle];
+        [outerAngleLabel addGestureRecognizer:tapToReplaceOuterAngle];
         self.degreeLabel.hidden = YES;
         outerAngleLabel.center = self.degreeLabel.center;
         outerAngleLabel.userInteractionEnabled = YES;
@@ -330,25 +318,33 @@
         [UIView animateWithDuration:0.75 animations:^{
             //firstAngleView.bounds.size = firstAngleView.bounds.size;
             outerAngleLabel.transform = CGAffineTransformMakeScale(0.2, 0.2);
-            //firstAngleLabel.center = CGPointMake(innerAngleLayer.innerVertexPoint.x-25, innerAngleLayer.innerVertexPoint.y-10);
-            outerAngleLabel.center = CGPointMake(outerAngleEmphasis.outerVertexPoint.x-25, outerAngleEmphasis.outerVertexPoint.y-10);
+            outerAngleLabel.center = CGPointMake(outerAngleEmphasis.outerVertexPoint.x-45, outerAngleEmphasis.outerVertexPoint.y-10);
         }];
         outerAngleEmphasis.strokeLength = 0.0;
+            aTwo = (int)self.degreeLabel.text.integerValue;
+            [self.view removeGestureRecognizer:tapToStoreAngle];
+            self.degreeLabel.hidden = YES;
     }
-    
-    //UITextField *baseLengthText = [[UITextField alloc] initWithFrame:CGRectMake(baseLengthLayer.strokeLength/2, 100.0, 70.0, 50.0)];
-    
-    
     
     NSLog(@"Subview structure after adding the Angle label: %@", self.view.subviews);
     [self.view removeGestureRecognizer:tapToStoreAngle];
+    AngleVal = !AngleVal;
+    
+    if ((aOne >=0) && (aTwo >=0) && (bStep >=0)) {
+        calculateButton = [[UIButton alloc] initWithFrame:CGRectMake(self.degreeLabel.frame.origin.x, self.degreeLabel.frame.origin.y, self.degreeLabel.bounds.size.width, self.degreeLabel.bounds.size.height)];
+        [calculateButton setTitle:@"Calculate" forState:UIControlStateNormal];
+        calculateButton.backgroundColor = [UIColor greenColor];
+        UITapGestureRecognizer *tapToCalculate = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(calculateHeight:)];
+        [calculateButton addGestureRecognizer:tapToCalculate];
+        [self.view addSubview:calculateButton];
+    }
 }
 
--(void)tapToReplaceFirstAngle:(UITapGestureRecognizer *)gesture{
+-(void)replaceInnerAngle:(UITapGestureRecognizer *)gesture{
     //[UIView animateWithDuration:0.75 animations:^{
     [UIView animateWithDuration:0.75 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-        firstAngleLabel.transform = CGAffineTransformMakeScale(1.01, 1.01);
-        firstAngleLabel.center = self.degreeLabel.center;
+        innerAngleLabel.transform = CGAffineTransformMakeScale(1.01, 1.01);
+        innerAngleLabel.center = self.degreeLabel.center;
         //self.degreeLabel.hidden = NO;
         baseLengthEmphasis.strokeLength = 0.0;
         if (bStep<0) {
@@ -360,8 +356,8 @@
         
     } completion:^(BOOL finished) {
         
-        firstAngleLabel.hidden = YES;
-        [firstAngleLabel removeFromSuperview];
+        innerAngleLabel.hidden = YES;
+        [innerAngleLabel removeFromSuperview];
       //  self.degreeLabel.hidden = NO;
         self.degreeLabel.hidden = NO;
 
@@ -369,6 +365,37 @@
        // [self.view.subviews[topViewIndex] addSubview:self.degreeLabel];
         [self.view addGestureRecognizer:tapToStoreAngle];
     }];
+    
+    AngleVal = INNER_ANGLE_VALUE;
+}
+
+-(void)replaceOuterAngle:(UITapGestureRecognizer *)gesture{
+    //[UIView animateWithDuration:0.75 animations:^{
+    [UIView animateWithDuration:0.75 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        outerAngleLabel.transform = CGAffineTransformMakeScale(1.01, 1.01);
+        outerAngleLabel.center = self.degreeLabel.center;
+        //self.degreeLabel.hidden = NO;
+        baseLengthEmphasis.strokeLength = 0.0;
+        if (bStep<0) {
+            baseLengthText.alpha = 0.0;
+        }
+        //baseLengthButton.alpha = 0.0;
+        outerAngleEmphasis.strokeLength = innerAngleEmphasis.innerVertexPoint.x + innerAngleEmphasis.rightAngleVertexPoint.x/2;
+        innerAngleEmphasis.strokeLength = 0.0;
+        
+    } completion:^(BOOL finished) {
+        
+        outerAngleLabel.hidden = YES;
+        [outerAngleLabel removeFromSuperview];
+        //  self.degreeLabel.hidden = NO;
+        self.degreeLabel.hidden = NO;
+        
+        // NSUInteger topViewIndex = [self.view.subviews count]-1;
+        // [self.view.subviews[topViewIndex] addSubview:self.degreeLabel];
+        [self.view addGestureRecognizer:tapToStoreAngle];
+    }];
+    
+    AngleVal = OUTER_ANGLE_VALUE;
 }
 
 -(void)textFieldDidBeginEditing:(UITextField *)textField{
@@ -384,31 +411,33 @@
         textField.textAlignment = NSTextAlignmentCenter;
         textField.adjustsFontSizeToFitWidth = YES;
         baseLengthEmphasis.strokeLength = 0.0;
-        bStep = textField.text.integerValue;
-       // textField.center.y += 25;
-       // textField.bounds.size.height += 20;
-        //textField.hidden = YES;
+        bStep = (int)textField.text.integerValue;
+
     } completion:^(BOOL finished) {
         //
+        if ((aOne >= 0) && (aTwo <0)){
         outerAngleButton.hidden = YES;
         self.degreeLabel.hidden = NO;
         outerTriangleLayer.opacity = 1.0;
         outerAngleEmphasis.strokeLength = innerAngleEmphasis.innerVertexPoint.x + innerAngleEmphasis.rightAngleVertexPoint.x/2;
         outerAngleEmphasis.endAngle = -M_PI + acos(outerAngleEmphasis.adjLength/outerAngleEmphasis.hypLength);
+            AngleVal = OUTER_ANGLE_VALUE;
+        }
+        else if ((aOne<0) && (aTwo>=0)){
+            innerAngleButton.hidden = YES;
+            self.degreeLabel.hidden = NO;
+            innerTriangleLayer.opacity = 1.0;
+            innerAngleEmphasis.strokeLength = innerAngleEmphasis.innerVertexPoint.x + innerAngleEmphasis.rightAngleVertexPoint.x/2;
+            innerAngleEmphasis.endAngle = -M_PI + acos(innerAngleEmphasis.adjLength/innerAngleEmphasis.hypLength);
+            AngleVal = INNER_ANGLE_VALUE;
+        }
+        else if ((aOne>=0) && (aTwo>0)){
+            innerAngleButton.hidden = YES;
+            outerAngleButton.hidden = YES;
+        }
     }];
     
     [self.view addGestureRecognizer:tapToStoreAngle];
-    
-   // baseLengthLabel = [[UILabel alloc] initWithFrame:CGRectMake(firstAngleLabel.frame.origin.x, firstAngleLabel.frame.origin.y, firstAngleLabel.bounds.size.width, firstAngleLabel.bounds.size.height)];
-   // [self.view addSubview:baseLengthLabel];
-    
-   // NSUInteger subViews = [self.view.subviews count];
-   // NSArray *triangeSublayers = ((TriangleView*)self.view.subviews[subViews-1]).layer.sublayers;
-   // textField.backgroundColor = [UIColor clearColor];
-   // textField.textColor = [UIColor blackColor];
-
-    
-    //outerAngleEmphasis.endAngle = -M_PI + acos(outerAngleEmphasis.adjLength/outerAngleEmphasis.hypLength);
     
     return YES;
 }
@@ -418,21 +447,34 @@
 }
 
 -(void)inputInnerAngle:(UITapGestureRecognizer *)gesture{
+    
+    startWithInnerAngle = YES;
+    
     self.degreeLabel.hidden = NO;
     innerAngleButton.alpha = 0;
+    outerAngleButton.alpha = 0;
     innerTriangleLayer.opacity = 1;
     innerAngleEmphasis.endAngle = -M_PI + acos(innerAngleEmphasis.adjLength/innerAngleEmphasis.hypLength);
     [self.view addGestureRecognizer:tapToStoreAngle];
+    AngleVal = INNER_ANGLE_VALUE;
 }
 
 -(void)inputBaseLength:(UITapGestureRecognizer *)gesture{
     
-    
+    //maybe unused if we stick with the TextField approach
     
 }
 
 -(void)inputOuterAngle:(UITapGestureRecognizer *)gesture{
-    
+    self.degreeLabel.hidden = NO;
+    startWithInnerAngle = NO;
+    innerAngleButton.alpha = 0;
+    outerAngleButton.alpha = 0;
+    outerTriangleLayer.opacity = 1;
+    outerAngleEmphasis.endAngle = -M_PI + acos(outerAngleEmphasis.adjLength/outerAngleEmphasis.hypLength);
+    [self.view addGestureRecognizer:tapToStoreAngle];
+    outerAngleEmphasis.strokeLength = outerAngleEmphasis.innerVertexPoint.x + outerAngleEmphasis.rightAngleVertexPoint.x/2;
+    AngleVal = OUTER_ANGLE_VALUE;
 }
 
 @end
