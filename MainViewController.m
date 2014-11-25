@@ -20,8 +20,11 @@
     NSString *distanceUnits;
     
 }
+// @synthesize helpView = _helpView;
 
 #define FUTZ_FACTOR 6.0
+
+#pragma mark - Lifecycle Methods
 
 - (void)viewDidLoad
 {
@@ -38,12 +41,40 @@
         self.myAssistantLabel.text = @"The camera is not available on this device";
         self.cameraButtonButton.hidden = YES;
     }
+<<<<<<< HEAD
     */
 
     CGRect frame = CGRectMake(130.0, 150.0, 60.0, 120.0);
     reticleView = [[UIImageView alloc] initWithFrame:frame];
     reticleView.image = [UIImage imageNamed:@"dwg06.png"];
     reticleView.userInteractionEnabled = YES;
+=======
+// Builds a view to overlay over the camera view including the zoom factor
+//<<<<<<< HEAD:MainViewController.m
+    CGRect frame = CGRectMake(80.0, 150.0, 160.0, 120.0);
+    //CGRect frame = CGRectMake(130.0, 150.0, 60.0, 120.0);
+    //self.reticleView = [[UIImageView alloc] initWithFrame:frame];
+    //self.reticleView.image = [UIImage imageNamed:@"dwg06.png"];
+    reticleView = [[UIImageView alloc] initWithFrame:frame];
+    reticleView.image = [UIImage imageNamed:@"scope.png"];
+//=======
+   // CGRect frame = CGRectMake(10.0, 40.0, 320.0, 240.0);
+    //CGRect frame = CGRectMake(100.0, 100.0, 200.0, 200.0);
+   // self.reticleView = [[UIImageView alloc] initWithFrame:frame];
+    //self.reticleView.image = [UIImage imageNamed:@"scope.png"];
+  //  self.reticleView.image = [UIImage imageNamed:@"dwg06.png"];
+//>>>>>>> 262514d0c77a08c21caa6d57f6ae6ff8290bb89e:RangeFinder/MainViewController.m
+//    self.reticleView.inputView.subviews
+//    self.reticleView.backgroundColor = [UIColor blueColor];
+//    self.reticleView.alpha = 0.65;
+    //self.reticleView.userInteractionEnabled = YES;
+    reticleView.userInteractionEnabled = YES;
+
+    self.helpView.hidden = YES;
+
+// Sets up the view's values & displays
+//    self.myAssistantLabel.hidden = NO;
+>>>>>>> ae17683cdc8cfe1853284fc7f54b6fef988504d7
     
 // Sets up the distance label
     self.distanceLabel.text = @"xxx yards";
@@ -62,6 +93,32 @@
     return NO;
 }
 
+<<<<<<< HEAD
+=======
+-(NSUInteger)supportedInterfaceOrientations{
+
+    return UIInterfaceOrientationMaskPortrait;
+}
+
+#pragma mark - Custom Methods
+
+- (IBAction)showHelpButton:(id)sender
+{
+    NSLog(@"slides up a transparency that describes the buttons below");
+    if (self.helpView.hidden) {
+        self.helpView.hidden = NO;
+    }
+}
+
+- (IBAction)hideHelpButton:(id)sender
+{
+    NSLog(@"hides the transparency that describes the buttons below");
+    if (!self.helpView.hidden) {
+        self.helpView.hidden = YES;
+    }
+}
+
+>>>>>>> ae17683cdc8cfe1853284fc7f54b6fef988504d7
 #pragma mark - Flipside View
 
 - (void)flipsideViewControllerDidFinish:(FlipsideViewController *)controller
@@ -122,16 +179,21 @@
     secondZoomFactor = [pictureZoomFactor floatValue];
 // keeps zoom factor from being zero
     if (!secondZoomFactor) {
-        NSLog (@"No zoom factor");
+        // NSLog (@"No zoom factor");
         secondZoomFactor = 1.0;
     }    
     totalZoomFactor = zoomFactor *secondZoomFactor;
-    NSString *finalZoomFactor = [[NSString alloc] initWithFormat:@"Total zoom = %3.3f", totalZoomFactor];
+    NSString *finalZoomFactor = [[NSString alloc] initWithFormat:@"Total zoom = %3.1f", totalZoomFactor];
     self.myAssistantLabel.text = finalZoomFactor;
-    NSLog(@"zoom are %2.3f, %2.3f, %2.3f", zoomFactor, secondZoomFactor, totalZoomFactor);
+    // NSLog(@"zoom are %2.3f, %2.3f, %2.3f", zoomFactor, secondZoomFactor, totalZoomFactor);
     
     // Calculates actual distance in yards
+<<<<<<< HEAD
     self.distanceLabel.text = [NSString stringWithFormat:@"%3.0f %@", (totalZoomFactor * flagHeight * FUTZ_FACTOR), distanceUnits];
+=======
+    //self.distanceLabel.text = [NSString stringWithFormat:@"%3.0f %@", (totalZoomFactor * flagHeight * FUTZ_FACTOR), self.distanceUnits];
+    self.distanceLabel.text = [NSString stringWithFormat:@"%4.0f %@", (totalZoomFactor * flagHeight * FUTZ_FACTOR), distanceUnits];
+>>>>>>> ae17683cdc8cfe1853284fc7f54b6fef988504d7
 
 // gets rid of the image controller modal view
     [self dismissModalViewControllerAnimated:YES];

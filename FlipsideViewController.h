@@ -5,6 +5,11 @@
 //  Created by Chris Lamb on 6/3/12.
 //  Copyright (c) 2012 CPL Consulting. All rights reserved.
 //
+/*  This view is used for setup of the app including setting of the sighted object's
+    height, app's length units and whatever else is necessary.
+    The app uses a scrollView so that there is no restriction on setup items.UIGestureRecognizer
+ */
+//
 
 #import <UIKit/UIKit.h>
 
@@ -39,5 +44,7 @@
 
 - (IBAction)hideHelpButton:(id)sender;
 - (IBAction)showHelpButton:(id)sender;
+
+- (IBAction)editButton:(id)sender;
 
 @end

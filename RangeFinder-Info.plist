@@ -9,16 +9,9 @@
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleIcons</key>
-	<dict>
-		<key>CFBundlePrimaryIcon</key>
-		<dict>
-			<key>CFBundleIconFiles</key>
-			<array>
-				<string>Default.png</string>
-				<string>Icon.png</string>
-			</array>
-		</dict>
-	</dict>
+	<dict/>
+	<key>CFBundleIcons~ipad</key>
+	<dict/>
 	<key>CFBundleIdentifier</key>
 	<string>CPL.${PRODUCT_NAME:rfc1034identifier}</string>
 	<key>CFBundleInfoDictionaryVersion</key>
@@ -42,8 +35,12 @@
 		<string>armv7</string>
 	</array>
 	<key>UISupportedInterfaceOrientations</key>
+<<<<<<< HEAD
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
+=======
+	<array/>
+>>>>>>> ae17683cdc8cfe1853284fc7f54b6fef988504d7
 </dict>
 </plist>

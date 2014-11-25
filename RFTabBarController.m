@@ -23,7 +23,7 @@
 }
 
 -(BOOL)shouldAutorotate{
-    return NO;
+    return YES;
 }
 
 -(void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item{

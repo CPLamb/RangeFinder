@@ -13,6 +13,7 @@ enum findValueForAngle {INNER_ANGLE_VALUE, OUTER_ANGLE_VALUE};
 @implementation HeightFinderViewController{
     int degreesTilt;
     CMMotionManager *motionManager;
+<<<<<<< HEAD
     RFTabBarController *tabVC;
     int lastdegreeVal;
     UITapGestureRecognizer *tapToStoreAngle;
@@ -45,7 +46,14 @@ enum findValueForAngle {INNER_ANGLE_VALUE, OUTER_ANGLE_VALUE};
     int bStep;
     int aOne;
     int aTwo;
+=======
+    BOOL angleOneButtonState;
+    BOOL angleTwoButtonState;
+>>>>>>> ae17683cdc8cfe1853284fc7f54b6fef988504d7
 }
+@synthesize angleOneButton = _angleOneButton;
+@synthesize angleTwoButton = _angleTwoButton;
+@synthesize objectName = _objectName;
 
 #define DEGREE_2_RADIAN 57.3
 #define YOUR_HEIGHT 6.0
@@ -54,21 +62,46 @@ enum findValueForAngle {INNER_ANGLE_VALUE, OUTER_ANGLE_VALUE};
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     
+// Additional setup stuff
     self.helpView.hidden = YES;
+    angleOneButtonState = FALSE;
+    angleTwoButtonState = FALSE;
+    self.objectName.text = [NSString stringWithFormat:@"Object"];
 
+// Tap to hide keyboard
+    UITapGestureRecognizer *hideKeyboardTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideTap:)];
+    [self.view addGestureRecognizer:hideKeyboardTap];
+    
 // CoreMotion setup for acceleration values
     motionManager = [[CMMotionManager alloc] init];
     motionManager.accelerometerUpdateInterval = .2;
     motionManager.gyroUpdateInterval = .2;
 
+<<<<<<< HEAD
+=======
+    
+    [motionManager startAccelerometerUpdatesToQueue:[NSOperationQueue currentQueue]
+                                             withHandler:^(CMAccelerometerData  *accelerometerData, NSError *error) {
+                                                 [self outputAccelerationData:accelerometerData.acceleration];
+                                                 if(error){
+
+                                                     NSLog(@"%@", error);
+                                                 }
+                                             }];
+    
+    
+   // [self.motionManager startDeviceMotionUpdatesUsingReferenceFrame:CMAttitudeReferenceFrameXArbitraryCorrectedZVertical toQueue:[NSOperationQueue currentQueue] withHandler:^(CMDeviceMotion *motion, NSError *error) {
+    /*
+>>>>>>> ae17683cdc8cfe1853284fc7f54b6fef988504d7
     [motionManager startDeviceMotionUpdatesUsingReferenceFrame:CMAttitudeReferenceFrameXArbitraryCorrectedZVertical toQueue:[NSOperationQueue currentQueue] withHandler:^(CMDeviceMotion *motion, NSError *error) {
         [self outputAttitudeData:motion];
         if (error){
             NSLog(@"Error! %@", [error description]);
         }
+     
     }];
+<<<<<<< HEAD
     
     self.helpView.hidden = YES;
     self.helpView.alpha = 0;
@@ -155,18 +188,57 @@ enum findValueForAngle {INNER_ANGLE_VALUE, OUTER_ANGLE_VALUE};
 }
 -(void)setLayerEndAngle:(AngleLayer *)layer value:(CGFloat)val{
     layer.endAngle = val;
+=======
+     */
+>>>>>>> ae17683cdc8cfe1853284fc7f54b6fef988504d7
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+<<<<<<< HEAD
+=======
 
--(BOOL)shouldAutorotate{
-    return NO;
+#pragma mark - Core Motion Activity Update Handler Methods
+
+-(void)outputAccelerationData:(CMAcceleration)acceleration
+{
+    // Tilt is the arcTan(Opposite accel Y / Adjacent accel X)
+    double tilt = atan(acceleration.y / acceleration.x)*DEGREE_2_RADIAN;
+    degreesTilt = tilt;
+    self.accelerationsLabel.text = [NSString stringWithFormat:@"Current angle = %2.0f", degreesTilt];
+    
+// loads degreeTilt into angle textFields when the field is selected
+    if (angleOneButtonState) {
+        self.angleOneLabel.text = [NSString stringWithFormat:@"%2.0f", degreesTilt];
+    }
+    if (angleTwoButtonState) {
+        self.angleTwoLabel.text = [NSString stringWithFormat:@"%2.0f", degreesTilt];
+    }
+>>>>>>> ae17683cdc8cfe1853284fc7f54b6fef988504d7
+
 }
 
+<<<<<<< HEAD
 #pragma mark - Custom methods
+=======
+-(void)outputAttitudeData:(CMDeviceMotion*)motion{
+    //self.accelerationsLabel.text = [NSString stringWithFormat:@"Current angle = %2.0f", -motion.gravity.y*90];
+ //   degreesTilt = -motion.gravity.y*90;
+    
+// loads degreeTilt into angle textFields when the field is selected
+    if (angleOneButtonState) {
+        self.angleOneLabel.text = [NSString stringWithFormat:@"%2.0f", degreesTilt];
+    }
+    if (angleTwoButtonState) {
+        self.angleTwoLabel.text = [NSString stringWithFormat:@"%2.0f", degreesTilt];
+    }
+}
+
+#pragma mark - Custom Methods
+
+>>>>>>> ae17683cdc8cfe1853284fc7f54b6fef988504d7
 
 - (IBAction)showHelpButton:(id)sender
 {
@@ -193,6 +265,7 @@ enum findValueForAngle {INNER_ANGLE_VALUE, OUTER_ANGLE_VALUE};
    // [self.helpView removeFromSuperview];
 }
 
+<<<<<<< HEAD
 #pragma mark - Core Motion Activity Update Handler Methods
 
 -(void)outputAttitudeData:(CMDeviceMotion*)motion{
@@ -209,27 +282,67 @@ enum findValueForAngle {INNER_ANGLE_VALUE, OUTER_ANGLE_VALUE};
     }
     else
         self.degreeLabel.text = @"0°";
+=======
+- (IBAction)addButton:(id)sender
+{
+    UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Enter object name"
+                                                      message:nil
+                                                     delegate:self
+                                            cancelButtonTitle:@"Cancel"
+                                            otherButtonTitles:@"Add", nil];
+    [message setAlertViewStyle:UIAlertViewStylePlainTextInput];
+    [message show];
+    
+// set text to objectName on ADD button
+    
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+// sets objectName to textField input
+    if (buttonIndex == [alertView firstOtherButtonIndex]) {
+        NSLog(@"buttonIndex = %d", buttonIndex);
+        //self.objectName = [alertView textFieldAtIndex:buttonIndex];
+        //NSLog(@"ObjectName is %@", self.objectName.text);
+    } else {
+        NSLog(@"buttonIndex = %d", buttonIndex);
+>>>>>>> ae17683cdc8cfe1853284fc7f54b6fef988504d7
     }
 }
 
-#pragma mark - Custom Methods
-
 - (IBAction)setAngleOneButton:(UIButton *)sender
 {
+<<<<<<< HEAD
    // self.angleOne.text = [NSString stringWithFormat:@"%2.2f", degreesTilt];
+=======
+    //self.angleOneLabel.text = [NSString stringWithFormat:@"%2.1f", degreesTilt];
+    angleOneButtonState = TRUE;
+    // NSLog(@"Button state is %u", angleOneButtonState);
+>>>>>>> ae17683cdc8cfe1853284fc7f54b6fef988504d7
 }
 
 - (IBAction)setAngleTwoButton:(UIButton *)sender
 {
+<<<<<<< HEAD
    // self.angleTwo.text = [NSString stringWithFormat:@"%2.2f", degreesTilt];
+=======
+    //self.angleTwoLabel.text = [NSString stringWithFormat:@"%2.1f", degreesTilt];
+    angleTwoButtonState = TRUE;
+>>>>>>> ae17683cdc8cfe1853284fc7f54b6fef988504d7
 }
 
 -(void)calculateHeight:(UITapGestureRecognizer*)gesture
 {
 // converts textfields to floats in radians to calculate the height
+<<<<<<< HEAD
    // double bStep = [self.baseLength.text doubleValue];
    // double aOne = [self.angleOne.text doubleValue]/DEGREE_2_RADIAN;
    // double aTwo = [self.angleTwo.text doubleValue]/DEGREE_2_RADIAN;
+=======
+    double bStep = [self.baseLength.text doubleValue];
+    double aOne = [self.angleOneLabel.text doubleValue]/DEGREE_2_RADIAN;
+    double aTwo = [self.angleTwoLabel.text doubleValue]/DEGREE_2_RADIAN;
+>>>>>>> ae17683cdc8cfe1853284fc7f54b6fef988504d7
     
     if (aTwo > aOne) {
         double temp = aTwo;
@@ -239,17 +352,27 @@ enum findValueForAngle {INNER_ANGLE_VALUE, OUTER_ANGLE_VALUE};
     
 // calculates the height based on 2 angles and a base length
     double h = YOUR_HEIGHT + (bStep * tan(aTwo) / (1-(tan(aTwo)/tan(aOne))));
+<<<<<<< HEAD
     UILabel *heightLabel = [[UILabel alloc] initWithFrame:self.degreeLabel.frame];
     heightLabel.text = [NSString stringWithFormat:@"%f", h];
     [self.view addSubview:heightLabel];
+=======
+    
+// prints value
+    self.height.text = [NSString stringWithFormat:@"Object is %3.0f feet", h];
+    NSLog(@"The height is %@", self.height.text);
+
+>>>>>>> ae17683cdc8cfe1853284fc7f54b6fef988504d7
 }
 
-- (IBAction)doneButton:(UIButton *)sender
+- (void)hideTap:(UIGestureRecognizer *)gestureRecognizer
 {
-    NSLog(@"Hides the keyboard");
-    [self.angleOne resignFirstResponder];
-    [self.angleTwo resignFirstResponder];
-    [self.baseLength resignFirstResponder];
+    [self.view endEditing:YES];  // or [self.baseLength resignFirstResponder];
+    
+// resets dynamic data switch for angle textFields
+    angleOneButtonState = FALSE;
+    angleTwoButtonState = FALSE;
+    //NSLog(@"Screen TAPPED button is %u", angleOneButtonState);
 }
 
 #pragma mark - Handler for screen tap
