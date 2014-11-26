@@ -42,20 +42,20 @@
         self.cameraButtonButton.hidden = YES;
     }
 // Builds a view to overlay over the camera view including the zoom factor
-    // First the background
+/*    // First the background
     double frameX = self.view.frame.size.width;
     CGRect frameB = CGRectMake(0, 40.0, 200.0, 200.0);  // 0.8*frameX, 0.8*frameX);
     UIImageView *backgroundView = [[UIImageView alloc] initWithFrame:frameB];
     backgroundView.image = [UIImage imageNamed:@"dwg02.png"];
     [self.reticleView addSubview:backgroundView];
-/*
-    // Next the reticle (scope or flag)
-    //CGRect frame = CGRectMake(80.0, 150.0, 160.0, 120.0);
-    CGRect frameR = CGRectMake(0.0, 0.0, 0.8*frameX, 0.8*frameX);   // scope location
-    UIImageView *scopeView = [[UIImageView alloc] initWithFrame:frameR];
-    scopeView.image = [UIImage imageNamed:@"scope400x400.png"];
-    [reticleView addSubview:scopeView];
 */
+    // Next the reticle (scope or flag)
+    CGRect frame = CGRectMake(80.0, 150.0, 160.0, 120.0);
+    //CGRect frameR = CGRectMake(0.0, 0.0, 0.8*frameX, 0.8*frameX);   // scope location
+    UIImageView *scopeView = [[UIImageView alloc] initWithFrame:frame];
+    scopeView.image = [UIImage imageNamed:@"reticle-1.png"];
+    [self.reticleView addSubview:scopeView];
+    
     self.reticleView.userInteractionEnabled = YES;
     
 // Builds the slider and rotates it 90 degrees

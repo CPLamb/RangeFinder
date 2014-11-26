@@ -28,6 +28,8 @@
 		83BA61491A2502B100569FD8 /* splash-640x1136.png in Resources */ = {isa = PBXBuildFile; fileRef = 83BA61421A2502B100569FD8 /* splash-640x1136.png */; };
 		83BA614C1A2504AB00569FD8 /* splashMotto-640x960.png in Resources */ = {isa = PBXBuildFile; fileRef = 83BA614B1A2504AB00569FD8 /* splashMotto-640x960.png */; };
 		83BA614E1A2505EF00569FD8 /* splashMotto-640x1136.png in Resources */ = {isa = PBXBuildFile; fileRef = 83BA614D1A2505EF00569FD8 /* splashMotto-640x1136.png */; };
+		83BA61501A252BD400569FD8 /* Reticle-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 83BA614F1A252BD400569FD8 /* Reticle-1.png */; };
+		83BA61541A254AB700569FD8 /* Reticle(2).png in Resources */ = {isa = PBXBuildFile; fileRef = 83BA61531A254AB700569FD8 /* Reticle(2).png */; };
 		83D6B3321586A6A500CBA01B /* dwg03.png in Resources */ = {isa = PBXBuildFile; fileRef = 83D6B3311586A6A500CBA01B /* dwg03.png */; };
 		83D6B3351586A82400CBA01B /* dwg04.png in Resources */ = {isa = PBXBuildFile; fileRef = 83D6B3341586A82400CBA01B /* dwg04.png */; };
 		83E650BA157EA3B3003E9F7C /* RangeFinderIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 83E650B9157EA3B3003E9F7C /* RangeFinderIcon.png */; };
@@ -78,6 +80,8 @@
 		83BA61421A2502B100569FD8 /* splash-640x1136.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "splash-640x1136.png"; sourceTree = "<group>"; };
 		83BA614B1A2504AB00569FD8 /* splashMotto-640x960.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "splashMotto-640x960.png"; sourceTree = "<group>"; };
 		83BA614D1A2505EF00569FD8 /* splashMotto-640x1136.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "splashMotto-640x1136.png"; sourceTree = "<group>"; };
+		83BA614F1A252BD400569FD8 /* Reticle-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Reticle-1.png"; sourceTree = "<group>"; };
+		83BA61531A254AB700569FD8 /* Reticle(2).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Reticle(2).png"; sourceTree = "<group>"; };
 		83D6B3311586A6A500CBA01B /* dwg03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dwg03.png; sourceTree = "<group>"; };
 		83D6B3341586A82400CBA01B /* dwg04.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dwg04.png; sourceTree = "<group>"; };
 		83E650B9157EA3B3003E9F7C /* RangeFinderIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RangeFinderIcon.png; sourceTree = SOURCE_ROOT; };
@@ -175,6 +179,7 @@
 			children = (
 				83BA614A1A25041200569FD8 /* IconsEtAl */,
 				83BA613C1A2502B100569FD8 /* flag-400x400.png */,
+				83BA614F1A252BD400569FD8 /* Reticle-1.png */,
 				83B098F41A23BD3F00CC4190 /* scope400x400.png */,
 				908380A91A0AE712005A6A86 /* Default.png */,
 				83AFE2B11A1FF000002CD6DE /* BackgroundHeight.png */,
@@ -203,6 +208,7 @@
 		83BA614A1A25041200569FD8 /* IconsEtAl */ = {
 			isa = PBXGroup;
 			children = (
+				83BA61531A254AB700569FD8 /* Reticle(2).png */,
 				83ACC2EE1A1D527500D55CE5 /* IconHeight24.png */,
 				83ACC2EC1A1D524400D55CE5 /* IconRange24.png */,
 				83ACC2EA1A1D507100D55CE5 /* IconSetup24.png */,
@@ -297,6 +303,7 @@
 				90F498071A12B410006735E6 /* dwg02.png in Resources */,
 				90F498251A15D6CE006735E6 /* scope.png in Resources */,
 				83ACC2F11A1D6BCF00D55CE5 /* objectList.plist in Resources */,
+				83BA61501A252BD400569FD8 /* Reticle-1.png in Resources */,
 				83ACC2ED1A1D524400D55CE5 /* IconRange24.png in Resources */,
 				90F498231A15AB0D006735E6 /* ObjectSizes.plist in Resources */,
 				83ACC2EB1A1D507100D55CE5 /* IconSetup24.png in Resources */,
@@ -309,6 +316,7 @@
 				83BA61461A2502B100569FD8 /* logo.png in Resources */,
 				83BA614E1A2505EF00569FD8 /* splashMotto-640x1136.png in Resources */,
 				83ACC2EF1A1D527500D55CE5 /* IconHeight24.png in Resources */,
+				83BA61541A254AB700569FD8 /* Reticle(2).png in Resources */,
 				83D6B3321586A6A500CBA01B /* dwg03.png in Resources */,
 				83D6B3351586A82400CBA01B /* dwg04.png in Resources */,
 				83BA614C1A2504AB00569FD8 /* splashMotto-640x960.png in Resources */,
