@@ -19,23 +19,23 @@
 #import "RFTabBarController.h"
 #import "TriangleView.h"
 
-<<<<<<< HEAD
+//<<<<<<< HEAD
 @interface HeightFinderViewController : UIViewController<UIGestureRecognizerDelegate, UITextFieldDelegate>
 
 @property (nonatomic, strong) IBOutlet UITextField *baseLength;
 @property (nonatomic, strong) IBOutlet UITextField *angleOne;
 @property (nonatomic, strong) IBOutlet UITextField *angleTwo;
 @property (strong, nonatomic) IBOutlet UIView *helpView;
-=======
-@interface HeightFinderViewController : UIViewController <UIAlertViewDelegate>
+//=======
+//@interface HeightFinderViewController : UIViewController <UIAlertViewDelegate>
 
-@property (nonatomic, strong) IBOutlet UITextField *baseLength;
+//@property (nonatomic, strong) IBOutlet UITextField *baseLength;
 @property (nonatomic, strong) IBOutlet UITextField *angleOneLabel;
 @property (nonatomic, strong) IBOutlet UITextField *angleTwoLabel;
 
 @property (nonatomic, strong) IBOutlet UILabel *height;
 @property (nonatomic, strong) IBOutlet UITextField *objectName;
->>>>>>> ae17683cdc8cfe1853284fc7f54b6fef988504d7
+//>>>>>>> ae17683cdc8cfe1853284fc7f54b6fef988504d7
 
 @property (weak, nonatomic) IBOutlet UILabel *degreeLabel;
 
@@ -45,13 +45,14 @@
 - (IBAction)setAngleOneButton:(UIButton *)sender;
 - (IBAction)setAngleTwoButton:(UIButton *)sender;
 - (IBAction)calculateButton:(UIButton *)sender;
-<<<<<<< HEAD
+//<<<<<<< HEAD
 - (IBAction)doneButton:(UIButton *)sender;
-=======
+//=======
+@property (weak, nonatomic) IBOutlet UILabel *accelerationsLabel;
 
-@property (strong, nonatomic) IBOutlet UIView *helpView;
+//@property (strong, nonatomic) IBOutlet UIView *helpView;
 
->>>>>>> ae17683cdc8cfe1853284fc7f54b6fef988504d7
+//>>>>>>> ae17683cdc8cfe1853284fc7f54b6fef988504d7
 - (IBAction)showHelpButton:(id)sender;
 - (IBAction)hideHelpButton:(id)sender;
 @end

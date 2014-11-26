@@ -13,7 +13,7 @@ enum findValueForAngle {INNER_ANGLE_VALUE, OUTER_ANGLE_VALUE};
 @implementation HeightFinderViewController{
     int degreesTilt;
     CMMotionManager *motionManager;
-<<<<<<< HEAD
+//<<<<<<< HEAD
     RFTabBarController *tabVC;
     int lastdegreeVal;
     UITapGestureRecognizer *tapToStoreAngle;
@@ -46,14 +46,14 @@ enum findValueForAngle {INNER_ANGLE_VALUE, OUTER_ANGLE_VALUE};
     int bStep;
     int aOne;
     int aTwo;
-=======
+//=======
     BOOL angleOneButtonState;
     BOOL angleTwoButtonState;
->>>>>>> ae17683cdc8cfe1853284fc7f54b6fef988504d7
+//>>>>>>> ae17683cdc8cfe1853284fc7f54b6fef988504d7
 }
-@synthesize angleOneButton = _angleOneButton;
-@synthesize angleTwoButton = _angleTwoButton;
-@synthesize objectName = _objectName;
+//@synthesize angleOneButton = _angleOneButton;
+//@synthesize angleTwoButton = _angleTwoButton;
+//@synthesize objectName = _objectName;
 
 #define DEGREE_2_RADIAN 57.3
 #define YOUR_HEIGHT 6.0
@@ -78,8 +78,8 @@ enum findValueForAngle {INNER_ANGLE_VALUE, OUTER_ANGLE_VALUE};
     motionManager.accelerometerUpdateInterval = .2;
     motionManager.gyroUpdateInterval = .2;
 
-<<<<<<< HEAD
-=======
+//<<<<<<< HEAD
+//=======
     
     [motionManager startAccelerometerUpdatesToQueue:[NSOperationQueue currentQueue]
                                              withHandler:^(CMAccelerometerData  *accelerometerData, NSError *error) {
@@ -90,10 +90,10 @@ enum findValueForAngle {INNER_ANGLE_VALUE, OUTER_ANGLE_VALUE};
                                                  }
                                              }];
     
-    
-   // [self.motionManager startDeviceMotionUpdatesUsingReferenceFrame:CMAttitudeReferenceFrameXArbitraryCorrectedZVertical toQueue:[NSOperationQueue currentQueue] withHandler:^(CMDeviceMotion *motion, NSError *error) {
     /*
->>>>>>> ae17683cdc8cfe1853284fc7f54b6fef988504d7
+   // [self.motionManager startDeviceMotionUpdatesUsingReferenceFrame:CMAttitudeReferenceFrameXArbitraryCorrectedZVertical toQueue:[NSOperationQueue currentQueue] withHandler:^(CMDeviceMotion *motion, NSError *error) {
+     */
+//>>>>>>> ae17683cdc8cfe1853284fc7f54b6fef988504d7
     [motionManager startDeviceMotionUpdatesUsingReferenceFrame:CMAttitudeReferenceFrameXArbitraryCorrectedZVertical toQueue:[NSOperationQueue currentQueue] withHandler:^(CMDeviceMotion *motion, NSError *error) {
         [self outputAttitudeData:motion];
         if (error){
@@ -101,7 +101,8 @@ enum findValueForAngle {INNER_ANGLE_VALUE, OUTER_ANGLE_VALUE};
         }
      
     }];
-<<<<<<< HEAD
+    
+//<<<<<<< HEAD
     
     self.helpView.hidden = YES;
     self.helpView.alpha = 0;
@@ -138,7 +139,11 @@ enum findValueForAngle {INNER_ANGLE_VALUE, OUTER_ANGLE_VALUE};
 -(void)viewDidAppear:(BOOL)animated{
    // NSUInteger subViews = [self.view.subviews count];
    // NSArray *triangeSublayers = ((TriangleView*)self.view.subviews[subViews-1]).layer.sublayers;
-    NSArray *triangeSublayers = ((TriangleView*)self.view.subviews[3]).layer.sublayers;
+    NSLog(@"Subview Structure: %@", [self.view.subviews description]);
+   
+    //just for now we'll re-index the triangle Sublayers, but this VC needs to assign controls programmatically.
+    //NSArray *triangeSublayers = ((TriangleView*)self.view.subviews[3]).layer.sublayers;
+    NSArray *triangeSublayers = ((TriangleView*)self.view.subviews[[self.view.subviews count]-1]).layer.sublayers;
     innerTriangleLayer = (CAShapeLayer *)triangeSublayers[1];
     outerTriangleLayer = (CAShapeLayer *)triangeSublayers[2];
     baseLengthLayer = (CAShapeLayer*)triangeSublayers[3];
@@ -183,45 +188,47 @@ enum findValueForAngle {INNER_ANGLE_VALUE, OUTER_ANGLE_VALUE};
     }
 }
 
--(void)setLayerStrokeLength:(AngleLayer *)layer value:(CGFloat)val{
-    layer.strokeLength = val;
-}
--(void)setLayerEndAngle:(AngleLayer *)layer value:(CGFloat)val{
-    layer.endAngle = val;
-=======
-     */
->>>>>>> ae17683cdc8cfe1853284fc7f54b6fef988504d7
-}
+//-(void)setLayerStrokeLength:(AngleLayer *)layer value:(CGFloat)val{
+//    layer.strokeLength = val;
+//}
+//-(void)setLayerEndAngle:(AngleLayer *)layer value:(CGFloat)val{
+//    layer.endAngle = val;
+//=======
+//     */
+//>>>>>>> ae17683cdc8cfe1853284fc7f54b6fef988504d7
+//}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-<<<<<<< HEAD
-=======
+//<<<<<<< HEAD
+//=======
 
 #pragma mark - Core Motion Activity Update Handler Methods
 
 -(void)outputAccelerationData:(CMAcceleration)acceleration
 {
     // Tilt is the arcTan(Opposite accel Y / Adjacent accel X)
-    double tilt = atan(acceleration.y / acceleration.x)*DEGREE_2_RADIAN;
-    degreesTilt = tilt;
-    self.accelerationsLabel.text = [NSString stringWithFormat:@"Current angle = %2.0f", degreesTilt];
+    //double tilt = atan(acceleration.y / acceleration.x)*DEGREE_2_RADIAN;
+    degreesTilt = (int)round(atan(acceleration.y / acceleration.x)*DEGREE_2_RADIAN);
+ //   degreesTilt = tilt;
+ //   self.accelerationsLabel.text = [NSString stringWithFormat:@"Current angle = %2.0f", degreesTilt];
     
 // loads degreeTilt into angle textFields when the field is selected
-    if (angleOneButtonState) {
-        self.angleOneLabel.text = [NSString stringWithFormat:@"%2.0f", degreesTilt];
-    }
-    if (angleTwoButtonState) {
-        self.angleTwoLabel.text = [NSString stringWithFormat:@"%2.0f", degreesTilt];
-    }
->>>>>>> ae17683cdc8cfe1853284fc7f54b6fef988504d7
+ //   if (angleOneButtonState) {
+ //       self.angleOneLabel.text = [NSString stringWithFormat:@"%2.0f", degreesTilt];
+ //   }
+ //   if (angleTwoButtonState) {
+ //       self.angleTwoLabel.text = [NSString stringWithFormat:@"%2.0f", degreesTilt];
+ //   }
+//>>>>>>> ae17683cdc8cfe1853284fc7f54b6fef988504d7
 
 }
 
-<<<<<<< HEAD
+//<<<<<<< HEAD
 #pragma mark - Custom methods
+/*
 =======
 -(void)outputAttitudeData:(CMDeviceMotion*)motion{
     //self.accelerationsLabel.text = [NSString stringWithFormat:@"Current angle = %2.0f", -motion.gravity.y*90];
@@ -235,10 +242,11 @@ enum findValueForAngle {INNER_ANGLE_VALUE, OUTER_ANGLE_VALUE};
         self.angleTwoLabel.text = [NSString stringWithFormat:@"%2.0f", degreesTilt];
     }
 }
+*/
 
 #pragma mark - Custom Methods
 
->>>>>>> ae17683cdc8cfe1853284fc7f54b6fef988504d7
+//>>>>>>> ae17683cdc8cfe1853284fc7f54b6fef988504d7
 
 - (IBAction)showHelpButton:(id)sender
 {
@@ -265,7 +273,7 @@ enum findValueForAngle {INNER_ANGLE_VALUE, OUTER_ANGLE_VALUE};
    // [self.helpView removeFromSuperview];
 }
 
-<<<<<<< HEAD
+//<<<<<<< HEAD
 #pragma mark - Core Motion Activity Update Handler Methods
 
 -(void)outputAttitudeData:(CMDeviceMotion*)motion{
@@ -282,7 +290,9 @@ enum findValueForAngle {INNER_ANGLE_VALUE, OUTER_ANGLE_VALUE};
     }
     else
         self.degreeLabel.text = @"0°";
-=======
+    }
+}
+//=======
 - (IBAction)addButton:(id)sender
 {
     UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Enter object name"
@@ -306,10 +316,11 @@ enum findValueForAngle {INNER_ANGLE_VALUE, OUTER_ANGLE_VALUE};
         //NSLog(@"ObjectName is %@", self.objectName.text);
     } else {
         NSLog(@"buttonIndex = %d", buttonIndex);
->>>>>>> ae17683cdc8cfe1853284fc7f54b6fef988504d7
+//>>>>>>> ae17683cdc8cfe1853284fc7f54b6fef988504d7
     }
 }
 
+        /*
 - (IBAction)setAngleOneButton:(UIButton *)sender
 {
 <<<<<<< HEAD
@@ -330,19 +341,20 @@ enum findValueForAngle {INNER_ANGLE_VALUE, OUTER_ANGLE_VALUE};
     angleTwoButtonState = TRUE;
 >>>>>>> ae17683cdc8cfe1853284fc7f54b6fef988504d7
 }
-
+*/
+        
 -(void)calculateHeight:(UITapGestureRecognizer*)gesture
 {
 // converts textfields to floats in radians to calculate the height
-<<<<<<< HEAD
+//<<<<<<< HEAD
    // double bStep = [self.baseLength.text doubleValue];
    // double aOne = [self.angleOne.text doubleValue]/DEGREE_2_RADIAN;
    // double aTwo = [self.angleTwo.text doubleValue]/DEGREE_2_RADIAN;
-=======
-    double bStep = [self.baseLength.text doubleValue];
-    double aOne = [self.angleOneLabel.text doubleValue]/DEGREE_2_RADIAN;
-    double aTwo = [self.angleTwoLabel.text doubleValue]/DEGREE_2_RADIAN;
->>>>>>> ae17683cdc8cfe1853284fc7f54b6fef988504d7
+//=======
+ //   double bStep = [self.baseLength.text doubleValue];
+ //   double aOne = [self.angleOneLabel.text doubleValue]/DEGREE_2_RADIAN;
+ //   double aTwo = [self.angleTwoLabel.text doubleValue]/DEGREE_2_RADIAN;
+//>>>>>>> ae17683cdc8cfe1853284fc7f54b6fef988504d7
     
     if (aTwo > aOne) {
         double temp = aTwo;
@@ -352,19 +364,20 @@ enum findValueForAngle {INNER_ANGLE_VALUE, OUTER_ANGLE_VALUE};
     
 // calculates the height based on 2 angles and a base length
     double h = YOUR_HEIGHT + (bStep * tan(aTwo) / (1-(tan(aTwo)/tan(aOne))));
-<<<<<<< HEAD
+//<<<<<<< HEAD
     UILabel *heightLabel = [[UILabel alloc] initWithFrame:self.degreeLabel.frame];
     heightLabel.text = [NSString stringWithFormat:@"%f", h];
     [self.view addSubview:heightLabel];
-=======
+//=======
     
 // prints value
-    self.height.text = [NSString stringWithFormat:@"Object is %3.0f feet", h];
-    NSLog(@"The height is %@", self.height.text);
+  //  self.height.text = [NSString stringWithFormat:@"Object is %3.0f feet", h];
+  //  NSLog(@"The height is %@", self.height.text);
 
->>>>>>> ae17683cdc8cfe1853284fc7f54b6fef988504d7
+//>>>>>>> ae17683cdc8cfe1853284fc7f54b6fef988504d7
 }
 
+/*
 - (void)hideTap:(UIGestureRecognizer *)gestureRecognizer
 {
     [self.view endEditing:YES];  // or [self.baseLength resignFirstResponder];
@@ -374,7 +387,8 @@ enum findValueForAngle {INNER_ANGLE_VALUE, OUTER_ANGLE_VALUE};
     angleTwoButtonState = FALSE;
     //NSLog(@"Screen TAPPED button is %u", angleOneButtonState);
 }
-
+*/
+        
 #pragma mark - Handler for screen tap
 -(void)tappedScreen:(UITapGestureRecognizer*)gesture{
     

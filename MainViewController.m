@@ -44,11 +44,11 @@
 <<<<<<< HEAD
     */
 
-    CGRect frame = CGRectMake(130.0, 150.0, 60.0, 120.0);
-    reticleView = [[UIImageView alloc] initWithFrame:frame];
-    reticleView.image = [UIImage imageNamed:@"dwg06.png"];
-    reticleView.userInteractionEnabled = YES;
-=======
+   // CGRect frame = CGRectMake(130.0, 150.0, 60.0, 120.0);
+   // reticleView = [[UIImageView alloc] initWithFrame:frame];
+   // reticleView.image = [UIImage imageNamed:@"dwg06.png"];
+   // reticleView.userInteractionEnabled = YES;
+//=======
 // Builds a view to overlay over the camera view including the zoom factor
 //<<<<<<< HEAD:MainViewController.m
     CGRect frame = CGRectMake(80.0, 150.0, 160.0, 120.0);
@@ -74,7 +74,7 @@
 
 // Sets up the view's values & displays
 //    self.myAssistantLabel.hidden = NO;
->>>>>>> ae17683cdc8cfe1853284fc7f54b6fef988504d7
+//>>>>>>> ae17683cdc8cfe1853284fc7f54b6fef988504d7
     
 // Sets up the distance label
     self.distanceLabel.text = @"xxx yards";
@@ -93,8 +93,8 @@
     return NO;
 }
 
-<<<<<<< HEAD
-=======
+//<<<<<<< HEAD
+//=======
 -(NSUInteger)supportedInterfaceOrientations{
 
     return UIInterfaceOrientationMaskPortrait;
@@ -118,7 +118,7 @@
     }
 }
 
->>>>>>> ae17683cdc8cfe1853284fc7f54b6fef988504d7
+//>>>>>>> ae17683cdc8cfe1853284fc7f54b6fef988504d7
 #pragma mark - Flipside View
 
 - (void)flipsideViewControllerDidFinish:(FlipsideViewController *)controller
@@ -188,12 +188,12 @@
     // NSLog(@"zoom are %2.3f, %2.3f, %2.3f", zoomFactor, secondZoomFactor, totalZoomFactor);
     
     // Calculates actual distance in yards
-<<<<<<< HEAD
-    self.distanceLabel.text = [NSString stringWithFormat:@"%3.0f %@", (totalZoomFactor * flagHeight * FUTZ_FACTOR), distanceUnits];
-=======
+//<<<<<<< HEAD
+    //self.distanceLabel.text = [NSString stringWithFormat:@"%3.0f %@", (totalZoomFactor * flagHeight * FUTZ_FACTOR), distanceUnits];
+//=======
     //self.distanceLabel.text = [NSString stringWithFormat:@"%3.0f %@", (totalZoomFactor * flagHeight * FUTZ_FACTOR), self.distanceUnits];
     self.distanceLabel.text = [NSString stringWithFormat:@"%4.0f %@", (totalZoomFactor * flagHeight * FUTZ_FACTOR), distanceUnits];
->>>>>>> ae17683cdc8cfe1853284fc7f54b6fef988504d7
+//>>>>>>> ae17683cdc8cfe1853284fc7f54b6fef988504d7
 
 // gets rid of the image controller modal view
     [self dismissModalViewControllerAnimated:YES];
