@@ -22,15 +22,22 @@
     CGContextRef context = UIGraphicsGetCurrentContext();
     
     CGContextSetShadow(context, myShadowOffset, 5);
-
+    
+    /*
     CGPoint topVertex = CGPointMake(25.0, 25.0);
     CGPoint rightAngleVertex = CGPointMake(25, [UIScreen mainScreen].bounds.size.width-55);
     CGPoint innerVertex = CGPointMake([UIScreen mainScreen].bounds.size.height/3, [UIScreen mainScreen].bounds.size.width-55);
     CGPoint outerRightVertex = CGPointMake([UIScreen mainScreen].bounds.size.height*0.95, [UIScreen mainScreen].bounds.size.width-55);
+    */
+    
+    CGPoint topVertex = CGPointMake(75.0, 25.0);
+    CGPoint rightAngleVertex = CGPointMake(75, [UIScreen mainScreen].bounds.size.width-55);
+    CGPoint innerVertex = CGPointMake([UIScreen mainScreen].bounds.size.height*0.45, [UIScreen mainScreen].bounds.size.width-55);
+    CGPoint outerRightVertex = CGPointMake([UIScreen mainScreen].bounds.size.height*0.95, [UIScreen mainScreen].bounds.size.width-55);
     
     CGMutablePathRef objectHeightPath = CGPathCreateMutable();
     CGPathMoveToPoint(objectHeightPath, NULL, topVertex.x, topVertex.y);
-    CGPathAddLineToPoint(objectHeightPath, NULL, rightAngleVertex.x, rightAngleVertex.y);
+    //CGPathAddLineToPoint(objectHeightPath, NULL, rightAngleVertex.x, rightAngleVertex.y);
     
     CAShapeLayer *objectHeightLayer = [CAShapeLayer layer];
     [objectHeightLayer setPath: objectHeightPath];

@@ -134,6 +134,8 @@ enum findValueForAngle {INNER_ANGLE_VALUE, OUTER_ANGLE_VALUE};
     baseLengthText = nil;
     outerAngleButton = nil;
     startWithInnerAngle = YES;
+    self.calculateButtonObject.hidden = YES;
+    self.height.hidden = YES;
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -343,8 +345,8 @@ enum findValueForAngle {INNER_ANGLE_VALUE, OUTER_ANGLE_VALUE};
 }
 */
         
--(void)calculateHeight:(UITapGestureRecognizer*)gesture
-{
+//-(void)calculateHeight:(UITapGestureRecognizer*)gesture
+-(void)calculateButton:(UIButton *)sender{
 // converts textfields to floats in radians to calculate the height
 //<<<<<<< HEAD
    // double bStep = [self.baseLength.text doubleValue];
@@ -365,9 +367,12 @@ enum findValueForAngle {INNER_ANGLE_VALUE, OUTER_ANGLE_VALUE};
 // calculates the height based on 2 angles and a base length
     double h = YOUR_HEIGHT + (bStep * tan(aTwo) / (1-(tan(aTwo)/tan(aOne))));
 //<<<<<<< HEAD
-    UILabel *heightLabel = [[UILabel alloc] initWithFrame:self.degreeLabel.frame];
-    heightLabel.text = [NSString stringWithFormat:@"%f", h];
-    [self.view addSubview:heightLabel];
+    //UILabel *heightLabel = [[UILabel alloc] initWithFrame:self.degreeLabel.frame];
+    //heightLabel.text = [NSString stringWithFormat:@"%f", h];
+    //[self.view addSubview:heightLabel];
+    
+    self.height.text =[NSString stringWithFormat:@"%f", h];
+    self.height.hidden = NO;
 //=======
     
 // prints value
@@ -400,7 +405,7 @@ enum findValueForAngle {INNER_ANGLE_VALUE, OUTER_ANGLE_VALUE};
     innerAngleLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.degreeLabel.frame.origin.x, self.degreeLabel.frame.origin.y, self.degreeLabel.bounds.size.width, self.degreeLabel.bounds.size.height)];
     innerAngleLabel.numberOfLines = 1;
     innerAngleLabel.adjustsFontSizeToFitWidth = YES;
-    innerAngleLabel.minimumFontSize = self.degreeLabel.font.pointSize;
+  //  innerAngleLabel.minimumFontSize = self.degreeLabel.font.pointSize;
     innerAngleLabel.text = self.degreeLabel.text;
     [innerAngleLabel setFont:[UIFont systemFontOfSize:self.degreeLabel.font.pointSize]];
     innerAngleLabel.textAlignment = NSTextAlignmentCenter;
@@ -408,6 +413,7 @@ enum findValueForAngle {INNER_ANGLE_VALUE, OUTER_ANGLE_VALUE};
     self.degreeLabel.hidden = YES;
     innerAngleLabel.center = self.degreeLabel.center;
     innerAngleLabel.userInteractionEnabled = YES;
+    innerAngleLabel.textColor = [UIColor grayColor];
     [self.view addSubview:innerAngleLabel];
 
     
@@ -442,7 +448,7 @@ enum findValueForAngle {INNER_ANGLE_VALUE, OUTER_ANGLE_VALUE};
         outerAngleLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.degreeLabel.frame.origin.x, self.degreeLabel.frame.origin.y, self.degreeLabel.bounds.size.width, self.degreeLabel.bounds.size.height)];
         outerAngleLabel.numberOfLines = 1;
         outerAngleLabel.adjustsFontSizeToFitWidth = YES;
-        outerAngleLabel.minimumFontSize = self.degreeLabel.font.pointSize;
+      //  outerAngleLabel.minimumFontSize = self.degreeLabel.font.pointSize;
         outerAngleLabel.text = self.degreeLabel.text;
         [outerAngleLabel setFont:[UIFont systemFontOfSize:self.degreeLabel.font.pointSize]];
         outerAngleLabel.textAlignment = NSTextAlignmentCenter;
@@ -450,6 +456,7 @@ enum findValueForAngle {INNER_ANGLE_VALUE, OUTER_ANGLE_VALUE};
         self.degreeLabel.hidden = YES;
         outerAngleLabel.center = self.degreeLabel.center;
         outerAngleLabel.userInteractionEnabled = YES;
+        outerAngleLabel.textColor = [UIColor grayColor];
         [self.view addSubview:outerAngleLabel];
         
         [UIView animateWithDuration:0.75 animations:^{
@@ -468,12 +475,15 @@ enum findValueForAngle {INNER_ANGLE_VALUE, OUTER_ANGLE_VALUE};
     AngleVal = !AngleVal;
     
     if ((aOne >=0) && (aTwo >=0) && (bStep >=0)) {
+        /*
         calculateButton = [[UIButton alloc] initWithFrame:CGRectMake(self.degreeLabel.frame.origin.x, self.degreeLabel.frame.origin.y, self.degreeLabel.bounds.size.width, self.degreeLabel.bounds.size.height)];
         [calculateButton setTitle:@"Calculate" forState:UIControlStateNormal];
         calculateButton.backgroundColor = [UIColor greenColor];
         UITapGestureRecognizer *tapToCalculate = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(calculateHeight:)];
         [calculateButton addGestureRecognizer:tapToCalculate];
         [self.view addSubview:calculateButton];
+         */
+        self.calculateButtonObject.hidden = NO;
     }
 }
 
@@ -612,6 +622,10 @@ enum findValueForAngle {INNER_ANGLE_VALUE, OUTER_ANGLE_VALUE};
     [self.view addGestureRecognizer:tapToStoreAngle];
     outerAngleEmphasis.strokeLength = outerAngleEmphasis.innerVertexPoint.x + outerAngleEmphasis.rightAngleVertexPoint.x/2;
     AngleVal = OUTER_ANGLE_VALUE;
+}
+
+-(void)hideTap:(UITapGestureRecognizer *)gesture{
+    //stubbed
 }
 
 @end

@@ -28,6 +28,7 @@
 		908380AB1A0AE712005A6A86 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 908380A91A0AE712005A6A86 /* Default.png */; };
 		908380AC1A0AE712005A6A86 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 908380AA1A0AE712005A6A86 /* Icon.png */; };
 		90A0A74C1A2564680022671F /* BackgroundHeight.png in Resources */ = {isa = PBXBuildFile; fileRef = 90A0A74B1A2564680022671F /* BackgroundHeight.png */; };
+		90A0A74E1A267B780022671F /* IconTree.png in Resources */ = {isa = PBXBuildFile; fileRef = 90A0A74D1A267B780022671F /* IconTree.png */; };
 		90F497EB1A12B3FA006735E6 /* FlipsideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90F497EA1A12B3FA006735E6 /* FlipsideViewController.m */; };
 		90F498031A12B410006735E6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 90F497ED1A12B40F006735E6 /* AppDelegate.m */; };
 		90F498051A12B410006735E6 /* dwg01.png in Resources */ = {isa = PBXBuildFile; fileRef = 90F497EF1A12B40F006735E6 /* dwg01.png */; };
@@ -74,6 +75,7 @@
 		908380A91A0AE712005A6A86 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		908380AA1A0AE712005A6A86 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		90A0A74B1A2564680022671F /* BackgroundHeight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = BackgroundHeight.png; path = "../../../../Downloads/Background png/BackgroundHeight.png"; sourceTree = "<group>"; };
+		90A0A74D1A267B780022671F /* IconTree.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = IconTree.png; path = ../../../../../Downloads/IconTree.png; sourceTree = "<group>"; };
 		90F497EA1A12B3FA006735E6 /* FlipsideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlipsideViewController.m; sourceTree = "<group>"; };
 		90F497EC1A12B40F006735E6 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		90F497ED1A12B40F006735E6 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -203,6 +205,7 @@
 			children = (
 				90F4981C1A12B4BF006735E6 /* InfoPlist.strings */,
 				90F4981E1A12B4BF006735E6 /* MainStoryboard.storyboard */,
+				90A0A74D1A267B780022671F /* IconTree.png */,
 			);
 			path = en.lproj;
 			sourceTree = "<group>";
@@ -271,6 +274,7 @@
 				90F498211A12B4BF006735E6 /* MainStoryboard.storyboard in Resources */,
 				83AF09B41A1A622D00A35F40 /* Images.xcassets in Resources */,
 				90F498071A12B410006735E6 /* dwg02.png in Resources */,
+				90A0A74E1A267B780022671F /* IconTree.png in Resources */,
 				90F498251A15D6CE006735E6 /* scope.png in Resources */,
 				83ACC2F11A1D6BCF00D55CE5 /* objectList.plist in Resources */,
 				83ACC2ED1A1D524400D55CE5 /* IconRange24.png in Resources */,
@@ -403,6 +407,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/RangeFinder-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/RangeFinder-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				ONLY_ACTIVE_ARCH = NO;
 				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -421,6 +426,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/RangeFinder-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/RangeFinder-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				ONLY_ACTIVE_ARCH = NO;
 				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";

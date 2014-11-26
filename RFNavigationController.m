@@ -42,7 +42,6 @@
             
             [UIView commitAnimations];
         }
-        [[UIApplication sharedApplication] setStatusBarOrientation:UIInterfaceOrientationPortrait animated:YES];
         
     }
     self.navigationBar.hidden = YES;
@@ -69,6 +68,7 @@
     // Dispose of any resources that can be recreated.
 }
 
+/*
 -(BOOL)shouldAutorotate{
     return YES;
 }
@@ -78,7 +78,7 @@
    // NSLog(@"Interface Orientations %lu", (unsigned long)self.topViewController.supportedInterfaceOrientations);
     return self.topViewController.supportedInterfaceOrientations;
 }
-
+*/
 /*
 #pragma mark - Navigation
 
