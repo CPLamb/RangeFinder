@@ -35,6 +35,7 @@ enum findValueForAngle {INNER_ANGLE_VALUE, OUTER_ANGLE_VALUE};
     CAShapeLayer *baseLengthLayer;
     
     UIButton *innerAngleButton;
+    UIButton *startOverButton;
     UITextField *baseLengthText;
     //UIButton *baseLengthButton;
     UIButton *outerAngleButton;
@@ -115,7 +116,7 @@ enum findValueForAngle {INNER_ANGLE_VALUE, OUTER_ANGLE_VALUE};
     tapToStoreAngle = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedScreen:)];
     tapToReplaceInnerAngle = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(replaceInnerAngle:)];
     tapToReplaceOuterAngle = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(replaceOuterAngle:)];
-    inputBaseLength = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(setBaseLength:)];
+   // inputBaseLength = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(setBaseLength:)];
     
     aOne = -1;
     bStep = -1;
@@ -138,6 +139,53 @@ enum findValueForAngle {INNER_ANGLE_VALUE, OUTER_ANGLE_VALUE};
     self.height.hidden = YES;
 }
 
+-(void)makeInnerAngleButton{
+    innerAngleButton = [[UIButton alloc] initWithFrame:CGRectMake(innerAngleEmphasis.innerVertexPoint.x-100, innerAngleEmphasis.innerVertexPoint.y-50, 100, 50)];
+    [innerAngleButton setTitle:@"Find Angle" forState:UIControlStateNormal];
+    innerAngleButton.backgroundColor = [UIColor whiteColor];
+    innerAngleButton.layer.borderColor = [UIColor yellowColor].CGColor;
+    innerAngleButton.layer.borderWidth = 1;
+    innerAngleButton.layer.cornerRadius = 20;
+    innerAngleButton.layer.masksToBounds = YES;
+    innerAngleButton.titleLabel.textColor = [UIColor blackColor];
+    [self.view addSubview:innerAngleButton];
+    
+    inputInnerAngle = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(inputInnerAngle:)];
+    [innerAngleButton addGestureRecognizer:inputInnerAngle];
+}
+
+-(void)makeOuterAngleButton{
+    outerAngleButton = [[UIButton alloc] initWithFrame:CGRectMake(outerAngleEmphasis.outerVertexPoint.x-100, outerAngleEmphasis.outerVertexPoint.y-50, 100, 50)];
+    [outerAngleButton setTitle:@"Find Angle" forState:UIControlStateNormal];
+    outerAngleButton.backgroundColor = [UIColor whiteColor];
+    outerAngleButton.layer.borderColor = [UIColor yellowColor].CGColor;
+    outerAngleButton.layer.borderWidth = 1;
+    outerAngleButton.layer.cornerRadius = 20;
+    outerAngleButton.layer.borderWidth = 1;
+    outerAngleLabel.layer.masksToBounds = YES;
+    outerAngleButton.titleLabel.textColor = [UIColor blackColor];
+    [self.view addSubview:outerAngleButton];
+    
+    inputOuterAngle = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(inputOuterAngle:)];
+    [outerAngleButton addGestureRecognizer:inputOuterAngle];
+}
+
+-(void)makeBaseLengthTextField{
+    baseLengthText = [[UITextField alloc] initWithFrame:CGRectMake(baseLengthEmphasis.center.x+25, baseLengthEmphasis.center.y-50, 125, 50)];
+    [baseLengthText setKeyboardType:UIKeyboardTypeNumbersAndPunctuation];
+    baseLengthText.userInteractionEnabled = YES;
+    baseLengthText.borderStyle = UITextBorderStyleLine;
+    baseLengthText.text = @"Enter Distance";
+    baseLengthText.delegate = self;
+    baseLengthText.backgroundColor = [UIColor greenColor];
+    baseLengthText.layer.cornerRadius = 20;
+    baseLengthText.alpha = 0.0;
+    baseLengthText.borderStyle = UITextBorderStyleNone;
+    baseLengthText.textColor = [UIColor whiteColor];
+    baseLengthText.textAlignment = NSTextAlignmentCenter;
+    [self.view addSubview:baseLengthText];
+}
+
 -(void)viewDidAppear:(BOOL)animated{
    // NSUInteger subViews = [self.view.subviews count];
    // NSArray *triangeSublayers = ((TriangleView*)self.view.subviews[subViews-1]).layer.sublayers;
@@ -154,40 +202,14 @@ enum findValueForAngle {INNER_ANGLE_VALUE, OUTER_ANGLE_VALUE};
     baseLengthEmphasis = (AngleLayer*)baseLengthLayer.sublayers[0];
     outerAngleEmphasis = (AngleLayer*)outerTriangleLayer.sublayers[0];
     
-    if ((aOne < 0) && (innerAngleButton == nil)) {
-    innerAngleButton = [[UIButton alloc] initWithFrame:CGRectMake(innerAngleEmphasis.innerVertexPoint.x-100, innerAngleEmphasis.innerVertexPoint.y-75, 100, 50)];
-    [innerAngleButton setTitle:@"Find Angle" forState:UIControlStateNormal];
-    innerAngleButton.backgroundColor = [UIColor greenColor];
-    [self.view addSubview:innerAngleButton];
+    if ((aOne < 0) && (innerAngleButton == nil))
+        [self makeInnerAngleButton];
     
-    inputInnerAngle = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(inputInnerAngle:)];
-    [innerAngleButton addGestureRecognizer:inputInnerAngle];
-    }
+    if (bStep<0 && (baseLengthText == nil))
+        [self makeBaseLengthTextField];
     
-    if (bStep<0 && (baseLengthText == nil)) {
-        baseLengthText = [[UITextField alloc] initWithFrame:CGRectMake(baseLengthEmphasis.center.x+50, baseLengthEmphasis.center.y-50, 125, 50)];
-        [baseLengthText setKeyboardType:UIKeyboardTypeNumbersAndPunctuation];
-        baseLengthText.userInteractionEnabled = YES;
-        baseLengthText.borderStyle = UITextBorderStyleLine;
-        baseLengthText.text = @"Enter Distance";
-        baseLengthText.delegate = self;
-        baseLengthText.backgroundColor = [UIColor greenColor];
-        baseLengthText.alpha = 0.0;
-        baseLengthText.borderStyle = UITextBorderStyleNone;
-        baseLengthText.textColor = [UIColor whiteColor];
-        baseLengthText.textAlignment = NSTextAlignmentCenter;
-        [self.view addSubview:baseLengthText];
-    }
-    
-    if ((aTwo < 0) && (outerAngleButton == nil)) {
-    outerAngleButton = [[UIButton alloc] initWithFrame:CGRectMake(outerAngleEmphasis.outerVertexPoint.x-100, outerAngleEmphasis.outerVertexPoint.y-75, 100, 50)];
-    [outerAngleButton setTitle:@"Find Angle" forState:UIControlStateNormal];
-    outerAngleButton.backgroundColor = [UIColor greenColor];
-    [self.view addSubview:outerAngleButton];
-    
-        inputOuterAngle = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(inputOuterAngle:)];
-    [outerAngleButton addGestureRecognizer:inputOuterAngle];
-    }
+    if ((aTwo < 0) && (outerAngleButton == nil))
+        [self makeOuterAngleButton];
 }
 
 //-(void)setLayerStrokeLength:(AngleLayer *)layer value:(CGFloat)val{
@@ -371,8 +393,23 @@ enum findValueForAngle {INNER_ANGLE_VALUE, OUTER_ANGLE_VALUE};
     //heightLabel.text = [NSString stringWithFormat:@"%f", h];
     //[self.view addSubview:heightLabel];
     
-    self.height.text =[NSString stringWithFormat:@"%f", h];
+    self.height.text =[NSString stringWithFormat:@"Height is %1.2f [units]", h];
     self.height.hidden = NO;
+    [self.height removeFromSuperview];
+    [self.view addSubview:self.height];
+    
+    self.calculateButtonObject.hidden = YES;
+    
+    startOverButton = [[UIButton alloc] initWithFrame:self.calculateButtonObject.frame];
+    startOverButton.layer.cornerRadius = self.calculateButtonObject.layer.cornerRadius;
+    startOverButton.backgroundColor = self.calculateButtonObject.backgroundColor;
+    [startOverButton setTitle:@"Start Over" forState:UIControlStateNormal];
+    
+    UITapGestureRecognizer *tapToStartOver = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(startOver:)];
+    [startOverButton addGestureRecognizer:tapToStartOver];
+    [self.view addSubview:startOverButton];
+    
+    
 //=======
     
 // prints value
@@ -394,7 +431,7 @@ enum findValueForAngle {INNER_ANGLE_VALUE, OUTER_ANGLE_VALUE};
 }
 */
         
-#pragma mark - Handler for screen tap
+#pragma mark - Handlers for screen tap
 -(void)tappedScreen:(UITapGestureRecognizer*)gesture{
     
     innerAngleEmphasis.strokeLength = 0.0;
@@ -484,6 +521,10 @@ enum findValueForAngle {INNER_ANGLE_VALUE, OUTER_ANGLE_VALUE};
         [self.view addSubview:calculateButton];
          */
         self.calculateButtonObject.hidden = NO;
+        //self.calculateButtonObject.enabled = YES;
+        //self.calculateButtonObject.userInteractionEnabled = YES;
+        [self.calculateButtonObject removeFromSuperview];
+        [self.view addSubview:self.calculateButtonObject];
     }
 }
 
@@ -553,13 +594,16 @@ enum findValueForAngle {INNER_ANGLE_VALUE, OUTER_ANGLE_VALUE};
    
     [textField resignFirstResponder];
     [UIView animateWithDuration:1.0 animations:^{
+        if (bStep <0)
+            textField.center = CGPointMake(textField.center.x, textField.center.y+15);
+        
         textField.backgroundColor = [UIColor clearColor];
-        textField.textColor = [UIColor blackColor];
+        textField.textColor = [UIColor grayColor];
         textField.textAlignment = NSTextAlignmentCenter;
         textField.adjustsFontSizeToFitWidth = YES;
         baseLengthEmphasis.strokeLength = 0.0;
         bStep = (int)textField.text.integerValue;
-
+        
     } completion:^(BOOL finished) {
         //
         if ((aOne >= 0) && (aTwo <0)){
@@ -595,7 +639,7 @@ enum findValueForAngle {INNER_ANGLE_VALUE, OUTER_ANGLE_VALUE};
 
 -(void)inputInnerAngle:(UITapGestureRecognizer *)gesture{
     
-    startWithInnerAngle = YES;
+    //startWithInnerAngle = YES;
     
     self.degreeLabel.hidden = NO;
     innerAngleButton.alpha = 0;
@@ -626,6 +670,30 @@ enum findValueForAngle {INNER_ANGLE_VALUE, OUTER_ANGLE_VALUE};
 
 -(void)hideTap:(UITapGestureRecognizer *)gesture{
     //stubbed
+}
+
+-(void)startOver:(UITapGestureRecognizer*)gesture{
+    baseLengthText.hidden = YES;
+    baseLengthText = nil;
+    innerAngleLabel.hidden = YES;
+    outerAngleLabel.hidden = YES;
+    innerAngleLabel = nil;
+    outerAngleLabel = nil;
+    innerAngleButton.alpha = 1;
+    outerAngleButton.alpha = 1;
+    self.degreeLabel.hidden = YES;
+    self.height.hidden = YES;
+    aOne = -1;
+    aTwo = -1;
+    bStep = -1;
+    baseLengthText.center = CGPointMake(baseLengthText.center.x, baseLengthText.center.y+15);
+    startOverButton.hidden=YES;
+    startOverButton = nil;
+    
+    [self makeInnerAngleButton];
+    [self makeBaseLengthTextField];
+    [self makeOuterAngleButton];
+    
 }
 
 @end
