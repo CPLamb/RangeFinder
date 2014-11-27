@@ -450,7 +450,7 @@ enum findValueForAngle {INNER_ANGLE_VALUE, OUTER_ANGLE_VALUE};
     self.degreeLabel.hidden = YES;
     innerAngleLabel.center = self.degreeLabel.center;
     innerAngleLabel.userInteractionEnabled = YES;
-    innerAngleLabel.textColor = [UIColor grayColor];
+    innerAngleLabel.textColor = [UIColor blackColor];
     [self.view addSubview:innerAngleLabel];
 
     
@@ -493,7 +493,7 @@ enum findValueForAngle {INNER_ANGLE_VALUE, OUTER_ANGLE_VALUE};
         self.degreeLabel.hidden = YES;
         outerAngleLabel.center = self.degreeLabel.center;
         outerAngleLabel.userInteractionEnabled = YES;
-        outerAngleLabel.textColor = [UIColor grayColor];
+        outerAngleLabel.textColor = [UIColor greenColor];
         [self.view addSubview:outerAngleLabel];
         
         [UIView animateWithDuration:0.75 animations:^{
