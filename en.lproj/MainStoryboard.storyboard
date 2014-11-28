@@ -31,14 +31,14 @@
                         <rect key="frame" x="0.0" y="64" width="480" height="227"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoDark" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="7RR-fg-Bnb">
-                                <rect key="frame" x="450" y="65" width="18" height="19"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="7RR-fg-Bnb">
+                                <rect key="frame" x="415" y="64" width="18" height="19"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="showHelpButton:" destination="YdQ-hZ-b0h" eventType="touchUpInside" id="kD2-BF-aqV"/>
+                                    <action selector="showHelpButton:" destination="YdQ-hZ-b0h" eventType="touchUpInside" id="6QU-t0-8fj"/>
                                 </connections>
                             </button>
                             <button opaque="NO" alpha="0.75" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="c6I-66-Sov">
@@ -82,7 +82,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <view alpha="0.74999999999999978" contentMode="scaleToFill" id="Yv9-EV-iDO">
-                                <rect key="frame" x="53" y="108" width="480" height="230"/>
+                                <rect key="frame" x="0.0" y="0.0" width="480" height="230"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="vmV-hB-lpf">
@@ -93,7 +93,7 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="hideHelpButton:" destination="YdQ-hZ-b0h" eventType="touchUpInside" id="CJQ-Ty-Uh0"/>
+                                            <action selector="hideHelpButton:" destination="YdQ-hZ-b0h" eventType="touchUpInside" id="PuV-yT-PMj"/>
                                         </connections>
                                     </button>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Tap angle to activate" selectable="NO" id="8dA-2Z-FCz">
@@ -286,7 +286,11 @@
                                     <action selector="camera:" destination="2" eventType="touchUpInside" id="FiW-5s-Rmr"/>
                                 </connections>
                             </button>
-                            <imageView opaque="NO" userInteractionEnabled="NO" alpha="0.99999999999999989" contentMode="scaleAspectFill" image="scope.png" id="h2I-Xv-5MJ">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo.png" id="cpd-Xi-zjF">
+                                <rect key="frame" x="105" y="102" width="193" height="226"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView opaque="NO" userInteractionEnabled="NO" alpha="0.99999999999999989" contentMode="scaleAspectFit" image="Reticle(2).png" id="h2I-Xv-5MJ">
                                 <rect key="frame" x="5" y="89" width="320" height="271"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -309,7 +313,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="ACi-E5-yY1">
-                                                <rect key="frame" x="282" y="75" width="18" height="19"/>
+                                                <rect key="frame" x="282" y="78" width="18" height="19"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <state key="normal">
@@ -802,7 +806,8 @@
         <image name="IconHeight24.png" width="24" height="24"/>
         <image name="IconSetup24.png" width="24" height="24"/>
         <image name="IconTree.png" width="70" height="180"/>
-        <image name="scope.png" width="640" height="480"/>
+        <image name="Reticle(2).png" width="400" height="400"/>
+        <image name="logo.png" width="400" height="400"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

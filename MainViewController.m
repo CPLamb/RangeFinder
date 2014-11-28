@@ -56,7 +56,7 @@
     //self.reticleView = [[UIImageView alloc] initWithFrame:frame];
     //self.reticleView.image = [UIImage imageNamed:@"dwg06.png"];
     reticleView = [[UIImageView alloc] initWithFrame:frame];
-    reticleView.image = [UIImage imageNamed:@"scope.png"];
+    reticleView.image = [UIImage imageNamed:@"Reticle(2).png"];
 //=======
    // CGRect frame = CGRectMake(10.0, 40.0, 320.0, 240.0);
     //CGRect frame = CGRectMake(100.0, 100.0, 200.0, 200.0);
