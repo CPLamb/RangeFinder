@@ -76,25 +76,24 @@
 //    self.myAssistantLabel.hidden = NO;
 //>>>>>>> ae17683cdc8cfe1853284fc7f54b6fef988504d7
     
-// Sets up the distance label
-    self.distanceLabel.text = @"xxx yards";
+// Sets up labels
+    self.distanceLabel.text = @"How far away?";
+    self.myAssistantLabel.text = @"Tap to open RangeFinder";
     
 // Builds the slider and rotates it 90 degrees
-    CGRect sliderFrame = CGRectMake(-120.0, 150.0,300.0, 50.0);
+    CGRect sliderFrame = CGRectMake(-20.0, 150.0,300.0, 50.0);
     self.reticleZoomSlider = [[UISlider alloc] initWithFrame:sliderFrame];
     CGAffineTransform trans = CGAffineTransformMakeRotation(M_PI_2);
     self.reticleZoomSlider.transform = trans;
     [self.reticleView addSubview:self.reticleZoomSlider];
     
-    UIViewController *upperVC = self.presentingViewController;
+ //   UIViewController *upperVC = self.presentingViewController;
 }
 
 -(BOOL)shouldAutorotate{
     return NO;
 }
 
-//<<<<<<< HEAD
-//=======
 -(NSUInteger)supportedInterfaceOrientations{
 
     return UIInterfaceOrientationMaskPortrait;
@@ -118,7 +117,6 @@
     }
 }
 
-//>>>>>>> ae17683cdc8cfe1853284fc7f54b6fef988504d7
 #pragma mark - Flipside View
 
 - (void)flipsideViewControllerDidFinish:(FlipsideViewController *)controller

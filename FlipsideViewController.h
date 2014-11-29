@@ -25,10 +25,10 @@
 @property (strong, nonatomic) NSString *flagUnits;
 @property (strong, nonatomic) IBOutlet UILabel *flagValueString;
 @property (strong, nonatomic) IBOutlet UILabel *objectString;
-@property (strong, nonatomic) IBOutlet UIPickerView *objectPicker;
 
 @property (weak, nonatomic) id <FlipsideViewControllerDelegate> delegate;
 
+@property (strong, nonatomic) IBOutlet UIPickerView *objectPicker;
 @property (strong, nonatomic) IBOutlet UIPickerView *heightPicker;
 @property (strong, nonatomic) IBOutlet UILabel *heightMajorLabel;
 @property (strong, nonatomic) IBOutlet UILabel *heightMinorLabel;

@@ -12,6 +12,7 @@
     NSArray *pickerItems;
     NSArray *objectPickerItems;
     NSArray *inchesPicker;
+    NSArray *yardInchesPicker;
     NSDictionary *objectSizes;
     float flagHeight;
     float feetComponent;
@@ -24,8 +25,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    pickerItems = [[NSArray alloc] initWithObjects:@"0", @"1", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9", @"10", @"11", @"12", @"15", @"20", @"30", @"40", @"50", nil];
+    
+// Define pickerView items
+    pickerItems = [[NSArray alloc] initWithObjects:@"0", @"1", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9", @"10", @"11", @"12", @"13", @"14", @"15", @"16", @"17", @"18", @"19", @"20", @"21", @"22", @"23", @"24", @"25", @"26", @"27", @"28", @"29", @"30", @"31", @"32", @"33", @"34", @"35", @"36", @"37", @"38", @"39",@"40", @"41", @"42", @"43", @"44", @"45", @"46", @"47", @"48", @"49", @"50", @"51", @"52", @"53", @"54", @"55", @"56", @"57", @"58", @"59", @"60", @"61", @"62", @"63", @"64", @"65", @"66", @"67", @"68", @"69", @"70", @"71", @"72", @"73", @"74", @"75", @"76", @"77", @"78", @"79", @"80", @"81", @"82", @"83", @"84", @"85", @"86", @"87", @"88", @"89",@"90", @"91", @"92", @"93", @"94", @"95", @"96", @"97", @"98", @"99", nil];
     inchesPicker = [[NSArray alloc] initWithObjects:@"0", @"1", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9", @"10", @"11", nil];
+    yardInchesPicker = [[NSArray alloc] initWithObjects:@"0", @"1", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9", @"10", @"11", @"12", @"13", @"14", @"15", @"16", @"17", @"18", @"19", @"20", @"21", @"22", @"23", @"24", @"25", @"26", @"27", @"28", @"29", @"30", @"31", @"32", @"33", @"34", @"35", @"35", nil];
     objectPickerItems = [[NSArray alloc] initWithObjects:@" ",@"Add Object",@"None", @"Light switch", @"Car", @"Person", @"Door", @"Golf flag", @"Utility pole", @"Sailboat", @"Lighthouse",@"+", nil];
     
 // sets defaults for the Picker
@@ -81,6 +85,7 @@
 
 - (IBAction)done:(id)sender
 {
+    NSLog(@"Closes the setup screen and goes back to the rangeFinder");
     [self.delegate flipsideViewControllerDidFinish:self];
 }
 
@@ -91,6 +96,7 @@
             self.flagUnits =  @"yards";
             self.heightMajorLabel.text = @"yards";
             self.heightMinorLabel.text = @"inches";
+            
             break;
         case 1:
             self.flagUnits =  @"feet";
@@ -101,6 +107,11 @@
             self.flagUnits =  @"meters";
             self.heightMajorLabel.text = @"meters";
             self.heightMinorLabel.text = @"cms";
+            break;
+        case 3:
+            self.flagUnits =  @"furlong";
+            self.heightMajorLabel.text = @"furlong";
+            self.heightMinorLabel.text = @"yards";
             break;
     }
     NSLog(@"Units selected are %@", self.flagUnits);
@@ -136,10 +147,13 @@
     return -1; //error condition
 }
 
+#pragma mark - NOTE: refactor to convert to different units
 // returns the title of each row
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
     if (pickerView == self.heightPicker){
         if (component == 0)
+ //           if (self.unitsSelector.selectedSegmentIndex == 0)
+ //               return [yardInchesPicker objectAtIndex:row];
             return [pickerItems objectAtIndex:row];
         return [inchesPicker objectAtIndex:row];
     }
