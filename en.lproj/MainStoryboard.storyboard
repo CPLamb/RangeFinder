@@ -196,7 +196,6 @@
                     <connections>
                         <segue destination="Ufd-3B-7tV" kind="relationship" relationship="viewControllers" id="Q4V-aL-cWw"/>
                         <segue destination="ra4-77-PcE" kind="relationship" relationship="viewControllers" id="QcE-K3-wEa"/>
-                        <segue destination="DWz-j8-E3J" kind="relationship" relationship="viewControllers" id="c2O-Kv-bHA"/>
                         <segue destination="DUD-RT-l12" kind="relationship" relationship="viewControllers" id="m2w-In-kWM"/>
                     </connections>
                 </tabBarController>
@@ -608,263 +607,10 @@
             </objects>
             <point key="canvasLocation" x="-694" y="1392"/>
         </scene>
-        <!--Nav Cntrllr Setup-->
-        <scene sceneID="kST-54-1XI">
-            <objects>
-                <navigationController title="Nav Cntrllr Setup" navigationBarHidden="YES" id="DWz-j8-E3J" customClass="RFNavigationController" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Setup" image="IconSetup24.png" id="oa5-Cw-KEB"/>
-                    <nil key="simulatedStatusBarMetrics"/>
-                    <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Mne-Tr-0uV">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="3Ii-ur-ETm" kind="relationship" relationship="rootViewController" id="6KG-oV-eBi"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Toz-Xy-kCs" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-694" y="2024"/>
-        </scene>
         <!--Flipside View Controller-->
-        <scene sceneID="w5k-4N-dDJ">
-            <objects>
-                <viewController id="3Ii-ur-ETm" customClass="FlipsideViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="yVN-RY-sn7">
-                        <rect key="frame" x="0.0" y="20" width="320" height="431"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <navigationBar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="black" id="Iew-VM-LXY">
-                                <rect key="frame" x="0.0" y="20" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <items>
-                                    <navigationItem title="Setup" id="ceZ-1K-u1V">
-                                        <barButtonItem key="leftBarButtonItem" systemItem="done" id="CCL-AN-Tyv">
-                                            <connections>
-                                                <action selector="done:" destination="3Ii-ur-ETm" id="Qg1-HG-sed"/>
-                                            </connections>
-                                        </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="y2K-yy-PIz">
-                                            <connections>
-                                                <action selector="editButton:" destination="3Ii-ur-ETm" id="Fbg-a8-K49"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="by ChrisPLamb Labs" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="VyC-yl-ozh">
-                                <rect key="frame" x="16" y="440" width="107" height="27"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="10"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <pickerView contentMode="scaleToFill" id="5gU-eh-3vo">
-                                <rect key="frame" x="173" y="86" width="140" height="216"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColorFronUIColor">
-                                        <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
-                                        <integer key="value" value="1"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="12"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <outlet property="dataSource" destination="3Ii-ur-ETm" id="oXC-vr-6Dg"/>
-                                    <outlet property="delegate" destination="3Ii-ur-ETm" id="bzb-lj-HNc"/>
-                                </connections>
-                            </pickerView>
-                            <pickerView contentMode="scaleToFill" id="hUO-dt-qtq">
-                                <rect key="frame" x="16" y="86" width="140" height="218"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="12"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
-                                        <integer key="value" value="1"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColorFromUIColor">
-                                        <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <outlet property="dataSource" destination="3Ii-ur-ETm" id="igb-1N-fHE"/>
-                                    <outlet property="delegate" destination="3Ii-ur-ETm" id="nIL-Fz-Xad"/>
-                                </connections>
-                            </pickerView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Feet" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="Iog-aj-XLE">
-                                <rect key="frame" x="179" y="300" width="51" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Inches" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" id="cR1-d0-hs7">
-                                <rect key="frame" x="233" y="300" width="80" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="ard-r9-kyA">
-                                <rect key="frame" x="47" y="359" width="210" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <segments>
-                                    <segment title="Yards"/>
-                                    <segment title="Feet"/>
-                                    <segment title="Meters"/>
-                                    <segment title="Furlong"/>
-                                </segments>
-                                <connections>
-                                    <action selector="unitsSelected:" destination="3Ii-ur-ETm" eventType="valueChanged" id="tSg-Kj-gUH"/>
-                                </connections>
-                            </segmentedControl>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Object           Height" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="Igi-Bx-7Xw">
-                                <rect key="frame" x="53" y="44" width="214" height="39"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Assistant" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="BK9-S2-ThZ">
-                                <rect key="frame" x="64" y="400" width="94" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="pg7-nX-MVY">
-                                <rect key="frame" x="179" y="400" width="79" height="27"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </switch>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" id="AMp-a9-nL9">
-                                <rect key="frame" x="183" y="321" width="121" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="=" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="USZ-zv-2wQ">
-                                <rect key="frame" x="148" y="325" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Golf Flag" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" id="Lxy-kx-tTU">
-                                <rect key="frame" x="33" y="321" width="107" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoDark" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="KAA-96-4el">
-                                <rect key="frame" x="286" y="54" width="18" height="19"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="showHelpButton:" destination="3Ii-ur-ETm" eventType="touchUpInside" id="TTu-Dh-fgy"/>
-                                </connections>
-                            </button>
-                            <view contentMode="scaleToFill" id="gqi-67-rnI">
-                                <rect key="frame" x="300" y="44" width="320" height="440"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <view opaque="NO" alpha="0.66699999570846558" contentMode="scaleToFill" id="lP0-Hn-ron">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="430"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="RSo-Ok-Jit">
-                                                <rect key="frame" x="286" y="10" width="18" height="19"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                <state key="normal">
-                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="hideHelpButton:" destination="3Ii-ur-ETm" eventType="touchUpInside" id="sFm-A0-Xdw"/>
-                                                </connections>
-                                            </button>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Select objects with heights" selectable="NO" id="GhM-hm-jO3">
-                                                <rect key="frame" x="15" y="40" width="280" height="40"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="16"/>
-                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                            </textView>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Set height of objects" selectable="NO" id="Rix-4X-eo1">
-                                                <rect key="frame" x="15" y="90" width="280" height="40"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="16"/>
-                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                            </textView>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Select your own units" selectable="NO" id="3m1-JJ-W5r">
-                                                <rect key="frame" x="15" y="140" width="280" height="40"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="16"/>
-                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                            </textView>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Add to &amp; edit the object list" selectable="NO" id="9K2-ZR-Pue">
-                                                <rect key="frame" x="15" y="190" width="280" height="60"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
-                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                            </textView>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Press Done" selectable="NO" id="tE4-3L-aPW">
-                                                <rect key="frame" x="15" y="260" width="280" height="40"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
-                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                            </textView>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Easy Peasey !!" textAlignment="center" selectable="NO" id="pGk-LR-uGo">
-                                                <rect key="frame" x="15" y="305" width="280" height="60"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="26"/>
-                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                            </textView>
-                                        </subviews>
-                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                    </view>
-                                </subviews>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="8LI-Bb-wYn"/>
-                    <nil key="simulatedStatusBarMetrics"/>
-                    <connections>
-                        <outlet property="UnitsSelector" destination="ard-r9-kyA" id="GOE-Zn-pce"/>
-                        <outlet property="flagValueString" destination="AMp-a9-nL9" id="Xgg-ro-wjU"/>
-                        <outlet property="heightMajorLabel" destination="Iog-aj-XLE" id="SHm-9S-lnm"/>
-                        <outlet property="heightMinorLabel" destination="cR1-d0-hs7" id="xPu-Xh-KQL"/>
-                        <outlet property="heightPicker" destination="5gU-eh-3vo" id="Kde-MN-Grj"/>
-                        <outlet property="helpSwitch" destination="pg7-nX-MVY" id="Kfw-Xm-iNZ"/>
-                        <outlet property="helpView" destination="gqi-67-rnI" id="QF2-0J-Vis"/>
-                        <outlet property="objectPicker" destination="hUO-dt-qtq" id="n0p-AE-a8E"/>
-                        <outlet property="objectString" destination="Lxy-kx-tTU" id="NpW-6P-u9I"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="MYq-gV-pdr" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-167" y="2024"/>
-        </scene>
-        <!--View Controller-->
         <scene sceneID="iKJ-E1-ndX">
             <objects>
-                <viewController id="eOX-8M-bxb" sceneMemberID="viewController">
+                <viewController id="eOX-8M-bxb" customClass="FlipsideViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="axb-c8-2fn">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="651"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -873,8 +619,17 @@
                                 <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
-                                    <navigationItem id="gcu-Vg-wWs">
-                                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="UFx-cc-1ht"/>
+                                    <navigationItem title="Setup" id="gcu-Vg-wWs">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="done" id="aRf-rw-RHK">
+                                            <connections>
+                                                <action selector="done:" destination="eOX-8M-bxb" id="rXL-qL-t10"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="UFx-cc-1ht">
+                                            <connections>
+                                                <action selector="editButton:" destination="eOX-8M-bxb" id="Tc0-3e-w4T"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -896,7 +651,7 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="showHelpButton:" destination="3Ii-ur-ETm" eventType="touchUpInside" id="kBr-8W-KrD"/>
+                                            <action selector="showHelpButton:" destination="eOX-8M-bxb" eventType="touchUpInside" id="XPP-Kf-vqU"/>
                                         </connections>
                                     </button>
                                     <pickerView contentMode="scaleToFill" id="GmZ-4m-VVA">
@@ -914,8 +669,8 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <outlet property="dataSource" destination="3Ii-ur-ETm" id="3ce-mL-0Nr"/>
-                                            <outlet property="delegate" destination="3Ii-ur-ETm" id="ijv-5o-G5l"/>
+                                            <outlet property="dataSource" destination="eOX-8M-bxb" id="lcg-Iy-QjQ"/>
+                                            <outlet property="delegate" destination="eOX-8M-bxb" id="u4M-pe-tLx"/>
                                         </connections>
                                     </pickerView>
                                     <pickerView contentMode="scaleToFill" id="z3X-Na-Jju">
@@ -933,8 +688,8 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <outlet property="dataSource" destination="3Ii-ur-ETm" id="adW-f7-HgW"/>
-                                            <outlet property="delegate" destination="3Ii-ur-ETm" id="3TM-8i-Jtp"/>
+                                            <outlet property="dataSource" destination="eOX-8M-bxb" id="lxd-Jq-wG7"/>
+                                            <outlet property="delegate" destination="eOX-8M-bxb" id="GNG-pY-6Y9"/>
                                         </connections>
                                     </pickerView>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Feet" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="auO-Rh-rSO">
@@ -982,7 +737,7 @@
                                             <segment title="Furlong"/>
                                         </segments>
                                         <connections>
-                                            <action selector="unitsSelected:" destination="3Ii-ur-ETm" eventType="valueChanged" id="twx-yS-Qof"/>
+                                            <action selector="unitsSelected:" destination="eOX-8M-bxb" eventType="valueChanged" id="UDc-ZI-obw"/>
                                         </connections>
                                     </segmentedControl>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Assistant" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="Wjh-En-M8E">
@@ -1010,6 +765,72 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </scrollView>
+                            <view contentMode="scaleToFill" id="Y7E-aa-ewh">
+                                <rect key="frame" x="0.0" y="64" width="320" height="440"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <view opaque="NO" alpha="0.66699999570846558" contentMode="scaleToFill" id="1ZM-hc-Pug">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="430"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="2Ty-vT-POT">
+                                                <rect key="frame" x="285" y="16" width="18" height="19"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <state key="normal">
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="hideHelpButton:" destination="eOX-8M-bxb" eventType="touchUpInside" id="OiZ-9x-q6o"/>
+                                                </connections>
+                                            </button>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Select objects with heights" selectable="NO" id="aqS-0V-pPk">
+                                                <rect key="frame" x="15" y="40" width="280" height="40"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="16"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Set height of objects" selectable="NO" id="5Ya-NA-ovf">
+                                                <rect key="frame" x="15" y="90" width="280" height="40"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="16"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Select your own units" selectable="NO" id="1F0-21-r4b">
+                                                <rect key="frame" x="15" y="140" width="280" height="40"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="16"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Add to &amp; edit the object list" selectable="NO" id="n8d-5e-c0T">
+                                                <rect key="frame" x="15" y="190" width="280" height="60"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Press Done" selectable="NO" id="tGR-oX-yOz">
+                                                <rect key="frame" x="15" y="260" width="280" height="40"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Easy Peasey !!" textAlignment="center" selectable="NO" id="YVp-eh-lEN">
+                                                <rect key="frame" x="15" y="305" width="280" height="60"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="26"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                </subviews>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -1020,6 +841,18 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="700"/>
+                    <connections>
+                        <outlet property="flagValueString" destination="vkW-dd-0R6" id="OeA-Qj-eK4"/>
+                        <outlet property="heightMajorLabel" destination="auO-Rh-rSO" id="BoR-lp-Ujf"/>
+                        <outlet property="heightMinorLabel" destination="jzF-Lq-uge" id="PSC-4W-8gw"/>
+                        <outlet property="heightPicker" destination="GmZ-4m-VVA" id="DGN-xq-3Oa"/>
+                        <outlet property="helpSwitch" destination="bpw-bf-f5f" id="qdc-v8-45Z"/>
+                        <outlet property="helpView" destination="Y7E-aa-ewh" id="aIQ-Vj-j5J"/>
+                        <outlet property="objectEqualsLabel" destination="8R9-sM-7eG" id="JTG-vU-1kz"/>
+                        <outlet property="objectPicker" destination="z3X-Na-Jju" id="D0H-lN-u9x"/>
+                        <outlet property="objectString" destination="wow-dg-QHK" id="bnG-yW-rNR"/>
+                        <outlet property="unitsSelector" destination="1eq-cQ-Tnq" id="ODW-Vq-SHA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hyB-ag-txa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1029,7 +862,7 @@
         <scene sceneID="x8R-PH-C4q">
             <objects>
                 <navigationController title="Nav Cntrllr Setup" navigationBarHidden="YES" id="DUD-RT-l12" customClass="RFNavigationController" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="SetupScroll" image="IconSetup24.png" id="zeD-Zh-9ph"/>
+                    <tabBarItem key="tabBarItem" title="Setup" image="IconSetup24.png" id="zeD-Zh-9ph"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="OEa-BP-lPE">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>

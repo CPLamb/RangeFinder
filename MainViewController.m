@@ -30,7 +30,7 @@
 {
     [super viewDidLoad];
     
-    /*
+    
 // Checks to see if the camera is available
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
         NSLog(@"camera is available - We must be on the iPhone!");
@@ -41,8 +41,7 @@
         self.myAssistantLabel.text = @"The camera is not available on this device";
         self.cameraButtonButton.hidden = YES;
     }
-<<<<<<< HEAD
-    */
+
 
    // CGRect frame = CGRectMake(130.0, 150.0, 60.0, 120.0);
    // reticleView = [[UIImageView alloc] initWithFrame:frame];
@@ -186,12 +185,9 @@
     // NSLog(@"zoom are %2.3f, %2.3f, %2.3f", zoomFactor, secondZoomFactor, totalZoomFactor);
     
     // Calculates actual distance in yards
-//<<<<<<< HEAD
     //self.distanceLabel.text = [NSString stringWithFormat:@"%3.0f %@", (totalZoomFactor * flagHeight * FUTZ_FACTOR), distanceUnits];
-//=======
     //self.distanceLabel.text = [NSString stringWithFormat:@"%3.0f %@", (totalZoomFactor * flagHeight * FUTZ_FACTOR), self.distanceUnits];
     self.distanceLabel.text = [NSString stringWithFormat:@"%4.0f %@", (totalZoomFactor * flagHeight * FUTZ_FACTOR), distanceUnits];
-//>>>>>>> ae17683cdc8cfe1853284fc7f54b6fef988504d7
 
 // gets rid of the image controller modal view
     [self dismissModalViewControllerAnimated:YES];

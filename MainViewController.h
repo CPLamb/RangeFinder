@@ -27,13 +27,6 @@
 
 - (IBAction)camera:(UIButton *)sender;
 
-//@property (strong, nonatomic) UIImagePickerController *imagePickerController;
-//@property (strong, nonatomic) IBOutlet UIButton *cameraButtonButton;
-
-//- (IBAction)camera:(UIButton *)sender;
-//<<<<<<< HEAD:MainViewController.h
-//- (IBAction)cameraButton:(UIBarButtonItem *)sender;
-//=======
 - (IBAction)hideHelpButton:(id)sender;
 - (IBAction)showHelpButton:(id)sender;
 
