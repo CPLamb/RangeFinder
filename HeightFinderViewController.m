@@ -312,7 +312,7 @@ enum findValueForAngle {INNER_ANGLE_VALUE, OUTER_ANGLE_VALUE};
     //This is only necessary if the HeightViewController is on top of the Nav Controller
     if ([((RFNavigationController*)tabVC.selectedViewController).topViewController isKindOfClass:[HeightFinderViewController class]]){
     float degreeDec = -motion.gravity.y*90;
-    degreesTilt = (int)round(degreeDec);
+ //   degreesTilt = (int)round(degreeDec);
     if (degreesTilt >= 0){
         self.degreeLabel.text = [NSString stringWithFormat:@"%d°", degreesTilt];
         if (!self.degreeLabel.hidden && (degreesTilt != lastdegreeVal)){
