@@ -19,7 +19,6 @@
 @property (strong, nonatomic) IBOutlet UIImageView *cameraView;
 @property (strong, nonatomic) IBOutlet UILabel *distanceLabel;
 @property (strong, nonatomic) IBOutlet UILabel *myAssistantLabel;
-@property (strong, nonatomic) UIImageView *reticleView;
 @property (strong, nonatomic) UISlider *reticleZoomSlider;
 
 @property (strong, nonatomic) IBOutlet UIButton *cameraButtonButton;

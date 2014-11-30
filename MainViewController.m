@@ -56,35 +56,20 @@
     //self.reticleView.image = [UIImage imageNamed:@"dwg06.png"];
     reticleView = [[UIImageView alloc] initWithFrame:frame];
     reticleView.image = [UIImage imageNamed:@"Reticle(2).png"];
-//=======
-   // CGRect frame = CGRectMake(10.0, 40.0, 320.0, 240.0);
-    //CGRect frame = CGRectMake(100.0, 100.0, 200.0, 200.0);
-   // self.reticleView = [[UIImageView alloc] initWithFrame:frame];
-    //self.reticleView.image = [UIImage imageNamed:@"scope.png"];
-  //  self.reticleView.image = [UIImage imageNamed:@"dwg06.png"];
-//>>>>>>> 262514d0c77a08c21caa6d57f6ae6ff8290bb89e:RangeFinder/MainViewController.m
-//    self.reticleView.inputView.subviews
-//    self.reticleView.backgroundColor = [UIColor blueColor];
-//    self.reticleView.alpha = 0.65;
-    //self.reticleView.userInteractionEnabled = YES;
     reticleView.userInteractionEnabled = YES;
 
     self.helpView.hidden = YES;
-
-// Sets up the view's values & displays
-//    self.myAssistantLabel.hidden = NO;
-//>>>>>>> ae17683cdc8cfe1853284fc7f54b6fef988504d7
     
 // Sets up labels
     self.distanceLabel.text = @"How far away?";
     self.myAssistantLabel.text = @"Tap to open RangeFinder";
     
 // Builds the slider and rotates it 90 degrees
-    CGRect sliderFrame = CGRectMake(-20.0, 150.0,300.0, 50.0);
+    CGRect sliderFrame = CGRectMake(-20.0, 50.0, 150.0, 50.0);
     self.reticleZoomSlider = [[UISlider alloc] initWithFrame:sliderFrame];
     CGAffineTransform trans = CGAffineTransformMakeRotation(M_PI_2);
     self.reticleZoomSlider.transform = trans;
-    [self.reticleView addSubview:self.reticleZoomSlider];
+    [reticleView addSubview:self.reticleZoomSlider];
     
  //   UIViewController *upperVC = self.presentingViewController;
 }
