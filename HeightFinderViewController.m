@@ -311,7 +311,7 @@ enum findValueForAngle {INNER_ANGLE_VALUE, OUTER_ANGLE_VALUE};
 -(void)outputAttitudeData:(CMDeviceMotion*)motion{
     //This is only necessary if the HeightViewController is on top of the Nav Controller
     if ([((RFNavigationController*)tabVC.selectedViewController).topViewController isKindOfClass:[HeightFinderViewController class]]){
-    float degreeDec = -motion.gravity.y*90;
+  //  float degreeDec = -motion.gravity.y*90;
  //   degreesTilt = (int)round(degreeDec);
     if (degreesTilt >= 0){
         self.degreeLabel.text = [NSString stringWithFormat:@"%d°", degreesTilt];
@@ -366,27 +366,19 @@ enum findValueForAngle {INNER_ANGLE_VALUE, OUTER_ANGLE_VALUE};
 
 - (IBAction)setAngleTwoButton:(UIButton *)sender
 {
-<<<<<<< HEAD
    // self.angleTwo.text = [NSString stringWithFormat:@"%2.2f", degreesTilt];
 =======
     //self.angleTwoLabel.text = [NSString stringWithFormat:@"%2.1f", degreesTilt];
     angleTwoButtonState = TRUE;
->>>>>>> ae17683cdc8cfe1853284fc7f54b6fef988504d7
 }
 */
         
-//-(void)calculateHeight:(UITapGestureRecognizer*)gesture
+
 -(void)calculateButton:(UIButton *)sender{
 // converts textfields to floats in radians to calculate the height
-//<<<<<<< HEAD
-   // double bStep = [self.baseLength.text doubleValue];
-   // double aOne = [self.angleOne.text doubleValue]/DEGREE_2_RADIAN;
-   // double aTwo = [self.angleTwo.text doubleValue]/DEGREE_2_RADIAN;
-//=======
  //   double bStep = [self.baseLength.text doubleValue];
  //   double aOne = [self.angleOneLabel.text doubleValue]/DEGREE_2_RADIAN;
  //   double aTwo = [self.angleTwoLabel.text doubleValue]/DEGREE_2_RADIAN;
-//>>>>>>> ae17683cdc8cfe1853284fc7f54b6fef988504d7
     
     if (aTwo > aOne) {
         double temp = aTwo;
