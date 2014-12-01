@@ -13,8 +13,8 @@ enum findValueForAngle {INNER_ANGLE_VALUE, OUTER_ANGLE_VALUE};
 @implementation HeightFinderViewController{
     int degreesTilt;
     CMMotionManager *motionManager;
-//<<<<<<< HEAD
     RFTabBarController *tabVC;
+    
     int lastdegreeVal;
     UITapGestureRecognizer *tapToStoreAngle;
     UITapGestureRecognizer *tapToReplaceInnerAngle;
@@ -47,14 +47,11 @@ enum findValueForAngle {INNER_ANGLE_VALUE, OUTER_ANGLE_VALUE};
     int bStep;
     int aOne;
     int aTwo;
-//=======
+
     BOOL angleOneButtonState;
     BOOL angleTwoButtonState;
-//>>>>>>> ae17683cdc8cfe1853284fc7f54b6fef988504d7
 }
-//@synthesize angleOneButton = _angleOneButton;
-//@synthesize angleTwoButton = _angleTwoButton;
-//@synthesize objectName = _objectName;
+@synthesize helpView = _helpView;
 
 #define DEGREE_2_RADIAN 57.3
 #define YOUR_HEIGHT 6.0
@@ -78,9 +75,6 @@ enum findValueForAngle {INNER_ANGLE_VALUE, OUTER_ANGLE_VALUE};
     motionManager = [[CMMotionManager alloc] init];
     motionManager.accelerometerUpdateInterval = .2;
     motionManager.gyroUpdateInterval = .2;
-
-//<<<<<<< HEAD
-//=======
     
     [motionManager startAccelerometerUpdatesToQueue:[NSOperationQueue currentQueue]
                                              withHandler:^(CMAccelerometerData  *accelerometerData, NSError *error) {
@@ -94,7 +88,7 @@ enum findValueForAngle {INNER_ANGLE_VALUE, OUTER_ANGLE_VALUE};
     /*
    // [self.motionManager startDeviceMotionUpdatesUsingReferenceFrame:CMAttitudeReferenceFrameXArbitraryCorrectedZVertical toQueue:[NSOperationQueue currentQueue] withHandler:^(CMDeviceMotion *motion, NSError *error) {
      */
-//>>>>>>> ae17683cdc8cfe1853284fc7f54b6fef988504d7
+
     [motionManager startDeviceMotionUpdatesUsingReferenceFrame:CMAttitudeReferenceFrameXArbitraryCorrectedZVertical toQueue:[NSOperationQueue currentQueue] withHandler:^(CMDeviceMotion *motion, NSError *error) {
         [self outputAttitudeData:motion];
         if (error){
@@ -102,11 +96,8 @@ enum findValueForAngle {INNER_ANGLE_VALUE, OUTER_ANGLE_VALUE};
         }
      
     }];
-    
-//<<<<<<< HEAD
-    
-    self.helpView.hidden = YES;
-    self.helpView.alpha = 0;
+   
+    // self.helpView.alpha = 0;
     CGRect landScapeRight = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.height, [UIScreen mainScreen].bounds.size.width);
     self.helpView.frame = landScapeRight;
     self.helpView.bounds = landScapeRight;
@@ -189,7 +180,7 @@ enum findValueForAngle {INNER_ANGLE_VALUE, OUTER_ANGLE_VALUE};
 -(void)viewDidAppear:(BOOL)animated{
    // NSUInteger subViews = [self.view.subviews count];
    // NSArray *triangeSublayers = ((TriangleView*)self.view.subviews[subViews-1]).layer.sublayers;
-    NSLog(@"Subview Structure: %@", [self.view.subviews description]);
+    //NSLog(@"Subview Structure: %@", [self.view.subviews description]);
    
     //just for now we'll re-index the triangle Sublayers, but this VC needs to assign controls programmatically.
     //NSArray *triangeSublayers = ((TriangleView*)self.view.subviews[3]).layer.sublayers;
@@ -275,6 +266,23 @@ enum findValueForAngle {INNER_ANGLE_VALUE, OUTER_ANGLE_VALUE};
 - (IBAction)showHelpButton:(id)sender
 {
     NSLog(@"slides up a transparency that describes the buttons below");
+    if (self.helpView.hidden) {
+        self.helpView.hidden = NO;
+    }
+}
+
+- (IBAction)hideHelpButton:(id)sender
+{
+    NSLog(@"hides the transparency that describes the buttons below");
+//    if (!self.helpView.hidden) {
+        self.helpView.hidden = YES;
+//    }
+}
+
+/*
+- (IBAction)showHelpButton:(id)sender
+{
+    NSLog(@"slides up a transparency that describes the buttons below");
    // [self.parentViewController.parentViewController.view addSubview:self.helpView];
     self.helpView.hidden = NO;
         [UIView transitionWithView:self.helpView duration:0.5 options:UIViewAnimationOptionCurveEaseInOut animations:^{
@@ -296,15 +304,15 @@ enum findValueForAngle {INNER_ANGLE_VALUE, OUTER_ANGLE_VALUE};
     }];
    // [self.helpView removeFromSuperview];
 }
-
+*/
 //<<<<<<< HEAD
 #pragma mark - Core Motion Activity Update Handler Methods
 
 -(void)outputAttitudeData:(CMDeviceMotion*)motion{
     //This is only necessary if the HeightViewController is on top of the Nav Controller
     if ([((RFNavigationController*)tabVC.selectedViewController).topViewController isKindOfClass:[HeightFinderViewController class]]){
-    float degreeDec = -motion.gravity.y*90;
-    degreesTilt = (int)round(degreeDec);
+  //  float degreeDec = -motion.gravity.y*90;
+ //   degreesTilt = (int)round(degreeDec);
     if (degreesTilt >= 0){
         self.degreeLabel.text = [NSString stringWithFormat:@"%d°", degreesTilt];
         if (!self.degreeLabel.hidden && (degreesTilt != lastdegreeVal)){
@@ -358,27 +366,19 @@ enum findValueForAngle {INNER_ANGLE_VALUE, OUTER_ANGLE_VALUE};
 
 - (IBAction)setAngleTwoButton:(UIButton *)sender
 {
-<<<<<<< HEAD
    // self.angleTwo.text = [NSString stringWithFormat:@"%2.2f", degreesTilt];
 =======
     //self.angleTwoLabel.text = [NSString stringWithFormat:@"%2.1f", degreesTilt];
     angleTwoButtonState = TRUE;
->>>>>>> ae17683cdc8cfe1853284fc7f54b6fef988504d7
 }
 */
         
-//-(void)calculateHeight:(UITapGestureRecognizer*)gesture
+
 -(void)calculateButton:(UIButton *)sender{
 // converts textfields to floats in radians to calculate the height
-//<<<<<<< HEAD
-   // double bStep = [self.baseLength.text doubleValue];
-   // double aOne = [self.angleOne.text doubleValue]/DEGREE_2_RADIAN;
-   // double aTwo = [self.angleTwo.text doubleValue]/DEGREE_2_RADIAN;
-//=======
  //   double bStep = [self.baseLength.text doubleValue];
  //   double aOne = [self.angleOneLabel.text doubleValue]/DEGREE_2_RADIAN;
  //   double aTwo = [self.angleTwoLabel.text doubleValue]/DEGREE_2_RADIAN;
-//>>>>>>> ae17683cdc8cfe1853284fc7f54b6fef988504d7
     
     if (aTwo > aOne) {
         double temp = aTwo;
@@ -507,7 +507,7 @@ enum findValueForAngle {INNER_ANGLE_VALUE, OUTER_ANGLE_VALUE};
             self.degreeLabel.hidden = YES;
     }
     
-    NSLog(@"Subview structure after adding the Angle label: %@", self.view.subviews);
+    //NSLog(@"Subview structure after adding the Angle label: %@", self.view.subviews);
     [self.view removeGestureRecognizer:tapToStoreAngle];
     AngleVal = !AngleVal;
     

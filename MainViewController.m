@@ -30,7 +30,7 @@
 {
     [super viewDidLoad];
     
-    /*
+    
 // Checks to see if the camera is available
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
         NSLog(@"camera is available - We must be on the iPhone!");
@@ -41,8 +41,7 @@
         self.myAssistantLabel.text = @"The camera is not available on this device";
         self.cameraButtonButton.hidden = YES;
     }
-<<<<<<< HEAD
-    */
+
 
    // CGRect frame = CGRectMake(130.0, 150.0, 60.0, 120.0);
    // reticleView = [[UIImageView alloc] initWithFrame:frame];
@@ -56,45 +55,29 @@
     //self.reticleView = [[UIImageView alloc] initWithFrame:frame];
     //self.reticleView.image = [UIImage imageNamed:@"dwg06.png"];
     reticleView = [[UIImageView alloc] initWithFrame:frame];
-    reticleView.image = [UIImage imageNamed:@"scope.png"];
-//=======
-   // CGRect frame = CGRectMake(10.0, 40.0, 320.0, 240.0);
-    //CGRect frame = CGRectMake(100.0, 100.0, 200.0, 200.0);
-   // self.reticleView = [[UIImageView alloc] initWithFrame:frame];
-    //self.reticleView.image = [UIImage imageNamed:@"scope.png"];
-  //  self.reticleView.image = [UIImage imageNamed:@"dwg06.png"];
-//>>>>>>> 262514d0c77a08c21caa6d57f6ae6ff8290bb89e:RangeFinder/MainViewController.m
-//    self.reticleView.inputView.subviews
-//    self.reticleView.backgroundColor = [UIColor blueColor];
-//    self.reticleView.alpha = 0.65;
-    //self.reticleView.userInteractionEnabled = YES;
+    reticleView.image = [UIImage imageNamed:@"Reticle(2).png"];
     reticleView.userInteractionEnabled = YES;
 
     self.helpView.hidden = YES;
-
-// Sets up the view's values & displays
-//    self.myAssistantLabel.hidden = NO;
-//>>>>>>> ae17683cdc8cfe1853284fc7f54b6fef988504d7
     
-// Sets up the distance label
-    self.distanceLabel.text = @"xxx yards";
+// Sets up labels
+    self.distanceLabel.text = @"How far away?";
+    self.myAssistantLabel.text = @"Tap to open RangeFinder";
     
 // Builds the slider and rotates it 90 degrees
-    CGRect sliderFrame = CGRectMake(-120.0, 150.0,300.0, 50.0);
+    CGRect sliderFrame = CGRectMake(-20.0, 50.0, 150.0, 50.0);
     self.reticleZoomSlider = [[UISlider alloc] initWithFrame:sliderFrame];
     CGAffineTransform trans = CGAffineTransformMakeRotation(M_PI_2);
     self.reticleZoomSlider.transform = trans;
-    [self.reticleView addSubview:self.reticleZoomSlider];
+    [reticleView addSubview:self.reticleZoomSlider];
     
-    UIViewController *upperVC = self.presentingViewController;
+ //   UIViewController *upperVC = self.presentingViewController;
 }
 
 -(BOOL)shouldAutorotate{
     return NO;
 }
 
-//<<<<<<< HEAD
-//=======
 -(NSUInteger)supportedInterfaceOrientations{
 
     return UIInterfaceOrientationMaskPortrait;
@@ -118,7 +101,6 @@
     }
 }
 
-//>>>>>>> ae17683cdc8cfe1853284fc7f54b6fef988504d7
 #pragma mark - Flipside View
 
 - (void)flipsideViewControllerDidFinish:(FlipsideViewController *)controller
@@ -188,12 +170,9 @@
     // NSLog(@"zoom are %2.3f, %2.3f, %2.3f", zoomFactor, secondZoomFactor, totalZoomFactor);
     
     // Calculates actual distance in yards
-//<<<<<<< HEAD
     //self.distanceLabel.text = [NSString stringWithFormat:@"%3.0f %@", (totalZoomFactor * flagHeight * FUTZ_FACTOR), distanceUnits];
-//=======
     //self.distanceLabel.text = [NSString stringWithFormat:@"%3.0f %@", (totalZoomFactor * flagHeight * FUTZ_FACTOR), self.distanceUnits];
     self.distanceLabel.text = [NSString stringWithFormat:@"%4.0f %@", (totalZoomFactor * flagHeight * FUTZ_FACTOR), distanceUnits];
-//>>>>>>> ae17683cdc8cfe1853284fc7f54b6fef988504d7
 
 // gets rid of the image controller modal view
     [self dismissModalViewControllerAnimated:YES];
