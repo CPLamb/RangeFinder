@@ -7,6 +7,7 @@
 //
 
 #import "FlipsideViewController.h"
+#import "DistantObject.h"
 
 @implementation FlipsideViewController{
     NSArray *objectPickerItems;
@@ -55,8 +56,9 @@
     objectSizes = [[NSDictionary alloc] initWithContentsOfFile:objectSizesPlist];
     // NSLog(@"The dictionary %@", objectSizes);
     
-// loads new objectList dictionary
-    
+// loads new data objects
+    self.heightObjects = [[NSMutableArray alloc] init];
+    [self loadInitialData];
 }
 
 -(BOOL)shouldAutorotate{
@@ -64,6 +66,29 @@
 }
 
 #pragma mark - Custom Methods
+
+- (void)loadInitialData
+{
+    DistantObject *item00 = [[DistantObject alloc] init];
+    item00.objectName = @"START";
+    [self.heightObjects addObject:item00];
+    DistantObject *item01 = [[DistantObject alloc] init];
+    item01.objectName = @"Golf Flag";
+    [self.heightObjects addObject:item01];
+    DistantObject *item02 = [[DistantObject alloc] init];
+    item02.objectName = @"Utility Pole";
+    [self.heightObjects addObject:item02];
+    DistantObject *item03 = [[DistantObject alloc] init];
+    item03.objectName = @"Person";
+    [self.heightObjects addObject:item03];
+    DistantObject *item04 = [[DistantObject alloc] init];
+    item04.objectName = @"Lighthouse";
+    [self.heightObjects addObject:item04];
+    DistantObject *item05 = [[DistantObject alloc] init];
+    item05.objectName = @"END";
+    [self.heightObjects addObject:item05];
+    NSLog(@"Object count is %d", (int)[self.heightObjects count]);
+}
 
 - (IBAction)editButton:(id)sender
 {
@@ -161,7 +186,7 @@
         }
     }
     if (pickerView == self.objectPicker)
-        return [objectPickerItems count];
+        return [objectPickerItems count];   //objectPickerItems
     return -1; //error condition
 }
 
@@ -177,7 +202,7 @@
         }
     }
     if (pickerView == self.objectPicker)
-        return [objectPickerItems objectAtIndex:row];
+        return [objectPickerItems objectAtIndex:row];      //objectPickerItems
 
     return nil;
 }
@@ -210,7 +235,7 @@
 // Object Picker
     if (pickerView == self.objectPicker){
        // NSString *selectedObject = [self.objectPickerItems objectAtIndex:row];
-        NSString *selectedObject = [objectPickerItems objectAtIndex:row];
+        NSString *selectedObject = [objectPickerItems objectAtIndex:row];       //objectPickerItems
         if ([selectedObject isEqualToString:@"None"]){
             self.objectString.text = @"";
             self.flagValueString.text = @"";
