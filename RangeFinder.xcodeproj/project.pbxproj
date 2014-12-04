@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8318EB061A2E24320061EFC2 /* TreeStanford.png in Resources */ = {isa = PBXBuildFile; fileRef = 8318EB051A2E24320061EFC2 /* TreeStanford.png */; };
+		8318EB091A2E32990061EFC2 /* DistantObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 8318EB081A2E32990061EFC2 /* DistantObject.m */; };
 		8343798E157C0A7D009E18A1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8343798D157C0A7D009E18A1 /* UIKit.framework */; };
 		83437990157C0A7D009E18A1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8343798F157C0A7D009E18A1 /* Foundation.framework */; };
 		83437992157C0A7D009E18A1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83437991157C0A7D009E18A1 /* CoreGraphics.framework */; };
@@ -61,6 +63,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8318EB051A2E24320061EFC2 /* TreeStanford.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TreeStanford.png; sourceTree = "<group>"; };
+		8318EB071A2E32990061EFC2 /* DistantObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DistantObject.h; sourceTree = "<group>"; };
+		8318EB081A2E32990061EFC2 /* DistantObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DistantObject.m; sourceTree = "<group>"; };
 		83437989157C0A7D009E18A1 /* RangeFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RangeFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8343798D157C0A7D009E18A1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		8343798F157C0A7D009E18A1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -144,6 +149,8 @@
 		8343797E157C0A7B009E18A1 = {
 			isa = PBXGroup;
 			children = (
+				8318EB071A2E32990061EFC2 /* DistantObject.h */,
+				8318EB081A2E32990061EFC2 /* DistantObject.m */,
 				900E7D351A1E7F1000D477AA /* AngleLayer.h */,
 				900E7D361A1E7F1100D477AA /* AngleLayer.m */,
 				900E7D321A1C4F0500D477AA /* TriangleView.h */,
@@ -192,8 +199,9 @@
 		83437994157C0A7D009E18A1 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				83AF09B31A1A622D00A35F40 /* Images.xcassets */,
 				836C42AA1A291F2700CB134D /* Iconography */,
+				8318EB051A2E24320061EFC2 /* TreeStanford.png */,
+				83AF09B31A1A622D00A35F40 /* Images.xcassets */,
 				83AFE5A31A27919F0082264F /* IconTree.png */,
 				836C42BD1A291F7500CB134D /* Reticle(2).png */,
 				83AFE5A11A27916C0082264F /* BackgroundHeight.png */,
@@ -303,6 +311,7 @@
 				90F498201A12B4BF006735E6 /* InfoPlist.strings in Resources */,
 				90F4980F1A12B410006735E6 /* dwg06.png in Resources */,
 				83ACC2E91A1D348800D55CE5 /* objectList.csv in Resources */,
+				8318EB061A2E24320061EFC2 /* TreeStanford.png in Resources */,
 				836C42B41A291F6100CB134D /* flag-400x400.png in Resources */,
 				90F498091A12B410006735E6 /* dwg03.png in Resources */,
 				908380AC1A0AE712005A6A86 /* Icon.png in Resources */,
@@ -351,6 +360,7 @@
 				90F498141A12B410006735E6 /* README.md in Sources */,
 				900E7D371A1E7F1100D477AA /* AngleLayer.m in Sources */,
 				900E7D341A1C4F0500D477AA /* TriangleView.m in Sources */,
+				8318EB091A2E32990061EFC2 /* DistantObject.m in Sources */,
 				90F498031A12B410006735E6 /* AppDelegate.m in Sources */,
 				90F498281A16E089006735E6 /* RFTabBarController.m in Sources */,
 				90F4982B1A17FC4E006735E6 /* RFNavigationController.m in Sources */,

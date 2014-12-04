@@ -21,6 +21,8 @@
 
 @interface FlipsideViewController : UIViewController
 
+@property NSMutableArray *heightObjects;
+
 @property (nonatomic) float flagheight;
 @property (strong, nonatomic) NSString *flagUnits;
 @property (strong, nonatomic) IBOutlet UILabel *flagValueString;

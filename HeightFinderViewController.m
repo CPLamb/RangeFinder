@@ -119,15 +119,15 @@ enum findValueForAngle {INNER_ANGLE_VALUE, OUTER_ANGLE_VALUE};
     myTriangles.backgroundColor = [UIColor clearColor];
     
     [self.view addSubview:myTriangles]; //gets loaded after this in viewDidAppear
-    self.degreeLabel.hidden = YES;
+ //   self.degreeLabel.hidden = YES;
     
     innerAngleButton = nil;
     //baseLengthButton = nil;
     baseLengthText = nil;
     outerAngleButton = nil;
     startWithInnerAngle = YES;
-    self.calculateButtonObject.hidden = YES;
-    self.height.hidden = YES;
+ //   self.calculateButtonObject.hidden = YES;
+//    self.height.hidden = YES;
 }
 
 -(void)makeInnerAngleButton{
@@ -398,7 +398,7 @@ enum findValueForAngle {INNER_ANGLE_VALUE, OUTER_ANGLE_VALUE};
     [self.height removeFromSuperview];
     [self.view addSubview:self.height];
     
-    self.calculateButtonObject.hidden = YES;
+ //   self.calculateButtonObject.hidden = YES;
     
     startOverButton = [[UIButton alloc] initWithFrame:self.calculateButtonObject.frame];
     startOverButton.layer.cornerRadius = self.calculateButtonObject.layer.cornerRadius;
@@ -447,7 +447,7 @@ enum findValueForAngle {INNER_ANGLE_VALUE, OUTER_ANGLE_VALUE};
     [innerAngleLabel setFont:[UIFont systemFontOfSize:self.degreeLabel.font.pointSize]];
     innerAngleLabel.textAlignment = NSTextAlignmentCenter;
     [innerAngleLabel addGestureRecognizer:tapToReplaceInnerAngle];
-    self.degreeLabel.hidden = YES;
+//    self.degreeLabel.hidden = YES;
     innerAngleLabel.center = self.degreeLabel.center;
     innerAngleLabel.userInteractionEnabled = YES;
     innerAngleLabel.textColor = [UIColor blackColor];
@@ -461,7 +461,7 @@ enum findValueForAngle {INNER_ANGLE_VALUE, OUTER_ANGLE_VALUE};
     }];
     aOne = (int)self.degreeLabel.text.integerValue;
     [self.view removeGestureRecognizer:tapToStoreAngle];
-        self.degreeLabel.hidden = YES;
+ //       self.degreeLabel.hidden = YES;
     
 }
 
@@ -490,7 +490,7 @@ enum findValueForAngle {INNER_ANGLE_VALUE, OUTER_ANGLE_VALUE};
         [outerAngleLabel setFont:[UIFont systemFontOfSize:self.degreeLabel.font.pointSize]];
         outerAngleLabel.textAlignment = NSTextAlignmentCenter;
         [outerAngleLabel addGestureRecognizer:tapToReplaceOuterAngle];
-        self.degreeLabel.hidden = YES;
+ //       self.degreeLabel.hidden = YES;
         outerAngleLabel.center = self.degreeLabel.center;
         outerAngleLabel.userInteractionEnabled = YES;
         outerAngleLabel.textColor = [UIColor greenColor];
@@ -504,7 +504,7 @@ enum findValueForAngle {INNER_ANGLE_VALUE, OUTER_ANGLE_VALUE};
         outerAngleEmphasis.strokeLength = 0.0;
             aTwo = (int)self.degreeLabel.text.integerValue;
             [self.view removeGestureRecognizer:tapToStoreAngle];
-            self.degreeLabel.hidden = YES;
+//            self.degreeLabel.hidden = YES;
     }
     
     //NSLog(@"Subview structure after adding the Angle label: %@", self.view.subviews);
@@ -523,7 +523,7 @@ enum findValueForAngle {INNER_ANGLE_VALUE, OUTER_ANGLE_VALUE};
         self.calculateButtonObject.hidden = NO;
         //self.calculateButtonObject.enabled = YES;
         //self.calculateButtonObject.userInteractionEnabled = YES;
-        [self.calculateButtonObject removeFromSuperview];
+ //       [self.calculateButtonObject removeFromSuperview];
         [self.view addSubview:self.calculateButtonObject];
     }
 }
@@ -681,8 +681,8 @@ enum findValueForAngle {INNER_ANGLE_VALUE, OUTER_ANGLE_VALUE};
     outerAngleLabel = nil;
     innerAngleButton.alpha = 1;
     outerAngleButton.alpha = 1;
-    self.degreeLabel.hidden = YES;
-    self.height.hidden = YES;
+//    self.degreeLabel.hidden = YES;
+//    self.height.hidden = YES;
     aOne = -1;
     aTwo = -1;
     bStep = -1;
