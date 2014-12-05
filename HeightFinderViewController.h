@@ -18,8 +18,9 @@
 #import "FlipsideViewController.h"
 #import "RFTabBarController.h"
 #import "TriangleView.h"
+#import "DistantObject.h"
 
-@interface HeightFinderViewController : UIViewController<UIGestureRecognizerDelegate, UITextFieldDelegate>
+@interface HeightFinderViewController : UIViewController<FlipsideViewControllerDelegate, UIGestureRecognizerDelegate, UITextFieldDelegate>
 
 @property (strong, nonatomic) IBOutlet UIView *helpView;
 

@@ -11,7 +11,9 @@
 @interface DistantObject : NSObject
 
 @property NSString *objectName;
-@property NSNumber *height;
-@property NSString *ounits;
+@property NSString *height;
+@property NSString *units;
+
+- (DistantObject *)initWithName:(NSString *)name height:(NSString *)height unit:(NSString *)units;
 
 @end
