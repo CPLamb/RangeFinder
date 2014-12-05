@@ -203,22 +203,10 @@ enum findValueForAngle {INNER_ANGLE_VALUE, OUTER_ANGLE_VALUE};
         [self makeOuterAngleButton];
 }
 
-//-(void)setLayerStrokeLength:(AngleLayer *)layer value:(CGFloat)val{
-//    layer.strokeLength = val;
-//}
-//-(void)setLayerEndAngle:(AngleLayer *)layer value:(CGFloat)val{
-//    layer.endAngle = val;
-//=======
-//     */
-//>>>>>>> ae17683cdc8cfe1853284fc7f54b6fef988504d7
-//}
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-//<<<<<<< HEAD
-//=======
 
 #pragma mark - Core Motion Activity Update Handler Methods
 
@@ -241,27 +229,25 @@ enum findValueForAngle {INNER_ANGLE_VALUE, OUTER_ANGLE_VALUE};
 
 }
 
-//<<<<<<< HEAD
-#pragma mark - Custom methods
-/*
-=======
--(void)outputAttitudeData:(CMDeviceMotion*)motion{
-    //self.accelerationsLabel.text = [NSString stringWithFormat:@"Current angle = %2.0f", -motion.gravity.y*90];
- //   degreesTilt = -motion.gravity.y*90;
-    
-// loads degreeTilt into angle textFields when the field is selected
-    if (angleOneButtonState) {
-        self.angleOneLabel.text = [NSString stringWithFormat:@"%2.0f", degreesTilt];
-    }
-    if (angleTwoButtonState) {
-        self.angleTwoLabel.text = [NSString stringWithFormat:@"%2.0f", degreesTilt];
-    }
-}
-*/
-
 #pragma mark - Custom Methods
 
-//>>>>>>> ae17683cdc8cfe1853284fc7f54b6fef988504d7
+- (void)flipsideViewControllerDidFinish:(FlipsideViewController *)controller
+{
+    NSLog(@" setup delegate call");
+/*    // sets myAssistantLabel ON/OFF
+    if (controller.helpSwitch.on) {
+        self.myAssistantLabel.hidden = NO;
+    } else {
+        self.myAssistantLabel.hidden = YES;
+    }
+    self.myAssistantLabel.text = controller.flipsideInfo.text;
+    [self dismissModalViewControllerAnimated:YES];
+    flagHeight = [controller.flipsideInfo.text floatValue];
+    NSLog(@"FlagHeight is %3.3f", flagHeight);
+    //self.distanceUnits = controller.flagUnits;
+    distanceUnits = controller.flagUnits;
+*/
+}
 
 - (IBAction)showHelpButton:(id)sender
 {
@@ -343,36 +329,13 @@ enum findValueForAngle {INNER_ANGLE_VALUE, OUTER_ANGLE_VALUE};
 {
 // sets objectName to textField input
     if (buttonIndex == [alertView firstOtherButtonIndex]) {
-        NSLog(@"buttonIndex = %d", buttonIndex);
+        NSLog(@"buttonIndex = %ld", (long)buttonIndex);
         //self.objectName = [alertView textFieldAtIndex:buttonIndex];
         //NSLog(@"ObjectName is %@", self.objectName.text);
     } else {
         NSLog(@"buttonIndex = %d", buttonIndex);
-//>>>>>>> ae17683cdc8cfe1853284fc7f54b6fef988504d7
     }
 }
-
-        /*
-- (IBAction)setAngleOneButton:(UIButton *)sender
-{
-<<<<<<< HEAD
-   // self.angleOne.text = [NSString stringWithFormat:@"%2.2f", degreesTilt];
-=======
-    //self.angleOneLabel.text = [NSString stringWithFormat:@"%2.1f", degreesTilt];
-    angleOneButtonState = TRUE;
-    // NSLog(@"Button state is %u", angleOneButtonState);
->>>>>>> ae17683cdc8cfe1853284fc7f54b6fef988504d7
-}
-
-- (IBAction)setAngleTwoButton:(UIButton *)sender
-{
-   // self.angleTwo.text = [NSString stringWithFormat:@"%2.2f", degreesTilt];
-=======
-    //self.angleTwoLabel.text = [NSString stringWithFormat:@"%2.1f", degreesTilt];
-    angleTwoButtonState = TRUE;
-}
-*/
-        
 
 -(void)calculateButton:(UIButton *)sender{
 // converts textfields to floats in radians to calculate the height
@@ -408,30 +371,10 @@ enum findValueForAngle {INNER_ANGLE_VALUE, OUTER_ANGLE_VALUE};
     UITapGestureRecognizer *tapToStartOver = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(startOver:)];
     [startOverButton addGestureRecognizer:tapToStartOver];
     [self.view addSubview:startOverButton];
-    
-    
-//=======
-    
-// prints value
-  //  self.height.text = [NSString stringWithFormat:@"Object is %3.0f feet", h];
-  //  NSLog(@"The height is %@", self.height.text);
-
-//>>>>>>> ae17683cdc8cfe1853284fc7f54b6fef988504d7
 }
 
-/*
-- (void)hideTap:(UIGestureRecognizer *)gestureRecognizer
-{
-    [self.view endEditing:YES];  // or [self.baseLength resignFirstResponder];
-    
-// resets dynamic data switch for angle textFields
-    angleOneButtonState = FALSE;
-    angleTwoButtonState = FALSE;
-    //NSLog(@"Screen TAPPED button is %u", angleOneButtonState);
-}
-*/
-        
 #pragma mark - Handlers for screen tap
+
 -(void)tappedScreen:(UITapGestureRecognizer*)gesture{
     
     innerAngleEmphasis.strokeLength = 0.0;

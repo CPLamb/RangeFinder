@@ -13,6 +13,7 @@
 //
 
 #import "FlipsideViewController.h"
+#import "DistantObject.h"
 
 @interface MainViewController : UIViewController <FlipsideViewControllerDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 

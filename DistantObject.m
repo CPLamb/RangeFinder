@@ -10,4 +10,15 @@
 
 @implementation DistantObject
 
+- (DistantObject *)initWithName:(NSString *)name height:(NSString *)height unit:(NSString *)units
+{
+    DistantObject *distantObject = [[DistantObject alloc] init];
+    distantObject.objectName = name;        // @"testName";
+    distantObject.height = height;      //@"24";
+    distantObject.units = units;        //@"Feetskis";
+    
+    NSLog(@"The DistantObject is a %@ %@ %@ ", distantObject.height, distantObject.units, distantObject.objectName);
+    return distantObject;
+}
+
 @end
