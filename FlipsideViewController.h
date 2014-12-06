@@ -48,5 +48,6 @@
 - (IBAction)showHelpButton:(id)sender;
 
 - (IBAction)editButton:(id)sender;
+- (IBAction)testButton:(UIButton *)sender;
 
 @end

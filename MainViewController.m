@@ -58,7 +58,7 @@
     reticleView.image = [UIImage imageNamed:@"Reticle(2).png"];
     reticleView.userInteractionEnabled = YES;
 
-    self.helpView.hidden = YES;
+    self.helpView.hidden = NO;
     
 // Sets up labels
     self.distanceLabel.text = @"How far away?";
