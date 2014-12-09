@@ -13,4 +13,6 @@
 
 @property (nonatomic, strong) UIViewController *lastVC;
 
+@property (nonatomic, assign) id<UITabBarControllerDelegate> delegate;  // to sense selected tab
+
 @end

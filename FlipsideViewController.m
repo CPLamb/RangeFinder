@@ -37,7 +37,7 @@
     objectPickerItems = [[NSArray alloc] initWithObjects:@"Light switch", @"Car", @"Person", @"Door", @"Golf flag", @"Utility pole", @"Sailboat", @"Lighthouse", nil];
     
     minorUnitsPicker = [[NSMutableArray alloc] initWithArray:heightItems];    // defaults to 100
-    
+
 // sets defaults for the Picker
     self.heightMajorLabel.text = @"feet";
     self.heightMinorLabel.text = @"inches";
@@ -216,7 +216,7 @@
         if (component == 0)
            return [heightItems count];
         if (component == 1) {
-            NSLog(@"Array is %d", [minorUnitsPicker count]);
+//            NSLog(@"Array is %d", [minorUnitsPicker count]);
             return [unitsPicker count];
         }
     }

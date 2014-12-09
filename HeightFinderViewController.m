@@ -65,7 +65,7 @@ enum findValueForAngle {INNER_ANGLE_VALUE, OUTER_ANGLE_VALUE};
     self.helpView.hidden = YES;
     angleOneButtonState = FALSE;
     angleTwoButtonState = FALSE;
-    self.objectName.text = [NSString stringWithFormat:@"Object"];
+    self.objectName.text = [NSString stringWithFormat:@"Stanford Tree"];
 
 // Tap to hide keyboard
     UITapGestureRecognizer *hideKeyboardTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideTap:)];
@@ -356,7 +356,7 @@ enum findValueForAngle {INNER_ANGLE_VALUE, OUTER_ANGLE_VALUE};
     //heightLabel.text = [NSString stringWithFormat:@"%f", h];
     //[self.view addSubview:heightLabel];
     
-    self.height.text =[NSString stringWithFormat:@"Height is %1.2f [units]", h];
+    self.height.text =[NSString stringWithFormat:@"Tree is %3.0f feet high", h];
     self.height.hidden = NO;
     [self.height removeFromSuperview];
     [self.view addSubview:self.height];
@@ -399,7 +399,7 @@ enum findValueForAngle {INNER_ANGLE_VALUE, OUTER_ANGLE_VALUE};
     
     //we'll just try using a view transition for now
     [UIView animateWithDuration:0.75 animations:^{
-        innerAngleLabel.transform = CGAffineTransformMakeScale(0.2, 0.2);
+        innerAngleLabel.transform = CGAffineTransformMakeScale(0.33, 0.33);
         innerAngleLabel.center = CGPointMake(innerAngleEmphasis.innerVertexPoint.x-25, innerAngleEmphasis.innerVertexPoint.y-10);
     }];
     aOne = (int)self.degreeLabel.text.integerValue;
@@ -436,12 +436,12 @@ enum findValueForAngle {INNER_ANGLE_VALUE, OUTER_ANGLE_VALUE};
  //       self.degreeLabel.hidden = YES;
         outerAngleLabel.center = self.degreeLabel.center;
         outerAngleLabel.userInteractionEnabled = YES;
-        outerAngleLabel.textColor = [UIColor greenColor];
+        outerAngleLabel.textColor = [UIColor blackColor];
         [self.view addSubview:outerAngleLabel];
         
         [UIView animateWithDuration:0.75 animations:^{
             //firstAngleView.bounds.size = firstAngleView.bounds.size;
-            outerAngleLabel.transform = CGAffineTransformMakeScale(0.2, 0.2);
+            outerAngleLabel.transform = CGAffineTransformMakeScale(0.33, 0.33);
             outerAngleLabel.center = CGPointMake(outerAngleEmphasis.outerVertexPoint.x-45, outerAngleEmphasis.outerVertexPoint.y-10);
         }];
         outerAngleEmphasis.strokeLength = 0.0;
@@ -541,7 +541,7 @@ enum findValueForAngle {INNER_ANGLE_VALUE, OUTER_ANGLE_VALUE};
             textField.center = CGPointMake(textField.center.x, textField.center.y+15);
         
         textField.backgroundColor = [UIColor clearColor];
-        textField.textColor = [UIColor grayColor];
+        textField.textColor = [UIColor blackColor];
         textField.textAlignment = NSTextAlignmentCenter;
         textField.adjustsFontSizeToFitWidth = YES;
         baseLengthEmphasis.strokeLength = 0.0;

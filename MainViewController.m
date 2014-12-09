@@ -59,6 +59,7 @@
     reticleView.userInteractionEnabled = YES;
 
     self.helpView.hidden = YES;
+//    self.delegate = self;
     
 // Sets up labels
     self.distanceLabel.text = @"How far away?";
@@ -101,6 +102,24 @@
     }
 }
 
+#pragma mark - Navigation
+/*
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+    NSLog(@"Sequeing from %@", sender);
+}
+*/
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString:@"showAlternate"]) {
+        [[segue destinationViewController] setDelegate:(id)self];
+    }
+    NSLog(@"Sequeing from %@", sender);
+}
+
+
 #pragma mark - Flipside View
 
 - (void)flipsideViewControllerDidFinish:(FlipsideViewController *)controller
@@ -117,13 +136,6 @@
     NSLog(@"FlagHeight is %3.3f", flagHeight);
     //self.distanceUnits = controller.flagUnits;
     distanceUnits = controller.flagUnits;
-}
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    if ([[segue identifier] isEqualToString:@"showAlternate"]) {
-        [[segue destinationViewController] setDelegate:(id)self];
-    }
 }
 
 - (IBAction)camera:(UIButton *)sender {

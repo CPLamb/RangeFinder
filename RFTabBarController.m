@@ -8,8 +8,13 @@
 
 #import "RFTabBarController.h"
 #import "HeightFinderViewController.h"
+#import "MainViewController.h"
+#import "FlipsideViewController.h"
 
-@implementation RFTabBarController
+@implementation RFTabBarController {
+
+    MainViewController *rangeFinderVC;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -24,6 +29,17 @@
 
 -(BOOL)shouldAutorotate{
     return NO;
+}
+
+#pragma mark - Custom Methods
+
+//returns the controller title of the tab selected
+- (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController
+{
+    NSLog(@"Triggers on selecting a tab/view? %@", [viewController title]);
+    if ([[viewController title] isEqualToString:@"RangeFinder"]) {
+        NSLog(@"Going to RANGEFINDER");
+    }
 }
 
 -(void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item{
