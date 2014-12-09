@@ -26,24 +26,17 @@
 @property DistantObject *theDistantObject;
 
 @property (nonatomic) float flagHeight;
-@property (strong, nonatomic) NSString *flagUnits;
-@property (strong, nonatomic) IBOutlet UILabel *flagValueString;
-@property (strong, nonatomic) IBOutlet UILabel *objectString;
 
 @property (weak, nonatomic) id <FlipsideViewControllerDelegate> delegate;
 
 @property (strong, nonatomic) IBOutlet UIPickerView *objectPicker;
 @property (strong, nonatomic) IBOutlet UIPickerView *heightPicker;
-@property (strong, nonatomic) IBOutlet UILabel *heightMajorLabel;
-@property (strong, nonatomic) IBOutlet UILabel *heightMinorLabel;
 
 @property (strong, nonatomic) IBOutlet UITextField *flipsideInfo;
 @property (strong, nonatomic) IBOutlet UISegmentedControl *unitsSelector;
 @property (strong, nonatomic) IBOutlet UISwitch *helpSwitch;
-@property (weak, nonatomic) IBOutlet UILabel *objectEqualsLabel;
 @property (strong, nonatomic) IBOutlet UIView *helpView;
 
-- (IBAction)done:(id)sender;
 - (IBAction)unitsSelected:(id)sender;
 
 - (IBAction)hideHelpButton:(id)sender;

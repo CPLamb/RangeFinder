@@ -15,7 +15,7 @@
 #import "FlipsideViewController.h"
 #import "DistantObject.h"
 
-@interface MainViewController : UIViewController <FlipsideViewControllerDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate>
+@interface MainViewController : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
 @property (strong, nonatomic) IBOutlet UIImageView *cameraView;
 @property (strong, nonatomic) IBOutlet UILabel *distanceLabel;

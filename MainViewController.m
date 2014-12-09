@@ -57,8 +57,13 @@
 
     self.helpView.hidden = YES;
     
-// Sets up labels
-    self.distanceLabel.text = @"How far away?";
+// Sets up labels & initial values
+    heightUnits = @"foot";
+    height = @"6";
+    objectName = @"Golf Flag";
+    distanceUnits = @"yard";
+
+    self.distanceObjectLabel.text = [NSString stringWithFormat:@"Distant object is a %@ %@ high %@", height, heightUnits, objectName];
     self.myAssistantLabel.text = @"Tap to open RangeFinder";
     
 // Builds the slider and rotates it 90 degrees
@@ -90,6 +95,7 @@
     heightUnits = self.theDistantObject.heightUnits;
     height = self.theDistantObject.height;
     objectName = self.theDistantObject.objectName;
+    distanceUnits = self.theDistantObject.distanceUnits;
     
     flagHeight = [height floatValue];
     
@@ -112,30 +118,6 @@
     }
 }
 
-#pragma mark - Flipside View
-
-- (void)flipsideViewControllerDidFinish:(FlipsideViewController *)controller
-{
-// sets myAssistantLabel ON/OFF
-    if (controller.helpSwitch.on) {
-        self.myAssistantLabel.hidden = NO;
-    } else {
-        self.myAssistantLabel.hidden = YES;
-    }
-    self.myAssistantLabel.text = height;
-    [self dismissModalViewControllerAnimated:YES];
-    flagHeight = [height floatValue];
-    NSLog(@"FlagHeight is %3.3f", flagHeight);
-    //self.distanceUnits = controller.flagUnits;
-    distanceUnits = controller.flagUnits;
-}
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    if ([[segue identifier] isEqualToString:@"showAlternate"]) {
-        [[segue destinationViewController] setDelegate:(id)self];
-    }
-}
 
 - (IBAction)camera:(UIButton *)sender {
     NSLog(@"trying to get the camera controls to show!");
@@ -181,7 +163,8 @@
     // NSLog(@"zoom are %2.3f, %2.3f, %2.3f", zoomFactor, secondZoomFactor, totalZoomFactor);
     
 // Calculates actual distance in selected units
-    self.distanceLabel.text = [NSString stringWithFormat:@"%4.0f %@ distant", (totalZoomFactor * flagHeight * FUTZ_FACTOR), distanceUnits];
+    float distance = totalZoomFactor * flagHeight * FUTZ_FACTOR;
+    self.distanceLabel.text = [NSString stringWithFormat:@"is %3.0f %@ away", distance, distanceUnits];
 
 // gets rid of the image controller modal view
     [self dismissModalViewControllerAnimated:YES];

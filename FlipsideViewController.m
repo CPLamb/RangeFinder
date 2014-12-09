@@ -14,16 +14,18 @@
     NSArray *heightItems;
     NSArray *unitsPicker;
     NSArray *yardInchesPicker;
-    NSMutableArray *minorUnitsPicker;  // second height component
     
     NSDictionary *objectSizes;
     NSDictionary *objectList;   // modified objectdict with object, height, units fields
     float flagHeight;
     
+    NSString *objectName;
+    NSString *heightUnits;
+    NSString *distanceUnits;
+    
     float unitsToFeet;      // used to convert distance units
     float feetToUnits;
 }
-@synthesize objectString = _objectString;
 
 #pragma mark - Lifecycle Methods
 
@@ -37,14 +39,10 @@
     objectPickerItems = [[NSArray alloc] initWithObjects:@"Light switch", @"Car", @"Person", @"Door", @"Golf flag", @"Utility pole", @"Sailboat", @"Lighthouse", nil];
         
 // sets defaults for the Picker
-    self.heightMajorLabel.text = @"feet";
-    self.heightMinorLabel.text = @"inches";
     self.unitsSelector.selectedSegmentIndex = 1;
-    self.flagUnits = @"feet";
+    heightUnits = @"foot";
     
-    self.objectString.text = @"Golf flag";
-    self.flagValueString.text = @"";
-    self.objectEqualsLabel.hidden = YES;
+    objectName = @"Golf flag";
     
     self.helpView.hidden = YES;
     
@@ -66,24 +64,23 @@
 
 - (IBAction)testButton:(UIButton *)sender
 {
-    NSString *name = self.objectString.text;
+    NSLog(@"testing");
+}
+
+- (void)loadDataSingleton {
+    NSString *name = objectName;
     NSString *height = [NSString stringWithFormat:@"%1.0f", self.flagHeight];
-    NSString *heightUnits = self.flagUnits;
-    NSString *distanceUnits =
+    NSString *passedHeightUnits = heightUnits;
+    NSString *passedDistanceUnits = distanceUnits;
     
 // access the data singleton & assigns it values
     self.theDistantObject = [DistantObject getSingeltonInstance];
     self.theDistantObject.objectName = name;
     self.theDistantObject.height = height;
-    self.theDistantObject.heightUnits = heightUnits;
+    self.theDistantObject.heightUnits = passedHeightUnits;
+    self.theDistantObject.distanceUnits = passedDistanceUnits;
     
-/*    DistantObject *theDistantObject = [[DistantObject alloc] initWithName:name height:height unit:units];
-    //   NSLog(@"The object is %@ name is %@", theDistantObject, theDistantObject.objectName);
-    
-    // Now let's get back to the RangeFinder
-    NSLog(@"2 - calls delegate method in MainVC");
-    [self.delegate flipsideViewControllerDidFinish:self];
-*/
+    NSLog(@"passed data = %@, %@, %@, %@", name, height, passedHeightUnits, passedDistanceUnits);
 }
 
 - (void)loadInitialData
@@ -129,7 +126,7 @@
 
 - (IBAction)editButton:(id)sender
 {
-    NSString *messageString = [NSString stringWithFormat:@"Delete %@ ?", self.objectString.text];
+    NSString *messageString = [NSString stringWithFormat:@"Delete %@ ?", objectName];
     UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Edit Object List"
                                                       message:messageString
                                                      delegate:nil
@@ -155,43 +152,36 @@
     }
 }
 
-- (IBAction)done:(id)sender
-{
-    NSLog(@"Closes the setup screen and goes back to the rangeFinder");
-    [self.delegate flipsideViewControllerDidFinish:self];
-}
-
-
 - (IBAction)unitsSelected:(id)sender
 {
-    [minorUnitsPicker removeAllObjects];         //sets trailing number to different ranges
+    [self loadDataSingleton];
     switch(self.unitsSelector.selectedSegmentIndex) {
         case 0:
-            self.flagUnits =  @"inch";
-            [minorUnitsPicker addObjectsFromArray:yardInchesPicker];   //yardInchesPicker];
+            distanceUnits =  @"inch";
+            feetToUnits = 1/12;        // ToFeet/Units floats are for converting units
+            unitsToFeet = 12;
             break;
         case 1:
-            self.flagUnits =  @"foot";
-            [minorUnitsPicker addObjectsFromArray:unitsPicker];   //inchesPicker];
+            distanceUnits =  @"foot";
+            feetToUnits = 1;
+            unitsToFeet = 1;
             break;
         case 2:
-            self.flagUnits =  @"yard";
-            [minorUnitsPicker addObjectsFromArray:heightItems];
+            distanceUnits =  @"yard";
+            feetToUnits = 3;
+            unitsToFeet = 1/3;
             break;
         case 3:
-            self.flagUnits =  @"meter";
-            [minorUnitsPicker addObjectsFromArray:heightItems];
+            distanceUnits =  @"meter";
+            feetToUnits = 3.3;
+            unitsToFeet = 1/3.3;
             break;
         case 4:
-            self.flagUnits =  @"mile";
-            [minorUnitsPicker addObjectsFromArray:heightItems];
+            distanceUnits =  @"mile";
+            feetToUnits = 5280;
+            unitsToFeet = 1/5280;
             break;
     }
-    //[self pickerView:self.heightPicker numberOfRowsInComponent:[minorUnitsPicker count]];
-    NSLog(@"Units selected are %@ and %lu count", self.flagUnits, (unsigned long)[minorUnitsPicker count]);
-    
-// Redraws the pickerView content
-    [self.heightPicker reloadAllComponents];
 }
 
 #pragma mark ---- UIPickerViewDataSource delegate methods ----
@@ -211,7 +201,6 @@
 #pragma mark ---- UIPickerViewDelegate delegate methods ----
 
 // returns the number of rows
-#pragma mark - NOTE:This method is only run once therefore we can't change the miorUnits values
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
     if (pickerView == self.heightPicker){
         if (component == 0)
@@ -221,7 +210,7 @@
         }
     }
     if (pickerView == self.objectPicker)
-        return [objectPickerItems count];   //objectPickerItems
+        return [self.heightObjects count];   //objectPickerItems
     return -1; //error condition
 }
 
@@ -235,7 +224,7 @@
         }
     }
     if (pickerView == self.objectPicker)
-        return [objectPickerItems objectAtIndex:row];      //objectPickerItems
+        return [[self.heightObjects objectAtIndex:row] valueForKey:@"objectName"];    //objectPickerItems
 
     return nil;
 }
@@ -243,56 +232,31 @@
 // gets called when the user settles on a row
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
     
-    // heightPicker
+// heightPicker
     if (pickerView == self.heightPicker) {
         if (component == 0) {
             NSString *componentValue = [heightItems objectAtIndex:row];
             self.flagHeight = [componentValue floatValue];
+            [self loadDataSingleton];
         }
         if (component == 1) {
             NSString *unitsValue = [unitsPicker objectAtIndex:row];
-            self.flagUnits = unitsValue;
+            heightUnits = unitsValue;
+            [self loadDataSingleton];
         }
-        /*
-         // assigns row values to feet or inches & calculates the fractional feet
-         if (component == 0) {
-         feetComponent = [componentValue floatValue];
-         }
-         if (component == 1) {
-         inchesComponent = [componentValue floatValue];
-         }
-         // calculates fractional feet value
-         flagHeight = feetComponent + (inchesComponent / 12);
-         */
         // FlipsideInfo is string sent to MainVC
         self.flipsideInfo.text = [NSString stringWithFormat:@"%2.2f", flagHeight];
-        NSLog(@"Object %@ is %@", self.objectString.text, self.flipsideInfo.text);
+        NSLog(@"Object %@ is %@", objectName, self.flipsideInfo.text);
         
-        // displays value & units
-        self.flagValueString.text = [[self.flipsideInfo.text stringByAppendingString:@"  " ] stringByAppendingString:self.flagUnits];
     }
     
-    // Object Picker
+// Object Picker
     if (pickerView == self.objectPicker){
-        // NSString *selectedObject = [self.objectPickerItems objectAtIndex:row];
-        NSString *selectedObject = [objectPickerItems objectAtIndex:row];       //objectPickerItems
-        if ([selectedObject isEqualToString:@"None"]){
-            self.objectString.text = @"";
-            self.flagValueString.text = @"";
-            self.objectEqualsLabel.hidden = YES;
-        } else {                                    // Calculates fractional height
-            self.objectString.text = selectedObject;
-            self.objectEqualsLabel.hidden = NO;
-            int val = [objectSizes[selectedObject] intValue];
-            [self.heightPicker selectRow:1+(val/100) inComponent:0 animated:YES];
-            [self.heightPicker selectRow:1+(val%100) inComponent:1 animated:YES];
-//            feetComponent = [[heightItems objectAtIndex:[self.heightPicker selectedRowInComponent:0]] floatValue];
-//            inchesComponent = [[minorUnitsPicker objectAtIndex:[self.heightPicker selectedRowInComponent:1]] floatValue];
-//            flagHeight = feetComponent + (inchesComponent / 100);
-            self.flagValueString.text = [NSString stringWithFormat:@"%2.2f", flagHeight];
-            self.flipsideInfo.text = [NSString stringWithFormat:@"%2.2f", flagHeight];
-            NSLog(@"Object %@ is %2.2f", self.objectString.text, flagHeight);
-        }
+        NSString *selectedObject = [[self.heightObjects objectAtIndex:row] valueForKey:@"objectName"];       //objectPickerItems
+        NSLog(@"selected object is %@", selectedObject);
+        objectName = selectedObject;
+        
+        [self loadDataSingleton];
     }
 }
 
