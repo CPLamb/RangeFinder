@@ -10,15 +10,26 @@
 
 @implementation DistantObject
 
+static DistantObject *singletonDistantObject;
+
++ (DistantObject *)getSingeltonInstance      //singleton getter method
+{
+    if (singletonDistantObject == nil) {
+        singletonDistantObject = [[super alloc] init];
+    }
+    NSLog(@"The object is a ??");
+    return singletonDistantObject;
+}
+/*   No longer necessary DELETE
 - (DistantObject *)initWithName:(NSString *)name height:(NSString *)height unit:(NSString *)units
 {
     DistantObject *distantObject = [[DistantObject alloc] init];
     distantObject.objectName = name;        // @"testName";
     distantObject.height = height;      //@"24";
-    distantObject.units = units;        //@"Feetskis";
+    distantObject.heightUnits = units;        //@"Feetskis";
     
-    NSLog(@"The DistantObject is a %@ %@ %@ ", distantObject.height, distantObject.units, distantObject.objectName);
+    NSLog(@"The DistantObject is a %@ %@ %@ ", distantObject.height, distantObject.heightUnits, distantObject.objectName);
     return distantObject;
 }
-
+*/
 @end

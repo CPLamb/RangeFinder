@@ -12,6 +12,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DistantObject.h"
 
 @class FlipsideViewController;
 
@@ -22,6 +23,7 @@
 @interface FlipsideViewController : UIViewController
 
 @property NSMutableArray *heightObjects;   // data array
+@property DistantObject *theDistantObject;
 
 @property (nonatomic) float flagHeight;
 @property (strong, nonatomic) NSString *flagUnits;

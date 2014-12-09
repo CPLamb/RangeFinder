@@ -14,11 +14,13 @@
     float secondZoomFactor;
     float totalZoomFactor;
     float flagHeight;
-    NSNumber *distance;
     UIImageView *reticleView;
     UIImagePickerController *imagePickerController;
+
     NSString *distanceUnits;
-    
+    NSString *objectName;
+    NSString *height;
+    NSString *heightUnits;
 }
 // @synthesize helpView = _helpView;
 
@@ -30,7 +32,6 @@
 {
     [super viewDidLoad];
     
-    
 // Checks to see if the camera is available
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
         NSLog(@"camera is available - We must be on the iPhone!");
@@ -41,15 +42,11 @@
         self.myAssistantLabel.text = @"The camera is not available on this device";
         self.cameraButtonButton.hidden = YES;
     }
-
-
    // CGRect frame = CGRectMake(130.0, 150.0, 60.0, 120.0);
    // reticleView = [[UIImageView alloc] initWithFrame:frame];
    // reticleView.image = [UIImage imageNamed:@"dwg06.png"];
    // reticleView.userInteractionEnabled = YES;
-//=======
 // Builds a view to overlay over the camera view including the zoom factor
-//<<<<<<< HEAD:MainViewController.m
     CGRect frame = CGRectMake(80.0, 150.0, 160.0, 120.0);
     //CGRect frame = CGRectMake(130.0, 150.0, 60.0, 120.0);
     //self.reticleView = [[UIImageView alloc] initWithFrame:frame];
@@ -58,7 +55,7 @@
     reticleView.image = [UIImage imageNamed:@"Reticle(2).png"];
     reticleView.userInteractionEnabled = YES;
 
-    self.helpView.hidden = NO;
+    self.helpView.hidden = YES;
     
 // Sets up labels
     self.distanceLabel.text = @"How far away?";
@@ -84,6 +81,20 @@
 }
 
 #pragma mark - Custom Methods
+
+- (IBAction)testButton:(id)sender
+{
+    NSLog(@"testButton is for testing singleton action");
+    self.theDistantObject = [DistantObject getSingeltonInstance];
+    
+    heightUnits = self.theDistantObject.heightUnits;
+    height = self.theDistantObject.height;
+    objectName = self.theDistantObject.objectName;
+    
+    flagHeight = [height floatValue];
+    
+    self.distanceObjectLabel.text = [NSString stringWithFormat:@"Distant object is a %@ %@ high %@", height, heightUnits, objectName];
+}
 
 - (IBAction)showHelpButton:(id)sender
 {
@@ -111,9 +122,9 @@
     } else {
         self.myAssistantLabel.hidden = YES;
     }
-    self.myAssistantLabel.text = controller.flipsideInfo.text;
+    self.myAssistantLabel.text = height;
     [self dismissModalViewControllerAnimated:YES];
-    flagHeight = [controller.flipsideInfo.text floatValue];
+    flagHeight = [height floatValue];
     NSLog(@"FlagHeight is %3.3f", flagHeight);
     //self.distanceUnits = controller.flagUnits;
     distanceUnits = controller.flagUnits;
@@ -169,10 +180,8 @@
     self.myAssistantLabel.text = finalZoomFactor;
     // NSLog(@"zoom are %2.3f, %2.3f, %2.3f", zoomFactor, secondZoomFactor, totalZoomFactor);
     
-    // Calculates actual distance in yards
-    //self.distanceLabel.text = [NSString stringWithFormat:@"%3.0f %@", (totalZoomFactor * flagHeight * FUTZ_FACTOR), distanceUnits];
-    //self.distanceLabel.text = [NSString stringWithFormat:@"%3.0f %@", (totalZoomFactor * flagHeight * FUTZ_FACTOR), self.distanceUnits];
-    self.distanceLabel.text = [NSString stringWithFormat:@"%4.0f %@", (totalZoomFactor * flagHeight * FUTZ_FACTOR), distanceUnits];
+// Calculates actual distance in selected units
+    self.distanceLabel.text = [NSString stringWithFormat:@"%4.0f %@ distant", (totalZoomFactor * flagHeight * FUTZ_FACTOR), distanceUnits];
 
 // gets rid of the image controller modal view
     [self dismissModalViewControllerAnimated:YES];

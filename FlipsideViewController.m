@@ -7,7 +7,6 @@
 //
 
 #import "FlipsideViewController.h"
-#import "DistantObject.h"
 
 @implementation FlipsideViewController{
     NSArray *objectPickerItems;
@@ -20,8 +19,9 @@
     NSDictionary *objectSizes;
     NSDictionary *objectList;   // modified objectdict with object, height, units fields
     float flagHeight;
-    float feetComponent;
-    float inchesComponent;
+    
+    float unitsToFeet;      // used to convert distance units
+    float feetToUnits;
 }
 @synthesize objectString = _objectString;
 
@@ -46,7 +46,7 @@
     self.flagValueString.text = @"";
     self.objectEqualsLabel.hidden = YES;
     
-    self.helpView.hidden = NO;
+    self.helpView.hidden = YES;
     
 // loads objectSizes dictionary
     NSString *objectSizesPlist = [[NSBundle mainBundle] pathForResource:@"ObjectSizes" ofType:@"plist"];
@@ -67,15 +67,23 @@
 - (IBAction)testButton:(UIButton *)sender
 {
     NSString *name = self.objectString.text;
-    NSString *height = [NSString stringWithFormat:@"%f", self.flagHeight];
-    NSString *units = self.flagUnits;
+    NSString *height = [NSString stringWithFormat:@"%1.0f", self.flagHeight];
+    NSString *heightUnits = self.flagUnits;
+    NSString *distanceUnits =
     
-    DistantObject *theDistantObject = [[DistantObject alloc] initWithName:name height:height unit:units];
+// access the data singleton & assigns it values
+    self.theDistantObject = [DistantObject getSingeltonInstance];
+    self.theDistantObject.objectName = name;
+    self.theDistantObject.height = height;
+    self.theDistantObject.heightUnits = heightUnits;
+    
+/*    DistantObject *theDistantObject = [[DistantObject alloc] initWithName:name height:height unit:units];
     //   NSLog(@"The object is %@ name is %@", theDistantObject, theDistantObject.objectName);
     
     // Now let's get back to the RangeFinder
     NSLog(@"2 - calls delegate method in MainVC");
     [self.delegate flipsideViewControllerDidFinish:self];
+*/
 }
 
 - (void)loadInitialData
@@ -83,37 +91,37 @@
     DistantObject *item00 = [[DistantObject alloc] init];
     item00.objectName = @"START";
     item00.height = @"0000";
-    item00.units = @"inches";
+    item00.heightUnits = @"inches";
     [self.heightObjects addObject:item00];
     
     DistantObject *item01 = [[DistantObject alloc] init];
     item01.objectName = @"Golf Flag";
     item01.height = @"6";
-    item01.units = @"feet";
+    item01.heightUnits = @"feet";
     [self.heightObjects addObject:item01];
     
     DistantObject *item02 = [[DistantObject alloc] init];
     item02.objectName = @"Utility Pole";
     item02.height = @"20";
-    item02.units = @"yards";
+    item02.heightUnits = @"yards";
     [self.heightObjects addObject:item02];
     
     DistantObject *item03 = [[DistantObject alloc] init];
     item03.objectName = @"Person";
     item03.height = @"2";
-    item03.units = @"meters";
+    item03.heightUnits = @"meters";
     [self.heightObjects addObject:item03];
     
     DistantObject *item04 = [[DistantObject alloc] init];
     item04.objectName = @"Lighthouse";
     item04.height = @"2";
-    item04.units = @"furlong";
+    item04.heightUnits = @"furlong";
     [self.heightObjects addObject:item04];
     
     DistantObject *item05 = [[DistantObject alloc] init];
     item05.objectName = @"END";
     item05.height = @"XXXX";
-    item05.units = @"miles";
+    item05.heightUnits = @"miles";
     [self.heightObjects addObject:item05];
     //   NSLog(@"Object count is %d", (int)[self.heightObjects count]);
 }
@@ -159,31 +167,26 @@
     [minorUnitsPicker removeAllObjects];         //sets trailing number to different ranges
     switch(self.unitsSelector.selectedSegmentIndex) {
         case 0:
-            self.flagUnits =  @"yards";
-            self.heightMajorLabel.text = @"yards";
-            self.heightMinorLabel.text = @"inches";
+            self.flagUnits =  @"inch";
             [minorUnitsPicker addObjectsFromArray:yardInchesPicker];   //yardInchesPicker];
             break;
         case 1:
-            self.flagUnits =  @"feet";
-            self.heightMajorLabel.text = @"feet";
-            self.heightMinorLabel.text = @"inches";
+            self.flagUnits =  @"foot";
             [minorUnitsPicker addObjectsFromArray:unitsPicker];   //inchesPicker];
             break;
         case 2:
-            self.flagUnits =  @"meters";
-            self.heightMajorLabel.text = @"meters";
-            self.heightMinorLabel.text = @"cms";
+            self.flagUnits =  @"yard";
             [minorUnitsPicker addObjectsFromArray:heightItems];
             break;
         case 3:
-            self.flagUnits =  @"furlong";            // a furlong is 220 yards or 1/8 mile
-            self.heightMajorLabel.text = @"furlong";
-            self.heightMinorLabel.text = @"yards";
+            self.flagUnits =  @"meter";
+            [minorUnitsPicker addObjectsFromArray:heightItems];
+            break;
+        case 4:
+            self.flagUnits =  @"mile";
             [minorUnitsPicker addObjectsFromArray:heightItems];
             break;
     }
-    // NSLog(@"Array is %@", minorUnitsPicker);
     //[self pickerView:self.heightPicker numberOfRowsInComponent:[minorUnitsPicker count]];
     NSLog(@"Units selected are %@ and %lu count", self.flagUnits, (unsigned long)[minorUnitsPicker count]);
     
@@ -214,7 +217,6 @@
         if (component == 0)
            return [heightItems count];
         if (component == 1) {
-            NSLog(@"Array is %d", [minorUnitsPicker count]);
             return [unitsPicker count];
         }
     }
@@ -223,14 +225,12 @@
     return -1; //error condition
 }
 
-#pragma mark - NOTE: refactor to convert to different units
 // returns the title of each row
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
     if (pickerView == self.heightPicker){
         if (component == 0)
             return [heightItems objectAtIndex:row];
         if (component == 1) {
-//            NSLog(@"Array is %d", [minorUnitsPicker count]);
             return [unitsPicker objectAtIndex:row];
         }
     }
@@ -243,31 +243,38 @@
 // gets called when the user settles on a row
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
     
-// heightPicker
+    // heightPicker
     if (pickerView == self.heightPicker) {
-        NSString *componentValue = [heightItems objectAtIndex:row];
-/*
-        // assigns row values to feet or inches & calculates the fractional feet
         if (component == 0) {
-            feetComponent = [componentValue floatValue];
+            NSString *componentValue = [heightItems objectAtIndex:row];
+            self.flagHeight = [componentValue floatValue];
         }
         if (component == 1) {
-            inchesComponent = [componentValue floatValue];
+            NSString *unitsValue = [unitsPicker objectAtIndex:row];
+            self.flagUnits = unitsValue;
         }
-        // calculates fractional feet value
-        flagHeight = feetComponent + (inchesComponent / 12);
-*/        
-// FlipsideInfo is string sent to MainVC
+        /*
+         // assigns row values to feet or inches & calculates the fractional feet
+         if (component == 0) {
+         feetComponent = [componentValue floatValue];
+         }
+         if (component == 1) {
+         inchesComponent = [componentValue floatValue];
+         }
+         // calculates fractional feet value
+         flagHeight = feetComponent + (inchesComponent / 12);
+         */
+        // FlipsideInfo is string sent to MainVC
         self.flipsideInfo.text = [NSString stringWithFormat:@"%2.2f", flagHeight];
         NSLog(@"Object %@ is %@", self.objectString.text, self.flipsideInfo.text);
         
         // displays value & units
         self.flagValueString.text = [[self.flipsideInfo.text stringByAppendingString:@"  " ] stringByAppendingString:self.flagUnits];
     }
-   
-// Object Picker
+    
+    // Object Picker
     if (pickerView == self.objectPicker){
-       // NSString *selectedObject = [self.objectPickerItems objectAtIndex:row];
+        // NSString *selectedObject = [self.objectPickerItems objectAtIndex:row];
         NSString *selectedObject = [objectPickerItems objectAtIndex:row];       //objectPickerItems
         if ([selectedObject isEqualToString:@"None"]){
             self.objectString.text = @"";
@@ -279,9 +286,9 @@
             int val = [objectSizes[selectedObject] intValue];
             [self.heightPicker selectRow:1+(val/100) inComponent:0 animated:YES];
             [self.heightPicker selectRow:1+(val%100) inComponent:1 animated:YES];
-            feetComponent = [[heightItems objectAtIndex:[self.heightPicker selectedRowInComponent:0]] floatValue];
-            inchesComponent = [[minorUnitsPicker objectAtIndex:[self.heightPicker selectedRowInComponent:1]] floatValue];
-            flagHeight = feetComponent + (inchesComponent / 100);
+//            feetComponent = [[heightItems objectAtIndex:[self.heightPicker selectedRowInComponent:0]] floatValue];
+//            inchesComponent = [[minorUnitsPicker objectAtIndex:[self.heightPicker selectedRowInComponent:1]] floatValue];
+//            flagHeight = feetComponent + (inchesComponent / 100);
             self.flagValueString.text = [NSString stringWithFormat:@"%2.2f", flagHeight];
             self.flipsideInfo.text = [NSString stringWithFormat:@"%2.2f", flagHeight];
             NSLog(@"Object %@ is %2.2f", self.objectString.text, flagHeight);

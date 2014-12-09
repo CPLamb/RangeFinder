@@ -19,15 +19,18 @@
 
 @property (strong, nonatomic) IBOutlet UIImageView *cameraView;
 @property (strong, nonatomic) IBOutlet UILabel *distanceLabel;
+@property (strong, nonatomic) IBOutlet UILabel *distanceObjectLabel;
 @property (strong, nonatomic) IBOutlet UILabel *myAssistantLabel;
 @property (strong, nonatomic) UISlider *reticleZoomSlider;
 
 @property (strong, nonatomic) IBOutlet UIButton *cameraButtonButton;
 @property (strong, nonatomic) IBOutlet UIView *helpView;
 
+@property DistantObject *theDistantObject;
+
 - (IBAction)camera:(UIButton *)sender;
 
 - (IBAction)hideHelpButton:(id)sender;
 - (IBAction)showHelpButton:(id)sender;
-
+- (IBAction)testButton:(id)sender;
 @end

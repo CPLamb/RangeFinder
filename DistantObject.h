@@ -12,8 +12,10 @@
 
 @property NSString *objectName;
 @property NSString *height;
-@property NSString *units;
+@property NSString *heightUnits;
+@property NSString *distanceUnits;      //units selected by segmented control
 
-- (DistantObject *)initWithName:(NSString *)name height:(NSString *)height unit:(NSString *)units;
++ (DistantObject *)getSingeltonInstance;
+//- (DistantObject *)initWithName:(NSString *)name height:(NSString *)height unit:(NSString *)units;
 
 @end

@@ -214,6 +214,11 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem title="RangeFinder" id="kGg-Sp-hDw">
+                                        <barButtonItem key="leftBarButtonItem" title="Test" id="yv6-3X-CJS">
+                                            <connections>
+                                                <action selector="testButton:" destination="2" id="ZfG-QJ-QGg"/>
+                                            </connections>
+                                        </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="Setup" id="xo1-BV-kS0">
                                             <connections>
                                                 <segue destination="6" kind="modal" identifier="showAlternate" modalTransitionStyle="crossDissolve" id="jx8-Pr-xqX"/>
@@ -328,6 +333,13 @@
                                     </view>
                                 </subviews>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Distant object" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" id="kat-at-2QN">
+                                <rect key="frame" x="16" y="380" width="276" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -339,6 +351,7 @@
                         <outlet property="cameraButtonButton" destination="bN1-Kb-qmT" id="C7f-Bq-w0b"/>
                         <outlet property="cameraView" destination="h2I-Xv-5MJ" id="b1C-NG-8DU"/>
                         <outlet property="distanceLabel" destination="dl5-Yc-WhF" id="d1A-MI-vsZ"/>
+                        <outlet property="distanceObjectLabel" destination="kat-at-2QN" id="8x2-Vn-Tgw"/>
                         <outlet property="helpView" destination="Jh7-V6-mix" id="Pe5-r2-kIZ"/>
                         <outlet property="myAssistantLabel" destination="RDS-Lm-wzi" id="y26-Tt-ZBL"/>
                     </connections>
@@ -442,7 +455,7 @@
                                 <rect key="frame" x="73" y="359" width="175" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
-                                    <segment title="Yards"/>
+                                    <segment title="Inch"/>
                                     <segment title="Feet"/>
                                     <segment title="Meters"/>
                                 </segments>
@@ -735,11 +748,11 @@
                                         <rect key="frame" x="18" y="382" width="285" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <segments>
-                                            <segment title="Inches"/>
-                                            <segment title="Feet"/>
-                                            <segment title="Yards"/>
-                                            <segment title="Meters"/>
-                                            <segment title="Furlongs"/>
+                                            <segment title="Inch"/>
+                                            <segment title="Foot"/>
+                                            <segment title="Yard"/>
+                                            <segment title="Meter"/>
+                                            <segment title="Mile"/>
                                         </segments>
                                         <connections>
                                             <action selector="unitsSelected:" destination="eOX-8M-bxb" eventType="valueChanged" id="UDc-ZI-obw"/>
