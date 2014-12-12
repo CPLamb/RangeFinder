@@ -76,9 +76,10 @@
     NSString *name = _theDistantObject.objectName;
     NSString *height =  self.theDistantObject.height;
     NSString *units = self.theDistantObject.heightUnits;
-    NSArray *objects = [[NSArray alloc] initWithObjects:name, height, units, nil];
+    NSLog(@"distant object %@ %@ %@", name, height, units);
+    NSArray *newObject = [[NSArray alloc] initWithObjects:name, height, units, nil];
     NSArray *keys = [[NSArray alloc] initWithObjects:@"objectName", @"height", @"heightUnits", nil];
-    NSDictionary *newDistantObject = [[NSDictionary alloc] initWithObjects:objects forKeys:keys];
+    NSDictionary *newDistantObject = [[NSDictionary alloc] initWithObjects:newObject forKeys:keys];
     [self.heightObjects addObject:newDistantObject];
     [self.objectPicker reloadAllComponents];
 }
