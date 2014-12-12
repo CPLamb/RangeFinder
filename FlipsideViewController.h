@@ -14,25 +14,18 @@
 #import <UIKit/UIKit.h>
 #import "DistantObject.h"
 
-@class FlipsideViewController;
-
-@protocol FlipsideViewControllerDelegate
-- (void)flipsideViewControllerDidFinish:(FlipsideViewController *)controller;
-@end
-
-@interface FlipsideViewController : UIViewController
+@interface FlipsideViewController : UIViewController    //<UIAlertViewDelegate>
 
 @property NSMutableArray *heightObjects;   // data array
 @property DistantObject *theDistantObject;
 
 @property (nonatomic) float flagHeight;
 
-@property (weak, nonatomic) id <FlipsideViewControllerDelegate> delegate;
-
 @property (strong, nonatomic) IBOutlet UIPickerView *objectPicker;
 @property (strong, nonatomic) IBOutlet UIPickerView *heightPicker;
 
-@property (strong, nonatomic) IBOutlet UITextField *flipsideInfo;
+@property (strong, nonatomic) UITextField *flipsideInfo;
+
 @property (strong, nonatomic) IBOutlet UISegmentedControl *unitsSelector;
 @property (strong, nonatomic) IBOutlet UISwitch *helpSwitch;
 @property (strong, nonatomic) IBOutlet UIView *helpView;
@@ -44,5 +37,6 @@
 
 - (IBAction)editButton:(id)sender;
 - (IBAction)testButton:(UIButton *)sender;
+- (IBAction)test2Button:(UIBarButtonItem *)sender;
 
 @end

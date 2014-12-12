@@ -25,6 +25,8 @@
     
     float unitsToFeet;      // used to convert distance units
     float feetToUnits;
+    
+    NSUInteger selectedRow;
 }
 
 #pragma mark - Lifecycle Methods
@@ -39,11 +41,10 @@
     objectPickerItems = [[NSArray alloc] initWithObjects:@"Light switch", @"Car", @"Person", @"Door", @"Golf flag", @"Utility pole", @"Sailboat", @"Lighthouse", nil];
         
 // sets defaults for the Picker
-    self.unitsSelector.selectedSegmentIndex = 1;
+    self.unitsSelector.selectedSegmentIndex = 2;
     heightUnits = @"foot";
-    
     objectName = @"Golf flag";
-    
+
     self.helpView.hidden = YES;
     
 // loads objectSizes dictionary
@@ -64,7 +65,42 @@
 
 - (IBAction)testButton:(UIButton *)sender
 {
-    NSLog(@"testing");
+    NSLog(@"testing whatever!!");
+    [self.heightObjects removeObjectAtIndex:selectedRow];
+    [self.objectPicker reloadAllComponents];
+}
+
+- (IBAction)test2Button:(UIBarButtonItem *)sender
+{
+    NSLog(@"adds theDistantObject to the mutable array heightObjects");
+    NSString *name = _theDistantObject.objectName;
+    NSString *height =  self.theDistantObject.height;
+    NSString *units = self.theDistantObject.heightUnits;
+    NSArray *objects = [[NSArray alloc] initWithObjects:name, height, units, nil];
+    NSArray *keys = [[NSArray alloc] initWithObjects:@"objectName", @"height", @"heightUnits", nil];
+    NSDictionary *newDistantObject = [[NSDictionary alloc] initWithObjects:objects forKeys:keys];
+    [self.heightObjects addObject:newDistantObject];
+    [self.objectPicker reloadAllComponents];
+}
+
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    NSLog(@"PLEASE!!!!");
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    NSLog(@"Button Index =%ld",(long)buttonIndex);
+    if (buttonIndex == 1)
+    {
+        NSLog(@"You have clicked Cancel");
+    }
+    else if(buttonIndex == 0)
+    {
+        NSLog(@"You have clicked Delete");
+        [self.heightObjects removeObjectAtIndex:selectedRow];
+        [self.objectPicker reloadAllComponents];
+    }
 }
 
 - (void)loadDataSingleton {
@@ -256,6 +292,7 @@
         NSLog(@"selected object is %@", selectedObject);
         objectName = selectedObject;
         
+        selectedRow = row;
         [self loadDataSingleton];
     }
 }

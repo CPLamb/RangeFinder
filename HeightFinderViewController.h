@@ -20,7 +20,7 @@
 #import "TriangleView.h"
 #import "DistantObject.h"
 
-@interface HeightFinderViewController : UIViewController<FlipsideViewControllerDelegate, UIGestureRecognizerDelegate, UITextFieldDelegate>
+@interface HeightFinderViewController : UIViewController<UIGestureRecognizerDelegate, UITextFieldDelegate>
 
 @property (strong, nonatomic) IBOutlet UIView *helpView;
 
@@ -32,7 +32,51 @@
 @property (weak, nonatomic) IBOutlet UILabel *degreeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *accelerationsLabel;
 
+@property (nonatomic, strong) IBOutlet UITextField *baseLength;
+@property (nonatomic, strong) IBOutlet UITextField *angleOneLabel;
+@property (nonatomic, strong) IBOutlet UITextField *angleTwoLabel;
+@property (nonatomic, strong) IBOutlet UIButton *angleOneButton;
+@property (nonatomic, strong) IBOutlet UIButton *angleTwoButton;
+
+- (IBAction)setAngleOneButton:(UIButton *)sender;
+- (IBAction)setAngleTwoButton:(UIButton *)sender;
+
 - (IBAction)calculateButton:(UIButton *)sender;
 - (IBAction)showHelpButton:(id)sender;
 - (IBAction)hideHelpButton:(id)sender;
+
+- (IBAction)addButton:(UIButton *)sender;
+@property (weak, nonatomic) IBOutlet UILabel *testString;
+
+/*
+
+ @interface HeightFinderViewController : UIViewController
+ 
+ @property (nonatomic, strong) IBOutlet UITextField *baseLength;
+ @property (nonatomic, strong) IBOutlet UITextField *angleOneLabel;
+ @property (nonatomic, strong) IBOutlet UITextField *angleTwoLabel;
+ 
+ @property (nonatomic, strong) IBOutlet UILabel *height;
+ @property (nonatomic, strong) IBOutlet UITextField *objectName;
+ 
+ //@property (nonatomic, strong) CMAcceleration *myAcceleration;
+ @property (nonatomic, strong) IBOutlet UILabel *accelerationsLabel;
+ //@property (strong, nonatomic) CMMotionManager *motionManager;
+ 
+ @property (nonatomic, strong) IBOutlet UIButton *angleOneButton;
+ @property (nonatomic, strong) IBOutlet UIButton *angleTwoButton;
+ 
+ - (IBAction)setAngleOneButton:(UIButton *)sender;
+ - (IBAction)setAngleTwoButton:(UIButton *)sender;
+ 
+ - (IBAction)calculateButton:(UIButton *)sender;
+ 
+ @property (strong, nonatomic) IBOutlet UIView *helpView;
+ 
+ - (IBAction)showHelpButton:(id)sender;
+ - (IBAction)hideHelpButton:(id)sender;
+ 
+ 
+*/
+
 @end
