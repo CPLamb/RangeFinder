@@ -259,6 +259,11 @@
 			attributes = {
 				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = "CPL Consulting";
+				TargetAttributes = {
+					83437988157C0A7D009E18A1 = {
+						DevelopmentTeam = PKPC72LMPF;
+					};
+				};
 			};
 			buildConfigurationList = 83437983157C0A7B009E18A1 /* Build configuration list for PBXProject "RangeFinder" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -429,6 +434,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/RangeFinder-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/RangeFinder-Info.plist";
@@ -436,6 +442,7 @@
 				ONLY_ACTIVE_ARCH = NO;
 				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = YES;
 				WRAPPER_EXTENSION = app;
 			};
@@ -448,6 +455,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/RangeFinder-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/RangeFinder-Info.plist";
@@ -455,6 +463,7 @@
 				ONLY_ACTIVE_ARCH = NO;
 				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = YES;
 				WRAPPER_EXTENSION = app;
 			};
