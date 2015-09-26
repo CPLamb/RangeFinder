@@ -14,7 +14,7 @@
 #import <UIKit/UIKit.h>
 #import "DistantObject.h"
 
-@interface FlipsideViewController : UIViewController    //<UIAlertViewDelegate>
+@interface FlipsideViewController : UIViewController <UIAlertViewDelegate>
 
 @property NSMutableArray *heightObjects;   // data array
 @property DistantObject *theDistantObject;

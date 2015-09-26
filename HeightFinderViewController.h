@@ -7,7 +7,7 @@
 //
 /*  This view is used for determining the height of an object using
     trig, the tangent of 2 angles.  The angles are determined by tilting the iPhone
-    and recording the device's Y magnetomter tilt
+    and recording the device's Y magnetometer tilt
  */
 //
 

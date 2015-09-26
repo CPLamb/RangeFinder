@@ -92,7 +92,7 @@ enum findValueForAngle {INNER_ANGLE_VALUE, OUTER_ANGLE_VALUE};
 
 -(void)outputAccelerationData:(CMAcceleration)acceleration
 {
-    // NSLog(@"reads accel X & Y and converts to degrees");
+    //  NSLog(@"reads accel X & Y and converts to degrees");
     degreesTilt = (int)round(atan(acceleration.y / acceleration.x)*DEGREE_2_RADIAN);
     self.degreeLabel.text = [NSString stringWithFormat:@"%d°", degreesTilt];
     

@@ -164,7 +164,7 @@
     
 // Calculates actual distance in selected units
     float distance = totalZoomFactor * flagHeight * FUTZ_FACTOR;
-    self.distanceLabel.text = [NSString stringWithFormat:@"is %3.0f %@ away", distance, distanceUnits];
+    self.distanceLabel.text = [NSString stringWithFormat:@"%3.0f %@ away", distance, distanceUnits];
 
 // gets rid of the image controller modal view
     [self dismissModalViewControllerAnimated:YES];
